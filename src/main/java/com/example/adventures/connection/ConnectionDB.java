@@ -47,7 +47,7 @@ public class ConnectionDB {
                 //COMMENTO SOTTO
                 System.out.println("Connessione top");
 
-            }catch (SQLException | ClassNotFoundException e){ // loro hanno anche IOException
+            }catch (SQLException | ClassNotFoundException e){ // metti anche IOException
                 //Printer.printError(e.getMessage());
                 System.err.println("Errore durante la connessione al database: ");
             }

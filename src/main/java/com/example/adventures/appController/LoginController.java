@@ -12,7 +12,7 @@ import com.example.adventures.engineering.factory.LoginDAOFactory;
 public class LoginController {
     public void checkUser(LoginBean loginBean) throws UserNotFoundException {
 
-        System.out.println("INIZIAMO STO METODO");
+        System.out.println("INIZIAMO QUESTO METODO");
 
         LoginDAO loginDAO = new LoginDAOJDBC();
 
@@ -26,7 +26,6 @@ public class LoginController {
         }
 
         //LoginDAO loginDAO = LoginDAOFactory.getInstance().createLoginDAO();
-
         //UserProfile userProfile = loginDAO.checkUser(loginBean.getUsername(),loginBean.getPassword());
         //loginBean.setRole(userProfile.getRole());
 

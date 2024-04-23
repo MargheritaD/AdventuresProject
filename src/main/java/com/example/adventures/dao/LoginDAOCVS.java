@@ -6,6 +6,9 @@ import com.example.adventures.model.UserProfile;
 import com.example.adventures.engineering.Printer;
 
 import java.io.*;
+/*
+
+                        NON LO USIAMO PER IL LOGIN
 
 public class LoginDAOCVS implements LoginDAO{
 
@@ -46,4 +49,4 @@ public class LoginDAOCVS implements LoginDAO{
 
         return userProfile;
     }
-}
+}*/
