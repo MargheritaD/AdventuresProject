@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adventures.graphiccontroller.LoginGUIController">
+   <children>
+      <Pane layoutX="657.5" prefHeight="780.0" prefWidth="657.5" style="-fx-background-color: D3D3D3;">
+         <children>
+            <Pane layoutX="63.0" layoutY="137.0" prefHeight="609.0" prefWidth="546.0" style="-fx-background-radius: 30; -fx-background-color: #82a36d;">
+               <children>
+                  <Button fx:id="createButton" layoutX="119.5" layoutY="500.0" mnemonicParsing="false" onAction="#switchToNew" prefHeight="58.0" prefWidth="307.0" style="-fx-background-color: #356b38; -fx-background-radius: 50;" text="Create your account" textFill="WHITE">
+                     <font>
+                        <Font name="AppleGothic Regular" size="25.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="35.0" offsetX="2.5" offsetY="2.5" radius="17.0" width="35.0">
+                           <color>
+                              <Color opacity="0.6252390146255493" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Label fx:id="memberlable" layoutX="143.0" layoutY="440.0" text="Not a member yet?">
+                     <font>
+                        <Font name="AppleGothic Regular" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="usernameLable" layoutX="30.0" layoutY="51.0" text="Username:">
+                     <font>
+                        <Font name="AppleGothic Regular" size="30.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="passwordLable" layoutX="30.0" layoutY="148.0" text="Password:">
+                     <font>
+                        <Font name="AppleGothic Regular" size="30.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="passwordText" layoutX="207.0" layoutY="158.0" prefHeight="41.0" prefWidth="256.0" />
+                  <TextField fx:id="usernameText" layoutX="207.0" layoutY="61.0" prefHeight="41.0" prefWidth="256.0">
+                     <font>
+                        <Font name="AppleGothic Regular" size="16.0" />
+                     </font></TextField>
+                  <Button fx:id="loginButton" layoutX="219.0" layoutY="245.0" mnemonicParsing="false" onAction="#switchToWelcome" prefHeight="58.0" prefWidth="108.0" style="-fx-background-color: #356b38; -fx-background-radius: 50;" text="Login" textFill="WHITE">
+                     <font>
+                        <Font name="AppleGothic Regular" size="25.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="35.0" offsetX="2.5" offsetY="2.5" radius="17.0" width="35.0">
+                           <color>
+                              <Color opacity="0.6252390146255493" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+                  <Button fx:id="googleButton" layoutX="143.0" layoutY="331.0" mnemonicParsing="false" onAction="#googleAction" prefHeight="58.0" prefWidth="260.0" style="-fx-background-color: #356b38; -fx-background-radius: 50;" text="Login with Google" textFill="WHITE">
+                     <font>
+                        <Font name="AppleGothic Regular" size="25.0" />
+                     </font>
+                     <effect>
+                        <DropShadow height="35.0" offsetX="2.5" offsetY="2.5" radius="17.0" width="35.0">
+                           <color>
+                              <Color opacity="0.6252390146255493" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Button>
+               </children>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color opacity="0.6596558094024658" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Pane>
+            <Label fx:id="worldLabel" layoutX="1.0" layoutY="20.0" text="und the world " textFill="WHITE">
+               <font>
+                  <Font name="AppleGothic Regular" size="45.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Label fx:id="advLabel" layoutX="340.0" layoutY="20.0" text="Adventures aro" textFill="#356b38">
+         <font>
+            <Font name="AppleGothic Regular" size="45.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="199.0" fitWidth="532.0" layoutX="61.0" layoutY="311.0">
+         <image>
+            <Image url="@image/aereo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="wrongLogin" layoutX="312.0" layoutY="523.0">
+         <font>
+            <Font name="AppleGothic Regular" size="39.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
