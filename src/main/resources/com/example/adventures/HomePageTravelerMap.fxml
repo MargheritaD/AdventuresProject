@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adventures.graphiccontroller.HomePageTravelerMapGUIController">
+    <children>
+        <ImageView fitHeight="539.0" fitWidth="858.0" layoutX="437.0" layoutY="180.0">
+            <image>
+                <Image url="@image/world-map-12303.png" />
+            </image>
+        </ImageView>
+        <Pane prefHeight="780.0" prefWidth="435.0" style="-fx-background-color: d3d3d3;">
+            <children>
+                <Line endX="177.82528686523438" endY="-7.62939453125E-6" layoutX="233.0" layoutY="90.0" startX="-214.2034912109375" startY="-7.62939453125E-6" stroke="WHITE" strokeWidth="3.0" />
+                <Label layoutX="40.0" layoutY="15.0" text="Traveler account" textFill="#fffbfb">
+                    <font>
+                        <Font name="AppleGothic Regular" size="44.0" />
+                    </font>
+                </Label>
+                <Pane layoutX="45.0" layoutY="117.0" prefHeight="555.0" prefWidth="346.0" style="-fx-background-radius: 30; -fx-background-color: #82a46d;">
+                    <children>
+                        <Button fx:id="newTripButton" layoutX="42.0" layoutY="230.0" mnemonicParsing="false" onAction="#newTripAction" prefHeight="65.0" prefWidth="251.0" style="-fx-background-color: #356b38; -fx-background-radius: 30;" text="Edit profile" textFill="WHITE">
+                            <effect>
+                                <DropShadow height="26.0" offsetX="2.5" offsetY="2.5" radius="12.5" width="26.0">
+                                    <color>
+                                        <Color opacity="0.5640535354614258" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <font>
+                                <Font name="AppleGothic Regular" size="25.0" />
+                            </font>
+                        </Button>
+                        <Button layoutX="42.0" layoutY="330.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="251.0" style="-fx-background-color: #356b38; -fx-background-radius: 30;" text="Upcoming trips" textFill="#fffefe">
+                            <effect>
+                                <DropShadow height="26.0" offsetX="2.5" offsetY="2.5" radius="12.5" width="26.0">
+                                    <color>
+                                        <Color opacity="0.5640535354614258" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Button>
+                        <Button layoutX="42.0" layoutY="430.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="251.0" style="-fx-background-color: #356b38; -fx-background-radius: 30;" text="Past trips" textFill="#fffbfb">
+                            <effect>
+                                <DropShadow height="26.0" offsetX="2.5" offsetY="2.5" radius="12.5" width="26.0">
+                                    <color>
+                                        <Color opacity="0.5640535354614258" />
+                                    </color>
+                                </DropShadow>
+                            </effect>
+                            <font>
+                                <Font size="25.0" />
+                            </font>
+                        </Button>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fbfdff" height="118.0" layoutX="110.0" layoutY="76.0" stroke="#356b38" strokeType="INSIDE" strokeWidth="2.0" width="126.0" />
+                  <ImageView fitHeight="111.0" fitWidth="80.0" layoutX="134.0" layoutY="81.0">
+                     <image>
+                        <Image url="@image/Laura.png" />
+                     </image>
+                  </ImageView>
+                  <HBox layoutX="-1.0" prefHeight="66.0" prefWidth="347.0">
+                     <children>
+                              <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="65.0" prefWidth="355.0" text="Ben" textFill="#fffbfb">
+                                  <font>
+                                      <Font name="AppleGothic Regular" size="44.0" />
+                                  </font>
+                              </Label>
+                     </children>
+                  </HBox>
+                    </children>
+                </Pane>
+                <ImageView fitHeight="69.0" fitWidth="63.0" layoutX="18.0" layoutY="685.0" opacity="0.32">
+                    <image>
+                        <Image url="@image/Logout.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="46.0" layoutY="743.0" text="Exit" textFill="#7c7474">
+                    <font>
+                        <Font name="AppleGothic Regular" size="15.0" />
+                    </font>
+                </Label>
+                <Button fx:id="exitButton" layoutX="20.0" layoutY="687.0" mnemonicParsing="false" onAction="#exitAction" opacity="0.0" prefHeight="80.0" prefWidth="65.0" text="Button" />
+            </children>
+        </Pane>
+        <Label layoutX="500.0" layoutY="25.0" text="Try hovering over each country with your mouse" textFill="#356b38">
+            <font>
+                <Font name="AppleGothic Regular" size="35.0" />
+            </font>
+        </Label>
+        <Label layoutX="578.0" layoutY="98.0" text="Click on the country you're interested in to discover the trips" textFill="#356b38">
+            <font>
+                <Font name="AppleGothic Regular" size="20.0" />
+            </font>
+        </Label>
+        <Button fx:id="australiaButton" layoutX="1140.0" layoutY="582.0" mnemonicParsing="false" onAction="#australiaAction" onMouseEntered="#australiaMouseEntered" onMouseExited="#australiaMouseExited" opacity="0.0" prefHeight="45.0" prefWidth="106.0" style="-fx-background-radius: 20;" text="Button" />
+        <Button fx:id="indiaButton" layoutX="1031.0" layoutY="385.0" mnemonicParsing="false" onAction="#indiaAction" onMouseEntered="#indiaMouseEntered" onMouseExited="#indiaMouseExited" opacity="0.0" prefHeight="78.0" prefWidth="25.0" style="-fx-background-radius: 20;" text="Button" />
+        <Button fx:id="spainButton" layoutX="802.0" layoutY="335.0" mnemonicParsing="false" onAction="#spainAction" onMouseEntered="#spainMouseEntered" onMouseExited="#spainMouseExtited" opacity="0.0" prefHeight="26.0" prefWidth="18.0" style="-fx-background-radius: 20;" text="Button" />
+        <Button fx:id="italyButton" layoutX="843.0" layoutY="322.0" mnemonicParsing="false" onAction="#italyAction" onMouseEntered="#italyMouseEntered" onMouseExited="#italyMouseExtited" opacity="0.0" prefHeight="44.0" prefWidth="2.0" style="-fx-background-radius: 40; -fx-rotate: -30;" text="Button" />
+        <Label fx:id="australiaLabel" layoutX="997.0" layoutY="648.0" prefHeight="30.0" prefWidth="199.0">
+            <font>
+                <Font name="American Typewriter" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="europeLabel" layoutX="628.0" layoutY="346.0" prefHeight="30.0" prefWidth="169.0">
+            <font>
+                <Font name="American Typewriter" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="indiaLable" layoutX="969.0" layoutY="485.0" prefHeight="30.0" prefWidth="159.0">
+            <font>
+                <Font name="American Typewriter" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="brasilLabel" layoutX="700.0" layoutY="588.0" prefHeight="30.0" prefWidth="169.0">
+            <font>
+                <Font name="American Typewriter" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="argentinaLabel" layoutX="684.0" layoutY="663.0" prefHeight="30.0" prefWidth="226.0">
+            <font>
+                <Font name="American Typewriter" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="chileLabel" layoutX="445.0" layoutY="612.0" prefHeight="30.0" prefWidth="169.0">
+            <font>
+                <Font name="American Typewriter" size="14.0" />
+            </font>
+        </Label>
+        <Label fx:id="peruLabel" layoutX="434.0" layoutY="538.0" prefHeight="30.0" prefWidth="169.0">
+            <font>
+                <Font name="American Typewriter" size="14.0" />
+            </font>
+        </Label>
+        <Button fx:id="brasilButton" layoutX="629.0" layoutY="499.0" mnemonicParsing="false" onAction="#brasilAction" onMouseEntered="#brasilMouseEntered" onMouseExited="#brasilMouseExited" opacity="0.0" prefHeight="65.0" prefWidth="96.0" style="-fx-rotate: 35; -fx-background-radius: 30;" text="Button" />
+        <Button fx:id="argentinaButton" layoutX="639.0" layoutY="587.0" mnemonicParsing="false" onAction="#argentinaAction" onMouseEntered="#argentinaMouseEntered" onMouseExited="#argentinaMouseExited" opacity="0.0" prefHeight="106.0" prefWidth="37.0" style="-fx-background-radius: 40; -fx-rotate: -10;" text="Button" />
+        <Button fx:id="peruButton" layoutX="576.0" layoutY="526.0" mnemonicParsing="false" onAction="#peruAction" onMouseEntered="#peruMouseEntered" onMouseExited="#peruMouseExited" opacity="0.0" style="-fx-background-radius: 20; -fx-rotate: 40;" text="Button" />
+        <Button fx:id="chileButton" layoutX="616.0" layoutY="577.0" mnemonicParsing="false" onAction="#chileAction" onMouseEntered="#chileMouseEntered" onMouseExited="#chileMouseExited" opacity="0.0" prefHeight="138.0" prefWidth="25.0" style="-fx-background-radius: 30; -fx-rotate: -8;" text="Button" />
+        <Label fx:id="canadaLabel" layoutX="447.0" layoutY="163.0" prefHeight="30.0" prefWidth="169.0">
+            <font>
+                <Font name="American Typewriter" size="14.0" />
+            </font>
+        </Label>
+        <Button fx:id="usaButton" layoutX="512.0" layoutY="305.0" mnemonicParsing="false" onAction="#usaAction" onMouseEntered="#usaMouseEntered" onMouseExited="#iusaMouseExited" opacity="0.0" prefHeight="73.0" prefWidth="106.0" style="-fx-background-radius: 40; -fx-rotate: 25;" text="Button" />
+        <Button fx:id="usaButton2" layoutX="491.0" layoutY="221.0" mnemonicParsing="false" onAction="#usaAction" onMouseEntered="#usaMouseEntered" onMouseExited="#iusaMouseExited" opacity="0.0" prefHeight="26.0" prefWidth="65.0" style="-fx-background-radius: 20; -fx-rotate: -40;" text="Button" />
+        <Button fx:id="mexicoButton" layoutX="534.0" layoutY="365.0" mnemonicParsing="false" onAction="#mexicoAction" onMouseEntered="#mexicoMouseEntered" onMouseExited="#mexicoMouseExited" opacity="0.0" prefHeight="111.0" prefWidth="17.0" style="-fx-background-radius: 40; -fx-rotate: -40;" text="Button" />
+        <Label fx:id="mexicoLabel" layoutX="417.0" layoutY="470.0" prefHeight="30.0" prefWidth="177.0">
+            <font>
+                <Font name="American Typewriter" size="14.0" />
+            </font>
+        </Label>
+    </children>
+</Pane>

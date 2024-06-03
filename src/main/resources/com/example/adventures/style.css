@@ -1,0 +1,22 @@
+.table-view {
+    -fx-border-width: 3;
+    -fx-border-color: #82a46d;
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-family: "AppleGothic";
+    -fx-font-size: 20px;
+}
+
+.table-view .column-header, .table-view .filler{
+    -fx-border-width: 10 10 10 10;
+    -fx-background-color: transparent;
+    -fx-size: 42px;
+}
+
+.table-view .column-header-background{
+    -fx-background-color:  #82a46d;
+    -fx-background-insets: 0 0 0 0;
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="400.0" style="-fx-background-color: #82a46d;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adventures.graphiccontroller.QuoteGUIController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTGRAY" height="250.0" layoutX="10.0" layoutY="10.0" stroke="#82a46d" strokeType="INSIDE" width="380.0" />
+      <Label layoutX="108.0" layoutY="235.0" text="This is an estimated price. It may change">
+         <font>
+            <Font name="AppleGothic Regular" size="10.0" />
+         </font>
+      </Label>
+      <Label layoutX="105.0" layoutY="65.0" text="Total:">
+         <font>
+            <Font name="AppleGothic Regular" size="25.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="33.0" layoutX="347.0" layoutY="22.0" stroke="#82a46d" strokeType="INSIDE" strokeWidth="3.0" width="31.0" />
+      <Label layoutX="353.0" layoutY="18.0" prefHeight="41.0" prefWidth="19.0" text="X" textFill="#82a46d">
+         <font>
+            <Font name="AppleGothic Regular" size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="closeButton" layoutX="342.0" layoutY="18.0" mnemonicParsing="false" onAction="#closeAction" opacity="0.0" prefHeight="41.0" prefWidth="39.0" text="Button" />
+      <Label fx:id="priceLabel" layoutX="205.0" layoutY="65.0" text="1330$">
+         <font>
+            <Font name="AppleGothic Regular" size="25.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="143.0" fitWidth="129.0" layoutX="137.0" layoutY="99.0">
+         <image>
+            <Image url="@image/ominoPreventvoCattivo.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

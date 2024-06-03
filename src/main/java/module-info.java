@@ -8,4 +8,6 @@ module com.example.adventures {
     exports com.example.adventures;
     exports com.example.adventures.graphiccontroller;
     opens com.example.adventures.graphiccontroller to javafx.fxml;
+    opens com.example.adventures.bean to javafx.base;
+
 }

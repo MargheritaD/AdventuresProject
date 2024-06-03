@@ -1,8 +1,10 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
+import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.LoginBean;
 import com.example.adventures.engineering.Printer;
+import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.EmailFormatException;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.exception.UserNotFoundException;
@@ -17,6 +19,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.net.ssl.HostnameVerifier;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -38,27 +41,29 @@ public class LoginGUIController {
             System.out.println("Username: " + username);
             System.out.println("Password: " + password);
 
+            //System.out.println("prima creazione controller");
             LoginBean loginBean = new LoginBean(usernameText.getText(),passwordText.getText());
             LoginController loginController = new LoginController();
 
-            System.out.println("PROVA LOGIN STEP 2");
+            //System.out.println("PROVA LOGIN STEP 2");
 
             loginController.checkUser(loginBean);
 
-            System.out.println("PROVA LOGIN STEP 3");
-            System.out.println(loginBean.getRole() + " RUOLO");
+            //System.out.println("PROVA LOGIN STEP 3");
+            //System.out.println(loginBean.getRole() + " RUOLO");
 
             Parent root;
             Stage dialog = Main.getStage();
 
+
             switch(loginBean.getRole()){
                 case 1 ->  {
                     loginController.guideLogin(loginBean);
-                    root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("AccessPage2.fxml")));
+                    root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("HomePageGuideMap.fxml")));
                 }
                 case 2 -> {
                     loginController.travelerLogin(loginBean);
-                    root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("homePageTraveler.fxml")));
+                    root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/com/example/adventures/HomePageTravelerMap.fxml")));
                 }
                 default -> throw new UserNotFoundException();
             }
@@ -135,5 +140,13 @@ public class LoginGUIController {
 
     public void googleAction() throws IOException{
 
+        Parent root;
+        Stage dialog = Main.getStage();
+
+        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("HomePageGuideMap.fxml")));
+
+        Scene scene = new Scene(root);
+        dialog.setScene(scene);
+        dialog.show();
     }
 }

@@ -38,7 +38,7 @@ public class Main extends Application {
         return secondaryStage;
     }
 
-    public void setSecondaryStage(Stage secondaryStage){
+    public static void setSecondaryStage(Stage secondaryStage){
         Main.secondaryStage = secondaryStage;
     }
 
