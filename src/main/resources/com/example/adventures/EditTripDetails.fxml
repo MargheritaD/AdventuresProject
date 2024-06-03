@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adventures.graphiccontroller.EditTripDetailsGUIController">
+   <children>
+      <Pane layoutX="20.0" layoutY="20.0" prefHeight="740.0" prefWidth="1275.0" style="-fx-background-color: D3D3D3;">
+         <children>
+            <Label layoutX="448.0" layoutY="4.0" text="Your trip details" textFill="WHITE">
+               <font>
+                  <Font name="AppleGothic Regular" size="55.0" />
+               </font>
+            </Label>
+            <Line endX="523.674072265625" endY="-7.62939453125E-6" layoutX="705.0" layoutY="85.0" startX="-682.8458862304688" startY="-7.62939453125E-6" stroke="#fff9f9" strokeWidth="2.0" />
+            <TableView fx:id="tripTable" layoutX="37.5" layoutY="157.0" prefHeight="88.0" prefWidth="1200.0" stylesheets="@style.css">
+              <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="200.0" text="Name" />
+                <TableColumn fx:id="departureCityColumn" prefWidth="200.0" text="Departure City" />
+                  <TableColumn fx:id="outboundColumn" minWidth="0.0" prefWidth="200.0" text="Outbound date" />
+                  <TableColumn fx:id="returnColumn" prefWidth="200.0" text="Return date" />
+                  <TableColumn fx:id="priceColumn" prefWidth="200.0" text="Category" />
+                  <TableColumn fx:id="guideColumn" prefWidth="200.0" text="Price" />
+              </columns>
+            </TableView>
+            <TableView fx:id="itineraryTable" layoutX="37.5" layoutY="331.0" prefHeight="210.0" prefWidth="600.0" stylesheets="@style.css">
+               <columns>
+                  <TableColumn fx:id="stopColumn" prefWidth="200.0" text="Stop" />
+                  <TableColumn fx:id="arrivalColumn" prefWidth="200.0" text="Arrival" />
+                  <TableColumn fx:id="departureColumn" prefWidth="200.0" text="Departure" />
+               </columns>
+            </TableView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebebb2" height="250.0" layoutX="723.0" layoutY="292.0" stroke="#82a46d" strokeType="INSIDE" strokeWidth="3.0" width="515.0" />
+            <Button fx:id="cancelTripButton" layoutX="48.0" layoutY="628.0" mnemonicParsing="false" onAction="#cancelTripAction" prefHeight="50.0" prefWidth="297.0" style="-fx-background-color: #356b38; -fx-background-radius: 30;" text="Cancel trip" textFill="#fffdfd">
+               <font>
+                  <Font name="AppleGothic Regular" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow height="26.0" offsetX="2.5" offsetY="2.5" radius="12.5" width="26.0">
+                     <color>
+                        <Color opacity="0.533460795879364" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button layoutX="833.0" layoutY="452.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="302.0" style="-fx-background-color: #356b38; -fx-background-radius: 30;" text="Edit itinerary" textFill="#fffdfd">
+               <font>
+                  <Font name="AppleGothic Regular" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow height="26.0" offsetX="2.5" offsetY="2.5" radius="12.5" width="26.0">
+                     <color>
+                        <Color opacity="0.533460795879364" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button layoutX="834.0" layoutY="378.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="307.0" style="-fx-background-color: #356b38; -fx-background-radius: 30;" text="Edit details" textFill="#fffdfd">
+               <font>
+                  <Font name="AppleGothic Regular" size="20.0" />
+               </font>
+               <effect>
+                  <DropShadow height="26.0" offsetX="2.5" offsetY="2.5" radius="12.5" width="26.0">
+                     <color>
+                        <Color opacity="0.533460795879364" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Label layoutX="740.0" layoutY="300.0" text="Do you want to edit your trip?" textFill="#356b38">
+               <font>
+                  <Font name="AppleGothic Regular" size="30.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="328.0" layoutY="565.0">
+               <image>
+                  <Image url="@image/ominoArrabiato.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="970.0" layoutY="555.0">
+               <image>
+                  <Image url="@image/ominoViaggiatore.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="190.0" fitWidth="190.0" layoutX="840.0" layoutY="570.0">
+               <image>
+                  <Image url="@image/ominoIndica.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="1075.0" layoutY="15.0" opacity="0.25">
+               <image>
+                  <Image url="@image/Back.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="12.0" layoutY="4.0" opacity="0.25">
+               <image>
+                  <Image url="@image/Logout.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="1170.0" layoutY="15.0">
+               <image>
+                  <Image url="@image/Casa.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="1178.0" layoutY="62.0" text="Home" textFill="#7c7474">
+               <font>
+                  <Font name="AppleGothic Regular" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="1090.0" layoutY="62.0" text="Back" textFill="#7c7474">
+               <font>
+                  <Font name="AppleGothic Regular" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="62.0" text="Exit" textFill="#7c7474">
+               <font>
+                  <Font name="AppleGothic Regular" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="exitButton" layoutX="18.0" layoutY="8.0" mnemonicParsing="false" onAction="#exitAction" opacity="0.0" prefHeight="83.0" prefWidth="73.0" text="Button" />
+            <Button fx:id="backButton" layoutX="1072.0" layoutY="6.0" mnemonicParsing="false" onAction="#backAction" opacity="0.0" prefHeight="83.0" prefWidth="60.0" text="Button" />
+            <Button fx:id="homeButton" layoutX="1164.0" layoutY="6.0" mnemonicParsing="false" onAction="#homeAction" opacity="0.0" prefHeight="83.0" prefWidth="71.0" text="Button" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#82a46d" height="40.0" layoutX="37.5" layoutY="118.0" stroke="#82a46d" strokeType="INSIDE" width="1200.0" />
+            <Label layoutX="609.0" layoutY="123.0" text="Details" textFill="WHITE">
+               <font>
+                  <Font name="AppleGothic Regular" size="25.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#82a46d" height="40.0" layoutX="37.5" layoutY="292.0" stroke="#82a46d" strokeType="INSIDE" width="600.0" />
+            <Label layoutX="294.0" layoutY="295.0" text="Itinerary" textFill="WHITE">
+               <font>
+                  <Font name="AppleGothic Regular" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</Pane>

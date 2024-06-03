@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="220.0" prefWidth="260.0" style="-fx-background-radius: 30; -fx-background-color: #82a46d;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="rejectButton" layoutX="25.0" layoutY="150.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="210.0" style="-fx-background-radius: 30; -fx-background-color: #356b38;" text="Reject participation request" textFill="WHITE">
+         <effect>
+            <DropShadow offsetX="2.5" offsetY="2.5">
+               <color>
+                  <Color opacity="0.4416826069355011" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="AppleGothic Regular" size="15.0" />
+         </font>
+      </Button>
+      <HBox alignment="CENTER" layoutX="-1.0" prefHeight="82.0" prefWidth="247.0">
+         <children>
+            <ImageView fitHeight="68.0" fitWidth="56.0" layoutX="138.0" layoutY="10.0">
+               <image>
+                  <Image url="@image/ominoViaggiatore.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" text="Laura" textFill="WHITE">
+               <font>
+                  <Font name="AppleGothic Regular" size="22.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="68.0" fitWidth="56.0">
+               <image>
+                  <Image url="@image/ominoViaggiatore.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Button fx:id="acceptButton" layoutX="25.0" layoutY="90.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="210.0" style="-fx-background-radius: 30; -fx-background-color: #356b38;" text="Accept participation request" textFill="WHITE">
+         <effect>
+            <DropShadow offsetX="2.5" offsetY="2.5">
+               <color>
+                  <Color opacity="0.4416826069355011" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="AppleGothic Regular" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
