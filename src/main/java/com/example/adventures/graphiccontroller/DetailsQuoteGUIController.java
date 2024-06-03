@@ -1,23 +1,17 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
-import com.example.adventures.appController.DatailsQuoteController;
-import com.example.adventures.appController.NewTripController;
-import com.example.adventures.appController.TableTripController;
+import com.example.adventures.AppController.DatailsQuoteController;
 import com.example.adventures.bean.*;
-import com.example.adventures.dao.ItineraryStopDAO;
-import com.example.adventures.dao.TripDAO;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.engineering.decoretor.CancellationQuote;
 import com.example.adventures.engineering.decoretor.HealthQuote;
 import com.example.adventures.engineering.decoretor.LuggageQuote;
 import com.example.adventures.exception.NotFoundException;
-import com.example.adventures.model.ItineraryStop;
 import com.example.adventures.model.Trip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -28,7 +22,6 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 

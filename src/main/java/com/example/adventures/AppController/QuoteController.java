@@ -1,12 +1,7 @@
-package com.example.adventures.appController;
+package com.example.adventures.AppController;
 
 import com.example.adventures.bean.QuoteBean;
-import com.example.adventures.bean.TripBean;
-import com.example.adventures.engineering.decoretor.CancellationQuote;
-import com.example.adventures.engineering.decoretor.HealthQuote;
-import com.example.adventures.engineering.decoretor.LuggageQuote;
 import com.example.adventures.engineering.decoretor.Quote;
-import com.example.adventures.exception.NotFoundException;
 
 public class QuoteController {
 

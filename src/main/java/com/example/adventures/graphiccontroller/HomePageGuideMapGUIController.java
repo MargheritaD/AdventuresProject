@@ -1,17 +1,15 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
-import com.example.adventures.appController.HomePageGuideMapController;
+import com.example.adventures.AppController.HomePageGuideMapController;
 import com.example.adventures.bean.GuideBean;
 import com.example.adventures.dao.TripDAO;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 

@@ -1,12 +1,9 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
-import com.example.adventures.appController.DatailsQuoteController;
-import com.example.adventures.appController.EditTripDetailsController;
-import com.example.adventures.bean.GuideBean;
+import com.example.adventures.AppController.EditTripDetailsController;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
-import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.Trip;
 import javafx.fxml.FXML;

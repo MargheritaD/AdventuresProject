@@ -1,13 +1,10 @@
-package com.example.adventures.appController;
+package com.example.adventures.AppController;
 
-import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.dao.TripDAO;
-import com.example.adventures.model.ItineraryStop;
 import com.example.adventures.model.Trip;
 
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.adventures.appController;
+package com.example.adventures.AppController;
 
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.QuoteBean;
@@ -6,13 +6,8 @@ import com.example.adventures.bean.TripBean;
 import com.example.adventures.dao.ItineraryStopDAO;
 import com.example.adventures.dao.ParticipantDAO;
 import com.example.adventures.dao.TripDAO;
-import com.example.adventures.engineering.Session;
-import com.example.adventures.engineering.decoretor.CancellationQuote;
-import com.example.adventures.engineering.decoretor.HealthQuote;
-import com.example.adventures.engineering.decoretor.LuggageQuote;
 import com.example.adventures.engineering.decoretor.Quote;
 import com.example.adventures.exception.NotFoundException;
-import com.example.adventures.model.Guide;
 import com.example.adventures.model.ItineraryStop;
 import com.example.adventures.model.Trip;
 

@@ -1,7 +1,7 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
-import com.example.adventures.appController.TableTripController;
+import com.example.adventures.AppController.TableTripController;
 import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.TravelerBean;
 import com.example.adventures.bean.TripBean;
@@ -20,7 +20,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
 

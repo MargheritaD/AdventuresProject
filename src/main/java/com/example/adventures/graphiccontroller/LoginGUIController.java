@@ -1,16 +1,13 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
-import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.LoginBean;
 import com.example.adventures.engineering.Printer;
-import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.EmailFormatException;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.exception.UserNotFoundException;
-import com.example.adventures.appController.LoginController;
+import com.example.adventures.AppController.LoginController;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +16,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import javax.net.ssl.HostnameVerifier;
 import java.io.IOException;
 import java.util.Objects;
 

@@ -1,6 +1,6 @@
 package com.example.adventures.graphiccontroller;
 
-import com.example.adventures.appController.QuoteController;
+import com.example.adventures.AppController.QuoteController;
 import com.example.adventures.bean.QuoteBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
