@@ -2,6 +2,7 @@ module com.example.adventures {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires com.opencsv;
 
 
     opens com.example.adventures to javafx.fxml;
