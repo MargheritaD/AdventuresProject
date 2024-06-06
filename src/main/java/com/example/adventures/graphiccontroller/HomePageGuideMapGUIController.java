@@ -1,9 +1,8 @@
 package com.example.adventures.graphiccontroller;
 
+import com.example.adventures.AppController.BookTripController;
 import com.example.adventures.Main;
-import com.example.adventures.AppController.HomePageGuideMapController;
 import com.example.adventures.bean.GuideBean;
-import com.example.adventures.dao.TripDAO;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
 import javafx.fxml.FXML;
@@ -38,12 +37,14 @@ public class HomePageGuideMapGUIController {
     @FXML
     private Label argentinaLabel;
 
+
+/*
     private int numberOfTrps(String country){
 
-        int number = TripDAO.getNumberTripsByCountry(country);
+        //int number = TripDAO.getNumberTripsByCountry(country);
 
         return number;
-    }
+    }*/
 
     public void initialize(){
 
@@ -55,7 +56,8 @@ public class HomePageGuideMapGUIController {
 
         //HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
         //int num = homePageGuideController.numberOfTrps("Australia");
-        int num =  numberOfTrps("Australia");
+        BookTripController quoteController = new BookTripController();
+        int num =  quoteController.numberOfTrps("Australia");
         if(num == 1){
             australiaLabel.setText("Australia: "+ num + " avaiable trip");
         }else{
@@ -64,8 +66,11 @@ public class HomePageGuideMapGUIController {
     }
 
     public void indiaMouseEntered(){
-        HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        int num = homePageGuideController.numberOfTrps("India");
+
+        BookTripController quoteController = new BookTripController();
+       // HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
+        //int num = homePageGuideController.numberOfTrps("India");
+        int num = quoteController.numberOfTrps("India");
         if(num == 1) {
             indiaLable.setText("India: " + num + " avaiable trip");
         }else {
@@ -74,8 +79,11 @@ public class HomePageGuideMapGUIController {
     }
 
     public void spainMouseEntered(){
-        HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        int num = homePageGuideController.numberOfTrps("Spain");
+
+        BookTripController quoteController = new BookTripController();
+        int num =  quoteController.numberOfTrps("Spain");
+       // HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
+        //int num = homePageGuideController.numberOfTrps("Spain");
         if(num == 1){
             europeLabel.setText("Spain: "+ num + " avaiable trip");
         }else {
@@ -84,8 +92,11 @@ public class HomePageGuideMapGUIController {
     }
 
     public void italyMouseEntered(){
-        HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        int num = homePageGuideController.numberOfTrps("Italy");
+
+        BookTripController quoteController = new BookTripController();
+        int num =  quoteController.numberOfTrps("Italy");
+        //HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
+       // int num = homePageGuideController.numberOfTrps("Italy");
         if(num == 1) {
             europeLabel.setText("Italy: " + num + " avaiable trip");
         }else {
@@ -94,8 +105,11 @@ public class HomePageGuideMapGUIController {
     }
 
     public void brasilMouseEntered(){
-        HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        int num = homePageGuideController.numberOfTrps("Brasil");
+
+        BookTripController quoteController = new BookTripController();
+        int num =  quoteController.numberOfTrps("Brasil");
+        //HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
+        //int num = homePageGuideController.numberOfTrps("Brasil");
         if(num == 1){
             brasilLabel.setText("Brasil: " + num + " avaiable trip");
         }else {
@@ -104,8 +118,11 @@ public class HomePageGuideMapGUIController {
     }
 
     public void argentinaMouseEntered(){
-        HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        int num = homePageGuideController.numberOfTrps("Argentina");
+
+        BookTripController quoteController = new BookTripController();
+        int num =  quoteController.numberOfTrps("Argentina");
+        //HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
+        //int num = homePageGuideController.numberOfTrps("Argentina");
         if(num == 1){
             argentinaLabel.setText("Argentina: "+ num + " avaiable trip");
         }else{
@@ -114,8 +131,11 @@ public class HomePageGuideMapGUIController {
     }
 
     public void peruMouseEntered(){
-        HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        int num = homePageGuideController.numberOfTrps("Perù");
+
+        BookTripController quoteController = new BookTripController();
+        int num =  quoteController.numberOfTrps("Perù");
+        //HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
+        //int num = homePageGuideController.numberOfTrps("Perù");
         if (num == 1) {
             peruLabel.setText("Perù: "+ num + " avaiable trip");
         }else{
@@ -124,8 +144,11 @@ public class HomePageGuideMapGUIController {
     }
 
     public void chileMouseEntered(){
-        HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        int num = homePageGuideController.numberOfTrps("Chile");
+
+        BookTripController quoteController = new BookTripController();
+        int num =  quoteController.numberOfTrps("Chile");
+        //HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
+        //int num = homePageGuideController.numberOfTrps("Chile");
         if (num == 1){
             chileLabel.setText("Chile: "+ num + " avaiable trip");
         }else {
@@ -134,8 +157,11 @@ public class HomePageGuideMapGUIController {
     }
 
     public void usaMouseEntered(){
-        HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        int num = homePageGuideController.numberOfTrps("USA");
+
+        BookTripController quoteController = new BookTripController();
+        int num =  quoteController.numberOfTrps("USA");
+        //HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
+        //int num = homePageGuideController.numberOfTrps("USA");
         if(num == 1){
             europeLabel.setText("USA: "+ num + " avaiable trip");
         }else{
@@ -145,8 +171,11 @@ public class HomePageGuideMapGUIController {
     }
 
     public void mexicoMouseEntered(){
-        HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        int num = homePageGuideController.numberOfTrps("Mexico");
+
+        BookTripController quoteController = new BookTripController();
+        int num =  quoteController.numberOfTrps("Mexico");
+        //HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
+        //int num = homePageGuideController.numberOfTrps("Mexico");
         if(num == 1){
             mexicoLabel.setText("Mexico: "+ num + " avaiable trip");
         }else{

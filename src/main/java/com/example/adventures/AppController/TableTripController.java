@@ -10,6 +10,7 @@ import java.util.List;
 
 public class TableTripController {
 
+    /*
     public List<TripBean> tableTripCountry(String valore, String country){
         List<Trip> trips = TripDAO.retrieveTripListByCategoryAndCountry(valore, country);
 
@@ -25,6 +26,7 @@ public class TableTripController {
 
         return tripBeans;
     }
+*/
 
     public List<TripBean> upcomingTableTrip(Date currentDate, String user){
         List<Trip> trips = TripDAO.retrieveUpcomingTrip(currentDate, user);

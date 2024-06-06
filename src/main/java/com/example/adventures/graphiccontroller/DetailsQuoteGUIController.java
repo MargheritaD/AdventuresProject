@@ -1,5 +1,6 @@
 package com.example.adventures.graphiccontroller;
 
+import com.example.adventures.AppController.BookTripController;
 import com.example.adventures.Main;
 import com.example.adventures.AppController.DatailsQuoteController;
 import com.example.adventures.bean.*;
@@ -122,10 +123,15 @@ public class DetailsQuoteGUIController {
 
     public void inizio(int codice) throws NotFoundException{
 
-        DatailsQuoteController detailsQuoteController = new DatailsQuoteController();
-        System.out.println("CODICE VIAGGIO: " + codice);
-        List<ItineraryStopBean> itineraryStopBeans = detailsQuoteController.tableItinerary(codice);// prima era tripId
-        TripBean tripBean = detailsQuoteController.tableTrip(codice);
+        BookTripController bookTripController = new BookTripController();
+        TripBean tripBean = bookTripController.tableTrip(codice);
+        List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(codice);// prima era tripId
+
+
+        //DatailsQuoteController detailsQuoteController = new DatailsQuoteController();
+        //System.out.println("CODICE VIAGGIO: " + codice);
+        //List<ItineraryStopBean> itineraryStopBeans = detailsQuoteController.tableItinerary(codice);// prima era tripId
+        //TripBean tripBean = detailsQuoteController.tableTrip(codice);
 
         System.out.println("Categoria datails quote: "+ tripBean.getCategory());
         tripPrice = Float.parseFloat(tripBean.getGuide());

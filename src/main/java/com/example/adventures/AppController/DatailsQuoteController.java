@@ -45,7 +45,7 @@ public class DatailsQuoteController {
         return tripBeans;
     }
 
-    public TripBean tableTrip(int tripId) throws NotFoundException {
+   /* public TripBean tableTrip(int tripId) throws NotFoundException {
 
         Trip trip = TripDAO.retrieveTripById(tripId);
 
@@ -53,7 +53,7 @@ public class DatailsQuoteController {
 
         return tripBean;
 
-    }
+    }*/
 
     public void bookTrip(int tripId, int personId){
 

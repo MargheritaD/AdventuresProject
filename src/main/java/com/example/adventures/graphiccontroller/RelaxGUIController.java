@@ -1,6 +1,7 @@
 package com.example.adventures.graphiccontroller;
 
 
+import com.example.adventures.AppController.BookTripController;
 import com.example.adventures.Main;
 import com.example.adventures.AppController.TableTripController;
 import com.example.adventures.bean.GuideBean;
@@ -64,10 +65,12 @@ public class RelaxGUIController {
         // Ottieni la lista dei viaggi dal TripDAO
         System.out.println("\nVALORE CATEGORIA initialize: "+ valore);
 
-        TableTripController tableTripController = new TableTripController();
+        //TableTripController tableTripController = new TableTripController();
 
+        BookTripController bookTripController= new BookTripController();
         //List<TripBean> tripBeans = tableTripController.tableTrip(valore);
-        List<TripBean> tripBeans = tableTripController.tableTripCountry(valore, country);
+        //List<TripBean> tripBeans = tableTripController.tableTripCountry(valore, country);
+        List<TripBean> tripBeans = bookTripController.selectCountryAndCategory(valore, country);
 
         // Imposta i valori delle colonne
         idColumn.setCellValueFactory(new PropertyValueFactory<>("idTrip")); // prima era idColumn
