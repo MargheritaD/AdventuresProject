@@ -171,6 +171,8 @@ public class RelaxGUIController {
                     System.out.println("Eccezione nel caricamento nuova pagina");
                 }
 
+                BookTripController bookTripController = new BookTripController();
+
                 DetailQuoteGuideGUIController detailQuoteGuideGUIController = fxmlLoader.getController();
 
                 detailQuoteGuideGUIController.setTripId(selectedTrip.getIdTrip());

@@ -2,12 +2,16 @@ package com.example.adventures.AppController;
 
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.QuoteBean;
+import com.example.adventures.bean.RequestBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.dao.ItineraryStopDAO;
+import com.example.adventures.dao.RequestDAO;
 import com.example.adventures.dao.TripDAO;
+import com.example.adventures.engineering.Session;
 import com.example.adventures.engineering.decoretor.Quote;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.ItineraryStop;
+import com.example.adventures.model.Request;
 import com.example.adventures.model.Trip;
 
 import java.util.ArrayList;
@@ -69,6 +73,18 @@ public class BookTripController {
         TripBean tripBean = new TripBean(trip.getTripName(), trip.getDepartureCity(), trip.getOutboundDate(), trip.getReturnDate(), trip.getPrice(), trip.getGuide());
 
         return tripBean;
+
+    }
+
+    public void sendRequest(RequestBean requestBean){
+
+        Request request = new Request(requestBean.getIdTrip(), requestBean.getIdTraveler());
+        RequestDAO requestDAO = new RequestDAO();
+        requestDAO.registerReservation(request);
+
+        System.out.println(Session.getCurrentSession().getTravelerBean().getId());
+        System.out.println(Session.getCurrentSession().getTravelerBean().getId());
+        System.out.println(Session.getCurrentSession().getTravelerBean().getId());
 
     }
 

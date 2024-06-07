@@ -356,17 +356,18 @@ public class HomePageTravelerMapGUIController{
         dialog.show();
     }
 
-    public void upcomingAction() throws IOException, NotFoundException {
-        /*Parent root;
+    public void requestsAction() throws IOException{
+        Parent root;
         Stage dialog = Main.getStage();
 
-        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("UpcomingTrips.fxml")));
-
+        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("RequestStatus.fxml")));
 
         Scene scene = new Scene(root);
         dialog.setScene(scene);
-        dialog.show();*/
+        dialog.show();
+    }
 
+    public void upcomingAction() throws IOException, NotFoundException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UpcomingTrips.fxml"));
         Parent root = loader.load();

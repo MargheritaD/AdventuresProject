@@ -2,13 +2,13 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.AppController.BookTripController;
 import com.example.adventures.Main;
-import com.example.adventures.AppController.DatailsQuoteController;
 import com.example.adventures.bean.*;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.engineering.decoretor.CancellationQuote;
 import com.example.adventures.engineering.decoretor.HealthQuote;
 import com.example.adventures.engineering.decoretor.LuggageQuote;
 import com.example.adventures.exception.NotFoundException;
+import com.example.adventures.model.Request;
 import com.example.adventures.model.Trip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -127,7 +127,6 @@ public class DetailsQuoteGUIController {
         TripBean tripBean = bookTripController.tableTrip(codice);
         List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(codice);// prima era tripId
 
-
         //DatailsQuoteController detailsQuoteController = new DatailsQuoteController();
         //System.out.println("CODICE VIAGGIO: " + codice);
         //List<ItineraryStopBean> itineraryStopBeans = detailsQuoteController.tableItinerary(codice);// prima era tripId
@@ -168,9 +167,10 @@ public class DetailsQuoteGUIController {
         //int idPerson = Session.getCurrentSession().getGuideBean().getId();
 
         try{
-            DatailsQuoteController datailsQuoteController = new DatailsQuoteController();
+            BookTripController bookTripController = new BookTripController();
             System.out.println("Passo al controller logico");
-            datailsQuoteController.bookTrip(tripId, userId);
+            RequestBean requestBean = new RequestBean(tripId,Session.getCurrentSession().getTravelerBean().getId());
+            bookTripController.sendRequest(requestBean);
             System.out.println("Passo i paramteri al controller logico");
 
         }catch (Exception e) { //NotFoundException

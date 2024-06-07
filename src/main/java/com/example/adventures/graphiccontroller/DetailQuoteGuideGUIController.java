@@ -2,7 +2,6 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.AppController.BookTripController;
 import com.example.adventures.Main;
-import com.example.adventures.AppController.DatailsQuoteController;
 import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TravelerBean;
