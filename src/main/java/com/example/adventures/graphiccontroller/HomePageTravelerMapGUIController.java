@@ -2,7 +2,6 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
 import com.example.adventures.appcontroller.BookTripController;
-import com.example.adventures.appcontroller.HomePageGuideMapController;
 import com.example.adventures.bean.TravelerBean;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
