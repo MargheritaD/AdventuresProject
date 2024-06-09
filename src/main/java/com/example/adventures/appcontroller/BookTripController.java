@@ -31,9 +31,7 @@ public class BookTripController {
 
     public int numberOfTrps(String country){
 
-        int number = TripDAO.getNumberTripsByCountry(country);
-
-        return number;
+        return TripDAO.getNumberTripsByCountry(country);
     }
 
 
@@ -44,10 +42,6 @@ public class BookTripController {
         for (Trip trip : trips) {
             TripBean tripBean = new TripBean(trip.getIdTrip(), trip.getTripName(), trip.getOutboundDate(), trip.getReturnDate(), trip.getDepartureCity(), trip.getGuide());
             tripBeans.add(tripBean);
-            System.out.println("\nPROVA STAMPA CITTA TRIP: "+ trip.getDepartureCity());
-            System.out.println("PROVA STAMPA ID TRIP: "+ trip.getIdTrip());
-            System.out.println("PROVA STAMPA NOME TRIP: "+ trip.getTripName());
-            System.out.println("PROVA STAMPA NOME GUIDA TRIP: "+ trip.getGuide());
         }
 
         return tripBeans;
@@ -81,10 +75,6 @@ public class BookTripController {
         Request request = new Request(requestBean.getIdTrip(), requestBean.getIdTraveler());
         RequestDAO requestDAO = new RequestDAO();
         requestDAO.registerReservation(request);
-
-        System.out.println(Session.getCurrentSession().getTravelerBean().getId());
-        System.out.println(Session.getCurrentSession().getTravelerBean().getId());
-        System.out.println(Session.getCurrentSession().getTravelerBean().getId());
 
     }
 
