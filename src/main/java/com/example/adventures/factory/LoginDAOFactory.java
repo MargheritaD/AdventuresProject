@@ -1,7 +1,4 @@
 package com.example.adventures.factory;
-
-import com.example.adventures.dao.LoginDAO;
-
 public class LoginDAOFactory {
     private LoginDAOFactory(){}
 
