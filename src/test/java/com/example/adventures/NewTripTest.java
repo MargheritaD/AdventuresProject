@@ -9,7 +9,7 @@ import java.sql.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class NewTripTest {
+class NewTripTest {
 
     @Test
     void checkNewTrip(){
