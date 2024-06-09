@@ -1,4 +1,4 @@
-package com.example.adventures.appController;
+package com.example.adventures.appcontroller;
 
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;

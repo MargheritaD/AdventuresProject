@@ -1,4 +1,4 @@
-package com.example.adventures.appController;
+package com.example.adventures.appcontroller;
 
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.dao.TripDAO;

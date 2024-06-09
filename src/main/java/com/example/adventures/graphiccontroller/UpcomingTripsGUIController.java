@@ -1,7 +1,7 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
-import com.example.adventures.appController.TableTripController;
+import com.example.adventures.appcontroller.TableTripController;
 import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.TravelerBean;
 import com.example.adventures.bean.TripBean;

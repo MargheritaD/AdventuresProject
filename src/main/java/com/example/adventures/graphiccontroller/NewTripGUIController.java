@@ -1,7 +1,7 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
-import com.example.adventures.appController.NewTripController;
+import com.example.adventures.appcontroller.NewTripController;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.exception.FormEmptyException;

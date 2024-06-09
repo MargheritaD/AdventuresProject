@@ -6,7 +6,7 @@ import com.example.adventures.engineering.Printer;
 import com.example.adventures.exception.EmailFormatException;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.exception.UserNotFoundException;
-import com.example.adventures.appController.LoginController;
+import com.example.adventures.appcontroller.LoginController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
