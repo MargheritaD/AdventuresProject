@@ -15,8 +15,6 @@ public class LoginDAOJDBC implements LoginDAO{
 
     @Override
     public UserProfile checkUser(String username, String password) throws UserNotFoundException{
-        //Commento sotto
-        System.out.println("Inizio del metodo checkUser nel LoginDAOJDBC");
         Connection connection;
         int role;
         UserProfile userProfile = null;
@@ -33,8 +31,6 @@ public class LoginDAOJDBC implements LoginDAO{
             resultSet.first();
 
             String nameRole = resultSet.getString(1);
-            // comm sotto
-            System.out.println("Ruolo recuperato: " + nameRole);
             switch (nameRole){
                 case "guide" -> role = 1;
                 case "traveler" -> role = 2;
