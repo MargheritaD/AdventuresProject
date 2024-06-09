@@ -6,7 +6,6 @@ import com.example.adventures.engineering.Printer;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.Guide;
 
-import java.io.*;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,7 +16,6 @@ public class GuideDAO {
     private static final String NAME = "guideName";
     private static final String SURNAME = "guideSurname";
     private static final String EMAIL = "email";
-    //private static final String CSV_FILE_NAME = "src/main/res/Users.csv";
 
     private GuideDAO() {}
 
@@ -50,15 +48,16 @@ public class GuideDAO {
         return guide;
     }
 
-    private static Guide setGuideData(ResultSet resultSet) throws NotFoundException, SQLException {
+    private static Guide setGuideData(ResultSet resultSet) throws SQLException {
         int guideId = resultSet.getInt(ID);
         String name = resultSet.getString(NAME);
         String surname = resultSet.getString(SURNAME);
         String email = resultSet.getString(EMAIL);
 
-        Guide guide = new Guide(guideId, name, surname,email);
+        //Guide guide = new Guide(guideId, name, surname,email);
+        // prima il return era senza new
 
-        return guide;
+        return (new Guide(guideId, name, surname,email));
     }
 
     public static Guide retrieveGuideByUsername(String username) throws NotFoundException {
@@ -88,8 +87,6 @@ public class GuideDAO {
 
         return guide;
     }
-    //public static void addGuide(Guide guide){}
-    // retrieve guide id
 
     public static Guide retrieveGuideID() {
         //rimetti il parametro String email
