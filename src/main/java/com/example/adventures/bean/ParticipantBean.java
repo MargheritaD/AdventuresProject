@@ -1,7 +1,5 @@
 package com.example.adventures.bean;
 
-import java.time.LocalDate;
-
 public class ParticipantBean {
 
     private int idTrip;
