@@ -4,9 +4,7 @@ import com.example.adventures.connection.ConnectionDB;
 import com.example.adventures.dao.queries.SimpleQueries;
 import com.example.adventures.engineering.Printer;
 import com.example.adventures.exception.NotFoundException;
-import com.example.adventures.model.Guide;
 import com.example.adventures.model.Traveler;
-import com.example.adventures.model.Trip;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -19,20 +17,17 @@ public class TravelerDAO {
     private static final String SURNAME = "Cognome_viaggiatore";
     private static final String EMAIL = "email";
 
-
-    //private static final String CSV_FILE_NAME = "src/main/res/Users.csv";
-
     private TravelerDAO() {}
 
-    private static Traveler setTravelerData(ResultSet resultSet) throws NotFoundException, SQLException {
+    private static Traveler setTravelerData(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt(ID);
         String name = resultSet.getString(NAME);
         String surname = resultSet.getString(SURNAME);
         String email = resultSet.getString(EMAIL);
 
-        Traveler traveler = new Traveler(id, name, surname, email);
+        //Traveler traveler = new Traveler(id, name, surname, email);
 
-        return traveler;
+        return (new Traveler(id, name, surname, email));
     }
 
     public static Traveler retrieveTravelerByUsername(String username) throws NotFoundException {
@@ -54,11 +49,6 @@ public class TravelerDAO {
                 traveler = setTravelerData(resultSet);
 
                 // Aggiungi un messaggio di debug per stampare i dati del viaggiatore recuperati
-                System.out.println("Traveler data retrieved from database:");
-                System.out.println("ID: " + traveler.getId());
-                System.out.println("Name: " + traveler.getName());
-                System.out.println("Surname: " + traveler.getSurname());
-                System.out.println("Email: " + traveler.getEmail());
             } while (resultSet.next());
 
             resultSet.close();
