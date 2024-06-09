@@ -6,7 +6,6 @@ import com.example.adventures.dao.queries.SimpleQueries;
 import com.example.adventures.engineering.Printer;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.ItineraryStop;
-import com.example.adventures.model.Trip;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -46,22 +45,16 @@ public class ItineraryStopDAO {
         LocalDate arrival = resultSet.getDate(ARRIVAL).toLocalDate();
         LocalDate departure = resultSet.getDate(DEPARTURE).toLocalDate();
 
-//CANCELLA I PRINT
-        System.out.println("Nome tappa: "+city);
-        System.out.println(arrival);
-        System.out.println(departure);
+        //ItineraryStop itineraryStop = new ItineraryStop(city, arrival, departure);
+        // prima era return itineraryStop
 
-        ItineraryStop itineraryStop = new ItineraryStop(city, arrival, departure);
-
-        return itineraryStop;
+        return (new ItineraryStop(city, arrival, departure));
     }
 
     public static List<ItineraryStop> retrieveStopList(int idTrip) {
         Connection connection;
         ItineraryStop itineraryStop;
         List<ItineraryStop> stopList = new ArrayList<>();
-
-        System.out.println("Itinerary stop DAO IDtrip: " + idTrip);
 
         try {
             connection = ConnectionDB.getConnection();
