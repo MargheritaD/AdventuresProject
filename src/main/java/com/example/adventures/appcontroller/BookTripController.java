@@ -7,7 +7,6 @@ import com.example.adventures.bean.TripBean;
 import com.example.adventures.dao.ItineraryStopDAO;
 import com.example.adventures.dao.RequestDAO;
 import com.example.adventures.dao.TripDAO;
-import com.example.adventures.engineering.Session;
 import com.example.adventures.engineering.decoretor.Quote;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.ItineraryStop;
@@ -77,6 +76,5 @@ public class BookTripController {
         requestDAO.registerReservation(request);
 
     }
-
 
 }
