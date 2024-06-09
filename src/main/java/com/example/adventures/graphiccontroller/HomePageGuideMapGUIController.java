@@ -1,6 +1,6 @@
 package com.example.adventures.graphiccontroller;
 
-import com.example.adventures.AppController.BookTripController;
+import com.example.adventures.appController.BookTripController;
 import com.example.adventures.Main;
 import com.example.adventures.bean.GuideBean;
 import com.example.adventures.engineering.Session;

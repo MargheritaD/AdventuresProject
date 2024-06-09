@@ -1,4 +1,4 @@
-package com.example.adventures.AppController;
+package com.example.adventures.appController;
 
 import com.example.adventures.dao.*;
 import com.example.adventures.bean.*;

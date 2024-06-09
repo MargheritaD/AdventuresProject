@@ -1,6 +1,6 @@
 package com.example.adventures.graphiccontroller;
 
-import com.example.adventures.AppController.BookTripController;
+import com.example.adventures.appController.BookTripController;
 import com.example.adventures.Main;
 import com.example.adventures.bean.*;
 import com.example.adventures.engineering.Session;
@@ -8,7 +8,6 @@ import com.example.adventures.engineering.decoretor.CancellationQuote;
 import com.example.adventures.engineering.decoretor.HealthQuote;
 import com.example.adventures.engineering.decoretor.LuggageQuote;
 import com.example.adventures.exception.NotFoundException;
-import com.example.adventures.model.Request;
 import com.example.adventures.model.Trip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

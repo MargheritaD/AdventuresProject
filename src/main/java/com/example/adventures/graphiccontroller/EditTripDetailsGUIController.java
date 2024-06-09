@@ -1,7 +1,7 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
-import com.example.adventures.AppController.EditTripDetailsController;
+import com.example.adventures.appController.EditTripDetailsController;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.exception.NotFoundException;

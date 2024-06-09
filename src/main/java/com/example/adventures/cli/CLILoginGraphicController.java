@@ -1,13 +1,12 @@
 package com.example.adventures.cli;
 
-import com.example.adventures.AppController.LoginController;
+import com.example.adventures.appController.LoginController;
 import com.example.adventures.exception.EmailFormatException;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.SQLException;
 import java.util.logging.Level;
 
 public class CLILoginGraphicController extends AbstractCLIController{

@@ -1,6 +1,5 @@
 package com.example.adventures.cli;
 
-import com.example.adventures.AppController.LoginController;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.util.Scanner;
