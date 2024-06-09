@@ -23,37 +23,4 @@ public class AbstractCLIController {
         return choice;
     }
 
-
-    /*
-    protected void logout(){
-        new LoginController().logout();
-        new CLILoginGraphicController().start();
-    }
-
-    protected void goHome() {
-        new CLIHomeGraphicController().start();
-    }
-
-    protected void viewMessages(){
-        if (SessionManager.getInstance().getCurrentUser().getUserType() == TOURIST) {
-            List<RequestsInfoBean> tourInfo = new JoinTourController().showMessages();
-            new CLIMessagesGraphicController().start(tourInfo);
-        } else {
-            CLIPrinter.printNumbers(1);
-            CLIPrinter.printMessage("Show messages\n");
-            CLIPrinter.printNumbers(2);
-            CLIPrinter.printMessage("Show requests\n");
-            int choice = getMenuChoice(1, 2);
-            if (choice == 1) {
-                List<RequestsInfoBean> tourInfo = new JoinTourController().showMessages();
-                new CLIMessagesGraphicController().start(tourInfo);
-            } else if (choice == 2) {
-                List<ReservationInfoBean> tourInfo = new JoinTourController().showRequests();
-                new CLIRequestsGraphicController().start(tourInfo);
-            }
-        }
-
-    }
-    */
-
 }
