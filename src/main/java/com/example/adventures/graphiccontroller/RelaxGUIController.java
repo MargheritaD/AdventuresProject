@@ -49,7 +49,6 @@ public class RelaxGUIController {
     private String valore;
     private String country;
 
-    //private TableRowData selectedRowData;
 
     public void setTitle(String valore) {
         this.valore = valore;
@@ -62,13 +61,8 @@ public class RelaxGUIController {
 
     public void inizio()throws IOException, NotFoundException{
         // Ottieni la lista dei viaggi dal TripDAO
-        System.out.println("\nVALORE CATEGORIA initialize: "+ valore);
-
-        //TableTripController tableTripController = new TableTripController();
 
         BookTripController bookTripController= new BookTripController();
-        //List<TripBean> tripBeans = tableTripController.tableTrip(valore);
-        //List<TripBean> tripBeans = tableTripController.tableTripCountry(valore, country);
         List<TripBean> tripBeans = bookTripController.selectCountryAndCategory(valore, country);
 
         // Imposta i valori delle colonne
@@ -76,7 +70,6 @@ public class RelaxGUIController {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("tripName"));
         outboundColumn.setCellValueFactory(new PropertyValueFactory<>("outboundDate"));
         returnColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
-        //cittaColumn.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
 
         // Popola la tabella con i viaggi
         tableViewTrips.getItems().addAll(tripBeans);
@@ -89,8 +82,6 @@ public class RelaxGUIController {
             if (newSelection != null) {
                 // Abilita il pulsante se una riga è selezionata
                 detailsButton.setDisable(false);
-                // Salva i dati della riga selezionata
-                //selectedRowData = newSelection;
             } else {
                 // Disabilita il pulsante se nessuna riga è selezionata
                 detailsButton.setDisable(true);
@@ -111,15 +102,11 @@ public class RelaxGUIController {
                 // È un utente Guida
                 GuideBean guideBean = session.getGuideBean();
                 username = guideBean.getName(); // Utilizza l'email anziché il nome
-                System.out.println("Sono nella tabella relax come GUIDA:" + username);
             } else if(session.getTravelerBean() != null) {
                 // È un utente Viaggiatore
                 TravelerBean travelerBean = session.getTravelerBean();
                 username = travelerBean.getName(); // Utilizza l'email anche per i viaggiatori
                 guideController = false;
-                System.out.println("Sono nell tabella relax xome VIAGGIATORE:" + username);
-                System.out.println("Controlla che sia una turista serve FALSE: " + guideController);
-                System.out.println(travelerBean.getId());
             } else {
                 // Tipo di utente non riconosciuto
             }
@@ -132,22 +119,9 @@ public class RelaxGUIController {
 
         TripBean selectedTrip = tableViewTrips.getSelectionModel().getSelectedItem();
 
-        System.out.println("\n\nRELAX ID VIAGGIO prima: " + selectedTrip.getIdTrip());
-        System.out.println("\n\nRELAX nome VIAGGIO prima: " + selectedTrip.getTripName());
-
         if (selectedTrip != null) {
 
-
-            System.out.println("++++++++++++++++++++++++++++++++Selected Guide: " + selectedTrip.getGuide());
-
-            System.out.println("++++++++++++++++++++++++++++++++Current Guide: " + username);
-
-            System.out.println("CONTROLLO GUIDA: "+ guideController);
-
-
             if(!username.equals(selectedTrip.getGuide())  && guideController){
-
-                System.out.println("L'organizzatore e la utente sono diversi e l'utente loggato è una guida");
 
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/TripDetailsQuoteGuide.fxml"));
 
@@ -160,7 +134,6 @@ public class RelaxGUIController {
 
                 }catch (IOException e) {
                     e.printStackTrace();
-                    System.out.println("Eccezione nel caricamento nuova pagina");
                 }
 
                 BookTripController bookTripController = new BookTripController();
@@ -177,8 +150,6 @@ public class RelaxGUIController {
             else if(!username.equals(selectedTrip.getGuide()) && !guideController){
             //if(!username.equals(selectedTrip.getGuide())){ //username != selectedTrip.getGuide()
 
-                System.out.println("La utente corrente e l'organizzatore sono diversi ma l'utente loggato è un viaggiatore");
-
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/TripDetailsQuote.fxml"));
 
                 try{
@@ -190,7 +161,6 @@ public class RelaxGUIController {
 
                 }catch (IOException e) {
                     e.printStackTrace();
-                    System.out.println("Eccezione nel caricamento nuova pagina");
                 }
 
                 DetailsQuoteGUIController detailsQuoteGUIController = fxmlLoader.getController();
@@ -200,7 +170,6 @@ public class RelaxGUIController {
                 detailsQuoteGUIController.setCategory(valore);
 
             }else {
-                System.out.println("La guida corrente e l'organizzatore sono uguali");
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/EditTripDetails.fxml"));
 
 
@@ -213,14 +182,11 @@ public class RelaxGUIController {
 
                 } catch (IOException e) {
                     e.printStackTrace();
-                    System.out.println("Eccezione nel caricamento nuova pagian");
                 }
 
                 EditTripDetailsGUIController editTripDetailsGUIController = fxmlLoader.getController();
                 //editTripDetailsGUIController.setTripId(selectedTrip.getIdTrip());
                 editTripDetailsGUIController.inizio(selectedTrip.getIdTrip());
-                System.out.println("COUNTRY prima di passare a dettagli: "+ country);
-                System.out.println("CATEGORY prima di passare a dettagli: "+ valore);
                 editTripDetailsGUIController.setCountry(country);
                 editTripDetailsGUIController.setCategory(valore);
 
