@@ -1,7 +1,6 @@
 package com.example.adventures.dao.queries;
 
 import java.sql.*;
-import java.time.LocalDate;
 
 public class CRUDQueries {
 
@@ -12,7 +11,6 @@ public class CRUDQueries {
     public static int insertTrip(Connection connection, String name, String city, String category, Date outboundDate, Date returnDate, String price, String guide, String country) throws SQLException {
         String insertStatement = "INSERT INTO Trips (tripName, departureCity, category, outboundDate, returnDate, price, guide, country) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
         preparedStatement = connection.prepareStatement(insertStatement, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        //preparedStatement.setInt(1,id);
         preparedStatement.setString(1,name);
         preparedStatement.setString(2,city);
         preparedStatement.setString(3,category);

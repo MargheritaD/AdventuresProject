@@ -1,7 +1,6 @@
 package com.example.adventures.dao.queries;
 
 import java.sql.*;
-import java.time.LocalDate;
 
 public class SimpleQueries {
 
@@ -30,7 +29,7 @@ public class SimpleQueries {
     }
 
     public static ResultSet retrieveGuideById(Connection connection, int idGuide) throws SQLException {
-        String sql = "SELECT * FROM Guide WHERE Id_guide = ? ";
+        String sql = "SELECT * FROM Guide WHERE idGuide = ? ";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setInt(1,idGuide);
         return preparedStatement.executeQuery();
