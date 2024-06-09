@@ -2,11 +2,11 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.AppController.BookTripController;
 import com.example.adventures.Main;
-import com.example.adventures.bean.GuideBean;
-import com.example.adventures.bean.ItineraryStopBean;
-import com.example.adventures.bean.TravelerBean;
-import com.example.adventures.bean.TripBean;
+import com.example.adventures.bean.*;
 import com.example.adventures.engineering.Session;
+import com.example.adventures.engineering.decoretor.CancellationQuote;
+import com.example.adventures.engineering.decoretor.HealthQuote;
+import com.example.adventures.engineering.decoretor.LuggageQuote;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.Trip;
 import javafx.fxml.FXML;
@@ -15,7 +15,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -29,7 +31,7 @@ public class DetailQuoteGuideGUIController {
     @FXML
     private Button bookButton;
     @FXML
-    private RadioButton heltcareButton;
+    private RadioButton healthcareButton;
     @FXML
     private RadioButton tripCancellationButton;
     @FXML
@@ -150,6 +152,38 @@ public class DetailQuoteGuideGUIController {
     }
 
     public void quoteAction(){
+
+
+        QuoteBean quoteBean = new QuoteBean(tripPrice); // Inizializzo con il prezzo del viaggio
+
+        try {
+            if (healthcareButton.isSelected()) {
+                quoteBean.addInsurance(new HealthQuote());
+            }
+            if (tripCancellationButton.isSelected()) {
+                quoteBean.addInsurance(new CancellationQuote());
+            }
+            if (luggageButton.isSelected()) {
+                quoteBean.addInsurance(new LuggageQuote());
+            }
+
+            // Passaggio del bean alla finestra successiva
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/quote.fxml"));
+            Parent root1 = fxmlLoader.load();
+
+            QuoteGUIController quoteGUIController = fxmlLoader.getController();
+            quoteGUIController.showQuoteResult(quoteBean); // Passa il bean al controller della nuova finestra
+
+            Stage dialog = new Stage();
+            dialog.initModality(Modality.APPLICATION_MODAL);
+            dialog.initStyle(StageStyle.UNDECORATED);
+            dialog.setScene(new Scene(root1));
+            dialog.centerOnScreen();
+            dialog.show();
+        } catch (Exception e) {
+            System.out.println("Eccezione quote: " + e.getMessage());
+            // ShowExceptionSupport.showException(e.getMessage());
+        }
 
     }
 

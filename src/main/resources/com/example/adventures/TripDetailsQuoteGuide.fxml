@@ -59,17 +59,17 @@
                   <Font name="AppleGothic Regular" size="30.0" />
                </font>
             </Label>
-            <RadioButton layoutX="750.0" layoutY="370.0" mnemonicParsing="false" text="Luggage insurance">
+            <RadioButton fx:id="luggageButton" layoutX="750.0" layoutY="370.0" mnemonicParsing="false" text="Luggage insurance">
                <font>
                   <Font name="AppleGothic Regular" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="750.0" layoutY="420.0" mnemonicParsing="false" text="Healthcare insurance">
+            <RadioButton fx:id="healthcareButton" layoutX="750.0" layoutY="420.0" mnemonicParsing="false" text="Healthcare insurance">
                <font>
                   <Font name="AppleGothic Regular" size="15.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="750.0" layoutY="470.0" mnemonicParsing="false" text="Trip cancellation insurance">
+            <RadioButton fx:id="tripCancellationButton" layoutX="750.0" layoutY="470.0" mnemonicParsing="false" text="Trip cancellation insurance">
                <font>
                   <Font name="AppleGothic Regular" size="15.0" />
                </font>

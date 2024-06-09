@@ -1,6 +1,9 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
+import com.example.adventures.bean.GuideBean;
+import com.example.adventures.bean.TravelerBean;
+import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,7 +56,9 @@ public class CategoryGUIController {
         this.country = country;
     }
 
-    public void safariAction() throws IOException, NotFoundException {
+    private String username;
+    private boolean guideController = true;
+  public void safariAction() throws IOException, NotFoundException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Relax.fxml"));
         Parent root = loader.load();
 
@@ -139,14 +144,44 @@ public class CategoryGUIController {
         dialog.show();
     }
     public void backAction() throws IOException {
+
         Parent root;
         Stage dialog = Main.getStage();
 
-        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("homePageGuideMap.fxml")));
+        Session session = Session.getCurrentSession();
+        if(session != null) {
+            if (session.getGuideBean() != null) {
+                // È un utente Guida
+                GuideBean guideBean = session.getGuideBean();
+                username = guideBean.getName(); // Utilizza l'email anziché il nome
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("homePageGuideMap.fxml")));
 
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
+                Scene scene = new Scene(root);
+                dialog.setScene(scene);
+                dialog.show();
+
+            } else if (session.getTravelerBean() != null) {
+                // È un utente Viaggiatore
+                TravelerBean travelerBean = session.getTravelerBean();
+                username = travelerBean.getName(); // Utilizza l'email anche per i viaggiatori
+                guideController = false;
+                root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("homePageTravelerMap.fxml")));
+
+                Scene scene = new Scene(root);
+                dialog.setScene(scene);
+                dialog.show();
+            } else {
+                // Tipo di utente non riconosciuto
+            }
+
+            //root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("homePageGuideMap.fxml")));
+/*
+            Scene scene = new Scene(root);
+            dialog.setScene(scene);
+            dialog.show();
+
+ */
+        }
     }
     public void homeAction() throws IOException {
         Parent root;

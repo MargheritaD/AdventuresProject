@@ -129,13 +129,6 @@ public class RelaxGUIController {
         }
     }
 
-   /*public void initialize(){
-
-        GuideBean guideBean = Session.getCurrentSession().getGuideBean();
-        username = guideBean.getName(); // Però andrebbe fatto con la mail perchè se no significa che il nome è univoco
-        System.out.println("+++++++++++++++++++++++++++++++NAME GUIDA:"+username);
-    }*/
-
     public void detailsAction() throws IOException, NotFoundException {
 
         TripBean selectedTrip = tableViewTrips.getSelectionModel().getSelectedItem();

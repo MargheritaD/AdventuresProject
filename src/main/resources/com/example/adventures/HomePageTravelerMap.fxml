@@ -29,7 +29,7 @@
                 </Label>
                 <Pane layoutX="45.0" layoutY="117.0" prefHeight="555.0" prefWidth="346.0" style="-fx-background-radius: 30; -fx-background-color: #82a46d;">
                     <children>
-                        <Button fx:id="requestButton" layoutX="42.0" layoutY="230.0" mnemonicParsing="false" onAction="#requestsAction" prefHeight="65.0" prefWidth="251.0" style="-fx-background-color: #356b38; -fx-background-radius: 30;" text="Your requests...." textFill="WHITE">
+                        <Button fx:id="requestButton" layoutX="42.0" layoutY="230.0" mnemonicParsing="false" onAction="#requestsAction" prefHeight="65.0" prefWidth="251.0" style="-fx-background-color: #356b38; -fx-background-radius: 30;" text="Your requests" textFill="WHITE">
                             <effect>
                                 <DropShadow height="26.0" offsetX="2.5" offsetY="2.5" radius="12.5" width="26.0">
                                     <color>
