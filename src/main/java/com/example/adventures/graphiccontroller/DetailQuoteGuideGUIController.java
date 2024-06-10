@@ -93,12 +93,10 @@ public class DetailQuoteGuideGUIController {
                 // È un utente Guida
                 GuideBean guideBean = session.getGuideBean();
                 userId = guideBean.getId(); // Utilizza l'email anziché il nome
-                System.out.println("Sono nella details quote relax come GUIDA:" + userId);
             } else if(session.getTravelerBean() != null) {
                 // È un utente Viaggiatore
                 TravelerBean travelerBean = session.getTravelerBean();
                 userId = travelerBean.getId(); // Utilizza l'email anche per i viaggiatori
-                System.out.println("Sono nell details quote  xome VIAGGIATORE:" + userId);
             } else {
                 // Tipo di utente non riconosciuto, gestire di conseguenza
             }
