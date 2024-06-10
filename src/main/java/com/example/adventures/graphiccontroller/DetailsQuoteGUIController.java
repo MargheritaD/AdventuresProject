@@ -93,12 +93,12 @@ public class DetailsQuoteGUIController {
                 // È un utente Guida
                 GuideBean guideBean = session.getGuideBean();
                 userId = guideBean.getId(); // Utilizza l'email anziché il nome
-                System.out.println("Sono nella details quote relax come GUIDA:" + userId);
+
             } else if(session.getTravelerBean() != null) {
                 // È un utente Viaggiatore
                 TravelerBean travelerBean = session.getTravelerBean();
                 userId = travelerBean.getId(); // Utilizza l'email anche per i viaggiatori
-                System.out.println("Sono nell details quote  xome VIAGGIATORE:" + userId);
+
             } else {
                 // Tipo di utente non riconosciuto, gestire di conseguenza
             }
@@ -107,16 +107,8 @@ public class DetailsQuoteGUIController {
         }
     }
 
-/*
-    public void initialize(){
-
-        GuideBean guideBean = Session.getCurrentSession().getGuideBean();
-        guideId = guideBean.getId();
-    }
-*/
     public void setTripId(int tripId) {
         this.tripId = tripId;
-        System.out.println("CODICE VIAGGIO THIS:" + tripId);
     }
 
 
@@ -126,14 +118,7 @@ public class DetailsQuoteGUIController {
         TripBean tripBean = bookTripController.tableTrip(codice);
         List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(codice);// prima era tripId
 
-        //DatailsQuoteController detailsQuoteController = new DatailsQuoteController();
-        //System.out.println("CODICE VIAGGIO: " + codice);
-        //List<ItineraryStopBean> itineraryStopBeans = detailsQuoteController.tableItinerary(codice);// prima era tripId
-        //TripBean tripBean = detailsQuoteController.tableTrip(codice);
-
-        System.out.println("Categoria datails quote: "+ tripBean.getCategory());
         tripPrice = Float.parseFloat(tripBean.getGuide());
-        System.out.println("prezzo: "+ tripBean.getGuide());
 
         // Imposta i valori delle colonne tabella viaggio
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("tripName"));
@@ -142,8 +127,6 @@ public class DetailsQuoteGUIController {
         returnColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
         guideColumn.setCellValueFactory(new PropertyValueFactory<>("guide"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-
-        System.out.println("Categoria datails quote colonna: "+ guideColumn);
 
         // Popola la tabella con i dettagli
         tripTable.getItems().addAll(tripBean);
@@ -160,23 +143,24 @@ public class DetailsQuoteGUIController {
     public void bookAction() throws IOException {
 
         // dovrebbe sapere il codice della guida perche lo inizializzo nelmetodo initialize
-
-        System.out.println("++++++++++++++ BOOK ACTION:  trip id: " + tripId + " person id: " + userId);
-
         //int idPerson = Session.getCurrentSession().getGuideBean().getId();
 
         try{
+
+            System.out.println("SONO ENTRATA NEL TRY");
+
             BookTripController bookTripController = new BookTripController();
-            System.out.println("Passo al controller logico");
             RequestBean requestBean = new RequestBean(tripId,Session.getCurrentSession().getTravelerBean().getId());
             bookTripController.sendRequest(requestBean);
-            System.out.println("Passo i paramteri al controller logico");
 
         }catch (Exception e) { //NotFoundException
             System.out.println(e);
+
+            System.out.println("NON SONO ENTRATA NEL TRY");
             //Printer.printError(e.getMessage());
         }
 
+        System.out.println("STO CAMBIANDO SCENA");
         // ci va l'if per vedere se è andata bene
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/TripBooked.fxml"));

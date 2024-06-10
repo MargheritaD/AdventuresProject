@@ -8,14 +8,15 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SearchTripTest {
-/*
+
     TripDAO tripDAO = new TripDAO();
 
     @Test
     void searchTrip(){
-        //Trip trip = new Trip("Italy", "Relax");
+
 
         String country = "Italy";
         String category = "Food tasting";
@@ -23,11 +24,12 @@ class SearchTripTest {
         try{
 
             List<Trip> trips = tripDAO.retrieveTripListByCategoryAndCountry(category, country);
+            assertTrue(trips.size()>0);
 
         }catch (Exception e){
             Assertions.fail(e.getMessage());
         }
     }
 
- */
+
 }

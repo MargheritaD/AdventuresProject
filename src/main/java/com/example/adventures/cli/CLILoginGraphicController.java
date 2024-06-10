@@ -1,11 +1,12 @@
 package com.example.adventures.cli;
 
 import com.example.adventures.appcontroller.LoginController;
+import com.example.adventures.bean.LoginBean;
 import com.example.adventures.exception.EmailFormatException;
+import com.example.adventures.exception.UserNotFoundException;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 
@@ -62,11 +63,24 @@ public class CLILoginGraphicController extends AbstractCLIController{
             String username = reader.readLine();
             CLIPrinter.printMessage("password: ");
             String password = reader.readLine();
-            //CredentialsBean bean = new CredentialsBean(username, password);
-            //loginController.login(bean);
+            LoginBean loginBean = new LoginBean(username, password);
+            //loginController.loginG(bean);
+
+            switch(loginBean.getRole()){
+                case 1 ->  {
+                    loginController.guideLogin(loginBean);
+                    CLIHomeGuide cliHomeGuide = new CLIHomeGuide();
+                    cliHomeGuide.start();
+                }
+                case 2 -> {
+                    loginController.travelerLogin(loginBean);
+                    CLIHomeTraveler.start();
+                }
+                default -> throw new UserNotFoundException();
+            }
 
             //new CLIHomeGraphicController().start();
-        } catch ( IOException e) {
+        } catch (Exception e) {
             //logger.log(Level.INFO, e.getMessage());
             start();
         }

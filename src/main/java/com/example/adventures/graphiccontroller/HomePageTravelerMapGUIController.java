@@ -2,6 +2,7 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
 import com.example.adventures.appcontroller.BookTripController;
+import com.example.adventures.appcontroller.LoginController;
 import com.example.adventures.bean.TravelerBean;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
@@ -366,6 +367,10 @@ public class HomePageTravelerMapGUIController{
     }
 
     public void exitAction() throws IOException{
+
+        LoginController loginController = new LoginController();
+        loginController.logout();
+
         Parent root;
         Stage dialog = Main.getStage();
 

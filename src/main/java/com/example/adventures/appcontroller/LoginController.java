@@ -35,4 +35,9 @@ public class LoginController {
         TravelerBean travelerbean = new TravelerBean(traveler.getId(), traveler.getName(), traveler.getSurname(), traveler.getEmail());
         Session.setSessionInstance(travelerbean);
     }
+
+    public void logout(){
+        Session session = Session.getCurrentSession();
+        session.logout();
+    }
 }

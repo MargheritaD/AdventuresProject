@@ -50,5 +50,8 @@ public class Session {
         this.tripBean = tripBean;
     }
 
+    public  void logout(){
+        sessionInstance = null;
+    }
 
 }

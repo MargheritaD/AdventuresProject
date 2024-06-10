@@ -1,5 +1,6 @@
 package com.example.adventures.cli;
 
+import com.example.adventures.appcontroller.LoginController;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.util.Scanner;
@@ -21,6 +22,17 @@ public class AbstractCLIController {
             CLIPrinter.printMessage("Invalid option\n");
         }
         return choice;
+    }
+
+    protected void logout(){
+
+        new LoginController().logout();
+        new CLILoginGraphicController().start();
+
+    }
+
+    protected void goHome() {
+        new CLIHomeGuide().start();
     }
 
 }

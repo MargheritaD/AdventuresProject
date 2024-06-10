@@ -18,4 +18,12 @@ public class Request {
         this.idTrip = idTrip;
         this.idTraveler = idTraveler;
     }
+
+    public int getIdTrip(){
+        return idTrip;
+    }
+
+    public int getIdTraveler(){
+        return idTraveler;
+    }
 }

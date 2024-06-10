@@ -2,6 +2,7 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.Main;
+import com.example.adventures.appcontroller.LoginController;
 import com.example.adventures.bean.GuideBean;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
@@ -384,6 +385,9 @@ public class HomePageGuideMapGUIController {
     public void exitAction() throws IOException{
         Parent root;
         Stage dialog = Main.getStage();
+
+        LoginController loginController = new LoginController();
+        loginController.logout();
 
         root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Login.fxml")));
 
