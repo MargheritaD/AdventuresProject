@@ -21,8 +21,6 @@ public class CLILoginGraphicController extends AbstractCLIController{
                 switch (choice){
                     case 1 -> {
                         a = false;
-                        System.out.println("Login");
-
                         login();
                     }
                     case 2 -> {
@@ -64,7 +62,10 @@ public class CLILoginGraphicController extends AbstractCLIController{
             CLIPrinter.printMessage("password: ");
             String password = reader.readLine();
             LoginBean loginBean = new LoginBean(username, password);
-            //loginController.loginG(bean);
+            System.out.println(loginBean.getUsername());
+            System.out.println(loginBean.getPassword());
+            loginController.checkUser(loginBean);
+            System.out.println(loginBean.getRole());
 
             switch(loginBean.getRole()){
                 case 1 ->  {
@@ -74,7 +75,7 @@ public class CLILoginGraphicController extends AbstractCLIController{
                 }
                 case 2 -> {
                     loginController.travelerLogin(loginBean);
-                    CLIHomeTraveler.start();
+                    //CLIHomeTraveler.start();
                 }
                 default -> throw new UserNotFoundException();
             }
@@ -85,7 +86,5 @@ public class CLILoginGraphicController extends AbstractCLIController{
             start();
         }
     }
-
-
 
 }

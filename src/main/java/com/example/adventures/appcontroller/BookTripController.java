@@ -1,9 +1,6 @@
 package com.example.adventures.appcontroller;
 
-import com.example.adventures.bean.ItineraryStopBean;
-import com.example.adventures.bean.QuoteBean;
-import com.example.adventures.bean.RequestBean;
-import com.example.adventures.bean.TripBean;
+import com.example.adventures.bean.*;
 import com.example.adventures.dao.ItineraryStopDAO;
 import com.example.adventures.dao.RequestDAO;
 import com.example.adventures.dao.TripDAO;
@@ -34,8 +31,9 @@ public class BookTripController {
     }
 
 
-    public List<TripBean> selectCountryAndCategory(String valore, String country){
-        List<Trip> trips = TripDAO.retrieveTripListByCategoryAndCountry(valore, country);
+    public List<TripBean> selectCountryAndCategory(CountryCategoryBean countryCategoryBean){
+
+        List<Trip> trips = TripDAO.retrieveTripListByCategoryAndCountry(countryCategoryBean.getCategory(), countryCategoryBean.getCountry());
 
         List<TripBean> tripBeans = new ArrayList<>();
         for (Trip trip : trips) {

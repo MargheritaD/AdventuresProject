@@ -3,6 +3,7 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.Main;
+import com.example.adventures.bean.CountryCategoryBean;
 import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.TravelerBean;
 import com.example.adventures.bean.TripBean;
@@ -63,7 +64,8 @@ public class RelaxGUIController {
         // Ottieni la lista dei viaggi dal TripDAO
 
         BookTripController bookTripController= new BookTripController();
-        List<TripBean> tripBeans = bookTripController.selectCountryAndCategory(valore, country);
+        CountryCategoryBean countryCategoryBean = new CountryCategoryBean(country,valore);
+        List<TripBean> tripBeans = bookTripController.selectCountryAndCategory(countryCategoryBean);
 
         // Imposta i valori delle colonne
         idColumn.setCellValueFactory(new PropertyValueFactory<>("idTrip")); // prima era idColumn
