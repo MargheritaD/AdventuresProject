@@ -65,9 +65,9 @@ public class CategoryGUIController {
         RelaxGUIController relaxGUIController = loader.getController();
         String category = safariLabel.getText();
         relaxGUIController.setTitle(category);
-        System.out.println("Categoria in categoryGUIController: " + category);
+
         relaxGUIController.setCountry(country);
-        System.out.println("Country in categoryGUIController: " + country);
+
         relaxGUIController.initialize();
         relaxGUIController.inizio();
 
@@ -85,9 +85,9 @@ public class CategoryGUIController {
         RelaxGUIController relaxGUIController = loader.getController();
         String category = sportLabel.getText();
         relaxGUIController.setTitle(category);
-        System.out.println("Categoria in categoryGUIController: " + category);
+
         relaxGUIController.setCountry(country);
-        System.out.println("Country in categoryGUIController: " + country);
+
         relaxGUIController.initialize();
         relaxGUIController.inizio();
 
@@ -104,9 +104,9 @@ public class CategoryGUIController {
         RelaxGUIController relaxGUIController = loader.getController();
         String category = dogLabel.getText();
         relaxGUIController.setTitle(category);
-        System.out.println("Categoria in categoryGUIController: " + category);
+
         relaxGUIController.setCountry(country);
-        System.out.println("Country in categoryGUIController: " + country);
+
         relaxGUIController.initialize();
         relaxGUIController.inizio();
 
@@ -122,9 +122,9 @@ public class CategoryGUIController {
         RelaxGUIController relaxGUIController = loader.getController();
         String category = funLabel.getText();
         relaxGUIController.setTitle(category);
-        System.out.println("Categoria in categoryGUIController: " + category);
+
         relaxGUIController.setCountry(country);
-        System.out.println("Country in categoryGUIController: " + country);
+
         relaxGUIController.initialize();
         relaxGUIController.inizio();
 
@@ -173,14 +173,6 @@ public class CategoryGUIController {
             } else {
                 // Tipo di utente non riconosciuto
             }
-
-            //root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("homePageGuideMap.fxml")));
-/*
-            Scene scene = new Scene(root);
-            dialog.setScene(scene);
-            dialog.show();
-
- */
         }
     }
     public void homeAction() throws IOException {
@@ -200,9 +192,9 @@ public class CategoryGUIController {
         RelaxGUIController relaxGUIController = loader.getController();
         String category = foodLabel.getText();
         relaxGUIController.setTitle(category);
-        System.out.println("Categoria in categoryGUIController: " + category);
+
         relaxGUIController.setCountry(country);
-        System.out.println("Country in categoryGUIController: " + country);
+
         relaxGUIController.initialize();
         relaxGUIController.inizio();
 
@@ -218,9 +210,9 @@ public class CategoryGUIController {
         RelaxGUIController relaxGUIController = loader.getController();
         String category = relaxLabel.getText();
         relaxGUIController.setTitle(category);
-        System.out.println("Categoria in categoryGUIController: " + category);
+
         relaxGUIController.setCountry(country);
-        System.out.println("Country in categoryGUIController: " + country);
+
         relaxGUIController.initialize();
         relaxGUIController.inizio();
 
