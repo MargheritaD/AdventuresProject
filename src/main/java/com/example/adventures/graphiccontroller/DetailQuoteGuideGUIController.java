@@ -110,18 +110,11 @@ public class DetailQuoteGuideGUIController {
 
     public void inizio(int codice) throws NotFoundException {
 
-       // DatailsQuoteController detailsQuoteController = new DatailsQuoteController();
-        //System.out.println("CODICE VIAGGIO: " + codice);
-        //List<ItineraryStopBean> itineraryStopBeans = detailsQuoteController.tableItinerary(codice);// prima era tripId
-       //TripBean tripBean = detailsQuoteController.tableTrip(codice);
-
         BookTripController bookTripController = new BookTripController();
         List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(codice);// prima era tripId
         TripBean tripBean = bookTripController.tableTrip(codice);
 
-        System.out.println("Categoria datails quote: "+ tripBean.getCategory());
         tripPrice = Float.parseFloat(tripBean.getGuide());
-        System.out.println("prezzo: "+ tripBean.getGuide());
 
         // Imposta i valori delle colonne tabella viaggio
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("tripName"));
@@ -130,8 +123,6 @@ public class DetailQuoteGuideGUIController {
         returnColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
         guideColumn.setCellValueFactory(new PropertyValueFactory<>("guide"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-
-        System.out.println("Categoria datails quote colonna: "+ guideColumn);
 
         // Popola la tabella con i dettagli
         tripTable.getItems().addAll(tripBean);
@@ -148,7 +139,6 @@ public class DetailQuoteGuideGUIController {
 
     public void setTripId(int tripId) {
         this.tripId = tripId;
-        System.out.println("CODICE VIAGGIO THIS:" + tripId);
     }
 
     public void quoteAction(){
@@ -181,8 +171,7 @@ public class DetailQuoteGuideGUIController {
             dialog.centerOnScreen();
             dialog.show();
         } catch (Exception e) {
-            System.out.println("Eccezione quote: " + e.getMessage());
-            // ShowExceptionSupport.showException(e.getMessage());
+            //ShowExceptionSupport.showException(e.getMessage());
         }
 
     }
