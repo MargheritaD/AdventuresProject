@@ -86,22 +86,22 @@ public class RequestDAO {
         String tripName = resultSet.getString(1);
         String Nome_viaggiatore = resultSet.getString(2);
         String Cognome_viaggiatore = resultSet.getString(3);
+        int idRequest = resultSet.getInt(4);
 
 
-        return (new Request(tripName, Nome_viaggiatore, Cognome_viaggiatore));
+
+        return (new Request(tripName, Nome_viaggiatore, Cognome_viaggiatore, idRequest));
     }
 
-    public static void acceptRequest(){
-       /* Connection connection;
+    public static void acceptRequest(RequestBean requestBean){
+        Connection connection;
         try {
             connection = ConnectionDB.getConnection();
 
-            CRUDQueries.acceptRequest(connection, idRequest);
-        }catch (SQLException | NotFoundException e) {
+            CRUDQueries.acceptRequest(connection, requestBean.getIdRequest());
+        }catch (SQLException e) {
             Printer.printError(e.getMessage());
         }
-
-        */
     }
 
 

@@ -69,4 +69,20 @@ public class CRUDQueries {
         return preparedStatement.executeUpdate();
     }
 
+    public static void acceptRequest(Connection connection, int idRequest) throws SQLException{
+        String insertStatement = "UPDATE Request SET status = 1 WHERE idRequest = ?";
+        preparedStatement = connection.prepareStatement(insertStatement, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        preparedStatement.setInt(1,idRequest);
+        preparedStatement.executeUpdate();
+    }
+
+    public static void declineRequest(Connection connection, int idRequest) throws SQLException{
+        String insertStatement = "UPDATE Request SET status = 2 WHERE idRequest = ?";
+        preparedStatement = connection.prepareStatement(insertStatement, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        preparedStatement.setInt(1,idRequest);
+        preparedStatement.executeUpdate();
+    }
+
+
+
 }

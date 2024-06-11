@@ -49,7 +49,7 @@ public class UpcomingTripsGUIController {
     private boolean guideController = true;
 
     public void initialize(){
-
+/*
         // Controlla il tipo di utente attualmente loggato
         Session session = Session.getCurrentSession();
         if(session != null) {
@@ -74,7 +74,11 @@ public class UpcomingTripsGUIController {
         } else {
             // Sessione non valida
         }
+
+ */
     }
+
+    int requestId;
 
     public void inizio()throws IOException, NotFoundException{
 
@@ -111,19 +115,27 @@ public class UpcomingTripsGUIController {
                 declineButton.setDisable(true);
             }
         });
-
-
-
     }
 
     public void acceptAction() {
-        BookTripController bookTripController = new BookTripController();
-        bookTripController.acceptRequest();
+
+        RequestBean selectedRequest = tableViewRequests.getSelectionModel().getSelectedItem();
+
+        if (selectedRequest != null) {
+
+            BookTripController bookTripController = new BookTripController();
+            bookTripController.acceptRequest(selectedRequest);
+        }
     }
 
     public void declineAction() {
-        BookTripController bookTripController = new BookTripController();
-        bookTripController.declineRequest();
+        RequestBean selectedRequest = tableViewRequests.getSelectionModel().getSelectedItem();
+
+        if (selectedRequest != null) {
+
+            BookTripController bookTripController = new BookTripController();
+            bookTripController.declineRequest(selectedRequest);
+        }
     }
 
 

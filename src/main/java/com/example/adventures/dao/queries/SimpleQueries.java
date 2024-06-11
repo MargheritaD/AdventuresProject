@@ -98,7 +98,7 @@ public class SimpleQueries {
     }
 
     public static ResultSet retrieveRequestsListGuide(Connection connection, int idGuide) throws SQLException{
-        String sql = "SELECT t.tripName, v.Nome_viaggiatore, v.Cognome_viaggiatore\n" +
+        String sql = "SELECT t.tripName, v.Nome_viaggiatore, v.Cognome_viaggiatore, r.idRequest\n" +
                 "From dbAdventures.GUIDE g Join dbAdventures.TRIPS t ON  g.guideName = t.guide \n" +
                 "join dbAdventures.REQUEST r ON r.trip = t.idTrip\n" +
                 "join dbAdventures.VIAGGIATORI v on v.Id_viaggiatore = r.traveler\n" +

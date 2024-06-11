@@ -22,10 +22,11 @@ public class RequestBean {
         this.travelerName = travelerName;
     }
 
-    public RequestBean(String tripName, String travelerName, String travelerSurname){
+    public RequestBean(String tripName, String travelerName, String travelerSurname, int idRequest){
         this.tripName = tripName;
         this.travelerName = travelerName;
         this.travelerSurname = travelerSurname;
+        this.idRequest = idRequest;
     }
 
     public int getIdTrip(){return idTrip;}

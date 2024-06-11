@@ -84,7 +84,7 @@ public class BookTripController {
 
         List<RequestBean> requestBeans = new ArrayList<>();
         for (Request request : requests) {
-            RequestBean requestBean = new RequestBean(request.getNomeViaggio(), request.getNomeViaggiatore(), request.getCognomeViaggiatore());
+            RequestBean requestBean = new RequestBean(request.getNomeViaggio(), request.getNomeViaggiatore(), request.getCognomeViaggiatore(), request.getRequest_id());
             requestBeans.add(requestBean);
             System.out.println(request.getNomeViaggio());
             System.out.println(request.getNomeViaggiatore());
@@ -94,11 +94,11 @@ public class BookTripController {
         return requestBeans;
     }
 
-    public void acceptRequest(){
-        RequestDAO.acceptRequest();
+    public void acceptRequest(RequestBean requestBean){
+        RequestDAO.acceptRequest(requestBean);
     }
 
-    public void declineRequest(){
+    public void declineRequest(RequestBean requestBean){
 
     }
 

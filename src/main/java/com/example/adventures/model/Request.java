@@ -23,10 +23,11 @@ public class Request {
         this.idTraveler = idTraveler;
     }
 
-    public Request(String nomeViaggio, String nomeViaggiatore, String cognomeViaggiatore){
+    public Request(String nomeViaggio, String nomeViaggiatore, String cognomeViaggiatore, int request_id){
         this.nomeViaggio = nomeViaggio;
         this.nomeViaggiatore = nomeViaggiatore;
         this.cognomeViaggiatore = cognomeViaggiatore;
+        this.request_id = request_id;
     }
 
     public int getIdTrip(){
@@ -47,5 +48,9 @@ public class Request {
 
     public String getNomeViaggio() {
         return nomeViaggio;
+    }
+
+    public int getRequest_id() {
+        return request_id;
     }
 }
