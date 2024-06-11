@@ -1,5 +1,7 @@
 package com.example.adventures.dao.queries;
 
+import com.example.adventures.bean.RequestBean;
+
 import java.sql.*;
 
 public class SimpleQueries {
@@ -95,6 +97,18 @@ public class SimpleQueries {
         return preparedStatement.executeQuery();
     }
 
+    public static ResultSet retrieveRequestsListGuide(Connection connection, int idGuide) throws SQLException{
+        String sql = "SELECT t.tripName, v.Nome_viaggiatore, v.Cognome_viaggiatore\n" +
+                "From dbAdventures.GUIDE g Join dbAdventures.TRIPS t ON  g.guideName = t.guide \n" +
+                "join dbAdventures.REQUEST r ON r.trip = t.idTrip\n" +
+                "join dbAdventures.VIAGGIATORI v on v.Id_viaggiatore = r.traveler\n" +
+                "WHERE g.idGuide = ? and status = 0\n";
+
+        preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        preparedStatement.setInt(1,idGuide);
+        return preparedStatement.executeQuery();
+    }
+
     public static ResultSet retrieveTripData(Connection connection, int tripId) throws SQLException {
         String sql = "SELECT * FROM Trips WHERE idTrip = ?";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -115,5 +129,8 @@ public class SimpleQueries {
         preparedStatement.setString(1,country);
         return preparedStatement.executeQuery();
     }
+
+
+
 
 }

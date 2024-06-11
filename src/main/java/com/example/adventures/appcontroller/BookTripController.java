@@ -75,4 +75,31 @@ public class BookTripController {
 
     }
 
+    public List<RequestBean> tableRequestsGuide(GuideBean guideBean){
+
+        System.out.println("Sono nel booktripcontroler\n");
+        System.out.println("Sto chiamando il requestsDAO");
+
+        List<Request> requests = RequestDAO.requestsGuide(guideBean.getId());
+
+        List<RequestBean> requestBeans = new ArrayList<>();
+        for (Request request : requests) {
+            RequestBean requestBean = new RequestBean(request.getNomeViaggio(), request.getNomeViaggiatore(), request.getCognomeViaggiatore());
+            requestBeans.add(requestBean);
+            System.out.println(request.getNomeViaggio());
+            System.out.println(request.getNomeViaggiatore());
+            System.out.println(request.getCognomeViaggiatore());
+        }
+
+        return requestBeans;
+    }
+
+    public void acceptRequest(){
+        RequestDAO.acceptRequest();
+    }
+
+    public void declineRequest(){
+
+    }
+
 }

@@ -4,9 +4,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
@@ -15,29 +17,18 @@
       <Pane layoutX="20.0" layoutY="20.0" prefHeight="740.0" prefWidth="1275.0" style="-fx-background-color: d3d3d3;">
          <children>
             <Line endX="523.674072265625" endY="-7.62939453125E-6" layoutX="705.0" layoutY="85.0" startX="-682.8458862304688" startY="-7.62939453125E-6" stroke="WHITE" strokeWidth="2.0" />
-            <Label fx:id="titleLabel" layoutX="440.0" layoutY="4.0" text="Upcoming trips" textFill="WHITE">
+            <Label fx:id="titleLabel" layoutX="525.0" layoutY="4.0" text="Requests" textFill="WHITE">
                <font>
                   <Font name="AppleGothic Regular" size="55.0" />
                </font>
             </Label>
-            <TableView fx:id="tableViewTrips" layoutX="338.0" layoutY="229.0" prefHeight="376.0" prefWidth="600.0" stylesheets="@style.css">
+            <TableView fx:id="tableViewRequests" layoutX="345.0" layoutY="192.0" prefHeight="376.0" prefWidth="600.0" stylesheets="@style.css">
               <columns>
-                <TableColumn fx:id="nameColumn" minWidth="200.0" prefWidth="75.0" text="Traveler Name" />
-                <TableColumn fx:id="outboundColumn" minWidth="200.0" prefWidth="75.0" text="Trip name" />
-                  <TableColumn fx:id="returnColumn" minWidth="200.0" prefWidth="75.0" text="Departure city" />
-                  <TableColumn fx:id="idColumn" prefWidth="75.0" text="Column X" />
+                <TableColumn fx:id="nameColumn" minWidth="200.0" prefWidth="75.0" text="Trip name" />
+                <TableColumn fx:id="tripColumn" minWidth="200.0" prefWidth="75.0" text="Triaveler name" />
+                  <TableColumn fx:id="cityColumn" minWidth="200.0" prefWidth="75.0" text="Traveler surname" />
               </columns>
             </TableView>
-            <ImageView fitHeight="227.0" fitWidth="212.0" layoutX="100.0" layoutY="530.0">
-               <image>
-                  <Image url="@image/ominoViaggiatore.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="227.0" fitWidth="212.0" layoutX="970.0" layoutY="530.0">
-               <image>
-                  <Image url="@image/ominoViaggiatore.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="67.0" fitWidth="70.0" layoutX="12.0" layoutY="4.0" opacity="0.25">
                <image>
                   <Image url="@image/Logout.png" />
@@ -71,7 +62,39 @@
             <Button fx:id="exitButton" layoutX="13.0" layoutY="10.0" mnemonicParsing="false" onAction="#exitAction" opacity="0.0" prefHeight="59.0" prefWidth="61.0" text="Button" />
             <Button fx:id="backButton" layoutX="1071.0" layoutY="8.0" mnemonicParsing="false" onAction="#backAction" opacity="0.0" prefHeight="70.0" prefWidth="61.0" text="Button" />
             <Button fx:id="homeButton" layoutX="1166.0" layoutY="11.0" mnemonicParsing="false" onAction="#homeAction" opacity="0.0" prefHeight="70.0" prefWidth="61.0" text="Button" />
-            <Button fx:id="participantsButton" layoutX="611.0" layoutY="664.0" mnemonicParsing="false" text="Button" />
+            <Button fx:id="acceptButton" layoutX="454.0" layoutY="618.0" mnemonicParsing="false" onAction="#acceptAction" prefHeight="66.0" prefWidth="134.0" style="-fx-background-color: #356b38; -fx-background-radius: 30;" text="Accept" textFill="WHITE">
+               <effect>
+                  <DropShadow offsetX="2.5" offsetY="2.5">
+                     <color>
+                        <Color opacity="0.552581250667572" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="AppleGothic Regular" size="20.0" />
+               </font></Button>
+            <ImageView fitHeight="209.0" fitWidth="207.0" layoutX="976.0" layoutY="443.0">
+               <image>
+                  <Image url="@image/ominoTriste.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="91.0" layoutY="447.0">
+               <image>
+                  <Image url="@image/ominoHappy.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="declineButton" layoutX="687.0" layoutY="618.0" mnemonicParsing="false" onAction="#declineAction" prefHeight="66.0" prefWidth="134.0" style="-fx-background-color: #356b38; -fx-background-radius: 30;" text="Decline" textFill="WHITE">
+               <effect>
+                  <DropShadow offsetX="2.5" offsetY="2.5">
+                     <color>
+                        <Color opacity="0.552581250667572" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="AppleGothic Regular" size="20.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

@@ -1,8 +1,10 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
+import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.appcontroller.TableTripController;
 import com.example.adventures.bean.GuideBean;
+import com.example.adventures.bean.RequestBean;
 import com.example.adventures.bean.TravelerBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.engineering.Session;
@@ -26,24 +28,24 @@ import java.util.Objects;
 public class UpcomingTripsGUIController {
 
     @FXML
-    private Button participantsButton;
+    private Button acceptButton;
+    @FXML
+    private Button declineButton;
     @FXML
     private Label titleLabel;
     @FXML
-    private TableView<TripBean> tableViewTrips;
+    private TableView<RequestBean> tableViewRequests;
     @FXML
-    private TableColumn<TripBean, String> nameColumn;
+    private TableColumn<RequestBean, String> nameColumn;
     @FXML
-    private TableColumn<TripBean, String> outboundColumn;
+    private TableColumn<RequestBean, String> tripColumn;
     @FXML
-    private TableColumn<TripBean, String> returnColumn;
-    @FXML
-    private TableColumn<TripBean, Integer> idColumn;
-    @FXML
-    private TableColumn<TripBean, String> cittaColumn;
+    private TableColumn<RequestBean, String> cityColumn;
+
 
 
     private String username;
+    private int idGuide;
     private boolean guideController = true;
 
     public void initialize(){
@@ -55,7 +57,9 @@ public class UpcomingTripsGUIController {
                 // È un utente Guida
                 GuideBean guideBean = session.getGuideBean();
                 username = guideBean.getName(); // Utilizza l'email anziché il nome
-                System.out.println("Sono nella tabella relax come GUIDA:" + username);
+                idGuide = guideBean.getId();//
+                System.out.println("Sono nella tabella upcoming come GUIDA:" + username);
+                System.out.println("Sono nella tabella upcoming come GUIDAid:" + idGuide);
             } else if(session.getTravelerBean() != null) {
                 // È un utente Viaggiatore
                 TravelerBean travelerBean = session.getTravelerBean();
@@ -72,43 +76,54 @@ public class UpcomingTripsGUIController {
         }
     }
 
-    Date currentDate = new Date(System.currentTimeMillis());
-
     public void inizio()throws IOException, NotFoundException{
 
-        // Ottieni la lista dei viaggi dal TripDAO
-        System.out.println("\nData adesso "+ currentDate);
-
-        TableTripController tableTripController = new TableTripController();
-
-        List<TripBean> tripBeans = tableTripController.upcomingTableTrip(currentDate, username);
+        // Ottieni la lista delle richieste dal RequestDAO
+        Session session = Session.getCurrentSession();
+        GuideBean guideBean = session.getGuideBean();
+        System.out.println("Sto chiamando il book trip controller\n");
+        BookTripController bookTripController = new BookTripController();
+        List<RequestBean> requestBeans = bookTripController.tableRequestsGuide(guideBean);
 
         // Imposta i valori delle colonne
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("idTrip")); // prima era idColumn
+        //idColumn.setCellValueFactory(new PropertyValueFactory<>("idTrip")); // prima era idColumn
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("tripName"));
-        outboundColumn.setCellValueFactory(new PropertyValueFactory<>("outboundDate"));
-        returnColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
-        //cittaColumn.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
+        tripColumn.setCellValueFactory(new PropertyValueFactory<>("travelerName"));
+        cityColumn.setCellValueFactory(new PropertyValueFactory<>("travelerSurname"));
 
         // Popola la tabella con i viaggi
-        tableViewTrips.getItems().addAll(tripBeans);
+        tableViewRequests.getItems().addAll(requestBeans);
 
-        // Disabilita il pulsante all'avvio dell'applicazione
-        participantsButton.setDisable(true);
+        // Disabilita il pulsanti all'avvio dell'applicazione
+        acceptButton.setDisable(true);
+        declineButton.setDisable(true);
 
         // Aggiungo un listener per la selezione delle righe nella tabella
-        tableViewTrips.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+        tableViewRequests.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                // Abilita il pulsante se una riga è selezionata
-                participantsButton.setDisable(false);
-                // Salva i dati della riga selezionata
+                // Abilita il pulsanti se una riga è selezionata
+                acceptButton.setDisable(false);
+                declineButton.setDisable(false);
 
             } else {
                 // Disabilita il pulsante se nessuna riga è selezionata
-                participantsButton.setDisable(true);
+                acceptButton.setDisable(true);
+                declineButton.setDisable(true);
             }
         });
 
+
+
+    }
+
+    public void acceptAction() {
+        BookTripController bookTripController = new BookTripController();
+        bookTripController.acceptRequest();
+    }
+
+    public void declineAction() {
+        BookTripController bookTripController = new BookTripController();
+        bookTripController.declineRequest();
     }
 
 
