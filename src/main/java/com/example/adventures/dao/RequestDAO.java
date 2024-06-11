@@ -104,5 +104,16 @@ public class RequestDAO {
         }
     }
 
+    public static void declineRequest(RequestBean requestBean){
+        Connection connection;
+        try {
+            connection = ConnectionDB.getConnection();
+
+            CRUDQueries.declineRequest(connection, requestBean.getIdRequest());
+        }catch (SQLException e) {
+            Printer.printError(e.getMessage());
+        }
+    }
+
 
 }

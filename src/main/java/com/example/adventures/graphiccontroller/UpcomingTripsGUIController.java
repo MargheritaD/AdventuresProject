@@ -78,7 +78,6 @@ public class UpcomingTripsGUIController {
  */
     }
 
-    int requestId;
 
     public void inizio()throws IOException, NotFoundException{
 

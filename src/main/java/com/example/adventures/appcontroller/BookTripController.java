@@ -99,7 +99,7 @@ public class BookTripController {
     }
 
     public void declineRequest(RequestBean requestBean){
-
+        RequestDAO.declineRequest(requestBean);
     }
 
 }
