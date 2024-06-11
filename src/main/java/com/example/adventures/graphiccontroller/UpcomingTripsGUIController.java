@@ -118,22 +118,31 @@ public class UpcomingTripsGUIController {
 
     public void acceptAction() {
 
+        int index = tableViewRequests.getSelectionModel().getSelectedIndex();
+
         RequestBean selectedRequest = tableViewRequests.getSelectionModel().getSelectedItem();
 
         if (selectedRequest != null) {
 
             BookTripController bookTripController = new BookTripController();
             bookTripController.acceptRequest(selectedRequest);
+            tableViewRequests.getItems().remove(index);
+            tableViewRequests.refresh();
         }
     }
 
     public void declineAction() {
+
+        int index = tableViewRequests.getSelectionModel().getSelectedIndex();
+
         RequestBean selectedRequest = tableViewRequests.getSelectionModel().getSelectedItem();
 
         if (selectedRequest != null) {
 
             BookTripController bookTripController = new BookTripController();
             bookTripController.declineRequest(selectedRequest);
+            tableViewRequests.getItems().remove(index);
+            tableViewRequests.refresh();
         }
     }
 
