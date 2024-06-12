@@ -35,7 +35,7 @@ public class EditTripDetailsController {
 
     }
 
-    public void cancelTrip(int idTrip) throws NotFoundException {
+    public void cancelTrip(int idTrip) {
 
         TripDAO.cancelTrip(idTrip);
     }

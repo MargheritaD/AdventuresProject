@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
 
 public class HomePageGuideMapGUIController {
@@ -40,7 +41,7 @@ public class HomePageGuideMapGUIController {
     @FXML
     private Label argentinaLabel;
     @FXML
-    private ImageView bell;
+    private ImageView bellImage;
 
 
 
@@ -58,14 +59,29 @@ public class HomePageGuideMapGUIController {
 
         nameLabel.setText(guideBean.getName());
 
-        Image newImage = new Image("@image/yellowBell.png");
-        bell.setImage(newImage);
-
-        //double opacity = 0.2;
-
-        //bell.setOpacity(opacity);
+        URL resource = getClass().getResource("/com/example/adventures/image/emptyBell.png");
+        if (resource != null) {
+            String imageUrl = resource.toExternalForm();
+            System.out.println("Dopo string url\n");
+            System.out.println("URL " + imageUrl);
+            Image newImage = new Image(imageUrl);
+            bellImage.setImage(newImage);
+        } else {
+            System.out.println("Immagine non trovata: /image/yellowBell.png");
+        }
     }
     public void australiaMouseEntered(){
+
+        URL resource = getClass().getResource("/com/example/adventures/image/yellowBell.png");
+        if (resource != null) {
+            String imageUrl = resource.toExternalForm();
+            System.out.println("Dopo string url\n");
+            System.out.println("URL " + imageUrl);
+            Image newImage = new Image(imageUrl);
+            bellImage.setImage(newImage);
+        } else {
+            System.out.println("Immagine non trovata: /image/yellowBell.png");
+        }
 
         //HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
         //int num = homePageGuideController.numberOfTrps("Australia");
@@ -198,6 +214,17 @@ public class HomePageGuideMapGUIController {
     }
 
     public void australiaMouseExited(){
+        URL resource = getClass().getResource("/com/example/adventures/image/emptyBell.png");
+        if (resource != null) {
+            String imageUrl = resource.toExternalForm();
+            System.out.println("Dopo string url\n");
+            System.out.println("URL " + imageUrl);
+            Image newImage = new Image(imageUrl);
+            bellImage.setImage(newImage);
+        } else {
+            System.out.println("Immagine non trovata: /image/yellowBell.png");
+        }
+
         australiaLabel.setText(""); // Imposta il testo della label su una stringa vuota
     }
 
