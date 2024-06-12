@@ -59,6 +59,12 @@ public class HomePageGuideMapGUIController {
 
         nameLabel.setText(guideBean.getName());
 
+        /*
+            CI VA IL CONTROLLO PER VEDERE SE CI SONO NUOVE RICHIESTE.
+            SI -> YELLOWBELL -> PULSANTE ATTIVO
+            NO -> EMPTYBELL  -> PULSANTE NON ATTIVO
+         */
+
         URL resource = getClass().getResource("/com/example/adventures/image/emptyBell.png");
         if (resource != null) {
             String imageUrl = resource.toExternalForm();
