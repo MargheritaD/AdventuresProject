@@ -1,7 +1,5 @@
 package com.example.adventures.bean;
 
-import java.time.LocalDate;
-
 public class CountryCategoryBean {
     private String category;
     private String country;
