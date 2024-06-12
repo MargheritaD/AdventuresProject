@@ -161,5 +161,11 @@
             <Font name="American Typewriter" size="14.0" />
          </font>
       </Label>
+      <Button layoutX="1203.0" layoutY="200.0" mnemonicParsing="false" opacity="0.0" prefHeight="66.0" prefWidth="65.0" text="Button" />
+      <ImageView fitHeight="60.0" fitWidth="61.0" layoutX="1202.0" layoutY="97.0">
+         <image>
+            <Image url="@image/emptyBell.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

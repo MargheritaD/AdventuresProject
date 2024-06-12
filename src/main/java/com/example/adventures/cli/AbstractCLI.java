@@ -6,7 +6,7 @@ import com.example.adventures.utilities.CLIPrinter;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-public class AbstractCLIController {
+public class AbstractCLI {
 
     Logger logger = Logger.getAnonymousLogger();
 
@@ -27,11 +27,12 @@ public class AbstractCLIController {
     protected void logout(){
 
         new LoginController().logout();
-        new CLILoginGraphicController().start();
+        new CLILogin().start();
 
     }
 
     protected void goHome() {
+        // ruolo cosi cambi home
         new CLIHomeGuide().start();
     }
 

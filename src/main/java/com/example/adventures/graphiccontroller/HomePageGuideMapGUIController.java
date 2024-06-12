@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -37,6 +39,9 @@ public class HomePageGuideMapGUIController {
     private Label brasilLabel;
     @FXML
     private Label argentinaLabel;
+    @FXML
+    private ImageView bell;
+
 
 
 /*
@@ -52,6 +57,13 @@ public class HomePageGuideMapGUIController {
         GuideBean guideBean = Session.getCurrentSession().getGuideBean();
 
         nameLabel.setText(guideBean.getName());
+
+        Image newImage = new Image("@image/yellowBell.png");
+        bell.setImage(newImage);
+
+        //double opacity = 0.2;
+
+        //bell.setOpacity(opacity);
     }
     public void australiaMouseEntered(){
 

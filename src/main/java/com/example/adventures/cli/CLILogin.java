@@ -10,7 +10,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 
-public class CLILoginGraphicController extends AbstractCLIController{
+public class CLILogin extends AbstractCLI {
 
     public void start(){
         boolean a = true;

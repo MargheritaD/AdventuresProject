@@ -1,9 +1,15 @@
 package com.example.adventures.cli;
 
+import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.bean.CountryCategoryBean;
+import com.example.adventures.bean.TripBean;
+import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.utilities.CLIPrinter;
 
-public class CLIHomeGuide extends AbstractCLIController{
+import java.sql.SQLException;
+import java.util.List;
+
+public class CLIHomeGuide extends AbstractCLI {
     public void start(){
 
         boolean choose = true;
@@ -44,11 +50,10 @@ public class CLIHomeGuide extends AbstractCLIController{
                                 int category = chooseCategory();
                                 setCategory(category, countryCategoryBean);
                             }
-
                         }
                     }
-                    case 2 -> {
-                        // vedi se implementarlo
+                    case 2 -> { // request
+
                         choose = false;
                         CLIPrinter.printMessage("Not implemented");
                     }
@@ -73,7 +78,7 @@ public class CLIHomeGuide extends AbstractCLIController{
 
         CLIPrinter.printMessage("Menu: \n");
         CLIPrinter.printMessage("1. Choose country: \n");
-        CLIPrinter.printMessage("2. Your requests: \n");
+        CLIPrinter.printMessage("2. Trip requests: \n");
         CLIPrinter.printMessage("3. Logout: \n");
         CLIPrinter.printMessage("4. Quit: \n");
 
@@ -105,11 +110,14 @@ public class CLIHomeGuide extends AbstractCLIController{
 
         return  getMenuChoice(1,6);
     }
-    public void setCategory(int category, CountryCategoryBean countryCategoryBean){
+    public void setCategory(int category, CountryCategoryBean countryCategoryBean) throws SQLException, NotFoundException {
         switch (category){
             case 1 ->{
                 countryCategoryBean.setCategory("Relax");
-              //  new // nuovaPage.start(countryCategoryBean)
+                BookTripController bookTripController = new BookTripController();
+                List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
+                CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
+                cliListTripCategoryCountry.start(listOfTripBean);
                 System.out.println(countryCategoryBean.getCategory());
                 System.out.println(countryCategoryBean.getCountry());
             }
