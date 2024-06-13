@@ -10,7 +10,7 @@ public class AbstractCLI {
 
     Logger logger = Logger.getAnonymousLogger();
 
-    protected int getMenuChoice(int min, int max) {
+    protected static int getMenuChoice(int min, int max) {
         Scanner input = new Scanner(System.in);
         int choice = 0;
         while (true) {
@@ -24,7 +24,7 @@ public class AbstractCLI {
         return choice;
     }
 
-    protected void logout(){
+    protected static void logout(){
 
         new LoginController().logout();
         new CLILogin().start();

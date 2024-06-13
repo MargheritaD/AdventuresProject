@@ -17,6 +17,7 @@ public class CLILogin extends AbstractCLI {
         while (a){
             int choice;
             try{
+                System.out.println("\n************* ADVENTURES *************\n");
                 choice = showMenu();
                 switch (choice){
                     case 1 -> {
@@ -26,7 +27,7 @@ public class CLILogin extends AbstractCLI {
                     case 2 -> {
                         a = false;
 
-                        System.out.println("SinUp");
+                        System.out.println("Not implemented");
                         //new CLISignUpGraphicController().start();
                     }
 
@@ -43,10 +44,10 @@ public class CLILogin extends AbstractCLI {
     }
 
     public int showMenu() {
-        CLIPrinter.printMessage("What do you want to do?\n");
+        CLIPrinter.printMessage("Menu: \n\n");
         CLIPrinter.printMessage("1) Login\n");
         CLIPrinter.printMessage("2) Sign Up\n");
-        CLIPrinter.printMessage("3) Quit\n");
+        CLIPrinter.printMessage("3) Quit\n\n");
 
         return getMenuChoice(1, 3);
     }
@@ -57,15 +58,16 @@ public class CLILogin extends AbstractCLI {
         LoginController loginController = new LoginController();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
-            CLIPrinter.printMessage("username: ");
+            CLIPrinter.printMessage("\nPlease enter your credentials:");
+            CLIPrinter.printMessage("\nusername: ");
             String username = reader.readLine();
             CLIPrinter.printMessage("password: ");
             String password = reader.readLine();
             LoginBean loginBean = new LoginBean(username, password);
-            System.out.println(loginBean.getUsername());
-            System.out.println(loginBean.getPassword());
+            //System.out.println(loginBean.getUsername());
+            //System.out.println(loginBean.getPassword());
             loginController.checkUser(loginBean);
-            System.out.println(loginBean.getRole());
+            //System.out.println(loginBean.getRole());
 
             switch(loginBean.getRole()){
                 case 1 ->  {
@@ -75,7 +77,7 @@ public class CLILogin extends AbstractCLI {
                 }
                 case 2 -> {
                     loginController.travelerLogin(loginBean);
-                    //CLIHomeTraveler.start();
+                    CLIHomeTraveler.start();
                 }
                 default -> throw new UserNotFoundException();
             }

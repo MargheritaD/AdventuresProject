@@ -76,22 +76,23 @@ public class CLIHomeGuide extends AbstractCLI {
 
     private int showMenu(){
 
-        CLIPrinter.printMessage("Menu: \n");
-        CLIPrinter.printMessage("1. Choose country: \n");
-        CLIPrinter.printMessage("2. Trip requests: \n");
-        CLIPrinter.printMessage("3. Logout: \n");
-        CLIPrinter.printMessage("4. Quit: \n");
+        CLIPrinter.printMessage("\nMenu: \n");
+        CLIPrinter.printMessage("\n1) Choose country: \n");
+        CLIPrinter.printMessage("2) Trip requests: \n");
+        CLIPrinter.printMessage("3) New trip: \n");
+        CLIPrinter.printMessage("4) Logout: \n");
+        CLIPrinter.printMessage("5) Quit: \n\n");
 
-        return  getMenuChoice(1,4);
+        return  getMenuChoice(1,5);
     }
 
     private int chooseCountry(){
 
-        CLIPrinter.printMessage("Country list: \n");
+        CLIPrinter.printMessage("\n********************************* Country list ********************************* \n\n");
         CLIPrinter.printMessage("1. Italy: \n");
         CLIPrinter.printMessage("2. Argentina: \n");
         CLIPrinter.printMessage("3. USA: \n");
-        CLIPrinter.printMessage("4. Mexico: \n");
+        CLIPrinter.printMessage("4. Mexico: \n\n");
         // aggiungi altre country
 
         return  getMenuChoice(1,4);
@@ -99,14 +100,13 @@ public class CLIHomeGuide extends AbstractCLI {
 
     private int chooseCategory(){
 
-        CLIPrinter.printMessage("Category list: \n");
+        CLIPrinter.printMessage("\n********************************* Category list ********************************* \n\n");
         CLIPrinter.printMessage("1. Relax: \n");
         CLIPrinter.printMessage("2. Sport: \n");
         CLIPrinter.printMessage("3. Dog trekking: \n");
         CLIPrinter.printMessage("4. Safari: \n");
         CLIPrinter.printMessage("5. Food tasting: \n");
-        CLIPrinter.printMessage("6. Fun: \n");
-        // aggiungi altre country
+        CLIPrinter.printMessage("6. Fun: \n\n");
 
         return  getMenuChoice(1,6);
     }
@@ -118,29 +118,54 @@ public class CLIHomeGuide extends AbstractCLI {
                 List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
                 CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
                 cliListTripCategoryCountry.start(listOfTripBean);
-                System.out.println(countryCategoryBean.getCategory());
-                System.out.println(countryCategoryBean.getCountry());
+                //System.out.println(countryCategoryBean.getCategory());
+                //System.out.println(countryCategoryBean.getCountry());
             }
 
             case 2 ->{
                 countryCategoryBean.setCategory("Sport");
-              //  new // nuovaPage.start(countryCategoryBean)
+                BookTripController bookTripController = new BookTripController();
+                List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
+                CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
+                cliListTripCategoryCountry.start(listOfTripBean);
+                System.out.println(countryCategoryBean.getCategory());
+                System.out.println(countryCategoryBean.getCountry());
             }
             case 3 ->{
                 countryCategoryBean.setCategory("Dog trekking");
-              //  new // nuovaPage.start(countryCategoryBean)
+                BookTripController bookTripController = new BookTripController();
+                List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
+                CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
+                cliListTripCategoryCountry.start(listOfTripBean);
+                System.out.println(countryCategoryBean.getCategory());
+                System.out.println(countryCategoryBean.getCountry());
             }
             case 4 ->{
                 countryCategoryBean.setCategory("Safari");
-               // new // nuovaPage.start(countryCategoryBean)
+                BookTripController bookTripController = new BookTripController();
+                List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
+                CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
+                cliListTripCategoryCountry.start(listOfTripBean);
+                System.out.println(countryCategoryBean.getCategory());
+                System.out.println(countryCategoryBean.getCountry());
             }
             case 5 ->{
                 countryCategoryBean.setCategory("Food tasting");
-               // new // nuovaPage.start(countryCategoryBean)
+                BookTripController bookTripController = new BookTripController();
+                List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
+                CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
+                cliListTripCategoryCountry.start(listOfTripBean);
+                System.out.println(countryCategoryBean.getCategory());
+                System.out.println(countryCategoryBean.getCountry());
             }
             case 6 ->{
                 countryCategoryBean.setCategory("Fun");
-              //  new // nuovaPage.start(countryCategoryBean)
+                BookTripController bookTripController = new BookTripController();
+                List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
+                CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
+                cliListTripCategoryCountry.start(listOfTripBean);
+                System.out.println(countryCategoryBean.getCategory());
+                System.out.println(countryCategoryBean.getCountry());
             }
         }
     }

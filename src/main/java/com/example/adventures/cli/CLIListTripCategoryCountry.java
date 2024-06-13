@@ -1,12 +1,9 @@
 package com.example.adventures.cli;
 
 import com.example.adventures.appcontroller.BookTripController;
-import com.example.adventures.bean.CountryCategoryBean;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.exception.NotFoundException;
-import com.example.adventures.graphiccontroller.cli.CLISelectedTrip;
-import com.example.adventures.model.ItineraryStop;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.sql.SQLException;
@@ -33,7 +30,6 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
             switch (choice) {
                 case 1 -> {
                     loop = false;
-                   // chooseTrip(62); // metti  get per avere il singolo
                     specifyTour(tripBeanList.get(trip).getIdTrip());
                 }
                 case 2 -> {
@@ -79,14 +75,18 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
    private void specifyTour(int trip) throws SQLException, NotFoundException {
 
        BookTripController bookTripController = new BookTripController();
+       CLIPrinter.printMessage("\nTrip details:\n\n");
        TripBean tripBean = bookTripController.tableTrip(trip);
+       //CLIPrinter.printMessage("Trip name: " + tripBean.getTripName());
+       CLIPrinter.printMessage("\nTrip itinerary:\n\n");
        List<ItineraryStopBean> stop = bookTripController.tableItinerary(trip);
        new CLISelectedTrip().start(tripBean, stop);
    }
     private int showMenu(List<TripBean> trips)  {
 
         int i = 1;
-        CLIPrinter.printMessage("Select a tour: \n");
+        CLIPrinter.printMessage("\n*************************************************************************\n");
+        CLIPrinter.printMessage("\nSelect a trip: \n\n");
         for (TripBean tripBean : trips){
             CLIPrinter.printListOfTrips(i , tripBean.getTripName());
             i++;
