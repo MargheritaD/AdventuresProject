@@ -9,6 +9,7 @@ import com.example.adventures.model.Guide;
 import com.example.adventures.model.ItineraryStop;
 import com.example.adventures.model.Trip;
 
+import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -49,12 +50,16 @@ public class TripDAO {
             resultSet.first();
 
             int id = resultSet.getInt(ID);
+            ItineraryStopDAOCSV itineraryStopDAOCSV = new ItineraryStopDAOCSV();
 
             for(ItineraryStop itineraryStop : trip.getStops()){
-                ItineraryStopDAO.addStop(itineraryStop, id);
+                //ItineraryStopDAO.addStop(itineraryStop, id);
+                itineraryStopDAOCSV.addStop(itineraryStop, id);
             }
         } catch (SQLException e) {
             Printer.printError(e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
