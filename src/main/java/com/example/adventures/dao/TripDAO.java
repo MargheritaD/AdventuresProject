@@ -53,7 +53,7 @@ public class TripDAO {
             ItineraryStopDAOCSV itineraryStopDAOCSV = new ItineraryStopDAOCSV();
 
             for(ItineraryStop itineraryStop : trip.getStops()){
-                //ItineraryStopDAO.addStop(itineraryStop, id);
+                ItineraryStopDAO.addStop(itineraryStop, id);
                 itineraryStopDAOCSV.addStop(itineraryStop, id);
             }
         } catch (SQLException e) {

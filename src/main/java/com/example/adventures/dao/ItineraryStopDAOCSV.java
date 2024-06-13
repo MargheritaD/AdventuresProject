@@ -8,6 +8,7 @@ import com.example.adventures.model.ItineraryStop;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 import com.opencsv.exceptions.CsvException;
+import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.*;
 import java.sql.Connection;
@@ -66,56 +67,35 @@ public class ItineraryStopDAOCSV {
         }
     }
 
-    public  List<ItineraryStop> retrieveStopList(int idTrip) throws IOException{
+    public  List<ItineraryStop> retrieveStopList(int idTrip) throws IOException {
+        CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
 
-        CSVReader reader = new CSVReader(new BufferedReader(new FileReader(fd)));
-        List<ItineraryStop> itineraryStopList = null;
         try {
-            List<String[]> csvBody = reader.readAll();
+            String[] stop;
+            List<ItineraryStop> stopList = new ArrayList<>();
 
-            for (int i = 0; i < csvBody.size(); i++) {
-                String[] strArray = csvBody.get(i);
-                ItineraryStop itineraryStop = new ItineraryStop(strArray[INDEX_CITY], LocalDate.parse(strArray[INDEX_ARRIVAL]), LocalDate.parse(strArray[INDEX_DEPARTURE]));
-                itineraryStopList.add(itineraryStop);
+            while ((stop = csvReader.readNext()) != null) {
+
             }
+            String city = stop[INDEX_CITY];
+            LocalDate arrival = LocalDate.parse(stop[INDEX_ARRIVAL]);
+            LocalDate departure = LocalDate.parse(stop[INDEX_DEPARTURE]);
 
-        }catch (CsvException e){
-            Printer.printError(e.getMessage());
+
+            if(idTrip==(Integer.parseInt(stop[INDEX_TRIP]))){
+
+                ItineraryStop itineraryStop = new ItineraryStop(city, arrival,departure);
+
+                stopList.add(itineraryStop);
+            }
+            System.out.println(stopList.get(0).getCity());
+            return stopList;
+
+        } catch (CsvValidationException e) {
+            throw new RuntimeException(e);
         }finally {
-            reader.close();
+            csvReader.close();
         }
-        System.out.println(itineraryStopList.get(0).getArrival());
-        return itineraryStopList;
-
-        /*ItineraryStop itineraryStop = null;
-        List<ItineraryStop> list = null;
-        CSVReader reader = new CSVReader(new BufferedReader(new FileReader(fd)));
-
-        try(BufferedReader bufferedReader = new BufferedReader(new FileReader("stops.csv"))){
-
-            String row;
-            String[] data;
-
-            while((row = bufferedReader.readLine()) != null){
-                data = row.split(",");
-
-                if(data[INDEX_TRIP].equals(idTrip)){
-
-                    itineraryStop = new ItineraryStop(data[INDEX_CITY], LocalDate.parse(data[INDEX_ARRIVAL]), LocalDate.parse(data[INDEX_DEPARTURE]));
-                    list.add(itineraryStop);
-                }
-
-                throw new NotFoundException("No itinerary found for this trip:" + idTrip);
-            }
-        }catch(NotFoundException | IOException e){
-            Printer.printError(e.getMessage());
-        }
-        catch()
-        finally {
-
-        }
-
-        return list;*/
 
     }
 

@@ -47,9 +47,9 @@ public class BookTripController {
 
     public List<ItineraryStopBean> tableItinerary(int tripId){
 
-        //List<ItineraryStop> stops = ItineraryStopDAO.retrieveStopList(tripId);
-        ItineraryStopDAOCSV itineraryStopDAOCSV = new ItineraryStopDAOCSV();
-        List<ItineraryStop> stops = itineraryStopDAOCSV.retrieveStopList(tripId);
+        List<ItineraryStop> stops = ItineraryStopDAO.retrieveStopList(tripId);
+       // ItineraryStopDAOCSV itineraryStopDAOCSV = new ItineraryStopDAOCSV();
+        //List<ItineraryStop> stops = itineraryStopDAOCSV.retrieveStopList(tripId);
 
         List<ItineraryStopBean> itineraryStopBeans = new ArrayList<>();
         for (ItineraryStop itineraryStop : stops) {
