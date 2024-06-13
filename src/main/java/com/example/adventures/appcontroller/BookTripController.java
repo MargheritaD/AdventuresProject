@@ -2,6 +2,7 @@ package com.example.adventures.appcontroller;
 
 import com.example.adventures.bean.*;
 import com.example.adventures.dao.ItineraryStopDAO;
+import com.example.adventures.dao.ItineraryStopDAOCSV;
 import com.example.adventures.dao.RequestDAO;
 import com.example.adventures.dao.TripDAO;
 import com.example.adventures.engineering.decoretor.Quote;
@@ -46,7 +47,9 @@ public class BookTripController {
 
     public List<ItineraryStopBean> tableItinerary(int tripId){
 
-        List<ItineraryStop> stops = ItineraryStopDAO.retrieveStopList(tripId);
+        //List<ItineraryStop> stops = ItineraryStopDAO.retrieveStopList(tripId);
+        ItineraryStopDAOCSV itineraryStopDAOCSV = new ItineraryStopDAOCSV();
+        List<ItineraryStop> stops = itineraryStopDAOCSV.retrieveStopList(tripId);
 
         List<ItineraryStopBean> itineraryStopBeans = new ArrayList<>();
         for (ItineraryStop itineraryStop : stops) {
