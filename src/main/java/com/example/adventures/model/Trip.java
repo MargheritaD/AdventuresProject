@@ -1,6 +1,5 @@
 package com.example.adventures.model;
 
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +17,6 @@ public class Trip {
     private String country;
     private List<ItineraryStop> stops;
 
-
-    //public Trip() {}
     /*
     ho aggiunto sempre this(); perche:
      -Evitare NullPointerException: Senza questa inizializzazione,
@@ -109,7 +106,7 @@ public class Trip {
         return tripName;
     }
 
-    public void setTripName(String name){
+    public void setTripName(String tripName){
         this.tripName = tripName;
     }
 
