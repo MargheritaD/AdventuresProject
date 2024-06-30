@@ -40,13 +40,10 @@ public class ItineraryStopDAO {
         }
     }
 
-    private static ItineraryStop setTripInformation(ResultSet resultSet) throws NotFoundException, SQLException {
+    private static ItineraryStop setTripInformation(ResultSet resultSet) throws SQLException {
         String city = resultSet.getString(CITY);
         LocalDate arrival = resultSet.getDate(ARRIVAL).toLocalDate();
         LocalDate departure = resultSet.getDate(DEPARTURE).toLocalDate();
-
-        //ItineraryStop itineraryStop = new ItineraryStop(city, arrival, departure);
-        // prima era return itineraryStop
 
         return (new ItineraryStop(city, arrival, departure));
     }
