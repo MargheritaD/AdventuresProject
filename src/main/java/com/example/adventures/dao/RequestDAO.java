@@ -1,5 +1,6 @@
 package com.example.adventures.dao;
 
+import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.RequestBean;
 import com.example.adventures.connection.ConnectionDB;
 import com.example.adventures.dao.queries.CRUDQueries;
@@ -113,6 +114,29 @@ public class RequestDAO {
         }catch (SQLException e) {
             Printer.printError(e.getMessage());
         }
+    }
+
+    public static boolean setBell(GuideBean guideBean){
+        Connection connection;
+
+        Boolean bell = true;
+
+        try {
+            connection = ConnectionDB.getConnection();
+            System.out.println("Id guida corrente: "+guideBean.getId());
+            ResultSet b = SimpleQueries.setBell(connection, guideBean.getId());
+            System.out.println("result set: "+b);
+            if(b.first()){
+                return true;
+            }else {
+                return false;
+            }
+        }catch (SQLException e) {
+            Printer.printError(e.getMessage());
+        }
+
+        return false;
+
     }
 
 

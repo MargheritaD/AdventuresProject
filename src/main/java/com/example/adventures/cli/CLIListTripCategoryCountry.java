@@ -30,7 +30,7 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
             switch (choice) {
                 case 1 -> {
                     loop = false;
-                    specifyTour(tripBeanList.get(trip).getIdTrip());
+                    specifyTrip(tripBeanList.get(trip).getIdTrip());
                 }
                 case 2 -> {
                     loop = false;
@@ -72,7 +72,7 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
     }
 
     */
-   private void specifyTour(int trip) throws SQLException, NotFoundException {
+   private void specifyTrip(int trip) throws SQLException, NotFoundException {
 
        BookTripController bookTripController = new BookTripController();
        CLIPrinter.printMessage("\nTrip details:\n\n");

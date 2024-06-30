@@ -4,6 +4,7 @@ import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.Main;
 import com.example.adventures.appcontroller.LoginController;
 import com.example.adventures.bean.GuideBean;
+import com.example.adventures.bean.RequestBean;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 
 public class HomePageGuideMapGUIController {
@@ -58,12 +60,49 @@ public class HomePageGuideMapGUIController {
         GuideBean guideBean = Session.getCurrentSession().getGuideBean();
 
         nameLabel.setText(guideBean.getName());
+        BookTripController bookTripController = new BookTripController();
+        boolean bell = bookTripController.bell(guideBean);
+        System.out.println("TRUE OR FALSE: "+bell);
 
-        /*
+        if(bell){
+            URL resource = getClass().getResource("/com/example/adventures/image/yellowBell.png");
+            if (resource != null) {
+                String imageUrl = resource.toExternalForm();
+                System.out.println("Dopo string url\n");
+                System.out.println("URL " + imageUrl);
+                Image newImage = new Image(imageUrl);
+                bellImage.setImage(newImage);
+            } else {
+                System.out.println("Immagine non trovata: /image/yellowBell.png");
+            }
+        }else {
+            URL resource = getClass().getResource("/com/example/adventures/image/emptyBell.png");
+            if (resource != null) {
+                String imageUrl = resource.toExternalForm();
+                System.out.println("Dopo string url\n");
+                System.out.println("URL " + imageUrl);
+                Image newImage = new Image(imageUrl);
+                bellImage.setImage(newImage);
+            } else {
+                System.out.println("Immagine non trovata: /image/emptyBell.png");
+            }
+        }
+
+
+
+
+       /* BookTripController bookTripController = new BookTripController();
+        List <RequestBean> requestList = bookTripController.tableRequestsGuide(guideBean);
+
+        if(){
+        }
+
             CI VA IL CONTROLLO PER VEDERE SE CI SONO NUOVE RICHIESTE.
             SI -> YELLOWBELL -> PULSANTE ATTIVO
             NO -> EMPTYBELL  -> PULSANTE NON ATTIVO
          */
+
+        /*
 
         URL resource = getClass().getResource("/com/example/adventures/image/emptyBell.png");
         if (resource != null) {
@@ -75,6 +114,26 @@ public class HomePageGuideMapGUIController {
         } else {
             System.out.println("Immagine non trovata: /image/yellowBell.png");
         }
+
+         */
+    }
+
+    public void toRequestButton() throws IOException, NotFoundException{
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/UpcomingTrips.fxml"));
+        Parent root = loader.load();
+
+        UpcomingTripsGUIController upcomingTripsGUIController = loader.getController();
+        //relaxGUIController.setTitle(category);
+
+        //relaxGUIController.setCountry(country);
+        upcomingTripsGUIController.initialize();
+        upcomingTripsGUIController.inizio();
+
+        Stage dialog = Main.getStage();
+        Scene scene = new Scene(root);
+        dialog.setScene(scene);
+        dialog.show();
     }
     public void australiaMouseEntered(){
 
@@ -103,8 +162,6 @@ public class HomePageGuideMapGUIController {
     public void indiaMouseEntered(){
 
         BookTripController quoteController = new BookTripController();
-       // HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        //int num = homePageGuideController.numberOfTrps("India");
         int num = quoteController.numberOfTrps("India");
         if(num == 1) {
             indiaLable.setText("India: " + num + " avaiable trip");
@@ -117,8 +174,6 @@ public class HomePageGuideMapGUIController {
 
         BookTripController quoteController = new BookTripController();
         int num =  quoteController.numberOfTrps("Spain");
-       // HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        //int num = homePageGuideController.numberOfTrps("Spain");
         if(num == 1){
             europeLabel.setText("Spain: "+ num + " avaiable trip");
         }else {
@@ -130,8 +185,6 @@ public class HomePageGuideMapGUIController {
 
         BookTripController quoteController = new BookTripController();
         int num =  quoteController.numberOfTrps("Italy");
-        //HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-       // int num = homePageGuideController.numberOfTrps("Italy");
         if(num == 1) {
             europeLabel.setText("Italy: " + num + " avaiable trip");
         }else {

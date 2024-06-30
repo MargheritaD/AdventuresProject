@@ -118,8 +118,6 @@ public class CLIHomeGuide extends AbstractCLI {
                 List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
                 CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
                 cliListTripCategoryCountry.start(listOfTripBean);
-                //System.out.println(countryCategoryBean.getCategory());
-                //System.out.println(countryCategoryBean.getCountry());
             }
 
             case 2 ->{

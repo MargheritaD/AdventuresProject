@@ -31,6 +31,13 @@ public class BookTripController {
         return TripDAO.getNumberTripsByCountry(country);
     }
 
+    public boolean bell(GuideBean guideBean){
+
+        boolean bell = RequestDAO.setBell(guideBean);
+
+        return bell;
+    }
+
 
     public List<TripBean> selectCountryAndCategory(CountryCategoryBean countryCategoryBean){
 
@@ -48,7 +55,7 @@ public class BookTripController {
     public List<ItineraryStopBean> tableItinerary(int tripId){
 
         List<ItineraryStop> stops = ItineraryStopDAO.retrieveStopList(tripId);
-       // ItineraryStopDAOCSV itineraryStopDAOCSV = new ItineraryStopDAOCSV();
+        //ItineraryStopDAOCSV itineraryStopDAOCSV = new ItineraryStopDAOCSV();
         //List<ItineraryStop> stops = itineraryStopDAOCSV.retrieveStopList(tripId);
 
         List<ItineraryStopBean> itineraryStopBeans = new ArrayList<>();
@@ -97,6 +104,11 @@ public class BookTripController {
 
     public void declineRequest(RequestBean requestBean){
         RequestDAO.declineRequest(requestBean);
+    }
+
+    public void cancelTrip(int idTrip) {
+
+        TripDAO.cancelTrip(idTrip);
     }
 
 }

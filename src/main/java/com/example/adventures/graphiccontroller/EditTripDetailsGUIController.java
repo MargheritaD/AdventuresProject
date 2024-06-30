@@ -1,7 +1,7 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
-import com.example.adventures.appcontroller.EditTripDetailsController;
+import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.exception.NotFoundException;
@@ -64,12 +64,21 @@ public class EditTripDetailsGUIController {
     public void inizio(int codice) throws NotFoundException {
 
         this.codice = codice;
-        EditTripDetailsController editTripDetailsController = new EditTripDetailsController();
+        ////****EditTripDetailsController editTripDetailsController = new EditTripDetailsController();
+
+        BookTripController bookTripController = new BookTripController();
+        List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(codice);
+        bookTripController.tableTrip(codice);
         //DatailsQuoteController detailsQuoteController = new DatailsQuoteController();
-        List<ItineraryStopBean> itineraryStopBeans = editTripDetailsController.tableItinerary(codice);// prima era tripId
+
+        ////*****List<ItineraryStopBean> itineraryStopBeans = editTripDetailsController.tableItinerary(codice);// prima era tripId
+
         //List<ItineraryStopBean> itineraryStopBeans = detailsQuoteController.tableItinerary(tripId);// prima era tripId
         //List<TripBean> tripBeans = detailsQuoteController.tableDetails(codice);
-        TripBean tripBean = editTripDetailsController.tableTrip(codice);
+
+        ////****TripBean tripBean = editTripDetailsController.tableTrip(codice);
+
+        TripBean tripBean = bookTripController.tableTrip(codice);
 
         this.categoria = tripBean.getCategory();
 
@@ -95,9 +104,12 @@ public class EditTripDetailsGUIController {
     }
 
     public void cancelTripAction() throws NotFoundException, IOException {
-        EditTripDetailsController editTripDetailsController = new EditTripDetailsController();
+        ////****EditTripDetailsController editTripDetailsController = new EditTripDetailsController();
 
-        editTripDetailsController.cancelTrip(codice);
+        ////****editTripDetailsController.cancelTrip(codice);
+
+        BookTripController bookTripController = new BookTripController();
+        bookTripController.cancelTrip(codice);
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/TripCancelled.fxml"));
         Parent root1 = fxmlLoader.load();

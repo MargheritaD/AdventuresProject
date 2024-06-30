@@ -1,6 +1,7 @@
 package com.example.adventures.dao.queries;
 
 import com.example.adventures.bean.RequestBean;
+import javafx.scene.image.ImageView;
 
 import java.sql.*;
 
@@ -127,6 +128,33 @@ public class SimpleQueries {
         String sql = "SELECT COUNT(*) FROM Trips WHERE country = ?";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setString(1,country);
+        return preparedStatement.executeQuery();
+    }
+
+    /*public static boolean setBell(Connection connection, Integer idGuide) throws SQLException{
+
+        String sql = "SELECT EXISTS(SELECT 1  " +
+                    "FROM dbAdventures.Request r " +
+                    "JOIN dbAdventures.Trips t ON r.trip = t.idTrip\n" +
+                    "JOIN dbAdventures.Guide g ON t.guide = g.guideName\n" +
+                    "WHERE g.idGuide = ?\n" +
+                    "AND r.status = 0) AS result";
+        System.out.println("RISULTATAO QUERY: " + sql);
+        boolean bell = Boolean.valueOf(sql);
+        return bell;
+    }
+
+     */
+
+    public static ResultSet setBell(Connection connection, Integer idGuide) throws SQLException{
+        String sql = "SELECT *" +
+                "FROM dbAdventures.Request r " +
+                "JOIN dbAdventures.Trips t ON r.trip = t.idTrip\n" +
+                "JOIN dbAdventures.Guide g ON t.guide = g.guideName\n" +
+                "WHERE g.idGuide = ?\n" +
+                "AND r.status = 0";
+        preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        preparedStatement.setInt(1,idGuide);
         return preparedStatement.executeQuery();
     }
 
