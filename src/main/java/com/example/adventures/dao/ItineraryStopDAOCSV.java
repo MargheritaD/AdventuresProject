@@ -1,19 +1,11 @@
 package com.example.adventures.dao;
 
-import com.example.adventures.connection.ConnectionDB;
-import com.example.adventures.dao.queries.SimpleQueries;
-import com.example.adventures.engineering.Printer;
-import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.ItineraryStop;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
-import com.opencsv.exceptions.CsvException;
 import com.opencsv.exceptions.CsvValidationException;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,12 +25,9 @@ public class ItineraryStopDAOCSV {
 
     public ItineraryStopDAOCSV() throws IOException{
 
-
-
         this.fd = new File("stops.csv");
 
         if(!fd.exists()){
-            System.out.println("NON CREO FILE");
             throw new IOException("File does not exists");
         }
     }
@@ -101,7 +90,4 @@ public class ItineraryStopDAOCSV {
 
 }
 
-    //public  List<ItineraryStop> retrieveStopList(int idTrip) {
-
-//}
 
