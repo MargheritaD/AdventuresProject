@@ -2,28 +2,27 @@ package com.example.adventures.model;
 
 public class Guide extends GenericUser{
 
-    private int Id_guide;
-    private static String Nome_guida;
-    private String Cognome_guida;
+    private int idGuida;
+    private static String nomeGuida;
+    private String cognomeGuida;
     private String Email;
 
     public Guide() {}
-    public Guide(int Id_guide, String nome_guida, String cognome_guida, String email){
+    public Guide(int Id_guide, String nomeGuida, String cognomeGuida, String email){
         super(Id_guide, null, email);
-        this.Nome_guida = nome_guida;
-        this.Cognome_guida = cognome_guida;
+        this.nomeGuida = nomeGuida;
+        this.cognomeGuida = cognomeGuida;
     }
 
     public static String getName() {
-        System.out.println(Nome_guida);
-        return Nome_guida;
+        System.out.println(nomeGuida);
+        return nomeGuida;
     }
 
     public String getSurname() {
-        return Cognome_guida;
+        return cognomeGuida;
     }
 
     public String getEmail(){
-        System.out.println("\nEMAIL BEN: " + Email);
         return Email;}
 }
