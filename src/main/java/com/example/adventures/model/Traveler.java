@@ -7,8 +7,8 @@ public class Traveler extends GenericUser{
     private String email;
 
     public Traveler() {}
-    public Traveler(int Id_traveler, String nomeViaggiatore, String cognomeViaggiatore, String email){
-        this.idViaggiatore = Id_traveler;
+    public Traveler(int idViaggiatore, String nomeViaggiatore, String cognomeViaggiatore, String email){
+        this.idViaggiatore = idViaggiatore;
         this.nomeViaggiatore = nomeViaggiatore;
         this.cognomeViaggiatore = cognomeViaggiatore;
         this.email = email;
@@ -18,6 +18,7 @@ public class Traveler extends GenericUser{
         return nomeViaggiatore;
     }
 
+    @Override
     public int getId(){
         return idViaggiatore;
     }
@@ -26,6 +27,7 @@ public class Traveler extends GenericUser{
         return cognomeViaggiatore;
     }
 
+    @Override
     public String getEmail(){
         return email;}
 
