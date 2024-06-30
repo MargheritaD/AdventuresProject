@@ -77,7 +77,6 @@ public class ItineraryStopDAOCSV {
 
                 stopList.add(itineraryStop);
             }
-            System.out.println(stopList.get(0).getCity());
             return stopList;
 
         } catch (CsvValidationException e) {

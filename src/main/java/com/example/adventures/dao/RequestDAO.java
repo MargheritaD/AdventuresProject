@@ -7,18 +7,13 @@ import com.example.adventures.dao.queries.CRUDQueries;
 import com.example.adventures.dao.queries.SimpleQueries;
 import com.example.adventures.engineering.Printer;
 import com.example.adventures.exception.NotFoundException;
-import com.example.adventures.model.Guide;
 import com.example.adventures.model.Request;
-import com.example.adventures.model.Trip;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-//import static javax.swing.text.html.parser.DTDConstants.ID;
 
 public class RequestDAO {
 
@@ -48,8 +43,6 @@ public class RequestDAO {
 
     public static List<Request> requestsGuide(int idGuide) {
 
-        System.out.println("sono nel requestsDAO");
-
         Connection connection;
         Request request;
         List<Request> requestList = new ArrayList<>();
@@ -68,7 +61,6 @@ public class RequestDAO {
             do {
 
                 request = setTripInformationForRequestTable(resultSet);
-                System.out.println("RICHIESTA: " + request);
                 requestList.add(request);
 
             } while (resultSet.next());
@@ -82,16 +74,14 @@ public class RequestDAO {
     }
 
 
-    private static Request setTripInformationForRequestTable(ResultSet resultSet) throws NotFoundException, SQLException {
+    private static Request setTripInformationForRequestTable(ResultSet resultSet) throws SQLException {
 
         String tripName = resultSet.getString(1);
-        String Nome_viaggiatore = resultSet.getString(2);
-        String Cognome_viaggiatore = resultSet.getString(3);
+        String nomeViaggiatore = resultSet.getString(2);
+        String cognomeViaggiatore = resultSet.getString(3);
         int idRequest = resultSet.getInt(4);
 
-
-
-        return (new Request(tripName, Nome_viaggiatore, Cognome_viaggiatore, idRequest));
+        return (new Request(tripName, nomeViaggiatore, cognomeViaggiatore, idRequest));
     }
 
     public static void acceptRequest(RequestBean requestBean){
@@ -117,15 +107,12 @@ public class RequestDAO {
     }
 
     public static boolean setBell(GuideBean guideBean){
-        Connection connection;
 
-        Boolean bell = true;
+        Connection connection;
 
         try {
             connection = ConnectionDB.getConnection();
-            System.out.println("Id guida corrente: "+guideBean.getId());
             ResultSet b = SimpleQueries.setBell(connection, guideBean.getId());
-            System.out.println("result set: "+b);
             if(b.first()){
                 return true;
             }else {
@@ -138,6 +125,5 @@ public class RequestDAO {
         return false;
 
     }
-
 
 }
