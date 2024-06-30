@@ -18,7 +18,7 @@ public class ItineraryStop {
         return city;
     }
 
-    public void setCitta(String name) {
+    public void setCitta(String city) {
         this.city = city;
     }
 

@@ -15,7 +15,6 @@ public class Guide extends GenericUser{
     }
 
     public static String getName() {
-        System.out.println(nomeGuida);
         return nomeGuida;
     }
 
