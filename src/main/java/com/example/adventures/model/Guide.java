@@ -2,14 +2,14 @@ package com.example.adventures.model;
 
 public class Guide extends GenericUser{
 
-    private int idGuida;
+    private int idGuide;
     private static String nomeGuida;
     private String cognomeGuida;
-    private String Email;
+    private String email;
 
     public Guide() {}
-    public Guide(int Id_guide, String nomeGuida, String cognomeGuida, String email){
-        super(Id_guide, null, email);
+    public Guide(int idGuide, String nomeGuida, String cognomeGuida, String email){
+        super(idGuide, null, email);
         this.nomeGuida = nomeGuida;
         this.cognomeGuida = cognomeGuida;
     }
@@ -23,6 +23,7 @@ public class Guide extends GenericUser{
         return cognomeGuida;
     }
 
+    @Override
     public String getEmail(){
-        return Email;}
+        return email;}
 }
