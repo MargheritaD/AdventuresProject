@@ -25,8 +25,6 @@ public class TravelerDAO {
         String surname = resultSet.getString(SURNAME);
         String email = resultSet.getString(EMAIL);
 
-        //Traveler traveler = new Traveler(id, name, surname, email);
-
         return (new Traveler(id, name, surname, email));
     }
 

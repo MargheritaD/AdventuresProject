@@ -27,8 +27,6 @@ public class TripDAO {
     private static final String GUIDE = "guide";
     private static final String COUNTRY = "country";
 
-    //private TripDAO() {}
-
     public static void addTrip(Trip trip) {
         Connection connection;
 
@@ -45,7 +43,6 @@ public class TripDAO {
 
             if(!resultSet.first()){
                 // NO TRIP FOUND
-                //throw new NotFoundException("No trip found");
             }
             resultSet.first();
 
@@ -63,19 +60,17 @@ public class TripDAO {
         }
     }
 
-    private static Trip setTripInformationForRelaxTable(ResultSet resultSet) throws NotFoundException, SQLException {
+    private static Trip setTripInformationForRelaxTable(ResultSet resultSet) throws SQLException {
         int id = resultSet.getInt(ID);
         String name = resultSet.getString(NAME);
         LocalDate outboundDate = resultSet.getDate(OUTBOUND_DATE).toLocalDate();
         LocalDate returnDate = resultSet.getDate(RETURN_DATE).toLocalDate();
         String guide = resultSet.getString(GUIDE);
 
-        //Trip trip = new Trip(id, name, outboundDate, returnDate, guide);
-
         return (new Trip(id, name, outboundDate, returnDate, guide));
     }
 
-    private static Trip setTripInformationForTripTable(ResultSet resultSet) throws NotFoundException, SQLException {
+    private static Trip setTripInformationForTripTable(ResultSet resultSet) throws SQLException {
         String name = resultSet.getString(NAME);
         String departureCity = resultSet.getString(DEPARTURE_CITY);
         String category = resultSet.getString(CATEGORY);
@@ -84,8 +79,6 @@ public class TripDAO {
         String guide = resultSet.getString(GUIDE); // POSSO LEVARLA
         String price = resultSet.getString(PRICE);
         String country = resultSet.getString(COUNTRY);
-
-        //Trip trip = new Trip(name, departureCity, category, outboundDate, returnDate, price, guide, country);
 
         return (new Trip(name, departureCity, category, outboundDate, returnDate, price, guide, country));
     }
@@ -152,41 +145,6 @@ public class TripDAO {
         return tripList;
     }
 
-
-    /*public static List<Trip> retrieveTripListByCategory(String category) {
-        Connection connection;
-        Trip trip;
-        List<Trip> tripList = new ArrayList<>();
-
-        try {
-            connection = ConnectionDB.getConnection();
-
-            ResultSet resultSet = SimpleQueries.retrieveTripListByCategory(connection, category);
-
-            if (!resultSet.first()) {
-                throw new NotFoundException("No trip found for this category: " + category);
-            }
-
-            resultSet.first();
-
-            do {
-
-                trip = setTripInformationForRelaxTable(resultSet);
-                System.out.println("ID del viaggio recuperato: " + trip.getIdTrip());
-                System.out.println("Citta del viaggio recuperato: " + trip.getDepartureCity());
-                System.out.println("Guida del viaggio recuperato: " + trip.getGuide());
-                tripList.add(trip);
-
-            } while (resultSet.next());
-
-            resultSet.close();
-
-        } catch (SQLException | NotFoundException e) {
-            Printer.printError(e.getMessage());
-        }
-        return tripList;
-    }
-*/
     public static Trip retrieveTripById(int tripId) throws NotFoundException{
 
         Connection connection;
@@ -195,10 +153,10 @@ public class TripDAO {
         try {
             connection = ConnectionDB.getConnection();
 
-            //ResultSet resultSet = SimpleQueries.retrieveTrip(connection, tripId);
             ResultSet resultSet = SimpleQueries.retrieveTripData(connection, tripId);
 
             // Stampa i valori recuperati dal ResultSet
+            /*
             ResultSetMetaData metaData = resultSet.getMetaData();
             int columnCount = metaData.getColumnCount();
 
@@ -208,6 +166,7 @@ public class TripDAO {
                 }
                 System.out.println(); // Vai a capo dopo aver stampato i valori di una riga
             }
+            */
 
             if (!resultSet.first()) {
                 throw new NotFoundException("No trip found with id: " + tripId);
