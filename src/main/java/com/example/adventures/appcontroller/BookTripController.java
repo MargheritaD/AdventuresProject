@@ -2,7 +2,6 @@ package com.example.adventures.appcontroller;
 
 import com.example.adventures.bean.*;
 import com.example.adventures.dao.ItineraryStopDAO;
-import com.example.adventures.dao.ItineraryStopDAOCSV;
 import com.example.adventures.dao.RequestDAO;
 import com.example.adventures.dao.TripDAO;
 import com.example.adventures.engineering.decoretor.Quote;
@@ -33,9 +32,7 @@ public class BookTripController {
 
     public boolean bell(GuideBean guideBean){
 
-        boolean bell = RequestDAO.setBell(guideBean);
-
-        return bell;
+        return RequestDAO.setBell(guideBean);
     }
 
 
@@ -55,8 +52,6 @@ public class BookTripController {
     public List<ItineraryStopBean> tableItinerary(int tripId){
 
         List<ItineraryStop> stops = ItineraryStopDAO.retrieveStopList(tripId);
-        //ItineraryStopDAOCSV itineraryStopDAOCSV = new ItineraryStopDAOCSV();
-        //List<ItineraryStop> stops = itineraryStopDAOCSV.retrieveStopList(tripId);
 
         List<ItineraryStopBean> itineraryStopBeans = new ArrayList<>();
         for (ItineraryStop itineraryStop : stops) {
@@ -71,9 +66,7 @@ public class BookTripController {
 
         Trip trip = TripDAO.retrieveTripById(tripId);
 
-        TripBean tripBean = new TripBean(trip.getTripName(), trip.getDepartureCity(), trip.getOutboundDate(), trip.getReturnDate(), trip.getPrice(), trip.getGuide());
-
-        return tripBean;
+        return (new TripBean(trip.getTripName(), trip.getDepartureCity(), trip.getOutboundDate(), trip.getReturnDate(), trip.getPrice(), trip.getGuide()));
 
     }
 
