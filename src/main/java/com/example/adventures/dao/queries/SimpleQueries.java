@@ -52,13 +52,6 @@ public class SimpleQueries {
         return preparedStatement.executeQuery();
     }
 
-   /* public static ResultSet retrieveTripListByCategory(Connection connection, String category) throws SQLException {
-        String sql = "SELECT idTrip, tripName, outboundDate, returnDate, departureCity, guide FROM Trips WHERE category = ?";
-        preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        preparedStatement.setString(1,category);
-        return preparedStatement.executeQuery();
-    }*/
-
     public static ResultSet retrieveTripListByCategoryAndCountry(Connection connection, String category, String country) throws SQLException {
         String sql = "SELECT idTrip, tripName, outboundDate, returnDate, departureCity, guide FROM Trips WHERE category = ? AND country = ?";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
@@ -74,11 +67,6 @@ public class SimpleQueries {
         preparedStatement.setString(2,user);
         return preparedStatement.executeQuery();
     }
-
-    /*public static ResultSet retrieveFutureTripList(Connection connection) throws SQLException{
-        String sql = "SELECT idTrip, tripName, outboundDate, returnDate, departureCity, guide FROM Trips WHERE outboundDate > CURDATE()";
-        preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-    }*/
 
     public static ResultSet retrieveTripListByTripId(Connection connection, int tripId) throws SQLException {
         String sql = "SELECT city, arrival, departure FROM Itinerari WHERE trip = ?";
@@ -117,34 +105,12 @@ public class SimpleQueries {
         return preparedStatement.executeQuery();
     }
 
-    /*public static String retrieveTripCategory(Connection connection, int tripId) throws SQLException{
-        String sql = "SELECT category FROM Trips WHERE idTrip = ?";
-        preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        preparedStatement.setInt(1,tripId);
-        return preparedStatement.executeQuery();
-    }*/
-
     public static ResultSet numberOfTrips(Connection connection, String country) throws SQLException{
         String sql = "SELECT COUNT(*) FROM Trips WHERE country = ?";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setString(1,country);
         return preparedStatement.executeQuery();
     }
-
-    /*public static boolean setBell(Connection connection, Integer idGuide) throws SQLException{
-
-        String sql = "SELECT EXISTS(SELECT 1  " +
-                    "FROM dbAdventures.Request r " +
-                    "JOIN dbAdventures.Trips t ON r.trip = t.idTrip\n" +
-                    "JOIN dbAdventures.Guide g ON t.guide = g.guideName\n" +
-                    "WHERE g.idGuide = ?\n" +
-                    "AND r.status = 0) AS result";
-        System.out.println("RISULTATAO QUERY: " + sql);
-        boolean bell = Boolean.valueOf(sql);
-        return bell;
-    }
-
-     */
 
     public static ResultSet setBell(Connection connection, Integer idGuide) throws SQLException{
         String sql = "SELECT *" +

@@ -46,12 +46,6 @@ public class CRUDQueries {
         return preparedStatement.executeUpdate();
     }
 
-   /* public static int insertItinenray(){
-        String insertStatement = "";
-        preparedStatement= connection.p
-        return
-    }*/
-
    public static int insertParticipant(Connection connection, int trip, int person) throws SQLException{
         String insertStatement = "INSERT INTO Partecipanti (trip, traveler) VALUES (?, ?)";
         preparedStatement = connection.prepareStatement(insertStatement, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
