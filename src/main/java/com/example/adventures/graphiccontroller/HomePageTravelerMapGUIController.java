@@ -287,7 +287,4 @@ public class HomePageTravelerMapGUIController{
 
 
     }
-
-
-
 }
