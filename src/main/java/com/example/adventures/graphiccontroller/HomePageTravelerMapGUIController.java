@@ -41,9 +41,6 @@ public class HomePageTravelerMapGUIController{
     private Label argentinaLabel;
 
 
-    String avaiable = " avaiable trips";
-    String relaxPath = "/com/example/adventures/Category.fxml";
-
     public void initialize(){
         try {
             TravelerBean travelerBean = Session.getCurrentSession().getTravelerBean();
@@ -60,7 +57,7 @@ public class HomePageTravelerMapGUIController{
         if(num == 1){
             label.setText(country + ": " + num + "avaiable trip");
         }else{
-            label.setText(country + ": " + num + avaiable);
+            label.setText(country + ": " + num + " avaiable trips");
         }
     }
 
@@ -162,7 +159,7 @@ public class HomePageTravelerMapGUIController{
         mexicoLabel.setText(""); // Imposta il testo della label su una stringa vuota
     }
 
-    private void loadCategoryView(String country, String fxmlPath) throws IOException {
+    private void loadCategoryView(String country) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
         Parent root = loader.load();
 
@@ -179,7 +176,7 @@ public class HomePageTravelerMapGUIController{
 
     public void australiaAction() throws IOException {
 
-        loadCategoryView("Australia", relaxPath);
+        loadCategoryView("Australia");
 /*
         FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
         Parent root = loader.load();
@@ -197,55 +194,55 @@ public class HomePageTravelerMapGUIController{
 
     public void indiaAction() throws IOException {
 
-        loadCategoryView("India", relaxPath);
+        loadCategoryView("India");
 
     }
 
     public void spainAction() throws IOException {
 
-        loadCategoryView("Spain", relaxPath);
+        loadCategoryView("Spain");
 
     }
 
     public void italyAction() throws IOException {
 
-        loadCategoryView("Italy", relaxPath);
+        loadCategoryView("Italy");
 
     }
 
     public void brasilAction() throws IOException {
 
-        loadCategoryView("Brasil", relaxPath);
+        loadCategoryView("Brasil");
 
     }
 
     public void argentinaAction() throws IOException {
 
-        loadCategoryView("Argentina", relaxPath);
+        loadCategoryView("Argentina");
 
     }
 
     public void peruAction() throws IOException {
 
-        loadCategoryView("Perù", relaxPath);
+        loadCategoryView("Perù");
 
     }
 
     public void chileAction() throws IOException {
 
-        loadCategoryView("Chile", relaxPath);
+        loadCategoryView("Chile");
 
     }
 
     public void usaAction() throws IOException {
 
-        loadCategoryView("USA", relaxPath);
+        loadCategoryView("USA");
 
     }
 
     public void mexicoAction() throws IOException {
 
-        loadCategoryView("Mexico", relaxPath);
+        loadCategoryView("Mexico");
 
     }
 
