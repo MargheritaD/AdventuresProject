@@ -169,7 +169,7 @@ public class DetailQuoteGuideGUIController {
             dialog.centerOnScreen();
             dialog.show();
         } catch (Exception e) {
-            //ShowExceptionSupport.showException(e.getMessage());
+            e.printStackTrace();
         }
 
     }
