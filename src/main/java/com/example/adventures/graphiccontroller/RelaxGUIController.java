@@ -79,16 +79,11 @@ public class RelaxGUIController {
         // Disabilita il pulsante all'avvio dell'applicazione
         detailsButton.setDisable(true);
 
+
         // Aggiungo un listener per la selezione delle righe nella tabella
-        tableViewTrips.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if (newSelection != null) {
-                // Abilita il pulsante se una riga è selezionata
-                detailsButton.setDisable(false);
-            } else {
-                // Disabilita il pulsante se nessuna riga è selezionata
-                detailsButton.setDisable(true);
-            }
-        });
+        tableViewTrips.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) ->
+                detailsButton.setDisable(newSelection == null)
+        );
 
     }
 
@@ -138,8 +133,6 @@ public class RelaxGUIController {
                     e.printStackTrace();
                 }
 
-                BookTripController bookTripController = new BookTripController();
-
                 DetailQuoteGuideGUIController detailQuoteGuideGUIController = fxmlLoader.getController();
 
                 detailQuoteGuideGUIController.setTripId(selectedTrip.getIdTrip());
@@ -150,7 +143,6 @@ public class RelaxGUIController {
 
             }
             else if(!username.equals(selectedTrip.getGuide()) && !guideController){
-            //if(!username.equals(selectedTrip.getGuide())){ //username != selectedTrip.getGuide()
 
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/TripDetailsQuote.fxml"));
 
@@ -187,7 +179,6 @@ public class RelaxGUIController {
                 }
 
                 EditTripDetailsGUIController editTripDetailsGUIController = fxmlLoader.getController();
-                //editTripDetailsGUIController.setTripId(selectedTrip.getIdTrip());
                 editTripDetailsGUIController.inizio(selectedTrip.getIdTrip());
                 editTripDetailsGUIController.setCountry(country);
                 editTripDetailsGUIController.setCategory(valore);
