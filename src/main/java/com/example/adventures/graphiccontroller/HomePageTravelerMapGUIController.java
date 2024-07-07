@@ -220,7 +220,7 @@ public class HomePageTravelerMapGUIController{
 
     public void indiaAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
         Parent root = loader.load();
 
         CategoryGUIController categoryGUIController  = loader.getController();
@@ -233,7 +233,7 @@ public class HomePageTravelerMapGUIController{
     }
 
     public void spainAction() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
         Parent root = loader.load();
 
         CategoryGUIController categoryGUIController  = loader.getController();
@@ -247,7 +247,7 @@ public class HomePageTravelerMapGUIController{
 
     public void italyAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
         Parent root = loader.load();
 
         CategoryGUIController categoryGUIController  = loader.getController();
@@ -261,7 +261,7 @@ public class HomePageTravelerMapGUIController{
 
     public void brasilAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
         Parent root = loader.load();
 
         CategoryGUIController categoryGUIController  = loader.getController();
@@ -275,7 +275,7 @@ public class HomePageTravelerMapGUIController{
 
     public void argentinaAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
         Parent root = loader.load();
 
         CategoryGUIController categoryGUIController  = loader.getController();
@@ -289,7 +289,7 @@ public class HomePageTravelerMapGUIController{
 
     public void peruAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
         Parent root = loader.load();
 
         CategoryGUIController categoryGUIController  = loader.getController();
@@ -303,7 +303,7 @@ public class HomePageTravelerMapGUIController{
 
     public void chileAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
         Parent root = loader.load();
 
         CategoryGUIController categoryGUIController  = loader.getController();
@@ -317,7 +317,7 @@ public class HomePageTravelerMapGUIController{
 
     public void usaAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
         Parent root = loader.load();
 
         CategoryGUIController categoryGUIController  = loader.getController();
@@ -331,7 +331,7 @@ public class HomePageTravelerMapGUIController{
 
     public void mexicoAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
         Parent root = loader.load();
 
         CategoryGUIController categoryGUIController  = loader.getController();
