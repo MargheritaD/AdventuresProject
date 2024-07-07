@@ -177,19 +177,7 @@ public class HomePageTravelerMapGUIController{
     public void australiaAction() throws IOException {
 
         loadCategoryView("Australia");
-/*
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
-        Parent root = loader.load();
 
-        CategoryGUIController categoryGUIController  = loader.getController();
-        categoryGUIController.setCountryLabel("Australia");
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
-
- */
     }
 
     public void indiaAction() throws IOException {
@@ -290,11 +278,6 @@ public class HomePageTravelerMapGUIController{
         Parent root = loader.load();
 
         UpcomingTripsGUIController upcomingTripsGUIController = loader.getController();
-        //relaxGUIController.setTitle(category);
-
-        //relaxGUIController.setCountry(country);
-
-        //upcomingTripsGUIController.initialize();
         upcomingTripsGUIController.inizio();
 
         Stage dialog = Main.getStage();
