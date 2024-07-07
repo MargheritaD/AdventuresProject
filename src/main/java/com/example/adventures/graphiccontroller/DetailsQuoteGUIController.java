@@ -195,7 +195,7 @@ public class DetailsQuoteGUIController {
             dialog.centerOnScreen();
             dialog.show();
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
     }
