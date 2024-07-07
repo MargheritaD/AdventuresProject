@@ -152,6 +152,7 @@ public class DetailsQuoteGUIController {
 
         }catch (Exception e) { //NotFoundException
 
+            e.printStackTrace();
         }
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/TripBooked.fxml"));
