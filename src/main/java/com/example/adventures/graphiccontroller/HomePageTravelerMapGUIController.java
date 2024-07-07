@@ -403,7 +403,8 @@ public class HomePageTravelerMapGUIController{
         //relaxGUIController.setTitle(category);
 
         //relaxGUIController.setCountry(country);
-        upcomingTripsGUIController.initialize();
+
+        //upcomingTripsGUIController.initialize();
         upcomingTripsGUIController.inizio();
 
         Stage dialog = Main.getStage();

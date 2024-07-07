@@ -127,7 +127,10 @@ public class HomePageGuideMapGUIController {
         //relaxGUIController.setTitle(category);
 
         //relaxGUIController.setCountry(country);
-        upcomingTripsGUIController.initialize();
+
+// qui
+
+        // upcomingTripsGUIController.initialize();
         upcomingTripsGUIController.inizio();
 
         Stage dialog = Main.getStage();
@@ -488,7 +491,9 @@ public class HomePageGuideMapGUIController {
         //relaxGUIController.setTitle(category);
 
         //relaxGUIController.setCountry(country);
-        upcomingTripsGUIController.initialize();
+
+// qui
+        //upcomingTripsGUIController.initialize();
         upcomingTripsGUIController.inizio();
 
         Stage dialog = Main.getStage();

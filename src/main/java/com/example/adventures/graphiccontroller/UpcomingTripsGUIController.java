@@ -48,36 +48,6 @@ public class UpcomingTripsGUIController {
     private int idGuide;
     private boolean guideController = true;
 
-    public void initialize(){
-/*
-        // Controlla il tipo di utente attualmente loggato
-        Session session = Session.getCurrentSession();
-        if(session != null) {
-            if(session.getGuideBean() != null) {
-                // È un utente Guida
-                GuideBean guideBean = session.getGuideBean();
-                username = guideBean.getName(); // Utilizza l'email anziché il nome
-                idGuide = guideBean.getId();//
-                System.out.println("Sono nella tabella upcoming come GUIDA:" + username);
-                System.out.println("Sono nella tabella upcoming come GUIDAid:" + idGuide);
-            } else if(session.getTravelerBean() != null) {
-                // È un utente Viaggiatore
-                TravelerBean travelerBean = session.getTravelerBean();
-                username = travelerBean.getName(); // Utilizza l'email anche per i viaggiatori
-                guideController = false;
-                System.out.println("Sono nell tabella relax xome VIAGGIATORE:" + username);
-                System.out.println("Controlla che sia una turista serve FALSE: " + guideController);
-                System.out.println(travelerBean.getId());
-            } else {
-                // Tipo di utente non riconosciuto
-            }
-        } else {
-            // Sessione non valida
-        }
-
- */
-    }
-
 
     public void inizio()throws IOException, NotFoundException{
 
