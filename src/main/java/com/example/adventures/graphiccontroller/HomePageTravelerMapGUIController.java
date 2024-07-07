@@ -67,114 +67,58 @@ public class HomePageTravelerMapGUIController{
     public void australiaMouseEntered(){
 
         handleMouseEntered("Australia", australiaLabel);
-/*
-        BookTripController quoteController = new BookTripController();
-        int num =  quoteController.numberOfTrps("Australia");
-        if(num == 1){
-            australiaLabel.setText("Australia: "+ num + avaiable);
-        }else{
-            australiaLabel.setText("Australia: "+ num + avaiable);
-        }*/
     }
 
     public void indiaMouseEntered(){
 
-        BookTripController quoteController = new BookTripController();
-        int num =  quoteController.numberOfTrps("India");
-        if(num == 1) {
-            indiaLable.setText("India: " + num + avaiable);
-        }else {
-            indiaLable.setText("India: " + num + avaiable);
-        }
+        handleMouseEntered("India", indiaLable);
+
     }
 
     public void spainMouseEntered(){
 
-        BookTripController quoteController = new BookTripController();
-        int num =  quoteController.numberOfTrps("Spain");
-        if(num == 1){
-            europeLabel.setText("Spain: "+ num + avaiable);
-        }else {
-            europeLabel.setText("Spain: "+ num + avaiable);
-        }
+        handleMouseEntered("Spain", europeLabel);
+
     }
 
     public void italyMouseEntered(){
 
-        BookTripController quoteController = new BookTripController();
-        int num =  quoteController.numberOfTrps("Italy");
-        if(num == 1) {
-            europeLabel.setText("Italy: " + num + avaiable);
-        }else {
-            europeLabel.setText("Italy: " + num + avaiable);
-        }
+        handleMouseEntered("Italy", europeLabel);
+
     }
 
     public void brasilMouseEntered(){
 
-        BookTripController quoteController = new BookTripController();
-        int num =  quoteController.numberOfTrps("Brasil");
-        if(num == 1){
-            brasilLabel.setText("Brasil: " + num + avaiable);
-        }else {
-            brasilLabel.setText("Brasil: " + num + avaiable);
-        }
+        handleMouseEntered("Brasil", brasilLabel);
     }
 
     public void argentinaMouseEntered(){
 
-        BookTripController quoteController = new BookTripController();
-        int num =  quoteController.numberOfTrps("Argentina");
-        if(num == 1){
-            argentinaLabel.setText("Argentina: "+ num + avaiable);
-        }else{
-            argentinaLabel.setText("Argentina: "+ num + avaiable);
-        }
+        handleMouseEntered("Argentina", argentinaLabel);
+
     }
 
     public void peruMouseEntered(){
 
-        BookTripController quoteController = new BookTripController();
-        int num =  quoteController.numberOfTrps("Perù");
-        if (num == 1) {
-            peruLabel.setText("Perù: "+ num + avaiable);
-        }else{
-            peruLabel.setText("Perù: "+ num + avaiable);
-        }
+        handleMouseEntered("Perù", peruLabel);
+
     }
 
     public void chileMouseEntered(){
 
-        BookTripController quoteController = new BookTripController();
-        int num =  quoteController.numberOfTrps("Chile");
-        if (num == 1){
-            chileLabel.setText("Chile: "+ num + avaiable);
-        }else {
-            chileLabel.setText("Chile: " + num + avaiable);
-        }
+        handleMouseEntered("Chile", chileLabel);
+
     }
 
     public void usaMouseEntered(){
 
-        BookTripController quoteController = new BookTripController();
-        int num =  quoteController.numberOfTrps("USA");
-        if(num == 1){
-            europeLabel.setText("USA: "+ num + avaiable);
-        }else{
-            europeLabel.setText("USA: "+ num + avaiable);
-        }
+        handleMouseEntered("USA", europeLabel);
 
     }
 
     public void mexicoMouseEntered(){
 
-        BookTripController quoteController = new BookTripController();
-        int num =  quoteController.numberOfTrps("Mexico");
-        if(num == 1){
-            mexicoLabel.setText("Mexico: "+ num + avaiable);
-        }else{
-            mexicoLabel.setText("Mexico: "+ num + avaiable);
-        }
+        handleMouseEntered("Mexico", mexicoLabel);
 
     }
 
@@ -218,8 +162,25 @@ public class HomePageTravelerMapGUIController{
         mexicoLabel.setText(""); // Imposta il testo della label su una stringa vuota
     }
 
+    private void loadCategoryView(String country, String fxmlPath) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
+        Parent root = loader.load();
+
+        CategoryGUIController categoryGUIController = loader.getController();
+        categoryGUIController.setCountryLabel(country);
+
+        Stage dialog = Main.getStage();
+        Scene scene = new Scene(root);
+        dialog.setScene(scene);
+        dialog.show();
+    }
+
+
+
     public void australiaAction() throws IOException {
 
+        loadCategoryView("Australia", relaxPath);
+/*
         FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
         Parent root = loader.load();
 
@@ -230,131 +191,62 @@ public class HomePageTravelerMapGUIController{
         Scene scene = new Scene(root);
         dialog.setScene(scene);
         dialog.show();
+
+ */
     }
 
     public void indiaAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
-        Parent root = loader.load();
+        loadCategoryView("India", relaxPath);
 
-        CategoryGUIController categoryGUIController  = loader.getController();
-        categoryGUIController.setCountryLabel("India");
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
     }
 
     public void spainAction() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
-        Parent root = loader.load();
 
-        CategoryGUIController categoryGUIController  = loader.getController();
-        categoryGUIController.setCountryLabel("Spain");
+        loadCategoryView("Spain", relaxPath);
 
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
     }
 
     public void italyAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
-        Parent root = loader.load();
+        loadCategoryView("Italy", relaxPath);
 
-        CategoryGUIController categoryGUIController  = loader.getController();
-        categoryGUIController.setCountryLabel("Italy");
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
     }
 
     public void brasilAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
-        Parent root = loader.load();
+        loadCategoryView("Brasil", relaxPath);
 
-        CategoryGUIController categoryGUIController  = loader.getController();
-        categoryGUIController.setCountryLabel("Brasil");
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
     }
 
     public void argentinaAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
-        Parent root = loader.load();
+        loadCategoryView("Argentina", relaxPath);
 
-        CategoryGUIController categoryGUIController  = loader.getController();
-        categoryGUIController.setCountryLabel("Argentina");
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
     }
 
     public void peruAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
-        Parent root = loader.load();
+        loadCategoryView("Perù", relaxPath);
 
-        CategoryGUIController categoryGUIController  = loader.getController();
-        categoryGUIController.setCountryLabel("Perù");
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
     }
 
     public void chileAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
-        Parent root = loader.load();
+        loadCategoryView("Chile", relaxPath);
 
-        CategoryGUIController categoryGUIController  = loader.getController();
-        categoryGUIController.setCountryLabel("Chile");
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
     }
 
     public void usaAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
-        Parent root = loader.load();
+        loadCategoryView("USA", relaxPath);
 
-        CategoryGUIController categoryGUIController  = loader.getController();
-        categoryGUIController.setCountryLabel("USA");
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
     }
 
     public void mexicoAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(relaxPath));
-        Parent root = loader.load();
+        loadCategoryView("Mexico", relaxPath);
 
-        CategoryGUIController categoryGUIController  = loader.getController();
-        categoryGUIController.setCountryLabel("Mexico");
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
     }
 
 
