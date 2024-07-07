@@ -54,7 +54,6 @@ public class UpcomingTripsGUIController {
         // Ottieni la lista delle richieste dal RequestDAO
         Session session = Session.getCurrentSession();
         GuideBean guideBean = session.getGuideBean();
-        System.out.println("Sto chiamando il book trip controller\n");
         BookTripController bookTripController = new BookTripController();
         List<RequestBean> requestBeans = bookTripController.tableRequestsGuide(guideBean);
 
