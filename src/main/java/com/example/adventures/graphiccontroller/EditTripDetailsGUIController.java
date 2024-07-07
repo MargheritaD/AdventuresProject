@@ -54,29 +54,18 @@ public class EditTripDetailsGUIController {
 
     public void setCountry(String country) {
         this.country = country;
-        System.out.println("Appena entrato in editDetail country: " + country);
     }
 
     public void setCategory(String category) {
         this.categoria = category;
-        System.out.println("Appena entrato in editDetail category: " + category);
     }
     public void inizio(int codice) throws NotFoundException {
 
         this.codice = codice;
-        ////****EditTripDetailsController editTripDetailsController = new EditTripDetailsController();
 
         BookTripController bookTripController = new BookTripController();
         List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(codice);
         bookTripController.tableTrip(codice);
-        //DatailsQuoteController detailsQuoteController = new DatailsQuoteController();
-
-        ////*****List<ItineraryStopBean> itineraryStopBeans = editTripDetailsController.tableItinerary(codice);// prima era tripId
-
-        //List<ItineraryStopBean> itineraryStopBeans = detailsQuoteController.tableItinerary(tripId);// prima era tripId
-        //List<TripBean> tripBeans = detailsQuoteController.tableDetails(codice);
-
-        ////****TripBean tripBean = editTripDetailsController.tableTrip(codice);
 
         TripBean tripBean = bookTripController.tableTrip(codice);
 
@@ -104,9 +93,6 @@ public class EditTripDetailsGUIController {
     }
 
     public void cancelTripAction() throws NotFoundException, IOException {
-        ////****EditTripDetailsController editTripDetailsController = new EditTripDetailsController();
-
-        ////****editTripDetailsController.cancelTrip(codice);
 
         BookTripController bookTripController = new BookTripController();
         bookTripController.cancelTrip(codice);
@@ -143,8 +129,6 @@ public class EditTripDetailsGUIController {
         // Imposta il valore della stringa nel controller della schermata precedente
         relaxGUIController.setTitle(categoria);
         relaxGUIController.setCountry(country);
-        System.out.println("EditTrip CATEGORIA: " + categoria);
-        System.out.println("EditTrip COUNTRY "+ country);
         relaxGUIController.initialize();
         relaxGUIController.inizio();
 
@@ -156,7 +140,6 @@ public class EditTripDetailsGUIController {
 
     public void homeAction() throws IOException {
 
-        System.out.println("Il codice per fare home è: " + codice);
         Parent root;
         Stage dialog = Main.getStage();
 
