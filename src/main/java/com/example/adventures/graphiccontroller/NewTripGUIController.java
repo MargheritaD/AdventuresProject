@@ -166,6 +166,7 @@ public class NewTripGUIController {
 
 
         }catch(FormEmptyException e ){
+            e.printStackTrace();
         }
 
     }
