@@ -58,16 +58,14 @@ public class CategoryGUIController {
 
     private String username;
     private boolean guideController = true;
-  public void safariAction() throws IOException, NotFoundException {
+
+    private void changeScene( String category) throws IOException, NotFoundException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Relax.fxml"));
         Parent root = loader.load();
 
         RelaxGUIController relaxGUIController = loader.getController();
-        String category = safariLabel.getText();
         relaxGUIController.setTitle(category);
-
         relaxGUIController.setCountry(country);
-
         relaxGUIController.initialize();
         relaxGUIController.inizio();
 
@@ -75,64 +73,41 @@ public class CategoryGUIController {
         Scene scene = new Scene(root);
         dialog.setScene(scene);
         dialog.show();
+    }
+
+  public void safariAction() throws IOException, NotFoundException {
+
+      changeScene(safariLabel.getText());
+
     }
 
     public void sportAction() throws IOException, NotFoundException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Relax.fxml"));
-        Parent root = loader.load();
-
-        RelaxGUIController relaxGUIController = loader.getController();
-        String category = sportLabel.getText();
-        relaxGUIController.setTitle(category);
-
-        relaxGUIController.setCountry(country);
-
-        relaxGUIController.initialize();
-        relaxGUIController.inizio();
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
+        changeScene(sportLabel.getText());
 
     }
     public void dogAction() throws IOException, NotFoundException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Relax.fxml"));
-        Parent root = loader.load();
 
-        RelaxGUIController relaxGUIController = loader.getController();
-        String category = dogLabel.getText();
-        relaxGUIController.setTitle(category);
+        changeScene(dogLabel.getText());
 
-        relaxGUIController.setCountry(country);
-
-        relaxGUIController.initialize();
-        relaxGUIController.inizio();
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
     }
     public void funAction() throws IOException, NotFoundException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Relax.fxml"));
-        Parent root = loader.load();
 
-        RelaxGUIController relaxGUIController = loader.getController();
-        String category = funLabel.getText();
-        relaxGUIController.setTitle(category);
+        changeScene(funLabel.getText());
 
-        relaxGUIController.setCountry(country);
-
-        relaxGUIController.initialize();
-        relaxGUIController.inizio();
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
     }
+
+    public void foodAction() throws IOException, NotFoundException {
+
+        changeScene(foodLabel.getText());
+
+    }
+    public void relaxAction() throws IOException, NotFoundException {
+
+        changeScene(relaxLabel.getText());
+
+    }
+
     public void exitAction() throws IOException {
         Parent root;
         Stage dialog = Main.getStage();
@@ -181,42 +156,6 @@ public class CategoryGUIController {
 
         root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("homePageGuideMap.fxml")));
 
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
-    }
-    public void foodAction() throws IOException, NotFoundException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Relax.fxml"));
-        Parent root = loader.load();
-
-        RelaxGUIController relaxGUIController = loader.getController();
-        String category = foodLabel.getText();
-        relaxGUIController.setTitle(category);
-
-        relaxGUIController.setCountry(country);
-
-        relaxGUIController.initialize();
-        relaxGUIController.inizio();
-
-        Stage dialog = Main.getStage();
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
-    }
-    public void relaxAction() throws IOException, NotFoundException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Relax.fxml"));
-        Parent root = loader.load();
-
-        RelaxGUIController relaxGUIController = loader.getController();
-        String category = relaxLabel.getText();
-        relaxGUIController.setTitle(category);
-
-        relaxGUIController.setCountry(country);
-
-        relaxGUIController.initialize();
-        relaxGUIController.inizio();
-
-        Stage dialog = Main.getStage();
         Scene scene = new Scene(root);
         dialog.setScene(scene);
         dialog.show();
