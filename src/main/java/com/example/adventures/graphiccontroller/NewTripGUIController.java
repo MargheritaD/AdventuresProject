@@ -117,7 +117,7 @@ public class NewTripGUIController {
         tabellaItinerario.getItems().remove(selectedID);
     }
 
-    public void createTrip(ActionEvent event) throws IOException{ // aggiungi il viaggio nel db
+    public void createTrip() throws IOException{ // aggiungi il viaggio nel db
 
         List<ItineraryStopBean> stopList;
 
@@ -166,7 +166,6 @@ public class NewTripGUIController {
 
 
         }catch(FormEmptyException e ){
-            //ShowExceptionSupport.showException(e.getMessage());
         }
 
     }
