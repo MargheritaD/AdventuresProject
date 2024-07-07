@@ -143,25 +143,16 @@ public class DetailsQuoteGUIController {
     public void bookAction() throws IOException {
 
         // dovrebbe sapere il codice della guida perche lo inizializzo nelmetodo initialize
-        //int idPerson = Session.getCurrentSession().getGuideBean().getId();
 
         try{
-
-            System.out.println("SONO ENTRATA NEL TRY");
 
             BookTripController bookTripController = new BookTripController();
             RequestBean requestBean = new RequestBean(tripId,Session.getCurrentSession().getTravelerBean().getId());
             bookTripController.sendRequest(requestBean);
 
         }catch (Exception e) { //NotFoundException
-            System.out.println(e);
 
-            System.out.println("NON SONO ENTRATA NEL TRY");
-            //Printer.printError(e.getMessage());
         }
-
-        System.out.println("STO CAMBIANDO SCENA");
-        // ci va l'if per vedere se è andata bene
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/TripBooked.fxml"));
         Parent root1 = fxmlLoader.load();
@@ -174,7 +165,7 @@ public class DetailsQuoteGUIController {
 
 
     }
-    public void quoteAction(ActionEvent event) throws IOException {
+    public void quoteAction() throws IOException {
 
         QuoteBean quoteBean = new QuoteBean(tripPrice); // Inizializzo con il prezzo del viaggio
 
@@ -203,8 +194,7 @@ public class DetailsQuoteGUIController {
             dialog.centerOnScreen();
             dialog.show();
         } catch (Exception e) {
-            System.out.println("Eccezione quote: " + e.getMessage());
-            // ShowExceptionSupport.showException(e.getMessage());
+
         }
 
     }
