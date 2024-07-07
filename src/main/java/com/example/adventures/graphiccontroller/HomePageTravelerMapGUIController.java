@@ -41,7 +41,7 @@ public class HomePageTravelerMapGUIController{
     private Label argentinaLabel;
 
 
-    String avaiable = "avaiable trips";
+    String avaiable = " avaiable trips";
     String relaxPath = "/com/example/adventures/Category.fxml";
 
     public void initialize(){
@@ -52,15 +52,29 @@ public class HomePageTravelerMapGUIController{
             e.printStackTrace();
         }
     }
+
+    private void handleMouseEntered(String country, Label label) {
+
+        BookTripController quoteController = new BookTripController();
+        int num = quoteController.numberOfTrps(country);
+        if(num == 1){
+            label.setText(country + ": " + num + "avaiable trip");
+        }else{
+            label.setText(country + ": " + num + avaiable);
+        }
+    }
+
     public void australiaMouseEntered(){
 
+        handleMouseEntered("Australia", australiaLabel);
+/*
         BookTripController quoteController = new BookTripController();
         int num =  quoteController.numberOfTrps("Australia");
         if(num == 1){
             australiaLabel.setText("Australia: "+ num + avaiable);
         }else{
             australiaLabel.setText("Australia: "+ num + avaiable);
-        }
+        }*/
     }
 
     public void indiaMouseEntered(){
