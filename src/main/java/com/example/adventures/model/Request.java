@@ -2,7 +2,7 @@ package com.example.adventures.model;
 
 public class Request {
 
-    private int request_id;
+    private int requestId;
 
     private int guieId;
 
@@ -23,11 +23,11 @@ public class Request {
         this.idTraveler = idTraveler;
     }
 
-    public Request(String nomeViaggio, String nomeViaggiatore, String cognomeViaggiatore, int request_id){
+    public Request(String nomeViaggio, String nomeViaggiatore, String cognomeViaggiatore, int requestId){
         this.nomeViaggio = nomeViaggio;
         this.nomeViaggiatore = nomeViaggiatore;
         this.cognomeViaggiatore = cognomeViaggiatore;
-        this.request_id = request_id;
+        this.requestId = requestId;
     }
 
     public int getIdTrip(){
@@ -50,7 +50,7 @@ public class Request {
         return nomeViaggio;
     }
 
-    public int getRequest_id() {
-        return request_id;
+    public int getRequestId() {
+        return requestId;
     }
 }

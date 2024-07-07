@@ -86,9 +86,9 @@
                   <Font name="AppleGothic Regular" size="20.0" />
                </font>
             </Button>
-            <Label layoutX="398.0" layoutY="559.0" text="To book log in as a traveler" textFill="WHITE">
+            <Label layoutX="410.0" layoutY="559.0" text="To book log in as a traveler" textFill="#356b38">
                <font>
-                  <Font name="AppleGothic Regular" size="40.0" />
+                  <Font name="AppleGothic Regular" size="35.0" />
                </font>
             </Label>
             <Button layoutX="551.0" layoutY="636.0" mnemonicParsing="false" onAction="#exitAction" prefHeight="66.0" prefWidth="190.0" style="-fx-background-color: #356b38; -fx-background-radius: 30;" text="Change account" textFill="WHITE">

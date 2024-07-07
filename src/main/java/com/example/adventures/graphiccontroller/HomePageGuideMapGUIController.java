@@ -137,19 +137,6 @@ public class HomePageGuideMapGUIController {
     }
     public void australiaMouseEntered(){
 
-        URL resource = getClass().getResource("/com/example/adventures/image/yellowBell.png");
-        if (resource != null) {
-            String imageUrl = resource.toExternalForm();
-            System.out.println("Dopo string url\n");
-            System.out.println("URL " + imageUrl);
-            Image newImage = new Image(imageUrl);
-            bellImage.setImage(newImage);
-        } else {
-            System.out.println("Immagine non trovata: /image/yellowBell.png");
-        }
-
-        //HomePageGuideMapController homePageGuideController = new HomePageGuideMapController();
-        //int num = homePageGuideController.numberOfTrps("Australia");
         BookTripController quoteController = new BookTripController();
         int num =  quoteController.numberOfTrps("Australia");
         if(num == 1){
@@ -273,17 +260,6 @@ public class HomePageGuideMapGUIController {
     }
 
     public void australiaMouseExited(){
-        URL resource = getClass().getResource("/com/example/adventures/image/emptyBell.png");
-        if (resource != null) {
-            String imageUrl = resource.toExternalForm();
-            System.out.println("Dopo string url\n");
-            System.out.println("URL " + imageUrl);
-            Image newImage = new Image(imageUrl);
-            bellImage.setImage(newImage);
-        } else {
-            System.out.println("Immagine non trovata: /image/yellowBell.png");
-        }
-
         australiaLabel.setText(""); // Imposta il testo della label su una stringa vuota
     }
 

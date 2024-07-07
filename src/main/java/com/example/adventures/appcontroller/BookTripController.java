@@ -84,7 +84,7 @@ public class BookTripController {
 
         List<RequestBean> requestBeans = new ArrayList<>();
         for (Request request : requests) {
-            RequestBean requestBean = new RequestBean(request.getNomeViaggio(), request.getNomeViaggiatore(), request.getCognomeViaggiatore(), request.getRequest_id());
+            RequestBean requestBean = new RequestBean(request.getNomeViaggio(), request.getNomeViaggiatore(), request.getCognomeViaggiatore(), request.getRequestId());
             requestBeans.add(requestBean);
         }
 
