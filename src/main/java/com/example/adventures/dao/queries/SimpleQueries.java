@@ -76,10 +76,7 @@ public class SimpleQueries {
     }
 
     public static ResultSet retrieveTrip(Connection connection, int idTrip) throws SQLException{ // rimetti tripId
-        String sql = "SELECT t.idTrip, t.tripName, t.departureCity, t.outboundDate, t.returnDate, t.price, t.guide\n" +
-                "FROM Trips t\n" +
-                "JOIN Itinerari i ON t.idTrip = i.trip\n" +
-                "WHERE i.trip = ?";
+        String sql = "SELECT t.idTrip, t.tripName, t.departureCity, t.outboundDate, t.returnDate, t.price, t.guide FROM Trips t JOIN Itinerari i ON t.idTrip = i.trip WHERE i.trip = ?";
         //String sql = "SELECT tripName, departureCity, outboundDate, returnDate, guide, price FROM Trips WHERE idTrip = ?";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setInt(1,idTrip); //setInt tripId
@@ -87,12 +84,7 @@ public class SimpleQueries {
     }
 
     public static ResultSet retrieveRequestsListGuide(Connection connection, int idGuide) throws SQLException{
-        String sql = "SELECT t.tripName, v.Nome_viaggiatore, v.Cognome_viaggiatore, r.idRequest\n" +
-                "From dbAdventures.GUIDE g Join dbAdventures.TRIPS t ON  g.guideName = t.guide \n" +
-                "join dbAdventures.REQUEST r ON r.trip = t.idTrip\n" +
-                "join dbAdventures.VIAGGIATORI v on v.Id_viaggiatore = r.traveler\n" +
-                "WHERE g.idGuide = ? and status = 0\n";
-
+        String sql = "SELECT t.tripName, v.Nome_viaggiatore, v.Cognome_viaggiatore, r.idRequest From dbAdventures.GUIDE g Join dbAdventures.TRIPS t ON  g.guideName = t.guide join dbAdventures.REQUEST r ON r.trip = t.idTrip join dbAdventures.VIAGGIATORI v on v.Id_viaggiatore = r.traveler WHERE g.idGuide = ? and status = 0";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setInt(1,idGuide);
         return preparedStatement.executeQuery();
@@ -113,18 +105,10 @@ public class SimpleQueries {
     }
 
     public static ResultSet setBell(Connection connection, Integer idGuide) throws SQLException{
-        String sql = "SELECT *" +
-                "FROM dbAdventures.Request r " +
-                "JOIN dbAdventures.Trips t ON r.trip = t.idTrip\n" +
-                "JOIN dbAdventures.Guide g ON t.guide = g.guideName\n" +
-                "WHERE g.idGuide = ?\n" +
-                "AND r.status = 0";
+        String sql = "SELECT * FROM dbAdventures.Request r JOIN dbAdventures.Trips t ON r.trip = t.idTrip JOIN dbAdventures.Guide g ON t.guide = g.guideName WHERE g.idGuide = ? AND r.status = 0";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setInt(1,idGuide);
         return preparedStatement.executeQuery();
     }
-
-
-
 
 }
