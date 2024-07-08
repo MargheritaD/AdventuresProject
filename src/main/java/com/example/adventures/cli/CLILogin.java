@@ -77,7 +77,8 @@ public class CLILogin extends AbstractCLI {
                 }
                 case 2 -> {
                     loginController.travelerLogin(loginBean);
-                    CLIHomeTraveler.start();
+                    CLIHomeTraveler cliHomeTraveler = new CLIHomeTraveler();
+                    cliHomeTraveler.start();
                 }
                 default -> throw new UserNotFoundException();
             }

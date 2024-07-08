@@ -81,7 +81,7 @@ public class CLIHomeGuide extends AbstractCLI {
         CLIPrinter.printMessage("2) Trip requests: \n");
         CLIPrinter.printMessage("3) New trip: \n");
         CLIPrinter.printMessage("4) Logout: \n");
-        CLIPrinter.printMessage("5) Quit: \n\n");
+        //CLIPrinter.printMessage("5) Quit: \n\n");
 
         return  getMenuChoice(1,5);
     }
@@ -111,6 +111,9 @@ public class CLIHomeGuide extends AbstractCLI {
         return  getMenuChoice(1,6);
     }
     public void setCategory(int category, CountryCategoryBean countryCategoryBean) throws SQLException, NotFoundException {
+
+        int guida = 1;
+
         switch (category){
             case 1 ->{
                 countryCategoryBean.setCategory("Relax");
@@ -118,6 +121,7 @@ public class CLIHomeGuide extends AbstractCLI {
                 List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
                 CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
                 cliListTripCategoryCountry.start(listOfTripBean);
+                cliListTripCategoryCountry.setRole(guida);
             }
 
             case 2 ->{
@@ -143,7 +147,10 @@ public class CLIHomeGuide extends AbstractCLI {
                 BookTripController bookTripController = new BookTripController();
                 List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
                 CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
+
+                cliListTripCategoryCountry.setRole(guida);
                 cliListTripCategoryCountry.start(listOfTripBean);
+
                 System.out.println(countryCategoryBean.getCategory());
                 System.out.println(countryCategoryBean.getCountry());
             }

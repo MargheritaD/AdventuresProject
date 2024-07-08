@@ -11,6 +11,12 @@ import java.util.List;
 
 public class CLIListTripCategoryCountry extends AbstractCLI{
 
+    int role = 0;
+    public void setRole(int role){
+        this.role = role;
+        System.out.println("CHI SONO: " + role);
+    }
+
     public void start(List<TripBean> tripBeanList) throws SQLException, NotFoundException {
 
         boolean loop = true;
@@ -73,15 +79,103 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
 
     */
    private void specifyTrip(int trip) throws SQLException, NotFoundException {
+/*
+       BookTripController bookTripController = new BookTripController();
+       CLIPrinter.printMessage("\n--------Trip details:-----------\n");
+       CLIPrinter.printMessage("|\n");
+       TripBean tripBean = bookTripController.tableTrip(trip);
+       CLIPrinter.printMessage("| Trip name: " + tripBean.getTripName()+ "\n");
+       CLIPrinter.printMessage("| Guide: " + tripBean.getPrice()+ "\n");
+       CLIPrinter.printMessage("| Departure city: " + tripBean.getDepartureCity()+ "\n");
+       CLIPrinter.printMessage("| Outbound date: " + tripBean.getOutboundDate()+ "\n");
+       CLIPrinter.printMessage("| Return date: " + tripBean.getReturnDate()+ "\n");
+       CLIPrinter.printMessage("| Price: " + tripBean.getGuide()+ "$\n");
+       CLIPrinter.printMessage("|\n");
+       CLIPrinter.printMessage("--------------------------------");
+
+       List<ItineraryStopBean> stops = bookTripController.tableItinerary(trip);
+       CLIPrinter.printMessage("\n\n--------Trip itinerary:--------\n");
+       CLIPrinter.printMessage("|\n");
+       for (ItineraryStopBean stop : stops) {
+           CLIPrinter.printMessage("| City: " + stop.getCity() + "\n");
+           CLIPrinter.printMessage("| Arrival: " + stop.getArrival() + "\n");
+           CLIPrinter.printMessage("| Departure: " + stop.getDeparture() + "\n");
+           CLIPrinter.printMessage("|\n");
+           CLIPrinter.printMessage("--------------------------------\n");
+       }
+
+       // Verifica se la guida del viaggio è uguale all'utente loggato
+
+       // Mostra il menu appropriato in base alla condizione
+       if (isGuideSameAsLoggedUser) {
+           showMenuForSameGuide();
+       } else {
+           showMenuForDifferentGuide();
+       }
+
+
+ */
 
        BookTripController bookTripController = new BookTripController();
-       CLIPrinter.printMessage("\nTrip details:\n\n");
        TripBean tripBean = bookTripController.tableTrip(trip);
-       //CLIPrinter.printMessage("Trip name: " + tripBean.getTripName());
-       CLIPrinter.printMessage("\nTrip itinerary:\n\n");
-       List<ItineraryStopBean> stop = bookTripController.tableItinerary(trip);
-       new CLISelectedTrip().start(tripBean, stop);
+       List<ItineraryStopBean> stops = bookTripController.tableItinerary(trip);
+
+       CLISelectedTrip selectedTrip = new CLISelectedTrip();
+       selectedTrip.setRole(role);
+       selectedTrip.start(tripBean, stops);
+
+       //new CLISelectedTrip().start(tripBean, stops);
    }
+
+    private void showMenuForSameGuide() {
+        CLIPrinter.printMessage("\nMenu:\n");
+        CLIPrinter.printMessage("1. Go back\n");
+        CLIPrinter.printMessage("2. Go home\n");
+        CLIPrinter.printMessage("3. Logout\n");
+
+        int choice = getMenuChoice(1, 3);
+        switch (choice) {
+            case 1:
+                goBack();
+                break;
+            case 2:
+                goHome();
+                break;
+            case 3:
+                logout();
+                break;
+            default:
+                CLIPrinter.printMessage("Invalid choice\n");
+        }
+    }
+    private void showMenuForDifferentGuide() {
+        CLIPrinter.printMessage("\nMenu:\n");
+        CLIPrinter.printMessage("1. Send participation request\n");
+        CLIPrinter.printMessage("2. Go back\n");
+        CLIPrinter.printMessage("3. Go home\n");
+        CLIPrinter.printMessage("4. Logout\n");
+
+        int choice = getMenuChoice(1, 4);
+        switch (choice) {
+            case 1:
+                // Implementa il codice per inviare una richiesta di partecipazione
+                CLIPrinter.printMessage("Sending participation request...\n");
+                break;
+            case 2:
+                goBack();
+                break;
+            case 3:
+                goHome();
+                break;
+            case 4:
+                logout();
+                break;
+            default:
+                CLIPrinter.printMessage("Invalid choice\n");
+        }
+    }
+
+
     private int showMenu(List<TripBean> trips)  {
 
         int i = 1;
