@@ -14,11 +14,11 @@ public class Session {
     private Session(Object ob) {
 
         if(ob instanceof TravelerBean){
-            System.out.println("Sono nell'if di istance come viaggiatore");
+            //Sono nell'if di istance come viaggiatore
             this.travelerBean = (TravelerBean) ob;
         }
         else if(ob instanceof GuideBean){
-            System.out.println("Sono nell'else di istance come guida");
+            //Sono nell'else di istance come guida
             guideBean = (GuideBean) ob;
         }
     }
@@ -50,8 +50,9 @@ public class Session {
         this.tripBean = tripBean;
     }
 
-    public  void logout(){
+    public static void logout(){
         sessionInstance = null;
     }
+    // prima non era static
 
 }
