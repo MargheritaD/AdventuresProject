@@ -46,7 +46,7 @@ public class RequestsGUIController {
         // Imposta i valori delle colonne
         //idColumn.setCellValueFactory(new PropertyValueFactory<>("idTrip")); // prima era idColumn
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("tripName"));
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
+        statusColumn.setCellValueFactory(new PropertyValueFactory<>("statusString"));
 
         // Popola la tabella con i viaggi
         tableViewRequests.getItems().addAll(requestBeans);
