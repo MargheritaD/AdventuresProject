@@ -27,6 +27,8 @@ public class TripDAO {
     private static final String GUIDE = "guide";
     private static final String COUNTRY = "country";
 
+    private TripDAO(){}
+
     public static void addTrip(Trip trip) {
         Connection connection;
 
@@ -56,7 +58,7 @@ public class TripDAO {
         } catch (SQLException e) {
             Printer.printError(e.getMessage());
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            Printer.printError(e.getMessage());
         }
     }
 
@@ -155,19 +157,6 @@ public class TripDAO {
 
             ResultSet resultSet = SimpleQueries.retrieveTripData(connection, tripId);
 
-            // Stampa i valori recuperati dal ResultSet
-            /*
-            ResultSetMetaData metaData = resultSet.getMetaData();
-            int columnCount = metaData.getColumnCount();
-
-            while (resultSet.next()) {
-                for (int i = 1; i <= columnCount; i++) {
-                    System.out.print(metaData.getColumnName(i) + ": " + resultSet.getObject(i) + "\t");
-                }
-                System.out.println(); // Vai a capo dopo aver stampato i valori di una riga
-            }
-            */
-
             if (!resultSet.first()) {
                 throw new NotFoundException("No trip found with id: " + tripId);
             }
@@ -244,7 +233,7 @@ public class TripDAO {
         } catch (SQLException e) {
             Printer.printError(e.getMessage());
         } catch (NotFoundException e) {
-            throw new RuntimeException(e);
+            Printer.printError(e.getMessage());
         }
 
         return number;
