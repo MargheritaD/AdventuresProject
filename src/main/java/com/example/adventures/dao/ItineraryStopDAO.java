@@ -29,7 +29,7 @@ public class ItineraryStopDAO {
         try{
             connection = ConnectionDB.getConnection();
 
-            //int idTrip = Trip.getIdTrip();
+            // prima era con int idTrip uguale  Trip punto getIdTrip();
             Date arrival = Date.valueOf(itineraryStop.getArrival());
             Date departure = Date.valueOf(itineraryStop.getDeparture());
 

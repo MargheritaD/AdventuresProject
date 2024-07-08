@@ -54,9 +54,6 @@ public class GuideDAO {
         String surname = resultSet.getString(SURNAME);
         String email = resultSet.getString(EMAIL);
 
-        //Guide guide = new Guide(guideId, name, surname,email);
-        // prima il return era senza new
-
         return (new Guide(guideId, name, surname,email));
     }
 
