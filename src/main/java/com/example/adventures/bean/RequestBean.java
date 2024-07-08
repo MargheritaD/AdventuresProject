@@ -7,12 +7,18 @@ public class RequestBean {
     private String tripName;
     private String travelerName;
     private String travelerSurname;
-
     private int idRequest;
+    private int status;
 
     public RequestBean(int idTrip, int idTraveler){
         this.idTraveler = idTraveler;
         this.idTrip = idTrip;
+    }
+
+    public RequestBean(String tripName, int idRequest, int status){
+        this.tripName = tripName;
+        this.idRequest = idRequest;
+        this.status = status;
     }
 
     public RequestBean(int idTrip, int idTraveler, String tripName, String travelerName){
@@ -34,6 +40,7 @@ public class RequestBean {
     public int getIdRequest(){return idRequest;}
 
     public int getIdTraveler(){return idTraveler;}
+    public int getStatus(){return status;}
 
     public void setTravelerName(String travelerName) {
         this.travelerName = travelerName;

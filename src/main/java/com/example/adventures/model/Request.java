@@ -16,11 +16,18 @@ public class Request {
 
     private String cognomeViaggiatore;
 
-    private Status status;
+    //private Status status;
+    private int status;
 
     public Request(int idTrip, int idTraveler){
         this.idTrip = idTrip;
         this.idTraveler = idTraveler;
+    }
+
+    public Request(String nomeViaggio, int requestId, int status){
+        this.nomeViaggio = nomeViaggio;
+        this.requestId = requestId;
+        this.status = status;
     }
 
     public Request(String nomeViaggio, String nomeViaggiatore, String cognomeViaggiatore, int requestId){
@@ -33,6 +40,7 @@ public class Request {
     public int getIdTrip(){
         return idTrip;
     }
+    public int getStatus(){return status;}
 
     public int getIdTraveler(){
         return idTraveler;

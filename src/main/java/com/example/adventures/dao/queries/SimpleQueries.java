@@ -89,6 +89,13 @@ public class SimpleQueries {
         return preparedStatement.executeQuery();
     }
 
+    public static ResultSet retrieveRequestsListTraveler(Connection connection, int idTraveler) throws SQLException{
+        String sql = "SELECT t.tripName, r.idRequest, r.status From dbAdventures.REQUEST r Join dbAdventures.TRIPS t ON  t.idTrip = trip WHERE r.traveler = ?";
+        preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        preparedStatement.setInt(1,idTraveler);
+        return preparedStatement.executeQuery();
+    }
+
     public static ResultSet retrieveTripData(Connection connection, int tripId) throws SQLException {
         String sql = "SELECT idTrip, tripName, departureCity, category, outboundDate, returnDate, price, guide, country FROM Trips WHERE idTrip = ?";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);

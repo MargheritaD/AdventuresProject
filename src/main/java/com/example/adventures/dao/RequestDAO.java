@@ -73,6 +73,46 @@ public class RequestDAO {
         return requestList;
     }
 
+    public static List<Request> requestsTraveler(int idTraveler) {
+
+        Connection connection;
+        Request request;
+        List<Request> requestList = new ArrayList<>();
+
+        try {
+            connection = ConnectionDB.getConnection();
+
+            ResultSet resultSet = SimpleQueries.retrieveRequestsListTraveler(connection, idTraveler);
+
+            if (!resultSet.first()) {
+                throw new NotFoundException("No request found for this traveler\n ");
+            }
+
+            resultSet.first();
+
+            do {
+
+                request = setRequestTableForTraveler(resultSet);
+                requestList.add(request);
+
+            } while (resultSet.next());
+
+            resultSet.close();
+        } catch (SQLException | NotFoundException e) {
+            Printer.printError(e.getMessage());
+        }
+
+        return requestList;
+    }
+
+    private static Request setRequestTableForTraveler(ResultSet resultSet) throws SQLException{
+
+        String tripName = resultSet.getString(1);
+        int idRequest = resultSet.getInt(2);
+        int status = resultSet.getInt(3);
+
+        return (new Request(tripName, idRequest, status));
+    }
 
     private static Request setTripInformationForRequestTable(ResultSet resultSet) throws SQLException {
 

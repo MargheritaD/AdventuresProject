@@ -91,6 +91,18 @@ public class BookTripController {
         return requestBeans;
     }
 
+    public List<RequestBean> tableRequestsTraveler(TravelerBean travelerBean){
+        List<Request> requests = RequestDAO.requestsTraveler(travelerBean.getId());
+
+        List<RequestBean> requestBeans = new ArrayList<>();
+        for (Request request : requests) {
+            RequestBean requestBean = new RequestBean(request.getNomeViaggio(), request.getRequestId(), request.getStatus());
+            requestBeans.add(requestBean);
+        }
+
+        return requestBeans;
+    }
+
     public void acceptRequest(RequestBean requestBean){
         RequestDAO.acceptRequest(requestBean);
     }

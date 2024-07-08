@@ -261,15 +261,19 @@ public class HomePageTravelerMapGUIController{
         dialog.show();
     }
 
-    public void requestsAction() throws IOException{
-        Parent root;
+    public void requestsAction() throws IOException, NotFoundException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/RequestStatus.fxml"));
+        Parent root = loader.load();
+
+        RequestsGUIController requestsGUIController = loader.getController();
+        requestsGUIController.inizio();
+
         Stage dialog = Main.getStage();
-
-        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("RequestStatus.fxml")));
-
         Scene scene = new Scene(root);
         dialog.setScene(scene);
         dialog.show();
+
     }
 
     public void upcomingAction() throws IOException, NotFoundException {
@@ -284,7 +288,6 @@ public class HomePageTravelerMapGUIController{
         Scene scene = new Scene(root);
         dialog.setScene(scene);
         dialog.show();
-
 
     }
 }
