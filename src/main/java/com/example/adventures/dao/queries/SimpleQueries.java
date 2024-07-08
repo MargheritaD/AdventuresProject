@@ -19,20 +19,20 @@ public class SimpleQueries {
     }
 
     public static ResultSet retrieveGuideByUsername(Connection connection, String username) throws SQLException {
-        String sql = "SELECT * FROM Guide WHERE email = ? ";
+        String sql = "SELECT idGuide, guideName, guideSurname, email FROM Guide WHERE email = ? ";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setString(1,username);
         return preparedStatement.executeQuery();
     }
     public static ResultSet retrieveTravelerByUsername(Connection connection, String username) throws SQLException {
-        String sql = "SELECT * FROM Viaggiatori WHERE Email = ? ";
+        String sql = "SELECT Id_viaggiatore, Nome_viaggiatore, Cognome_viaggiatore, Data_nascita, Email, Numero_telefono FROM Viaggiatori WHERE Email = ? ";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setString(1,username);
         return preparedStatement.executeQuery();
     }
 
     public static ResultSet retrieveGuideById(Connection connection, int idGuide) throws SQLException {
-        String sql = "SELECT * FROM Guide WHERE idGuide = ? ";
+        String sql = "SELECT idGuide, guideName, guideSurname, email FROM Guide WHERE idGuide = ? ";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setInt(1,idGuide);
         return preparedStatement.executeQuery();
@@ -99,7 +99,7 @@ public class SimpleQueries {
     }
 
     public static ResultSet retrieveTripData(Connection connection, int tripId) throws SQLException {
-        String sql = "SELECT * FROM Trips WHERE idTrip = ?";
+        String sql = "SELECT idTrip, tripName, departureCity, category, outboundDate, returnDate, price, guide, country FROM Trips WHERE idTrip = ?";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setInt(1,tripId);
         return preparedStatement.executeQuery();
