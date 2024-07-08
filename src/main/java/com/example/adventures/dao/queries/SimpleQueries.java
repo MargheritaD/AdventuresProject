@@ -77,7 +77,6 @@ public class SimpleQueries {
 
     public static ResultSet retrieveTrip(Connection connection, int idTrip) throws SQLException{ // rimetti tripId
         String sql = "SELECT t.idTrip, t.tripName, t.departureCity, t.outboundDate, t.returnDate, t.price, t.guide FROM Trips t JOIN Itinerari i ON t.idTrip = i.trip WHERE i.trip = ?";
-        //String sql = "SELECT tripName, departureCity, outboundDate, returnDate, guide, price FROM Trips WHERE idTrip = ?";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setInt(1,idTrip); //setInt tripId
         return preparedStatement.executeQuery();
@@ -105,7 +104,7 @@ public class SimpleQueries {
     }
 
     public static ResultSet setBell(Connection connection, Integer idGuide) throws SQLException{
-        String sql = "SELECT * FROM dbAdventures.Request r JOIN dbAdventures.Trips t ON r.trip = t.idTrip JOIN dbAdventures.Guide g ON t.guide = g.guideName WHERE g.idGuide = ? AND r.status = 0";
+        String sql = "SELECT idRequest, traveler, trip, status FROM dbAdventures.Request r JOIN dbAdventures.Trips t ON r.trip = t.idTrip JOIN dbAdventures.Guide g ON t.guide = g.guideName WHERE g.idGuide = ? AND r.status = 0";
         preparedStatement = connection.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setInt(1,idGuide);
         return preparedStatement.executeQuery();
