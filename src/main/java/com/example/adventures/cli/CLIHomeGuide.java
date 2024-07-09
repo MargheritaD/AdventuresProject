@@ -57,12 +57,12 @@ public class CLIHomeGuide extends AbstractCLI {
                         choose = false;
                         CLIPrinter.printMessage("Not implemented");
                     }
-                    case 3 -> {
+                    case 3 -> { // new trip
                         choose = false;
                         logout();
 
                     }
-                    case 4 -> {
+                    case 4 -> { // logout
                         choose = false;
                         System.exit(0);
                     }

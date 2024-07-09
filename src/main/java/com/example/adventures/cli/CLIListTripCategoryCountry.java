@@ -12,9 +12,15 @@ import java.util.List;
 public class CLIListTripCategoryCountry extends AbstractCLI{
 
     int role = 0;
+    String name = "";
     public void setRole(int role){
         this.role = role;
         System.out.println("CHI SONO: " + role);
+    }
+
+    public void setUser(String user){
+        this.name = user;
+        System.out.println("COME MI CHIAMO "+ name);
     }
 
     public void start(List<TripBean> tripBeanList) throws SQLException, NotFoundException {
@@ -121,7 +127,7 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
        List<ItineraryStopBean> stops = bookTripController.tableItinerary(trip);
 
        CLISelectedTrip selectedTrip = new CLISelectedTrip();
-       selectedTrip.setRole(role);
+       //selectedTrip.setRole(role);
        selectedTrip.start(tripBean, stops);
 
        //new CLISelectedTrip().start(tripBean, stops);
