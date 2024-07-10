@@ -11,6 +11,8 @@ import java.util.List;
 
 public class CLIListTripCategoryCountry extends AbstractCLI{
 
+
+
     int role = 0;
     String name = "";
     public void setRole(int role){
@@ -208,5 +210,6 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
     private void goBack(){
         new CLIHomeGuide().start(); // metti session per fare l'if
     }
+
 
 }
