@@ -14,6 +14,7 @@ public class CLIHomeGuide extends AbstractCLI {
 
         boolean choose = true;
         CountryCategoryBean countryCategoryBean = new CountryCategoryBean();
+        CLIGuideRequests guideRequests = new CLIGuideRequests();
 
         while(choose){
             int choice;
@@ -54,8 +55,7 @@ public class CLIHomeGuide extends AbstractCLI {
                     }
                     case 2 -> { // request
 
-                        choose = false;
-                        CLIPrinter.printMessage("Not implemented");
+                        guideRequests.start();
                     }
                     case 3 -> { // new trip
                         choose = false;
@@ -88,7 +88,7 @@ public class CLIHomeGuide extends AbstractCLI {
 
     private int chooseCountry(){
 
-        CLIPrinter.printMessage("\n********************************* Country list ********************************* \n\n");
+        CLIPrinter.printMessage("\n****************************** Country list ****************************** \n\n");
         CLIPrinter.printMessage("1. Italy: \n");
         CLIPrinter.printMessage("2. Argentina: \n");
         CLIPrinter.printMessage("3. USA: \n");
@@ -100,7 +100,7 @@ public class CLIHomeGuide extends AbstractCLI {
 
     private int chooseCategory(){
 
-        CLIPrinter.printMessage("\n********************************* Category list ********************************* \n\n");
+        CLIPrinter.printMessage("\n****************************** Category list ****************************** \n\n");
         CLIPrinter.printMessage("1. Relax: \n");
         CLIPrinter.printMessage("2. Sport: \n");
         CLIPrinter.printMessage("3. Dog trekking: \n");
@@ -121,7 +121,7 @@ public class CLIHomeGuide extends AbstractCLI {
                 List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
                 CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
                 cliListTripCategoryCountry.start(listOfTripBean);
-                cliListTripCategoryCountry.setRole(guida);
+                //cliListTripCategoryCountry.setRole(guida);
             }
 
             case 2 ->{
@@ -148,7 +148,7 @@ public class CLIHomeGuide extends AbstractCLI {
                 List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
                 CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
 
-                cliListTripCategoryCountry.setRole(guida);
+                //cliListTripCategoryCountry.setRole(guida);
                 cliListTripCategoryCountry.start(listOfTripBean);
 
                 System.out.println(countryCategoryBean.getCategory());

@@ -10,21 +10,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class CLIListTripCategoryCountry extends AbstractCLI{
-
-
-
-    int role = 0;
-    String name = "";
-    public void setRole(int role){
-        this.role = role;
-        System.out.println("CHI SONO: " + role);
-    }
-
-    public void setUser(String user){
-        this.name = user;
-        System.out.println("COME MI CHIAMO "+ name);
-    }
-
     public void start(List<TripBean> tripBeanList) throws SQLException, NotFoundException {
 
         boolean loop = true;
@@ -67,74 +52,17 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
         }
     }
 
-   /* private void viewDetails(int idTrip) throws SQLException, NotFoundException {
-        TripBean tripBean = new BookTripController().tableTrip(idTrip);
-        CLIPrinter.printMessage("Trip name: " + tripBean.getTripName());
-        CLIPrinter.printMessage("Country: " + tripBean.getCountry());
-        CLIPrinter.printMessage("Departure city: " + tripBean.getDepartureCity());
-        CLIPrinter.printMessage("Outbound date:" + tripBean.getOutboundDate());
-        CLIPrinter.printMessage("Return date:" + tripBean.getReturnDate());
-        CLIPrinter.printMessage("Price: " + tripBean.getPrice());
-
-        List<ItineraryStopBean> stops = new BookTripController().tableItinerary(idTrip);
-        for (ItineraryStopBean itineraryStopBean : stops) {
-            CLIPrinter.printMessage("City: " + itineraryStopBean.getCity());
-            CLIPrinter.printMessage("Arrival : " + itineraryStopBean.getArrival());
-            CLIPrinter.printMessage("Departure: " + itineraryStopBean.getDeparture());
-        }
-        //new CLISelectedTrip().start();
-    }
-
-    */
    private void specifyTrip(int trip) throws SQLException, NotFoundException {
-/*
-       BookTripController bookTripController = new BookTripController();
-       CLIPrinter.printMessage("\n--------Trip details:-----------\n");
-       CLIPrinter.printMessage("|\n");
-       TripBean tripBean = bookTripController.tableTrip(trip);
-       CLIPrinter.printMessage("| Trip name: " + tripBean.getTripName()+ "\n");
-       CLIPrinter.printMessage("| Guide: " + tripBean.getPrice()+ "\n");
-       CLIPrinter.printMessage("| Departure city: " + tripBean.getDepartureCity()+ "\n");
-       CLIPrinter.printMessage("| Outbound date: " + tripBean.getOutboundDate()+ "\n");
-       CLIPrinter.printMessage("| Return date: " + tripBean.getReturnDate()+ "\n");
-       CLIPrinter.printMessage("| Price: " + tripBean.getGuide()+ "$\n");
-       CLIPrinter.printMessage("|\n");
-       CLIPrinter.printMessage("--------------------------------");
-
-       List<ItineraryStopBean> stops = bookTripController.tableItinerary(trip);
-       CLIPrinter.printMessage("\n\n--------Trip itinerary:--------\n");
-       CLIPrinter.printMessage("|\n");
-       for (ItineraryStopBean stop : stops) {
-           CLIPrinter.printMessage("| City: " + stop.getCity() + "\n");
-           CLIPrinter.printMessage("| Arrival: " + stop.getArrival() + "\n");
-           CLIPrinter.printMessage("| Departure: " + stop.getDeparture() + "\n");
-           CLIPrinter.printMessage("|\n");
-           CLIPrinter.printMessage("--------------------------------\n");
-       }
-
-       // Verifica se la guida del viaggio è uguale all'utente loggato
-
-       // Mostra il menu appropriato in base alla condizione
-       if (isGuideSameAsLoggedUser) {
-           showMenuForSameGuide();
-       } else {
-           showMenuForDifferentGuide();
-       }
-
-
- */
 
        BookTripController bookTripController = new BookTripController();
        TripBean tripBean = bookTripController.tableTrip(trip);
        List<ItineraryStopBean> stops = bookTripController.tableItinerary(trip);
 
        CLISelectedTrip selectedTrip = new CLISelectedTrip();
-       //selectedTrip.setRole(role);
        selectedTrip.start(tripBean, stops);
-
-       //new CLISelectedTrip().start(tripBean, stops);
    }
 
+   /*
     private void showMenuForSameGuide() {
         CLIPrinter.printMessage("\nMenu:\n");
         CLIPrinter.printMessage("1. Go back\n");
@@ -156,6 +84,9 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
                 CLIPrinter.printMessage("Invalid choice\n");
         }
     }
+
+    */
+    /*
     private void showMenuForDifferentGuide() {
         CLIPrinter.printMessage("\nMenu:\n");
         CLIPrinter.printMessage("1. Send participation request\n");
@@ -182,6 +113,8 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
                 CLIPrinter.printMessage("Invalid choice\n");
         }
     }
+
+     */
 
 
     private int showMenu(List<TripBean> trips)  {

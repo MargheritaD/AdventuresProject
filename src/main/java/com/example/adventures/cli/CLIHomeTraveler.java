@@ -72,7 +72,6 @@ public class CLIHomeTraveler extends AbstractCLI {
                 throw new RuntimeException(e);
             }
         }
-
     }
 
     private static int showMenu(){
