@@ -59,16 +59,18 @@ public class EditTripDetailsGUIController {
     public void setCategory(String category) {
         this.categoria = category;
     }
-    public void inizio(int codice) throws NotFoundException {
+    public void inizio(TripBean tripBean) throws NotFoundException {
 
-    /*
+
         this.codice = codice;
 
         BookTripController bookTripController = new BookTripController();
-        List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(codice);
-        bookTripController.tableTrip(codice);
+        List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);
+        //bookTripController.tableTrip(codice);
+        //bookTripController.tableTrip(tripBean.getIdTrip());
+        // Qui ci siata tableTrip di book trip controller
 
-        TripBean tripBean = bookTripController.tableTrip(codice);
+        //TripBean tripBean = bookTripController.tableTrip(codice);
 
         this.categoria = tripBean.getCategory();
 
@@ -91,8 +93,6 @@ public class EditTripDetailsGUIController {
         // Popola la tabella con le tappe
         itineraryTable.getItems().addAll(itineraryStopBeans);
 
-
-     */
     }
 
     public void cancelTripAction() throws NotFoundException, IOException {

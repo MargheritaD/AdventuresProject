@@ -30,8 +30,8 @@
                 <TableColumn fx:id="departureCityColumn" prefWidth="200.0" text="Departure city" />
                   <TableColumn fx:id="outboundColumn" prefWidth="200.0" text="Outbound date" />
                   <TableColumn fx:id="returnColumn" prefWidth="200.0" text="Return date" />
-                  <TableColumn fx:id="priceColumn" prefWidth="200.0" text="Guide" />
-                  <TableColumn fx:id="guideColumn" prefWidth="200.0" text="Price in $" />
+                  <TableColumn fx:id="priceColumn" prefWidth="200.0" text="Price in $" />
+                  <TableColumn fx:id="guideColumn" prefWidth="200.0" text="Guide" />
               </columns>
             </TableView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#82a46d" height="40.0" layoutX="37.5" layoutY="117.0" stroke="#82a46d" strokeType="INSIDE" width="1200.0" />

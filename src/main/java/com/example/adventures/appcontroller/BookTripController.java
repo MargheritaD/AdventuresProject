@@ -77,6 +77,7 @@ public class BookTripController {
         return new TripBean(partialTripBean.getIdTrip(), trip.getTripName(), trip.getDepartureCity(), trip.getCategory(), trip.getOutboundDate(), trip.getReturnDate(), trip.getPrice(), trip.getGuide());
     }
 
+/*
     public TripBean tableTrip(int tripId) throws NotFoundException {
 
         Trip trip = TripDAO.retrieveTripById(tripId);
@@ -85,6 +86,7 @@ public class BookTripController {
 
     }
 
+ */
     public void sendRequest(RequestBean requestBean){
 
         Request request = new Request(requestBean.getIdTrip(), requestBean.getIdTraveler());

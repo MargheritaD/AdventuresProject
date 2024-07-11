@@ -183,7 +183,8 @@ public class RelaxGUIController {
 
                 DetailsQuoteGUIController detailsQuoteGUIController = fxmlLoader.getController();
                 detailsQuoteGUIController.setTripId(selectedTrip.getIdTrip());
-                detailsQuoteGUIController.inizio(selectedTrip.getIdTrip());
+                //detailsQuoteGUIController.inizio(selectedTrip.getIdTrip());
+                detailsQuoteGUIController.inizio(detailedTripBean);
                 detailsQuoteGUIController.setCountry(country);
                 detailsQuoteGUIController.setCategory(valore);
 
@@ -203,7 +204,8 @@ public class RelaxGUIController {
                 }
 
                 EditTripDetailsGUIController editTripDetailsGUIController = fxmlLoader.getController();
-                editTripDetailsGUIController.inizio(selectedTrip.getIdTrip());
+                editTripDetailsGUIController.inizio(detailedTripBean);
+                //editTripDetailsGUIController.inizio(selectedTrip.getIdTrip());
                 editTripDetailsGUIController.setCountry(country);
                 editTripDetailsGUIController.setCategory(valore);
 

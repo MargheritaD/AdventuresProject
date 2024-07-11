@@ -112,15 +112,15 @@ public class DetailsQuoteGUIController {
     }
 
 
-    public void inizio(int codice) throws NotFoundException{
+    public void inizio(TripBean tripBean) throws NotFoundException{
 
-        /*
 
         BookTripController bookTripController = new BookTripController();
-        TripBean tripBean = bookTripController.tableTrip(codice);
-        List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(codice);// prima era tripId
+        //TripBean tripBean = bookTripController.tableTrip(codice);
+        List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);// prima era tripId
 
-        tripPrice = Float.parseFloat(tripBean.getGuide());
+        //tripPrice = Float.parseFloat(tripBean.getGuide());
+        tripPrice = Float.parseFloat(tripBean.getPrice());
 
         // Imposta i valori delle colonne tabella viaggio
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("tripName"));
@@ -141,7 +141,7 @@ public class DetailsQuoteGUIController {
         // Popola la tabella con le tappe
         itineraryTable.getItems().addAll(itineraryStopBeans);
 
-         */
+
 
     }
     public void bookAction() throws IOException {
