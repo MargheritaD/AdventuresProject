@@ -84,7 +84,6 @@ public class RelaxGUIController {
         tableViewTrips.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) ->
                 detailsButton.setDisable(newSelection == null)
         );
-
     }
 
     private String username;

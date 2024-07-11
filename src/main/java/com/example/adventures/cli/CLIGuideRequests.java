@@ -18,7 +18,7 @@ public class CLIGuideRequests extends AbstractCLI{
     public void start() {
         Session session = Session.getCurrentSession();
         if (session == null || session.getGuideBean() == null) {
-            System.out.println("Error: Guide session not found.");
+            CLIPrinter.printMessage("Error: Guide session not found.");
             return;
         }
 
