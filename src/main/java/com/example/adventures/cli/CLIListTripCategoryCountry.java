@@ -19,6 +19,14 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
             int i = tripBeanList.size();
             int trip = -1;
 
+            for (TripBean tripBean : tripBeanList) {
+                System.out.println("DEBUG: Trip ID: " + tripBean.getIdTrip());
+                System.out.println("DEBUG: Trip Name: " + tripBean.getTripName());
+                System.out.println("DEBUG: Trip Country: " + tripBean.getCountry());
+                System.out.println("DEBUG: Trip City: " + tripBean.getDepartureCity());
+                System.out.println("DEBUG: Trip Price: " + tripBean.getPrice());
+            }
+
             choice = showMenu(tripBeanList);
             if (choice <= i) {
                 trip = choice - 1;
@@ -29,7 +37,7 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
             switch (choice) {
                 case 1 -> {
                     loop = false;
-                    specifyTrip(tripBeanList.get(trip).getIdTrip());
+                    specificTrip(tripBeanList.get(trip));
                 }
                 case 2 -> {
                     loop = false;
@@ -51,70 +59,18 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
             }
         }
     }
+   private void specificTrip(TripBean tripBean){
 
-   private void specifyTrip(int trip) throws SQLException, NotFoundException {
-
-       BookTripController bookTripController = new BookTripController();
-       TripBean tripBean = bookTripController.tableTrip(trip);
-       List<ItineraryStopBean> stops = bookTripController.tableItinerary(trip);
-
-       CLISelectedTrip selectedTrip = new CLISelectedTrip();
-       selectedTrip.start(tripBean, stops);
-   }
-
-   /*
-    private void showMenuForSameGuide() {
-        CLIPrinter.printMessage("\nMenu:\n");
-        CLIPrinter.printMessage("1. Go back\n");
-        CLIPrinter.printMessage("2. Go home\n");
-        CLIPrinter.printMessage("3. Logout\n");
-
-        int choice = getMenuChoice(1, 3);
-        switch (choice) {
-            case 1:
-                goBack();
-                break;
-            case 2:
-                goHome();
-                break;
-            case 3:
-                logout();
-                break;
-            default:
-                CLIPrinter.printMessage("Invalid choice\n");
-        }
+        System.out.println("\n\nTrip price: "+ tripBean.getPrice()+ "dentro specificList\n");
+        System.out.println("\n\nTrip price: "+ tripBean.getGuide()+ "dentro specificList\n");
+        System.out.println("\n\nTrip price: "+ tripBean.getDepartureCity()+ "dentro specificList\n");
+        System.out.println("\n\nTrip price: "+ tripBean.getOutboundDate()+ "dentro specificList\n");
+        BookTripController bookTripController = new BookTripController();
+        List<ItineraryStopBean> stops = bookTripController.tableItinerary(tripBean.getIdTrip());
+        CLISelectedTrip selectedTrip = new CLISelectedTrip();
+        selectedTrip.start(tripBean, stops);
     }
 
-    */
-    /*
-    private void showMenuForDifferentGuide() {
-        CLIPrinter.printMessage("\nMenu:\n");
-        CLIPrinter.printMessage("1. Send participation request\n");
-        CLIPrinter.printMessage("2. Go back\n");
-        CLIPrinter.printMessage("3. Go home\n");
-        CLIPrinter.printMessage("4. Logout\n");
-
-        int choice = getMenuChoice(1, 4);
-        switch (choice) {
-            case 1:
-                // Implementa il codice per inviare una richiesta di partecipazione
-                CLIPrinter.printMessage("Sending participation request...\n");
-                break;
-            case 2:
-                goBack();
-                break;
-            case 3:
-                goHome();
-                break;
-            case 4:
-                logout();
-                break;
-            default:
-                CLIPrinter.printMessage("Invalid choice\n");
-        }
-    }
-
-     */
 
 
     private int showMenu(List<TripBean> trips)  {
@@ -125,6 +81,12 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
         for (TripBean tripBean : trips){
             CLIPrinter.printListOfTrips(i , tripBean.getTripName());
             i++;
+            System.out.println("\nLIST CATEGORY : ");
+            System.out.println("\nTrip ID: " + tripBean.getIdTrip());
+            System.out.println("\nTrip Name: " + tripBean.getTripName());
+            System.out.println("\nTrip Country: " + tripBean.getCountry());
+            System.out.println("\nTrip city: " + tripBean.getDepartureCity());
+            System.out.println("\nTrip price: " + tripBean.getPrice());
         }
         CLIPrinter.printMessage("-----------\n");
         CLIPrinter.printNumbers(i); CLIPrinter.printMessage("Go home\n");

@@ -45,6 +45,7 @@ public class CLISelectedTrip extends AbstractCLI {
                     int choice1 = menuForGuideAsTraveler();
                     switch (choice1) {
                         case 1 -> {
+                            System.out.println("SONO NELLA RICHIESTA PREVENTIVO");
                             requestQuote(tripBean);
                         }
                         case 2 -> {
@@ -141,7 +142,11 @@ public class CLISelectedTrip extends AbstractCLI {
 
 
     private void requestQuote(TripBean tripBean) {
-        tripPrice = Float.parseFloat(tripBean.getGuide());
+        System.out.println("\nEntro nel requestQUote\n");
+        System.out.println("prezzo base: "+ tripBean.getPrice());
+        System.out.println("\nGuida base: "+ tripBean.getGuide());
+        tripPrice = Float.parseFloat(tripBean.getPrice());
+        //tripPrice = Float.parseFloat(tripBean.getGuide());
         QuoteBean quoteBean = new QuoteBean(tripPrice);
 
         CLIPrinter.printMessage("\n ---------------------------------------------------");
@@ -190,12 +195,13 @@ public class CLISelectedTrip extends AbstractCLI {
         Session session = Session.getCurrentSession();
         if (session != null && session.getTravelerBean() != null) {
             TravelerBean travelerBean = session.getTravelerBean();
+
             RequestBean requestBean = new RequestBean(tripBean.getIdTrip(), travelerBean.getId());
 
             BookTripController bookTripController = new BookTripController();
             bookTripController.sendRequest(requestBean);
 
-            CLIPrinter.printMessage("\n-------------------------------------\n");
+            CLIPrinter.printMessage("\n----------------------------------------\n");
             CLIPrinter.printMessage("Participation request sent successfully!\n");
             CLIPrinter.printMessage("----------------------------------------\n");
         } else {
@@ -206,11 +212,11 @@ public class CLISelectedTrip extends AbstractCLI {
     private void printTripDetails(TripBean tripBean) {
         CLIPrinter.printMessage("\n--------TRIP DETAILS:-----------\n");
         CLIPrinter.printMessage("| Trip name: " + tripBean.getTripName() + "\n");
-        CLIPrinter.printMessage("| Guide: " + tripBean.getPrice() + "\n");
+        CLIPrinter.printMessage("| Guide: " + tripBean.getGuide() + "\n");
         CLIPrinter.printMessage("| Departure city: " + tripBean.getDepartureCity() + "\n");
         CLIPrinter.printMessage("| Outbound date: " + tripBean.getOutboundDate() + "\n");
         CLIPrinter.printMessage("| Return date: " + tripBean.getReturnDate() + "\n");
-        CLIPrinter.printMessage("| Price: " + tripBean.getGuide() + "$\n");
+        CLIPrinter.printMessage("| Price: " + tripBean.getPrice() + "$\n");
         CLIPrinter.printMessage("--------------------------------\n");
     }
 

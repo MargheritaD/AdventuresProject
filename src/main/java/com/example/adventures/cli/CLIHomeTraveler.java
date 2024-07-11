@@ -15,6 +15,7 @@ public class CLIHomeTraveler extends AbstractCLI {
 
         boolean choose = true;
         CountryCategoryBean countryCategoryBean = new CountryCategoryBean();
+        CLITravelerRequests travelerRequests = new CLITravelerRequests();
 
         while(choose){
             int choice;
@@ -55,8 +56,9 @@ public class CLIHomeTraveler extends AbstractCLI {
                     }
                     case 2 -> { // request
 
-                        choose = false;
-                        CLIPrinter.printMessage("Not implemented");
+                        //choose = false;
+                        //CLIPrinter.printMessage("Not implemented");
+                        travelerRequests.start();
                     }
                     case 3 -> {
                         choose = false;
@@ -169,7 +171,4 @@ public class CLIHomeTraveler extends AbstractCLI {
             }
         }
     }
-
-
-
 }
