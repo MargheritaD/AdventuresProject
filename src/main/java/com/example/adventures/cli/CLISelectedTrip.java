@@ -60,6 +60,7 @@ public class CLISelectedTrip extends AbstractCLI {
                             choose = false;
                             System.exit(0);
                         }
+                        default -> CLIPrinter.printMessage("Invalid choice!!");
                     }
                 } catch (Exception e) {
                     throw new RuntimeException(e);
@@ -80,15 +81,9 @@ public class CLISelectedTrip extends AbstractCLI {
             try {
                 int choice = menuForTraveler();
                 switch (choice) {
-                    case 1 -> {
-                        requestQuote(tripBean);
-                    }
-                    case 2 -> {
-                        sendParticipationRequest(tripBean);
-                        }
-                    case 3 -> {
-                        CLIPrinter.printMessage("back");
-                        }
+                    case 1 -> requestQuote(tripBean);
+                    case 2 -> sendParticipationRequest(tripBean);
+                    case 3 -> CLIPrinter.printMessage("back");
                     case 4 -> {
                         choose = false;
                         goHome();
@@ -101,7 +96,7 @@ public class CLISelectedTrip extends AbstractCLI {
                         choose = false;
                         System.exit(0);
                     }
-                    default -> CLIPrinter.printMessage("Invalid choice");
+                    default -> CLIPrinter.printMessage("Invalid choice!");
                 }
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -116,9 +111,7 @@ public class CLISelectedTrip extends AbstractCLI {
                 int scelta = munuForGuide();
                 switch (scelta) {
                     case 1 -> CLIPrinter.printMessage("\nNOT IMPLEMENTED: \n");
-                    case 2 -> {
-                        CLIPrinter.printMessage("back");
-                    }
+                    case 2 -> CLIPrinter.printMessage("back");
                     case 3 -> {
                         scegli = false;
                         goHome();
@@ -131,7 +124,7 @@ public class CLISelectedTrip extends AbstractCLI {
                         scegli = false;
                         System.exit(0);
                     }
-                    default -> CLIPrinter.printMessage("Invalid choice");
+                    default -> CLIPrinter.printMessage("Invalid choice.");
                 }
             } catch (Exception e) {
                 throw new RuntimeException(e);
