@@ -16,7 +16,7 @@ public class Request {
 
     private String cognomeViaggiatore;
 
-    //private Status status;
+    //prima invece di scrivere intero ci stava come tipo lo stato (sotto)
     private int status;
 
     public Request(int idTrip, int idTraveler){
