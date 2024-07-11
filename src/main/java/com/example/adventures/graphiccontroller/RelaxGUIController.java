@@ -112,6 +112,78 @@ public class RelaxGUIController {
         }
     }
 
+    public void detailsAction() throws NotFoundException {
+        TripBean selectedTrip = tableViewTrips.getSelectionModel().getSelectedItem();
+
+        if (selectedTrip != null) {
+            handleTripDetails(selectedTrip);
+        }
+    }
+
+    private void handleTripDetails(TripBean selectedTrip) throws NotFoundException {
+        BookTripController bookTripController = new BookTripController();
+        TripBean detailedTripBean = bookTripController.getTripDetails(selectedTrip);
+
+        if (!username.equals(detailedTripBean.getGuide()) && guideController) {
+            showQuoteGuideView(selectedTrip, detailedTripBean);
+        } else if (!username.equals(selectedTrip.getGuide()) && !guideController) {
+            showQuoteView(selectedTrip, detailedTripBean);
+        } else {
+            showEditTripDetailsView(detailedTripBean);
+        }
+    }
+
+    private void showQuoteGuideView(TripBean selectedTrip, TripBean detailedTripBean) {
+        String resource = "/com/example/adventures/TripDetailsQuoteGuide.fxml";
+        showDetailView(resource, selectedTrip, detailedTripBean);
+    }
+
+    private void showQuoteView(TripBean selectedTrip, TripBean detailedTripBean) {
+        String resource = "/com/example/adventures/TripDetailsQuote.fxml";
+        showDetailView(resource, selectedTrip, detailedTripBean);
+    }
+
+    private void showEditTripDetailsView(TripBean detailedTripBean) {
+        String resource = "/com/example/adventures/EditTripDetails.fxml";
+        showDetailView(resource, null, detailedTripBean); // Not passing selectedTrip here
+    }
+
+    private void showDetailView(String resource, TripBean selectedTrip, TripBean detailedTripBean) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(resource));
+
+        try {
+            Parent root = fxmlLoader.load();
+            Stage dialog = Main.getStage();
+            Scene scene = new Scene(root);
+            dialog.setScene(scene);
+            dialog.show();
+
+            if (resource.equals("/com/example/adventures/TripDetailsQuoteGuide.fxml")) {
+                DetailQuoteGuideGUIController controller = fxmlLoader.getController();
+                controller.setTripId(selectedTrip.getIdTrip());
+                controller.inizio(detailedTripBean);
+                controller.setCountry(country);
+                controller.setCategory(valore);
+            } else if (resource.equals("/com/example/adventures/TripDetailsQuote.fxml")) {
+                DetailsQuoteGUIController controller = fxmlLoader.getController();
+                controller.setTripId(selectedTrip.getIdTrip());
+                controller.inizio(detailedTripBean);
+                controller.setCountry(country);
+                controller.setCategory(valore);
+            } else if (resource.equals("/com/example/adventures/EditTripDetails.fxml")) {
+                EditTripDetailsGUIController controller = fxmlLoader.getController();
+                controller.inizio(detailedTripBean);
+                controller.setCountry(country);
+                controller.setCategory(valore);
+            }
+
+        } catch (IOException | NotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+/*
     public void detailsAction() throws  NotFoundException {
 
         TripBean selectedTrip = tableViewTrips.getSelectionModel().getSelectedItem();
@@ -190,6 +262,8 @@ public class RelaxGUIController {
         }
     }
 
+
+ */
     public void homeAction() throws IOException{
         Parent root;
         Stage dialog = Main.getStage();
