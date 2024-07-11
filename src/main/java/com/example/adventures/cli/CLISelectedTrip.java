@@ -46,7 +46,7 @@ public class CLISelectedTrip extends AbstractCLI {
                     switch (choice1) {
                         case 1 -> requestQuote(tripBean);
 
-                        case 2 -> System.out.println("back");
+                        case 2 -> CLIPrinter.printMessage("back");
 
                         case 3 -> {
                             choose = false;
