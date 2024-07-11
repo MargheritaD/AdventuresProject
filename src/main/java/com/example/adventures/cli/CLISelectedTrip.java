@@ -87,7 +87,7 @@ public class CLISelectedTrip extends AbstractCLI {
                         sendParticipationRequest(tripBean);
                         }
                     case 3 -> {
-                        System.out.println("back");
+                        CLIPrinter.printMessage("back");
                         }
                     case 4 -> {
                         choose = false;
@@ -101,6 +101,7 @@ public class CLISelectedTrip extends AbstractCLI {
                         choose = false;
                         System.exit(0);
                     }
+                    default -> CLIPrinter.printMessage("Invalid choice");
                 }
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -116,7 +117,7 @@ public class CLISelectedTrip extends AbstractCLI {
                 switch (scelta) {
                     case 1 -> CLIPrinter.printMessage("\nNOT IMPLEMENTED: \n");
                     case 2 -> {
-                        System.out.println("back");
+                        CLIPrinter.printMessage("back");
                     }
                     case 3 -> {
                         scegli = false;
@@ -130,6 +131,7 @@ public class CLISelectedTrip extends AbstractCLI {
                         scegli = false;
                         System.exit(0);
                     }
+                    default -> CLIPrinter.printMessage("Invalid choice");
                 }
             } catch (Exception e) {
                 throw new RuntimeException(e);
@@ -175,6 +177,8 @@ public class CLISelectedTrip extends AbstractCLI {
 
                 }
                 case 4 -> selectingInsurances = false;
+
+                default -> CLIPrinter.printMessage("Invalid choice");
             }
         }
 
