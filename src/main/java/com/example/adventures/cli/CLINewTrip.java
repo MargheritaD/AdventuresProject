@@ -28,7 +28,7 @@ public class CLINewTrip extends AbstractCLI{
             CLIPrinter.printMessage("Inserisci il prezzo:");
             String price = scanner.nextLine();
 
-            System.out.println("Inserisci la data di partenza (AAAA-MM-GG):");
+            CLIPrinter.printMessage("Inserisci la data di partenza (AAAA-MM-GG):");
             LocalDate outboundDate = LocalDate.parse(scanner.nextLine());
 
             CLIPrinter.printMessage("Inserisci la data di ritorno (AAAA-MM-GG):");
