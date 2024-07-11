@@ -44,13 +44,10 @@ public class CLISelectedTrip extends AbstractCLI {
                 try {
                     int choice1 = menuForGuideAsTraveler();
                     switch (choice1) {
-                        case 1 -> {
-                            System.out.println("SONO NELLA RICHIESTA PREVENTIVO");
-                            requestQuote(tripBean);
-                        }
-                        case 2 -> {
-                            System.out.println("back");
-                            }
+                        case 1 -> requestQuote(tripBean);
+
+                        case 2 -> System.out.println("back");
+
                         case 3 -> {
                             choose = false;
                             goHome();
@@ -144,7 +141,6 @@ public class CLISelectedTrip extends AbstractCLI {
     private void requestQuote(TripBean tripBean) {
 
         tripPrice = Float.parseFloat(tripBean.getPrice());
-        //tripPrice = Float.parseFloat(tripBean.getGuide());
         QuoteBean quoteBean = new QuoteBean(tripPrice);
 
         CLIPrinter.printMessage("\n ---------------------------------------------------");
@@ -229,7 +225,7 @@ public class CLISelectedTrip extends AbstractCLI {
     }
 
     private int menuForTraveler() {
-        CLIPrinter.printMessage("\nMenu: \n");
+        CLIPrinter.printMessage("\nMenù: \n");
         CLIPrinter.printMessage("\n1) Request quote \n");
         CLIPrinter.printMessage("2) Send request \n");
         CLIPrinter.printMessage("3) Back \n");
@@ -241,7 +237,7 @@ public class CLISelectedTrip extends AbstractCLI {
     }
 
     private int menuForGuideAsTraveler() {
-        CLIPrinter.printMessage("\nMenu: \n");
+        CLIPrinter.printMessage("\nMenu°: \n");
         CLIPrinter.printMessage("\n1) Request quote \n");
         CLIPrinter.printMessage("2) Back \n");
         CLIPrinter.printMessage("3) Home \n");
