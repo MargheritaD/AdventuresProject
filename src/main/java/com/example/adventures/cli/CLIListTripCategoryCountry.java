@@ -18,7 +18,7 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
             int choice;
             int i = tripBeanList.size();
             int trip = -1;
-
+/*
             for (TripBean tripBean : tripBeanList) {
                 System.out.println("DEBUG: Trip ID: " + tripBean.getIdTrip());
                 System.out.println("DEBUG: Trip Name: " + tripBean.getTripName());
@@ -26,6 +26,8 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
                 System.out.println("DEBUG: Trip City: " + tripBean.getDepartureCity());
                 System.out.println("DEBUG: Trip Price: " + tripBean.getPrice());
             }
+
+ */
 
             choice = showMenu(tripBeanList);
             if (choice <= i) {
@@ -40,8 +42,11 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
                     specificTrip(tripBeanList.get(trip));
                 }
                 case 2 -> {
+
                     loop = false;
+                    System.out.println("\n\nVorrei tornare a casa\n\n");
                     goHome();
+
                 }
                 case 3 -> {
                     loop = false;
@@ -59,16 +64,16 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
             }
         }
     }
-   private void specificTrip(TripBean tripBean){
+   private void specificTrip(TripBean tripBean) throws NotFoundException {
 
-        System.out.println("\n\nTrip price: "+ tripBean.getPrice()+ "dentro specificList\n");
-        System.out.println("\n\nTrip price: "+ tripBean.getGuide()+ "dentro specificList\n");
-        System.out.println("\n\nTrip price: "+ tripBean.getDepartureCity()+ "dentro specificList\n");
-        System.out.println("\n\nTrip price: "+ tripBean.getOutboundDate()+ "dentro specificList\n");
-      //  BookTripController bookTripController = new BookTripController();
-      //  List<ItineraryStopBean> stops = bookTripController.tableItinerary(tripBean.getIdTrip());
-       // CLISelectedTrip selectedTrip = new CLISelectedTrip();
-       // selectedTrip.start(tripBean, stops);
+        BookTripController bookTripController = new BookTripController();
+        //List<ItineraryStopBean> stops = bookTripController.tableItinerary(tripBean.getIdTrip());
+        TripBean detailedTripBean = bookTripController.getTripDetails(tripBean);
+        //List<ItineraryStopBean> stops = bookTripController.tableItinerary(tripBean);
+        List<ItineraryStopBean> stops = bookTripController.tableItinerary(detailedTripBean);
+
+        CLISelectedTrip selectedTrip = new CLISelectedTrip();
+        selectedTrip.start(detailedTripBean, stops);
     }
 
 
@@ -81,12 +86,12 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
         for (TripBean tripBean : trips){
             CLIPrinter.printListOfTrips(i , tripBean.getTripName());
             i++;
-            System.out.println("\nLIST CATEGORY : ");
-            System.out.println("\nTrip ID: " + tripBean.getIdTrip());
-            System.out.println("\nTrip Name: " + tripBean.getTripName());
-            System.out.println("\nTrip Country: " + tripBean.getCountry());
-            System.out.println("\nTrip city: " + tripBean.getDepartureCity());
-            System.out.println("\nTrip price: " + tripBean.getPrice());
+           // System.out.println("\nLIST CATEGORY : ");
+           // System.out.println("\nTrip ID: " + tripBean.getIdTrip());
+           // System.out.println("\nTrip Name: " + tripBean.getTripName());
+           // System.out.println("\nTrip Country: " + tripBean.getCountry());
+           // System.out.println("\nTrip city: " + tripBean.getDepartureCity());
+           // System.out.println("\nTrip price: " + tripBean.getPrice());
         }
         CLIPrinter.printMessage("-----------\n");
         CLIPrinter.printNumbers(i); CLIPrinter.printMessage("Go home\n");

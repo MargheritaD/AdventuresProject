@@ -142,9 +142,7 @@ public class CLISelectedTrip extends AbstractCLI {
 
 
     private void requestQuote(TripBean tripBean) {
-        System.out.println("\nEntro nel requestQUote\n");
-        System.out.println("prezzo base: "+ tripBean.getPrice());
-        System.out.println("\nGuida base: "+ tripBean.getGuide());
+
         tripPrice = Float.parseFloat(tripBean.getPrice());
         //tripPrice = Float.parseFloat(tripBean.getGuide());
         QuoteBean quoteBean = new QuoteBean(tripPrice);

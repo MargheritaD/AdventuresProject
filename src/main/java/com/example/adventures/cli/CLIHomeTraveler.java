@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CLIHomeTraveler extends AbstractCLI {
 
-    public static void start() {
+    public void start() {
 
         boolean choose = true;
         CountryCategoryBean countryCategoryBean = new CountryCategoryBean();

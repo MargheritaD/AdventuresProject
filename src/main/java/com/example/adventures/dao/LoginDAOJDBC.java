@@ -46,7 +46,6 @@ public class LoginDAOJDBC implements LoginDAO{
 
         return userProfile;
 
-
     }
 
 }

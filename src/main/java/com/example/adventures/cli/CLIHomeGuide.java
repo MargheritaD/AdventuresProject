@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class CLIHomeGuide extends AbstractCLI {
+
     public void start() {
         boolean choose = true;
         CountryCategoryBean countryCategoryBean = new CountryCategoryBean();
@@ -28,8 +29,12 @@ public class CLIHomeGuide extends AbstractCLI {
                         guideRequests.start();
                     }
                     case 3 -> { // new trip
+
                         choose = false;
-                        logout();
+                        new CLINewTrip().createTrip();
+                        showMenu();
+                        //choose = false;
+                        //logout();
                     }
                     case 4 -> { // logout
                         choose = false;

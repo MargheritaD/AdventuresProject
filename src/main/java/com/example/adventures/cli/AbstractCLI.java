@@ -1,6 +1,7 @@
 package com.example.adventures.cli;
 
 import com.example.adventures.appcontroller.LoginController;
+import com.example.adventures.engineering.Session;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.util.Scanner;
@@ -33,7 +34,19 @@ public class AbstractCLI {
 
     protected void goHome() {
         // ruolo cosi cambi home
-        new CLIHomeGuide().start();
+
+        Session session = Session.getCurrentSession();
+        if (session != null) {
+            if (session.getGuideBean() != null) { // è una guida
+                new CLIHomeGuide().start();
+            } else if (session.getTravelerBean() != null) {
+                new CLIHomeTraveler().start();
+            } else {
+                // Tipo di utente non riconosciuto
+            }
+        } else {
+            // Sessione non valida
+        }
     }
 
 }
