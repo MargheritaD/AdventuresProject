@@ -17,7 +17,7 @@ public class CLILogin extends AbstractCLI {
         while (a){
             int choice;
             try{
-                System.out.println("\n************* ADVENTURES *************\n");
+                CLIPrinter.printMessage("\n************* ADVENTURES *************\n");
                 choice = showMenu();
                 switch (choice){
                     case 1 -> {
@@ -27,8 +27,7 @@ public class CLILogin extends AbstractCLI {
                     case 2 -> {
                         a = false;
 
-                        System.out.println("Not implemented");
-                        //new CLISignUpGraphicController().start();
+                        CLIPrinter.printMessage("Not implemented");
                     }
 
                     case 3 -> {
@@ -64,10 +63,7 @@ public class CLILogin extends AbstractCLI {
             CLIPrinter.printMessage("password: ");
             String password = reader.readLine();
             LoginBean loginBean = new LoginBean(username, password);
-            //System.out.println(loginBean.getUsername());
-            //System.out.println(loginBean.getPassword());
             loginController.checkUser(loginBean);
-            //System.out.println(loginBean.getRole());
 
             switch(loginBean.getRole()){
                 case 1 ->  {
@@ -82,10 +78,7 @@ public class CLILogin extends AbstractCLI {
                 }
                 default -> throw new UserNotFoundException();
             }
-
-            //new CLIHomeGraphicController().start();
         } catch (Exception e) {
-            //logger.log(Level.INFO, e.getMessage());
             start();
         }
     }

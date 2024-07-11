@@ -6,7 +6,6 @@ import com.example.adventures.bean.TripBean;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.utilities.CLIPrinter;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class CLIListTripCategoryCountry extends AbstractCLI{
