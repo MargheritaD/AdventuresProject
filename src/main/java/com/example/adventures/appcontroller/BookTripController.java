@@ -35,7 +35,6 @@ public class BookTripController {
         return RequestDAO.setBell(guideBean);
     }
 
-
     public List<TripBean> selectCountryAndCategory(CountryCategoryBean countryCategoryBean){
 
         List<Trip> trips = TripDAO.retrieveTripListByCategoryAndCountry(countryCategoryBean.getCategory(), countryCategoryBean.getCountry());
@@ -49,9 +48,11 @@ public class BookTripController {
         return tripBeans;
     }
 
-    public List<ItineraryStopBean> tableItinerary(int tripId){
+    public List<ItineraryStopBean> tableItinerary(TripBean tripBean){
+    //public List<ItineraryStopBean> tableItinerary(int tripId)
 
-        List<ItineraryStop> stops = ItineraryStopDAO.retrieveStopList(tripId);
+        List<ItineraryStop> stops = ItineraryStopDAO.retrieveStopList(tripBean.getIdTrip());
+        //List<ItineraryStop> stops = ItineraryStopDAO.retrieveStopList(tripId);
 
         List<ItineraryStopBean> itineraryStopBeans = new ArrayList<>();
         for (ItineraryStop itineraryStop : stops) {
@@ -60,6 +61,20 @@ public class BookTripController {
         }
 
         return itineraryStopBeans;
+    }
+
+    public TripBean getTripDetails(TripBean partialTripBean) throws NotFoundException {
+        int tripId = partialTripBean.getIdTrip();
+
+        // Recupera i dettagli completi del viaggio dal DAO
+        Trip trip = TripDAO.retrieveTripById(tripId);
+        if (trip == null) {
+            throw new NotFoundException("Trip not found for ID: " + tripId);
+        }
+        System.out.println("parziale: "+partialTripBean.getIdTrip());
+        System.out.println("completo: "+trip.getIdTrip());
+
+        return new TripBean(partialTripBean.getIdTrip(), trip.getTripName(), trip.getDepartureCity(), trip.getCategory(), trip.getOutboundDate(), trip.getReturnDate(), trip.getPrice(), trip.getGuide());
     }
 
     public TripBean tableTrip(int tripId) throws NotFoundException {

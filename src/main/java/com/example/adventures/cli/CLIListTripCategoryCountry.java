@@ -65,10 +65,10 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
         System.out.println("\n\nTrip price: "+ tripBean.getGuide()+ "dentro specificList\n");
         System.out.println("\n\nTrip price: "+ tripBean.getDepartureCity()+ "dentro specificList\n");
         System.out.println("\n\nTrip price: "+ tripBean.getOutboundDate()+ "dentro specificList\n");
-        BookTripController bookTripController = new BookTripController();
-        List<ItineraryStopBean> stops = bookTripController.tableItinerary(tripBean.getIdTrip());
-        CLISelectedTrip selectedTrip = new CLISelectedTrip();
-        selectedTrip.start(tripBean, stops);
+      //  BookTripController bookTripController = new BookTripController();
+      //  List<ItineraryStopBean> stops = bookTripController.tableItinerary(tripBean.getIdTrip());
+       // CLISelectedTrip selectedTrip = new CLISelectedTrip();
+       // selectedTrip.start(tripBean, stops);
     }
 
 

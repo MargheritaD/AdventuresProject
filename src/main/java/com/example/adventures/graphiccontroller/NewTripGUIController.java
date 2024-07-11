@@ -168,7 +168,6 @@ public class NewTripGUIController {
         }catch(FormEmptyException e ){
             e.printStackTrace();
         }
-
     }
     public void addName(){ // nome del viaggio
 

@@ -8,9 +8,7 @@ public class CountryCategoryBean {
         this.category = category;
         this.country = country;
     }
-    public CountryCategoryBean(){
-
-    }
+    public CountryCategoryBean(){}
 
 
     public String getCategory() {

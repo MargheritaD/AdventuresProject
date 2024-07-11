@@ -114,6 +114,8 @@ public class DetailsQuoteGUIController {
 
     public void inizio(int codice) throws NotFoundException{
 
+        /*
+
         BookTripController bookTripController = new BookTripController();
         TripBean tripBean = bookTripController.tableTrip(codice);
         List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(codice);// prima era tripId
@@ -138,6 +140,8 @@ public class DetailsQuoteGUIController {
 
         // Popola la tabella con le tappe
         itineraryTable.getItems().addAll(itineraryStopBeans);
+
+         */
 
     }
     public void bookAction() throws IOException {

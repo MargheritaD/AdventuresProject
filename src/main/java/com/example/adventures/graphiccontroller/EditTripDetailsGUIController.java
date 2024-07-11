@@ -61,6 +61,7 @@ public class EditTripDetailsGUIController {
     }
     public void inizio(int codice) throws NotFoundException {
 
+    /*
         this.codice = codice;
 
         BookTripController bookTripController = new BookTripController();
@@ -90,6 +91,8 @@ public class EditTripDetailsGUIController {
         // Popola la tabella con le tappe
         itineraryTable.getItems().addAll(itineraryStopBeans);
 
+
+     */
     }
 
     public void cancelTripAction() throws NotFoundException, IOException {

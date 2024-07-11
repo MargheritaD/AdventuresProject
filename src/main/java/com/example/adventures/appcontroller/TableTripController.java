@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TableTripController {
-
+/*
     public List<TripBean> upcomingTableTrip(Date currentDate, String user){
         List<Trip> trips = TripDAO.retrieveUpcomingTrip(currentDate, user);
 
@@ -22,4 +22,6 @@ public class TableTripController {
         return tripBeans;
 
     }
+
+ */
 }

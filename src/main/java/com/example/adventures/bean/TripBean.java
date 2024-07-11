@@ -27,6 +27,7 @@ public class TripBean {
         this.returnDate = returnDate;
         this.price = price;
         this.guide = guide;
+        System.out.println("Costruttore 1: price = " + price);
     }
 
     public TripBean(String tripName, String departureCity, LocalDate outboundDate, LocalDate returnDate, String guide, String price){
@@ -36,6 +37,7 @@ public class TripBean {
         this.returnDate = returnDate;
         this.price = price;
         this.guide = guide;
+        System.out.println("Costruttore 2: price = " + price);
     }
 
     // Costruttore per i nuovi viaggi
@@ -47,12 +49,14 @@ public class TripBean {
         this.returnDate = returnDate;
         this.price = price;
         this.country = country;
+        System.out.println("Costruttore 3: price = " + price);
     }
 
     public TripBean(String tripName, LocalDate outboundDate, LocalDate returnDate){
         this.tripName = tripName;
         this.outboundDate = outboundDate;
         this.returnDate = returnDate;
+        System.out.println("Costruttore 4: Nessun campo price");
     }
 
     public TripBean(int idTrip, String tripName,LocalDate outboundDate, LocalDate returnDate, String city, String guide){
@@ -62,10 +66,12 @@ public class TripBean {
         this.returnDate = returnDate;
         this.departureCity = city;
         this.guide = guide;
+        System.out.println("Costruttore 5: Nessun campo price");
     }
 
     public TripBean(int idTrip){
         this.idTrip = idTrip;
+        System.out.println("Costruttore 6: Nessun campo price");
     }
 
     public LocalDate getOutboundDate() {

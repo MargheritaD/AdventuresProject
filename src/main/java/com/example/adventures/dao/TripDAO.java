@@ -1,5 +1,6 @@
 package com.example.adventures.dao;
 
+import com.example.adventures.bean.CountryCategoryBean;
 import com.example.adventures.connection.ConnectionDB;
 import com.example.adventures.dao.queries.CRUDQueries;
 import com.example.adventures.dao.queries.SimpleQueries;
@@ -27,7 +28,7 @@ public class TripDAO {
     private static final String GUIDE = "guide";
     private static final String COUNTRY = "country";
 
-    private TripDAO(){}
+    public TripDAO(){}
 
     public static void addTrip(Trip trip) {
         Connection connection;
@@ -213,6 +214,7 @@ public class TripDAO {
             Printer.printError(e.getMessage());
         }
     }
+
 
     public static int getNumberTripsByCountry(String country){
 

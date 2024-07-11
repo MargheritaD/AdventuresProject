@@ -29,6 +29,4 @@ class SearchTripTest {
             Assertions.fail(e.getMessage());
         }
     }
-
-
 }
