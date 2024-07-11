@@ -26,8 +26,7 @@ public class TripDAO {
     private static final String PRICE = "price";
     private static final String GUIDE = "guide";
     private static final String COUNTRY = "country";
-
-   // ci stava publico  Trip DAO con parentesi(){}
+    public  TripDAO(){}
 
     public static void addTrip(Trip trip) {
         Connection connection;
