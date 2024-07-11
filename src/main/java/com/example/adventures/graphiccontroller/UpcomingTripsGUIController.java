@@ -2,11 +2,8 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
 import com.example.adventures.appcontroller.BookTripController;
-//import com.example.adventures.appcontroller.TableTripController;
 import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.RequestBean;
-import com.example.adventures.bean.TravelerBean;
-import com.example.adventures.bean.TripBean;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
 import javafx.fxml.FXML;
@@ -21,7 +18,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
 

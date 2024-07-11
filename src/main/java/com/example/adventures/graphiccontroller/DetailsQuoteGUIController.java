@@ -116,10 +116,8 @@ public class DetailsQuoteGUIController {
 
 
         BookTripController bookTripController = new BookTripController();
-        //TripBean tripBean = bookTripController.tableTrip(codice);
         List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);// prima era tripId
 
-        //tripPrice = Float.parseFloat(tripBean.getGuide());
         tripPrice = Float.parseFloat(tripBean.getPrice());
 
         // Imposta i valori delle colonne tabella viaggio
