@@ -107,18 +107,10 @@ public class DetailQuoteGuideGUIController {
 
 
     public void inizio(TripBean tripBean) throws NotFoundException {
-    //public void inizio(int codice) throws NotFoundException {
-
-        System.out.println("Sono dentro inizio " + tripBean);
-        System.out.println("Prezzo: "+ tripBean.getPrice());
-        System.out.println("Guida: "+ tripBean.getGuide());
-        System.out.println("Id: "+ tripBean.getIdTrip());
 
         BookTripController bookTripController = new BookTripController();
         List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);// prima era tripId
-        //TripBean tripBean = bookTripController.tableTrip(codice);
 
-        //tripPrice = Float.parseFloat(tripBean.getGuide());
         tripPrice = Float.parseFloat(tripBean.getPrice());
 
         // Imposta i valori delle colonne tabella viaggio
