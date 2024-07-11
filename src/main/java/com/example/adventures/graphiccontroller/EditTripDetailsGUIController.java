@@ -62,8 +62,6 @@ public class EditTripDetailsGUIController {
     public void inizio(TripBean tripBean) throws NotFoundException {
 
 
-        //this.codice = codice;
-
         BookTripController bookTripController = new BookTripController();
         List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);
 

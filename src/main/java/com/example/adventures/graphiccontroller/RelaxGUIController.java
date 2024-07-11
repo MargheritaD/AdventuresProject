@@ -112,36 +112,17 @@ public class RelaxGUIController {
         }
     }
 
-    public void detailsAction() throws IOException, NotFoundException {
+    public void detailsAction() throws  NotFoundException {
 
         TripBean selectedTrip = tableViewTrips.getSelectionModel().getSelectedItem();
-        System.out.println("details action - relaxGUI + id " +selectedTrip.getIdTrip());
-        System.out.println("details action - relaxGUI + name " +selectedTrip.getTripName());
-        System.out.println("details action - relaxGUI + price " +selectedTrip.getPrice());
-        System.out.println("details action - relaxGUI + country " +selectedTrip.getCountry());
-        System.out.println("details action - relaxGUI + category " +selectedTrip.getCategory());
-        System.out.println("details action - relaxGUI + city " +selectedTrip.getDepartureCity());
-        System.out.println("details action - relaxGUI + outbound " +selectedTrip.getOutboundDate());
-        System.out.println("details action - relaxGUI + return " +selectedTrip.getReturnDate());
 
         if (selectedTrip != null) {
-
-            System.out.println("VIAGGIO é STATO SELEZIONATO");
 
             BookTripController bookTripController = new BookTripController();
             TripBean detailedTripBean = bookTripController.getTripDetails(selectedTrip);
 
-            System.out.println("details action1 - relaxGUI + id " +detailedTripBean.getIdTrip());
-            System.out.println("details action1 - relaxGUI + name " +detailedTripBean.getTripName());
-            System.out.println("details action1 - relaxGUI + price " +detailedTripBean.getPrice());
-            System.out.println("details action1 - relaxGUI + country " +detailedTripBean.getCountry());
-            System.out.println("details action1 - relaxGUI + category " +detailedTripBean.getCategory());
-            System.out.println("details action1 - relaxGUI + city " +detailedTripBean.getDepartureCity());
-            System.out.println("details action1 - relaxGUI + outbound " +detailedTripBean.getOutboundDate());
-            System.out.println("details action1 - relaxGUI + return " +detailedTripBean.getReturnDate());
-
             if(!username.equals(detailedTripBean.getGuide())  && guideController){
-//if(!username.equals(selectedTrip.getGuide())  && guideController){
+
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/TripDetailsQuoteGuide.fxml"));
 
                 try{
@@ -158,9 +139,7 @@ public class RelaxGUIController {
                 DetailQuoteGuideGUIController detailQuoteGuideGUIController = fxmlLoader.getController();
 
                 detailQuoteGuideGUIController.setTripId(selectedTrip.getIdTrip());
-                System.out.println("Un attimo prima di passare selected trip " + selectedTrip);
                 detailQuoteGuideGUIController.inizio(detailedTripBean);
-                //detailQuoteGuideGUIController.inizio(selectedTrip.getIdTrip());
                 detailQuoteGuideGUIController.setCountry(country);
                 detailQuoteGuideGUIController.setCategory(valore);
 
@@ -183,7 +162,6 @@ public class RelaxGUIController {
 
                 DetailsQuoteGUIController detailsQuoteGUIController = fxmlLoader.getController();
                 detailsQuoteGUIController.setTripId(selectedTrip.getIdTrip());
-                //detailsQuoteGUIController.inizio(selectedTrip.getIdTrip());
                 detailsQuoteGUIController.inizio(detailedTripBean);
                 detailsQuoteGUIController.setCountry(country);
                 detailsQuoteGUIController.setCategory(valore);
@@ -205,7 +183,6 @@ public class RelaxGUIController {
 
                 EditTripDetailsGUIController editTripDetailsGUIController = fxmlLoader.getController();
                 editTripDetailsGUIController.inizio(detailedTripBean);
-                //editTripDetailsGUIController.inizio(selectedTrip.getIdTrip());
                 editTripDetailsGUIController.setCountry(country);
                 editTripDetailsGUIController.setCategory(valore);
 
