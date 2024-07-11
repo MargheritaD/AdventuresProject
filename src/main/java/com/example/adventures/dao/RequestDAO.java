@@ -152,18 +152,13 @@ public class RequestDAO {
 
         try {
             connection = ConnectionDB.getConnection();
-            ResultSet b = SimpleQueries.setBell(connection, guideBean.getId());
-            if(b.first()){
-                return true;
-            }else {
-                return false;
-            }
+            ResultSet resultSet = SimpleQueries.setBell(connection, guideBean.getId());
+            return resultSet.first();
         }catch (SQLException e) {
             Printer.printError(e.getMessage());
         }
 
         return false;
-
     }
 
 }
