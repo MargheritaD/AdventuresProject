@@ -65,7 +65,7 @@ public class CLISelectedTrip extends AbstractCLI {
                         default -> CLIPrinter.printMessage("Invalid choice!!");
                     }
                 } catch (Exception e) {
-                    throw new NotFoundException("Exception");
+                    throw new NotFoundException("Exception for Guide");
                 }
             }
         } else { // È l'organizzatore
@@ -101,7 +101,7 @@ public class CLISelectedTrip extends AbstractCLI {
                     default -> CLIPrinter.printMessage("Invalid choice!");
                 }
             } catch (Exception e) {
-                throw new NotFoundException("Exception");
+                throw new NotFoundException("Exception for Traveler");
             }
         }
     }
