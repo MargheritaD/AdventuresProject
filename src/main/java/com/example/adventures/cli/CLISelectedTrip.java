@@ -12,14 +12,10 @@ import com.example.adventures.utilities.CLIPrinter;
 
 import java.util.List;
 
-import static java.lang.Integer.parseInt;
-
 public class CLISelectedTrip extends AbstractCLI {
 
     private String username;
     private boolean guideController = true;
-    private int tripPrice;
-    private String country;
 
     public void start(TripBean tripBean, List<ItineraryStopBean> itinerary) {
         printTripDetails(tripBean);
@@ -49,11 +45,7 @@ public class CLISelectedTrip extends AbstractCLI {
                 try {
                     int choice1 = menuForGuideAsTraveler();
                     switch (choice1) {
-                        case 1 -> {
-                            System.out.println("Prima di richiedere il preventivo");
-                            requestQuote(tripBean);
-                            System.out.println("Dopo averlo chioesto");
-                        }
+                        case 1 -> requestQuote(tripBean);
 
                         case 2 -> CLIPrinter.printMessage("back");
 
@@ -144,21 +136,13 @@ public class CLISelectedTrip extends AbstractCLI {
 
     private void requestQuote(TripBean tripBean) {
 
-        System.out.println("Entro nella richiesta preventivo");
-
-        System.out.println("Entro nella richiesta preventivo prezzo " + tripBean.getPrice());
-
         float tripPriceFloat = Float.parseFloat(tripBean.getPrice());
         // Converti il float in int (usando il casting)
         int tripPrice = (int) tripPriceFloat;
         String country = tripBean.getCountry();
 
-        System.out.println("Prezzo del viaggio: " + tripPrice);
-        System.out.println("Country: "+country);
-
         Quote baseQuote = new TripPriceQuote(tripPrice);
 
-        System.out.println(baseQuote);
 
         // Aggiungi la tassa per destinazione specifica
         if("Australia".equals(country)){
@@ -183,10 +167,6 @@ public class CLISelectedTrip extends AbstractCLI {
             baseQuote = new USAQuote(baseQuote);
         }
 
-
-        //tripPrice = Float.parseFloat(tripBean.getPrice());
-        //QuoteBean quoteBean = new QuoteBean(tripPrice);
-
         CLIPrinter.printMessage("\n ---------------------------------------------------");
         CLIPrinter.printMessage("\n| To calculate the quote, add the insurances you are |");
         CLIPrinter.printMessage("\n| interested in one by one. When you're done, select |");
@@ -200,15 +180,12 @@ public class CLISelectedTrip extends AbstractCLI {
             switch (choice2) {
                 case 1 -> {
                     baseQuote = new HealthcareDecorator(baseQuote);
-                    //quoteBean.addInsurance(new HealthQuote());
                     CLIPrinter.printMessage("\n ---------------------------");
                     CLIPrinter.printMessage("\n| Healthcare insurance added |");
                     CLIPrinter.printMessage("\n ---------------------------\n");
                 }
                 case 2 -> {
                     baseQuote = new LuggageDecorator(baseQuote);
-
-                    //quoteBean.addInsurance(new LuggageQuote());
                     CLIPrinter.printMessage("\n ------------------------");
                     CLIPrinter.printMessage("\n| Luggage insurance added |");
                     CLIPrinter.printMessage("\n ------------------------\n");
@@ -216,7 +193,6 @@ public class CLISelectedTrip extends AbstractCLI {
                 }
                 case 3 -> {
                     baseQuote = new CancellationDecorator(baseQuote);
-                    //quoteBean.addInsurance(new CancellationQuote());
                     CLIPrinter.printMessage("\n -----------------------------");
                     CLIPrinter.printMessage("\n| Cancellation insurance added |");
                     CLIPrinter.printMessage("\n -----------------------------\n");
@@ -231,9 +207,6 @@ public class CLISelectedTrip extends AbstractCLI {
         QuoteBean quoteBean = new QuoteBean(baseQuote.getPrice());
         QuoteController quoteController = new QuoteController();
         float totalQuote = quoteController.calculateQuote(quoteBean);
-
-        //BookTripController quoteController = new BookTripController();
-        //float totalQuote = quoteController.calculateQuote(quoteBean);
         displayQuoteResult(totalQuote);
     }
 
