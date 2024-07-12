@@ -3,15 +3,16 @@ package com.example.adventures.cli;
 import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.bean.CountryCategoryBean;
 import com.example.adventures.bean.TripBean;
-import com.example.adventures.exception.NotFoundException;
+import com.example.adventures.exception.*;
 import com.example.adventures.utilities.CLIPrinter;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
 public class CLIHomeGuide extends AbstractCLI {
 
-    public void start() {
+    public void start() throws NotFoundException{
         boolean choose = true;
         CountryCategoryBean countryCategoryBean = new CountryCategoryBean();
         CLIGuideRequests guideRequests = new CLIGuideRequests();
@@ -41,7 +42,7 @@ public class CLIHomeGuide extends AbstractCLI {
                     default -> CLIPrinter.printMessage("Invalid choice");
                 }
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                throw new NotFoundException("Exception");
             }
         }
     }

@@ -87,7 +87,7 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
         return getMenuChoice(1,i+4);
     }
 
-    private void goBack(){
+    private void goBack() throws NotFoundException {
         new CLIHomeGuide().start(); // metti session per fare l'if
     }
 

@@ -2,6 +2,7 @@ package com.example.adventures.cli;
 
 import com.example.adventures.appcontroller.LoginController;
 import com.example.adventures.engineering.Session;
+import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.util.Scanner;
@@ -32,7 +33,7 @@ public class AbstractCLI {
 
     }
 
-    protected void goHome() {
+    protected void goHome() throws NotFoundException {
         // ruolo cosi cambi home
 
         Session session = Session.getCurrentSession();
