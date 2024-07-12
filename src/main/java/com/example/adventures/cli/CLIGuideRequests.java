@@ -4,6 +4,7 @@ import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.RequestBean;
 import com.example.adventures.engineering.Session;
+import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class CLIGuideRequests extends AbstractCLI{
 
 
 
-    public void start() {
+    public void start() throws NotFoundException {
         Session session = Session.getCurrentSession();
         if (session == null || session.getGuideBean() == null) {
             CLIPrinter.printMessage("Error: Guide session not found.");
@@ -27,12 +28,12 @@ public class CLIGuideRequests extends AbstractCLI{
         showMenuRequests(requestBeanList);
     }
 
-    private List<RequestBean> getRequestsForGuide(GuideBean guideBean) {
+    private List<RequestBean> getRequestsForGuide(GuideBean guideBean) throws NotFoundException {
         try {
             BookTripController bookTripController = new BookTripController();
             return bookTripController.tableRequestsGuide(guideBean);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NotFoundException("Failed to retrieve requests for this guide " );
         }
     }
 
