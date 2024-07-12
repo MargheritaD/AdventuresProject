@@ -4,13 +4,14 @@ import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.bean.RequestBean;
 import com.example.adventures.bean.TravelerBean;
 import com.example.adventures.engineering.Session;
+import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.util.List;
 
 public class CLITravelerRequests extends AbstractCLI{
 
-    public void start(){
+    public void start() throws NotFoundException {
 
         Session session = Session.getCurrentSession();
         if (session == null || session.getTravelerBean() == null) {
@@ -23,12 +24,12 @@ public class CLITravelerRequests extends AbstractCLI{
         showRequests(requestBeanList);
     }
 
-    private List<RequestBean> getRequestsForTraveler(TravelerBean travelerBean) {
+    private List<RequestBean> getRequestsForTraveler(TravelerBean travelerBean) throws NotFoundException {
         try {
             BookTripController bookTripController = new BookTripController();
             return bookTripController.tableRequestsTraveler(travelerBean);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            throw new NotFoundException("Exception");
         }
     }
 
