@@ -1,11 +1,12 @@
 package com.example.adventures.cli;
 
 import com.example.adventures.appcontroller.BookTripController;
+import com.example.adventures.appcontroller.QuoteController;
 import com.example.adventures.bean.*;
 import com.example.adventures.engineering.Session;
-import com.example.adventures.engineering.decoretor.CancellationQuote;
-import com.example.adventures.engineering.decoretor.HealthQuote;
-import com.example.adventures.engineering.decoretor.LuggageQuote;
+//import com.example.adventures.engineering.decoretor.CancellationQuote;
+//import com.example.adventures.engineering.decoretor.HealthQuote;
+//import com.example.adventures.engineering.decoretor.LuggageQuote;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.util.List;
@@ -150,20 +151,20 @@ public class CLISelectedTrip extends AbstractCLI {
             int choice2 = menuForQuote();
             switch (choice2) {
                 case 1 -> {
-                    quoteBean.addInsurance(new HealthQuote());
+                    //quoteBean.addInsurance(new HealthQuote());
                     CLIPrinter.printMessage("\n ---------------------------");
                     CLIPrinter.printMessage("\n| Healthcare insurance added |");
                     CLIPrinter.printMessage("\n ---------------------------\n");
                 }
                 case 2 -> {
-                    quoteBean.addInsurance(new LuggageQuote());
+                    //quoteBean.addInsurance(new LuggageQuote());
                     CLIPrinter.printMessage("\n ------------------------");
                     CLIPrinter.printMessage("\n| Luggage insurance added |");
                     CLIPrinter.printMessage("\n ------------------------\n");
 
                 }
                 case 3 -> {
-                    quoteBean.addInsurance(new CancellationQuote());
+                    //quoteBean.addInsurance(new CancellationQuote());
                     CLIPrinter.printMessage("\n -----------------------------");
                     CLIPrinter.printMessage("\n| Cancellation insurance added |");
                     CLIPrinter.printMessage("\n -----------------------------\n");
@@ -175,8 +176,10 @@ public class CLISelectedTrip extends AbstractCLI {
             }
         }
 
-        BookTripController quoteController = new BookTripController();
+        QuoteController quoteController = new QuoteController();
         float totalQuote = quoteController.calculateQuote(quoteBean);
+        //BookTripController quoteController = new BookTripController();
+        //float totalQuote = quoteController.calculateQuote(quoteBean);
         displayQuoteResult(totalQuote);
     }
 

@@ -15,6 +15,7 @@ import java.util.List;
 
 public class BookTripController {
 
+    /*
     public float calculateQuote(QuoteBean quoteBean) {
         float totalPrice = quoteBean.getTripPrice();
 
@@ -24,6 +25,8 @@ public class BookTripController {
 
         return totalPrice;
     }
+
+     */
 
     public int numberOfTrps(String country){
 

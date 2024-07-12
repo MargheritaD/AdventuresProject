@@ -4,9 +4,10 @@ import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.Main;
 import com.example.adventures.bean.*;
 import com.example.adventures.engineering.Session;
-import com.example.adventures.engineering.decoretor.CancellationQuote;
-import com.example.adventures.engineering.decoretor.HealthQuote;
-import com.example.adventures.engineering.decoretor.LuggageQuote;
+import com.example.adventures.engineering.decoretor.*;
+import com.example.adventures.engineering.decoretor.decorations.CancellationDecorator;
+import com.example.adventures.engineering.decoretor.decorations.HealthcareDecorator;
+import com.example.adventures.engineering.decoretor.decorations.LuggageDecorator;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.Trip;
 import javafx.fxml.FXML;
@@ -77,8 +78,11 @@ public class DetailQuoteGuideGUIController {
     int travalerId;
 
     public void setCountry(String country) {
+
         this.country = country;
+        System.out.println("Country: "+ country);
     }
+
 
     public void setCategory(String category) {
         this.categoria = category;
@@ -138,8 +142,64 @@ public class DetailQuoteGuideGUIController {
         this.tripId = tripId;
     }
 
-    public void quoteAction(){
+    public void quoteAction() throws IOException {
 
+        // Inizializza il preventivo di base con il prezzo del viaggio
+        Quote baseQuote = new TripPriceQuote((int)tripPrice);
+
+        // Aggiungi la tassa per destinazione specifica
+        if("Australia".equals(country)){
+            baseQuote = new AustraliaQuote(baseQuote);
+        } else if ("Argentina".equals(country)) {
+            baseQuote = new ArgentinaQuote(baseQuote);
+        }else if ("Brasil".equals(country)) {
+            baseQuote = new BrasilQuote(baseQuote);
+        }else if ("Chile".equals(country)) {
+            baseQuote = new ChileQuote(baseQuote);
+        }else if ("India".equals(country)) {
+            baseQuote = new IndiaQuote(baseQuote);
+        }else if ("Italy".equals(country)) {
+            baseQuote = new ItalyQuote(baseQuote);
+        }else if ("Mexico".equals(country)) {
+            baseQuote = new MexicoQuote(baseQuote);
+        }else if ("Perù".equals(country)) {
+            baseQuote = new PuruQuote(baseQuote);
+        }else if ("Spain".equals(country)) {
+            baseQuote = new SpainQuote(baseQuote);
+        }else if ("USA".equals(country)) {
+            baseQuote = new USAQuote(baseQuote);
+        }
+
+
+        // Aggiungi le assicurazioni selezionate dall'utente
+        if (healthcareButton.isSelected()) {
+            baseQuote = new HealthcareDecorator(baseQuote);
+        }
+        if (tripCancellationButton.isSelected()) {
+            baseQuote = new CancellationDecorator(baseQuote);
+        }
+        if (luggageButton.isSelected()) {
+            baseQuote = new LuggageDecorator(baseQuote);
+        }
+
+        // Crea il QuoteBean con il preventivo finale
+        QuoteBean quoteBean = new QuoteBean(baseQuote.getPrice());
+
+        // Passaggio del bean alla finestra successiva
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/quote.fxml"));
+        Parent root1 = fxmlLoader.load();
+
+        QuoteGUIController quoteGUIController = fxmlLoader.getController();
+        quoteGUIController.showQuoteResult(quoteBean); // Passa il bean al controller della nuova finestra
+
+        Stage dialog = new Stage();
+        dialog.initModality(Modality.APPLICATION_MODAL);
+        dialog.initStyle(StageStyle.UNDECORATED);
+        dialog.setScene(new Scene(root1));
+        dialog.centerOnScreen();
+        dialog.show();
+
+        /*
 
         QuoteBean quoteBean = new QuoteBean(tripPrice); // Inizializzo con il prezzo del viaggio
 
@@ -171,6 +231,7 @@ public class DetailQuoteGuideGUIController {
             e.printStackTrace();
         }
 
+         */
     }
 
 

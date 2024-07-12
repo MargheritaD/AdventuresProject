@@ -3,8 +3,7 @@ package com.example.adventures.appcontroller;
 import com.example.adventures.bean.QuoteBean;
 import com.example.adventures.engineering.decoretor.Quote;
 
-public class RequestQuoteController {
-
+public class QuoteController {
     public float calculateQuote(QuoteBean quoteBean) {
         float totalPrice = quoteBean.getTripPrice();
 

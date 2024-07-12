@@ -1,6 +1,7 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.appcontroller.BookTripController;
+import com.example.adventures.appcontroller.QuoteController;
 import com.example.adventures.bean.QuoteBean;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,8 +15,12 @@ public class QuoteGUIController {
 
     public void showQuoteResult(QuoteBean quoteBean) {
 
-        BookTripController quoteController = new BookTripController();
+        QuoteController quoteController = new QuoteController();
         float totalQuote = quoteController.calculateQuote(quoteBean);
+
+        //BookTripController quoteController = new BookTripController();
+        //float totalQuote = quoteController.calculateQuote(quoteBean);
+
 
         priceLabel.setText(totalQuote + " $");
     }

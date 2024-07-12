@@ -4,9 +4,9 @@ import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.Main;
 import com.example.adventures.bean.*;
 import com.example.adventures.engineering.Session;
-import com.example.adventures.engineering.decoretor.CancellationQuote;
-import com.example.adventures.engineering.decoretor.HealthQuote;
-import com.example.adventures.engineering.decoretor.LuggageQuote;
+//import com.example.adventures.engineering.decoretor.CancellationQuote;
+//import com.example.adventures.engineering.decoretor.HealthQuote;
+//import com.example.adventures.engineering.decoretor.LuggageQuote;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.Trip;
 import javafx.event.ActionEvent;
@@ -174,13 +174,13 @@ public class DetailsQuoteGUIController {
 
         try {
             if (healthcareButton.isSelected()) {
-                quoteBean.addInsurance(new HealthQuote());
+                //quoteBean.addInsurance(new HealthQuote());
             }
             if (tripCancellationButton.isSelected()) {
-                quoteBean.addInsurance(new CancellationQuote());
+                //quoteBean.addInsurance(new CancellationQuote());
             }
             if (luggageButton.isSelected()) {
-                quoteBean.addInsurance(new LuggageQuote());
+                //quoteBean.addInsurance(new LuggageQuote());
             }
 
             // Passaggio del bean alla finestra successiva

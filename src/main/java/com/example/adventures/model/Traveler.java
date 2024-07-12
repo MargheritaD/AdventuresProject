@@ -26,7 +26,6 @@ public class Traveler extends GenericUser{
     public String getSurname() {
         return cognomeViaggiatore;
     }
-    public String getNomeViaggiatore(){return nomeViaggiatore;}
 
     @Override
     public String getEmail(){
