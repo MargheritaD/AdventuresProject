@@ -8,6 +8,7 @@ import com.example.adventures.engineering.decoretor.*;
 import com.example.adventures.engineering.decoretor.decorations.CancellationDecorator;
 import com.example.adventures.engineering.decoretor.decorations.HealthcareDecorator;
 import com.example.adventures.engineering.decoretor.decorations.LuggageDecorator;
+import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class CLISelectedTrip extends AbstractCLI {
     private String username;
     private boolean guideController = true;
 
-    public void start(TripBean tripBean, List<ItineraryStopBean> itinerary) {
+    public void start(TripBean tripBean, List<ItineraryStopBean> itinerary) throws NotFoundException {
         printTripDetails(tripBean);
         printItinerary(itinerary);
 
@@ -35,7 +36,7 @@ public class CLISelectedTrip extends AbstractCLI {
         }
     }
 
-    private void handleGuideUser(Session session, TripBean tripBean) {
+    private void handleGuideUser(Session session, TripBean tripBean) throws NotFoundException{
         GuideBean guideBean = session.getGuideBean();
         username = guideBean.getName();
 
@@ -64,7 +65,7 @@ public class CLISelectedTrip extends AbstractCLI {
                         default -> CLIPrinter.printMessage("Invalid choice!!");
                     }
                 } catch (Exception e) {
-                    throw new RuntimeException(e);
+                    throw new NotFoundException("Exception");
                 }
             }
         } else { // È l'organizzatore
@@ -72,7 +73,7 @@ public class CLISelectedTrip extends AbstractCLI {
         }
     }
 
-    private void handleTravelerUser(Session session, TripBean tripBean) {
+    private void handleTravelerUser(Session session, TripBean tripBean) throws NotFoundException {
         TravelerBean travelerBean = session.getTravelerBean();
         username = travelerBean.getName();
         guideController = false;
@@ -100,12 +101,12 @@ public class CLISelectedTrip extends AbstractCLI {
                     default -> CLIPrinter.printMessage("Invalid choice!");
                 }
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                throw new NotFoundException("Exception");
             }
         }
     }
 
-    private void handleGuideOptions() {
+    private void handleGuideOptions() throws NotFoundException {
         boolean scegli = true;
         while (scegli) {
             try {
@@ -128,7 +129,7 @@ public class CLISelectedTrip extends AbstractCLI {
                     default -> CLIPrinter.printMessage("Invalid choice.");
                 }
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                throw new NotFoundException("Exception");
             }
         }
     }
