@@ -18,10 +18,6 @@ public class QuoteGUIController {
         QuoteController quoteController = new QuoteController();
         float totalQuote = quoteController.calculateQuote(quoteBean);
 
-        //BookTripController quoteController = new BookTripController();
-        //float totalQuote = quoteController.calculateQuote(quoteBean);
-
-
         priceLabel.setText(totalQuote + " $");
     }
 
