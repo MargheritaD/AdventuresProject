@@ -80,7 +80,6 @@ public class DetailQuoteGuideGUIController {
     public void setCountry(String country) {
 
         this.country = country;
-        System.out.println("Country: "+ country);
     }
 
 
@@ -198,40 +197,6 @@ public class DetailQuoteGuideGUIController {
         dialog.setScene(new Scene(root1));
         dialog.centerOnScreen();
         dialog.show();
-
-        /*
-
-        QuoteBean quoteBean = new QuoteBean(tripPrice); // Inizializzo con il prezzo del viaggio
-
-        try {
-            if (healthcareButton.isSelected()) {
-                quoteBean.addInsurance(new HealthQuote());
-            }
-            if (tripCancellationButton.isSelected()) {
-                quoteBean.addInsurance(new CancellationQuote());
-            }
-            if (luggageButton.isSelected()) {
-                quoteBean.addInsurance(new LuggageQuote());
-            }
-
-            // Passaggio del bean alla finestra successiva
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/quote.fxml"));
-            Parent root1 = fxmlLoader.load();
-
-            QuoteGUIController quoteGUIController = fxmlLoader.getController();
-            quoteGUIController.showQuoteResult(quoteBean); // Passa il bean al controller della nuova finestra
-
-            Stage dialog = new Stage();
-            dialog.initModality(Modality.APPLICATION_MODAL);
-            dialog.initStyle(StageStyle.UNDECORATED);
-            dialog.setScene(new Scene(root1));
-            dialog.centerOnScreen();
-            dialog.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-         */
     }
 
 
