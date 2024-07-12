@@ -1,5 +1,6 @@
 package com.example.adventures.dao;
 
+import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.ItineraryStop;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
@@ -25,11 +26,11 @@ public class ItineraryStopDAOCSV {
 
     public ItineraryStopDAOCSV() throws IOException{
 
-        this.fd = new File("stops.csv");
-
-        if(!fd.exists()){
-            throw new IOException("File does not exists");
+        File fd = new File("stops.csv");
+        if (!fd.exists()) {
+            throw new IOException("File does not exist");
         }
+
     }
 
     public void addStop(ItineraryStop itineraryStop, int id) throws IOException {
@@ -56,7 +57,7 @@ public class ItineraryStopDAOCSV {
         }
     }
 
-    public  List<ItineraryStop> retrieveStopList(int idTrip) throws IOException {
+    public  List<ItineraryStop> retrieveStopList(int idTrip) throws IOException, NotFoundException {
         CSVReader csvReader = new CSVReader(new BufferedReader(new FileReader(fd)));
 
         try {
@@ -81,7 +82,7 @@ public class ItineraryStopDAOCSV {
             return stopList;
 
         } catch (CsvValidationException e) {
-            throw new RuntimeException(e);
+            throw new NotFoundException("Exception: CSV");
         }finally {
             csvReader.close();
         }
