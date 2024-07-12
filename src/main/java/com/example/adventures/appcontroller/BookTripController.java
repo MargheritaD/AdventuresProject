@@ -4,7 +4,6 @@ import com.example.adventures.bean.*;
 import com.example.adventures.dao.ItineraryStopDAO;
 import com.example.adventures.dao.RequestDAO;
 import com.example.adventures.dao.TripDAO;
-import com.example.adventures.engineering.decoretor.Quote;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.ItineraryStop;
 import com.example.adventures.model.Request;
@@ -14,19 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookTripController {
-
-    /*
-    public float calculateQuote(QuoteBean quoteBean) {
-        float totalPrice = quoteBean.getTripPrice();
-
-        for (Quote insurance : quoteBean.getSelectedInsurances()) {
-            totalPrice += insurance.getPrice();
-        }
-
-        return totalPrice;
-    }
-
-     */
 
     public int numberOfTrps(String country){
 
@@ -52,7 +38,6 @@ public class BookTripController {
     }
 
     public List<ItineraryStopBean> tableItinerary(TripBean tripBean){
-    //public List<ItineraryStopBean> tableItinerary(int tripId)
 
         List<ItineraryStop> stops = ItineraryStopDAO.retrieveStopList(tripBean.getIdTrip());
 
@@ -77,16 +62,6 @@ public class BookTripController {
         return new TripBean(partialTripBean.getIdTrip(), trip.getTripName(), trip.getDepartureCity(), trip.getCategory(), trip.getOutboundDate(), trip.getReturnDate(), trip.getPrice(), trip.getGuide(), trip.getCountry());
     }
 
-/*
-    public TripBean tableTrip(int tripId) throws NotFoundException {
-
-        Trip trip = TripDAO.retrieveTripById(tripId);
-
-        return (new TripBean(trip.getTripName(), trip.getDepartureCity(), trip.getOutboundDate(), trip.getReturnDate(), trip.getPrice(), trip.getGuide()));
-
-    }
-
- */
     public void sendRequest(RequestBean requestBean){
 
         Request request = new Request(requestBean.getIdTrip(), requestBean.getIdTraveler());
