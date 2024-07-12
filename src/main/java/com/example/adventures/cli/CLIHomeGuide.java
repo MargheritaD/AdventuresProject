@@ -6,7 +6,6 @@ import com.example.adventures.bean.TripBean;
 import com.example.adventures.exception.*;
 import com.example.adventures.utilities.CLIPrinter;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -47,7 +46,7 @@ public class CLIHomeGuide extends AbstractCLI {
         }
     }
 
-    private void handleCountrySelection(CountryCategoryBean countryCategoryBean) throws SQLException, NotFoundException {
+    private void handleCountrySelection(CountryCategoryBean countryCategoryBean) throws NotFoundException, SQLException {
         int country = chooseCountry();
         switch (country) {
             case 1 -> countryCategoryBean.setCountry("Italy");
