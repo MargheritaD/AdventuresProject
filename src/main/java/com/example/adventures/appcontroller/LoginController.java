@@ -7,6 +7,8 @@ import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.exception.UserNotFoundException;
 import com.example.adventures.engineering.Session;
 
+import java.util.logging.Logger;
+
 
 public class LoginController {
     public void checkUser(LoginBean loginBean) throws UserNotFoundException {
@@ -19,7 +21,9 @@ public class LoginController {
             loginBean.setRole(userProfile.getRole());
 
         }catch (UserNotFoundException e){
-            System.out.println("ECCEZIONE: Utente non esiste");
+            Logger logger = Logger.getLogger(getClass().getName());
+            logger.severe("ECCEZIONE: Utente non esiste");
+            throw e; // Rilancia l'eccezione se necessario
         }
 
     }
