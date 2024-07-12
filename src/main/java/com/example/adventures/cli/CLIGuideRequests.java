@@ -37,7 +37,7 @@ public class CLIGuideRequests extends AbstractCLI{
         }
     }
 
-    private void showMenuRequests(List<RequestBean> requestBeans) {
+    private void showMenuRequests(List<RequestBean> requestBeans) throws NotFoundException {
         boolean loop = true;
 
         while (loop) {
@@ -71,7 +71,7 @@ public class CLIGuideRequests extends AbstractCLI{
         }
     }
 
-    private void handleRequest(RequestBean requestBean) {
+    private void handleRequest(RequestBean requestBean) throws NotFoundException {
         CLIPrinter.printMessage("\nHandling request for trip: " + requestBean.getTripName() + "\n");
         CLIPrinter.printMessage("1) Accept request\n");
         CLIPrinter.printMessage("2) Decline request\n");

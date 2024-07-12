@@ -65,18 +65,19 @@ public class ItineraryStopDAOCSV {
 
             while ((stop = csvReader.readNext()) != null) {
 
+                String city = stop[INDEX_CITY];
+                LocalDate arrival = LocalDate.parse(stop[INDEX_ARRIVAL]);
+                LocalDate departure = LocalDate.parse(stop[INDEX_DEPARTURE]);
+
+
+                if(idTrip==(Integer.parseInt(stop[INDEX_TRIP]))){
+
+                    ItineraryStop itineraryStop = new ItineraryStop(city, arrival,departure);
+
+                    stopList.add(itineraryStop);
+                }
             }
-            String city = stop[INDEX_CITY];
-            LocalDate arrival = LocalDate.parse(stop[INDEX_ARRIVAL]);
-            LocalDate departure = LocalDate.parse(stop[INDEX_DEPARTURE]);
 
-
-            if(idTrip==(Integer.parseInt(stop[INDEX_TRIP]))){
-
-                ItineraryStop itineraryStop = new ItineraryStop(city, arrival,departure);
-
-                stopList.add(itineraryStop);
-            }
             return stopList;
 
         } catch (CsvValidationException e) {
