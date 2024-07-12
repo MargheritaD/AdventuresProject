@@ -13,6 +13,16 @@ public class Session {
 
     private Session(Object ob) {
 
+        if (ob instanceof TravelerBean travelerBean) {
+            // Sono nell'if di istance come viaggiatore
+            this.travelerBean = travelerBean;
+        } else if (ob instanceof GuideBean guideBean) {
+            // Sono nell'else di istance come guida
+            this.guideBean = guideBean;
+        }
+
+        /*
+
         if(ob instanceof TravelerBean){
             //Sono nell'if di istance come viaggiatore
             this.travelerBean = (TravelerBean) ob;
@@ -21,6 +31,8 @@ public class Session {
             //Sono nell'else di istance come guida
             guideBean = (GuideBean) ob;
         }
+
+         */
     }
 
     public static void setSessionInstance(Object ob) {
