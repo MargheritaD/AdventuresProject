@@ -11,7 +11,7 @@ import java.util.List;
 
 public class CLIHomeTraveler extends AbstractCLI {
 
-    public void start() {
+    public void start() throws NotFoundException{
         boolean chooseT = true;
         CountryCategoryBean countryCategoryBean = new CountryCategoryBean();
         CLITravelerRequests travelerRequests = new CLITravelerRequests();
@@ -35,7 +35,7 @@ public class CLIHomeTraveler extends AbstractCLI {
                     default -> CLIPrinter.printMessage("Invalid choice");
                 }
             } catch (Exception e) {
-                throw new RuntimeException(e);
+                throw new NotFoundException("Exception");
             }
         }
     }
