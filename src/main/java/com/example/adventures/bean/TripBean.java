@@ -29,6 +29,19 @@ public class TripBean {
         this.guide = guide;
     }
 
+    public TripBean(int idTrip, String tripName, String departureCity, String category,LocalDate outboundDate, LocalDate returnDate, String price, String guide, String country){
+        this.idTrip = idTrip;
+        this.tripName = tripName;
+        this.departureCity = departureCity;
+        this.category = category;
+        this.outboundDate = outboundDate;
+        this.returnDate = returnDate;
+        this.price = price;
+        this.guide = guide;
+        this.country = country;
+    }
+
+
     public TripBean(String tripName, String departureCity, LocalDate outboundDate, LocalDate returnDate, String guide, String price){
         this.tripName = tripName;
         this.departureCity = departureCity;

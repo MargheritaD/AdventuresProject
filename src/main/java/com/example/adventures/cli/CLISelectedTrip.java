@@ -4,18 +4,22 @@ import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.appcontroller.QuoteController;
 import com.example.adventures.bean.*;
 import com.example.adventures.engineering.Session;
-//import com.example.adventures.engineering.decoretor.CancellationQuote;
-//import com.example.adventures.engineering.decoretor.HealthQuote;
-//import com.example.adventures.engineering.decoretor.LuggageQuote;
+import com.example.adventures.engineering.decoretor.*;
+import com.example.adventures.engineering.decoretor.decorations.CancellationDecorator;
+import com.example.adventures.engineering.decoretor.decorations.HealthcareDecorator;
+import com.example.adventures.engineering.decoretor.decorations.LuggageDecorator;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 public class CLISelectedTrip extends AbstractCLI {
 
     private String username;
     private boolean guideController = true;
-    private float tripPrice;
+    private int tripPrice;
+    private String country;
 
     public void start(TripBean tripBean, List<ItineraryStopBean> itinerary) {
         printTripDetails(tripBean);
@@ -45,7 +49,11 @@ public class CLISelectedTrip extends AbstractCLI {
                 try {
                     int choice1 = menuForGuideAsTraveler();
                     switch (choice1) {
-                        case 1 -> requestQuote(tripBean);
+                        case 1 -> {
+                            System.out.println("Prima di richiedere il preventivo");
+                            requestQuote(tripBean);
+                            System.out.println("Dopo averlo chioesto");
+                        }
 
                         case 2 -> CLIPrinter.printMessage("back");
 
@@ -136,8 +144,48 @@ public class CLISelectedTrip extends AbstractCLI {
 
     private void requestQuote(TripBean tripBean) {
 
-        tripPrice = Float.parseFloat(tripBean.getPrice());
-        QuoteBean quoteBean = new QuoteBean(tripPrice);
+        System.out.println("Entro nella richiesta preventivo");
+
+        System.out.println("Entro nella richiesta preventivo prezzo " + tripBean.getPrice());
+
+        float tripPriceFloat = Float.parseFloat(tripBean.getPrice());
+        // Converti il float in int (usando il casting)
+        int tripPrice = (int) tripPriceFloat;
+        String country = tripBean.getCountry();
+
+        System.out.println("Prezzo del viaggio: " + tripPrice);
+        System.out.println("Country: "+country);
+
+        Quote baseQuote = new TripPriceQuote(tripPrice);
+
+        System.out.println(baseQuote);
+
+        // Aggiungi la tassa per destinazione specifica
+        if("Australia".equals(country)){
+            baseQuote = new AustraliaQuote(baseQuote);
+        } else if ("Argentina".equals(country)) {
+            baseQuote = new ArgentinaQuote(baseQuote);
+        }else if ("Brasil".equals(country)) {
+            baseQuote = new BrasilQuote(baseQuote);
+        }else if ("Chile".equals(country)) {
+            baseQuote = new ChileQuote(baseQuote);
+        }else if ("India".equals(country)) {
+            baseQuote = new IndiaQuote(baseQuote);
+        }else if ("Italy".equals(country)) {
+            baseQuote = new ItalyQuote(baseQuote);
+        }else if ("Mexico".equals(country)) {
+            baseQuote = new MexicoQuote(baseQuote);
+        }else if ("Perù".equals(country)) {
+            baseQuote = new PuruQuote(baseQuote);
+        }else if ("Spain".equals(country)) {
+            baseQuote = new SpainQuote(baseQuote);
+        }else if ("USA".equals(country)) {
+            baseQuote = new USAQuote(baseQuote);
+        }
+
+
+        //tripPrice = Float.parseFloat(tripBean.getPrice());
+        //QuoteBean quoteBean = new QuoteBean(tripPrice);
 
         CLIPrinter.printMessage("\n ---------------------------------------------------");
         CLIPrinter.printMessage("\n| To calculate the quote, add the insurances you are |");
@@ -151,12 +199,15 @@ public class CLISelectedTrip extends AbstractCLI {
             int choice2 = menuForQuote();
             switch (choice2) {
                 case 1 -> {
+                    baseQuote = new HealthcareDecorator(baseQuote);
                     //quoteBean.addInsurance(new HealthQuote());
                     CLIPrinter.printMessage("\n ---------------------------");
                     CLIPrinter.printMessage("\n| Healthcare insurance added |");
                     CLIPrinter.printMessage("\n ---------------------------\n");
                 }
                 case 2 -> {
+                    baseQuote = new LuggageDecorator(baseQuote);
+
                     //quoteBean.addInsurance(new LuggageQuote());
                     CLIPrinter.printMessage("\n ------------------------");
                     CLIPrinter.printMessage("\n| Luggage insurance added |");
@@ -164,6 +215,7 @@ public class CLISelectedTrip extends AbstractCLI {
 
                 }
                 case 3 -> {
+                    baseQuote = new CancellationDecorator(baseQuote);
                     //quoteBean.addInsurance(new CancellationQuote());
                     CLIPrinter.printMessage("\n -----------------------------");
                     CLIPrinter.printMessage("\n| Cancellation insurance added |");
@@ -176,8 +228,10 @@ public class CLISelectedTrip extends AbstractCLI {
             }
         }
 
+        QuoteBean quoteBean = new QuoteBean(baseQuote.getPrice());
         QuoteController quoteController = new QuoteController();
         float totalQuote = quoteController.calculateQuote(quoteBean);
+
         //BookTripController quoteController = new BookTripController();
         //float totalQuote = quoteController.calculateQuote(quoteBean);
         displayQuoteResult(totalQuote);
