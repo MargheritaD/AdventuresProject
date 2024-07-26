@@ -1,5 +1,5 @@
 package com.example.adventures.bean;
-
+/*
 public class ParticipantBean {
 
     private int idTrip;
@@ -23,3 +23,5 @@ public class ParticipantBean {
     public void setIdParticipant(int idParticipant){this.idTrip = idParticipant;}
 
 }
+
+ */

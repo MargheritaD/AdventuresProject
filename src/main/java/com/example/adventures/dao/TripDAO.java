@@ -36,9 +36,9 @@ public class TripDAO {
 
             Date outboundDate = Date.valueOf(trip.getOutboundDate());
             Date returnDate = Date.valueOf(trip.getReturnDate());
-            String guide = Guide.getName();
+            String guideName = Guide.getName();
 
-            CRUDQueries.insertTrip(connection, trip.getTripName(), trip.getDepartureCity(), trip.getCategory(), outboundDate, returnDate, trip.getPrice(), guide, trip.getCountry());
+            CRUDQueries.insertTrip(connection, trip.getTripName(), trip.getDepartureCity(), trip.getCategory(), outboundDate, returnDate, trip.getPrice(), guideName, trip.getCountry());
 
             ResultSet resultSet = SimpleQueries.retrieveTripID(connection, trip.getTripName());
 

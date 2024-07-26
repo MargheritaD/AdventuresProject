@@ -107,5 +107,4 @@ public class BookTripController {
 
         TripDAO.cancelTrip(idTrip);
     }
-
 }
