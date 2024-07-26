@@ -16,7 +16,7 @@ public class ParticipantBean {
 
     public void setIdTrip(int idTrip) {
         this.idTrip = idTrip;
-    }
+    } bbbbbbb
 
     public int getIdParticipant(){return idParticipant;}
 
