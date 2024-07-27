@@ -3,6 +3,7 @@ package com.example.adventures.graphiccontroller;
 import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.Main;
 import com.example.adventures.bean.*;
+import com.example.adventures.engineering.Printer;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.engineering.decoretor.*;
 import com.example.adventures.engineering.decoretor.decorations.CancellationDecorator;
@@ -154,7 +155,7 @@ public class DetailsQuoteGUIController {
 
         }catch (Exception e) { //NotFoundException
 
-            e.printStackTrace();
+            Printer.printError(e.getMessage());
         }
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/TripBooked.fxml"));
