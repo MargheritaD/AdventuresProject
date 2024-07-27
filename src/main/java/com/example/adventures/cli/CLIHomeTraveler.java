@@ -84,7 +84,7 @@ public class CLIHomeTraveler extends AbstractCLI {
         return getMenuChoice(1, 6);
     }
 
-    public void setCategory(int category, CountryCategoryBean countryCategoryBean) throws SQLException, NotFoundException {
+    public void setCategory(int category, CountryCategoryBean countryCategoryBean) throws NotFoundException {
 
         String categoryName = getCategoryName(category);
         if (categoryName != null) {

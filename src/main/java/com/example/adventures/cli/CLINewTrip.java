@@ -69,7 +69,6 @@ public class CLINewTrip extends AbstractCLI{
 
         } catch (Exception e) {
             CLIPrinter.printMessage("Errore nella creazione del viaggio: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 }
