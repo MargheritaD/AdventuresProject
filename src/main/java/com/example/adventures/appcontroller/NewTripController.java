@@ -1,5 +1,6 @@
 package com.example.adventures.appcontroller;
 
+import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.dao.TripDAO;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class NewTripController {
 
-    public void createTrip(TripBean tripBean){
+    public void createTrip(TripBean tripBean ){
 
         List<ItineraryStop> itineraryStops = new ArrayList<>();
 
