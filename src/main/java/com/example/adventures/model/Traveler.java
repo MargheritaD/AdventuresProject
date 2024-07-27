@@ -2,7 +2,7 @@ package com.example.adventures.model;
 
 public class Traveler extends GenericUser{
     private int idViaggiatore;
-    private static String nomeViaggiatore;
+    private  String nomeViaggiatore;
     private String cognomeViaggiatore;
     private String email;
 
@@ -14,7 +14,7 @@ public class Traveler extends GenericUser{
         this.email = email;
     }
 
-    public static String getName() {
+    public String getName() {
         return nomeViaggiatore;
     }
 
