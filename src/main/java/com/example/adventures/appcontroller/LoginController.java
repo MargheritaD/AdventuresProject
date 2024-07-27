@@ -41,8 +41,6 @@ public class LoginController {
     }
 
     public void logout(){
-        //Session session = Session.getCurrentSession();
-        //session.logout();
         Session.logout();
     }
 }
