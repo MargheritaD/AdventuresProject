@@ -163,7 +163,7 @@ public class TripDAO {
             trip = setTripInformationForTripTable(resultSet);
 
         } catch (SQLException e) {
-            e.printStackTrace(); // Gestisci l'eccezione in modo appropriato
+            Printer.printError(e.getMessage());// Gestisci l'eccezione in modo appropriato
         }
 
         return trip;
