@@ -7,6 +7,7 @@ import com.example.adventures.bean.CountryCategoryBean;
 import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.TravelerBean;
 import com.example.adventures.bean.TripBean;
+import com.example.adventures.engineering.Printer;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
 import javafx.fxml.FXML;
@@ -177,7 +178,7 @@ public class RelaxGUIController {
             }
 
         } catch (IOException | NotFoundException e) {
-            e.printStackTrace();
+            Printer.printError(e.getMessage());
         }
     }
 

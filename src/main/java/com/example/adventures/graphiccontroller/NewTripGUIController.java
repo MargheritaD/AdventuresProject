@@ -4,6 +4,7 @@ import com.example.adventures.Main;
 import com.example.adventures.appcontroller.NewTripController;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
+import com.example.adventures.engineering.Printer;
 import com.example.adventures.exception.FormEmptyException;
 
 import javafx.collections.FXCollections;
@@ -166,7 +167,7 @@ public class NewTripGUIController {
 
 
         }catch(FormEmptyException e ){
-            e.printStackTrace();
+            Printer.printError(e.getMessage());
         }
     }
     public void addName(){ // nome del viaggio
