@@ -40,7 +40,7 @@ public class CLIHomeTraveler extends AbstractCLI {
         }
     }
 
-    private void handleCountrySelection(CountryCategoryBean countryCategoryBean) throws SQLException, NotFoundException {
+    private void handleCountrySelection(CountryCategoryBean countryCategoryBean) throws NotFoundException {
         int countryT = chooseCountry();
         switch (countryT) {
             case 1 -> countryCategoryBean.setCountry("Italy");

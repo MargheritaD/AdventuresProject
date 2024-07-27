@@ -46,7 +46,7 @@ public class CLIHomeGuide extends AbstractCLI {
         }
     }
 
-    private void handleCountrySelection(CountryCategoryBean countryCategoryBean) throws NotFoundException, SQLException {
+    private void handleCountrySelection(CountryCategoryBean countryCategoryBean) throws NotFoundException {
         int country = chooseCountry();
         switch (country) {
             case 1 -> countryCategoryBean.setCountry("Italy");
