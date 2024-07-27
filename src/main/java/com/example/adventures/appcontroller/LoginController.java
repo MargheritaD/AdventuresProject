@@ -40,8 +40,9 @@ public class LoginController {
         Session.setSessionInstance(travelerbean);
     }
 
-    public static void logout(){
-        Session session = Session.getCurrentSession();
-        session.logout();
+    public void logout(){
+        //Session session = Session.getCurrentSession();
+        //session.logout();
+        Session.logout();
     }
 }
