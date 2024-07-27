@@ -4,6 +4,7 @@ import com.example.adventures.Main;
 import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.appcontroller.LoginController;
 import com.example.adventures.bean.TravelerBean;
+import com.example.adventures.engineering.Printer;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
 import javafx.fxml.FXML;
@@ -46,7 +47,7 @@ public class HomePageTravelerMapGUIController{
             TravelerBean travelerBean = Session.getCurrentSession().getTravelerBean();
             nameLabel.setText(travelerBean.getName());
         }catch (Exception e){
-            e.printStackTrace();
+            Printer.printError(e.getMessage());
         }
     }
 
