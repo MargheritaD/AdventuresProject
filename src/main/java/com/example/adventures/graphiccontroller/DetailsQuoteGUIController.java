@@ -2,6 +2,7 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.Main;
+import com.example.adventures.appcontroller.ViewTripDetailsController;
 import com.example.adventures.bean.*;
 import com.example.adventures.engineering.Printer;
 import com.example.adventures.engineering.Session;
@@ -116,8 +117,10 @@ public class DetailsQuoteGUIController {
     public void inizio(TripBean tripBean) throws NotFoundException{
 
 
-        BookTripController bookTripController = new BookTripController();
-        List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);// prima era tripId
+        ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
+        List<ItineraryStopBean> itineraryStopBeans = viewTripDetailsController.tableItinerary(tripBean);// prima era tripId
+        //BookTripController bookTripController = new BookTripController();
+        //List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);// prima era tripId
 
         tripPrice = Float.parseFloat(tripBean.getPrice());
 
@@ -150,6 +153,7 @@ public class DetailsQuoteGUIController {
         try{
 
             BookTripController bookTripController = new BookTripController();
+            //RequestBean requestBean = new RequestBean(tripBean.getIdTrip(), Session.getCurrentSession().getTravelerBean().getId());
             RequestBean requestBean = new RequestBean(tripId,Session.getCurrentSession().getTravelerBean().getId());
             bookTripController.sendRequest(requestBean);
 
@@ -157,6 +161,8 @@ public class DetailsQuoteGUIController {
 
             Printer.printError(e.getMessage());
         }
+
+
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/TripBooked.fxml"));
         Parent root1 = fxmlLoader.load();
@@ -169,6 +175,7 @@ public class DetailsQuoteGUIController {
 
 
     }
+
     public void quoteAction() throws IOException {
 
         // Inizializza il preventivo di base con il prezzo del viaggio

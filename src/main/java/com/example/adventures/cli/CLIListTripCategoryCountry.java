@@ -1,6 +1,7 @@
 package com.example.adventures.cli;
 
 import com.example.adventures.appcontroller.BookTripController;
+import com.example.adventures.appcontroller.ViewTripDetailsController;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.exception.NotFoundException;
@@ -54,9 +55,12 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
     }
    private void specificTrip(TripBean tripBean) throws NotFoundException {
 
-        BookTripController bookTripController = new BookTripController();
-        TripBean detailedTripBean = bookTripController.getTripDetails(tripBean);
-        List<ItineraryStopBean> stops = bookTripController.tableItinerary(detailedTripBean);
+       // BookTripController bookTripController = new BookTripController();
+        //TripBean detailedTripBean = bookTripController.getTripDetails(tripBean);
+        //List<ItineraryStopBean> stops = bookTripController.tableItinerary(detailedTripBean);
+       ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
+       TripBean detailedTripBean = viewTripDetailsController.getTripDetails(tripBean);
+       List<ItineraryStopBean> stops = viewTripDetailsController.tableItinerary(detailedTripBean);
 
         CLISelectedTrip selectedTrip = new CLISelectedTrip();
         selectedTrip.start(detailedTripBean, stops);

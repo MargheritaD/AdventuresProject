@@ -1,6 +1,6 @@
 package com.example.adventures.bean;
 
-public class GuideBean {
+public class   GuideBean {
 
     private final int idGuide;
     private final String guideName;

@@ -1,10 +1,9 @@
 package com.example.adventures.graphiccontroller;
 
-import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.Main;
 import com.example.adventures.appcontroller.LoginController;
+import com.example.adventures.appcontroller.ViewTripDetailsController;
 import com.example.adventures.bean.GuideBean;
-import com.example.adventures.bean.RequestBean;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.NotFoundException;
 import javafx.fxml.FXML;
@@ -18,7 +17,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.Objects;
 
 public class HomePageGuideMapGUIController {
@@ -52,8 +50,10 @@ public class HomePageGuideMapGUIController {
         GuideBean guideBean = Session.getCurrentSession().getGuideBean();
 
         nameLabel.setText(guideBean.getName());
-        BookTripController bookTripController = new BookTripController();
-        boolean bell = bookTripController.bell(guideBean);
+        ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
+        boolean bell = viewTripDetailsController.bell(guideBean);
+        //BookTripController bookTripController = new BookTripController();
+       //boolean bell = bookTripController.bell(guideBean);
 
 
         if(bell){
@@ -82,8 +82,8 @@ public class HomePageGuideMapGUIController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/UpcomingTrips.fxml"));
         Parent root = loader.load();
 
-        UpcomingTripsGUIController upcomingTripsGUIController = loader.getController();
-        upcomingTripsGUIController.inizio();
+        GuideRequestsGUIController guideRequestsGUIController = loader.getController();
+        guideRequestsGUIController.displayGuideRequest();
 
         Stage dialog = Main.getStage();
         Scene scene = new Scene(root);
@@ -93,8 +93,10 @@ public class HomePageGuideMapGUIController {
 
     private void handleMouseEntered(String country, Label label) {
 
-        BookTripController quoteController = new BookTripController();
-        int num = quoteController.numberOfTrps(country);
+        ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
+        int num = viewTripDetailsController.numberOfTrps(country);
+        //BookTripController quoteController = new BookTripController();
+        //int num = quoteController.numberOfTrps(country);
         if(num == 1){
             label.setText(country + ": " + num + "avaiable trip");
         }else{
@@ -290,8 +292,8 @@ public class HomePageGuideMapGUIController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/UpcomingTrips.fxml"));
         Parent root = loader.load();
 
-        UpcomingTripsGUIController upcomingTripsGUIController = loader.getController();
-        upcomingTripsGUIController.inizio();
+        GuideRequestsGUIController upcomingTripsGUIController = loader.getController();
+        upcomingTripsGUIController.displayGuideRequest();
 
         Stage dialog = Main.getStage();
         Scene scene = new Scene(root);

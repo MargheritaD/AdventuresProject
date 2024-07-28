@@ -27,7 +27,7 @@ public class CLITravelerRequests extends AbstractCLI{
     private List<RequestBean> getRequestsForTraveler(TravelerBean travelerBean) throws NotFoundException {
         try {
             BookTripController bookTripController = new BookTripController();
-            return bookTripController.tableRequestsTraveler(travelerBean);
+            return bookTripController.listRequestTraveler(travelerBean);
         } catch (Exception e) {
             throw new NotFoundException("Exception");
         }

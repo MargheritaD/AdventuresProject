@@ -1,8 +1,8 @@
 package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
-import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.appcontroller.LoginController;
+import com.example.adventures.appcontroller.ViewTripDetailsController;
 import com.example.adventures.bean.TravelerBean;
 import com.example.adventures.engineering.Printer;
 import com.example.adventures.engineering.Session;
@@ -12,7 +12,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -53,8 +52,10 @@ public class HomePageTravelerMapGUIController{
 
     private void handleMouseEntered(String country, Label label) {
 
-        BookTripController quoteController = new BookTripController();
-        int num = quoteController.numberOfTrps(country);
+        ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
+        //BookTripController quoteController = new BookTripController();
+        //int num = quoteController.numberOfTrps(country);
+        int num = viewTripDetailsController.numberOfTrps(country);
         if(num == 1){
             label.setText(country + ": " + num + "avaiable trip");
         }else{
@@ -267,8 +268,8 @@ public class HomePageTravelerMapGUIController{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/RequestStatus.fxml"));
         Parent root = loader.load();
 
-        RequestsGUIController requestsGUIController = loader.getController();
-        requestsGUIController.inizio();
+        TravelerRequestsGUIController requestsGUIController = loader.getController();
+        requestsGUIController.displayTravelerRequest();
 
         Stage dialog = Main.getStage();
         Scene scene = new Scene(root);
@@ -282,8 +283,8 @@ public class HomePageTravelerMapGUIController{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UpcomingTrips.fxml"));
         Parent root = loader.load();
 
-        UpcomingTripsGUIController upcomingTripsGUIController = loader.getController();
-        upcomingTripsGUIController.inizio();
+        GuideRequestsGUIController upcomingTripsGUIController = loader.getController();
+        upcomingTripsGUIController.displayGuideRequest();
 
         Stage dialog = Main.getStage();
         Scene scene = new Scene(root);

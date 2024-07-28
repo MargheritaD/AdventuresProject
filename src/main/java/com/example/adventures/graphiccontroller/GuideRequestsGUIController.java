@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
-public class UpcomingTripsGUIController {
+public class GuideRequestsGUIController {
 
     @FXML
     private Button acceptButton;
@@ -45,13 +45,13 @@ public class UpcomingTripsGUIController {
     private boolean guideController = true;
 
 
-    public void inizio()throws IOException, NotFoundException{
+    public void displayGuideRequest()throws IOException, NotFoundException{
 
         // Ottieni la lista delle richieste dal RequestDAO
         Session session = Session.getCurrentSession();
         GuideBean guideBean = session.getGuideBean();
         BookTripController bookTripController = new BookTripController();
-        List<RequestBean> requestBeans = bookTripController.tableRequestsGuide(guideBean);
+        List<RequestBean> requestBeans = bookTripController.listRequestGuide(guideBean);
 
         // Imposta i valori delle colonne
         //idColumn.setCellValueFactory(new PropertyValueFactory<>("idTrip")); // prima era idColumn

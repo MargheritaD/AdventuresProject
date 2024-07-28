@@ -1,19 +1,21 @@
 package com.example.adventures.appcontroller;
 
-import com.example.adventures.bean.*;
+import com.example.adventures.bean.CountryCategoryBean;
+import com.example.adventures.bean.GuideBean;
+import com.example.adventures.bean.ItineraryStopBean;
+import com.example.adventures.bean.TripBean;
 import com.example.adventures.dao.ItineraryStopDAO;
 import com.example.adventures.dao.RequestDAO;
 import com.example.adventures.dao.TripDAO;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.ItineraryStop;
-import com.example.adventures.model.Request;
 import com.example.adventures.model.Trip;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookTripController {
-/*
+public class ViewTripDetailsController {
+
     public int numberOfTrps(String country){
 
         return TripDAO.getNumberTripsByCountry(country);
@@ -61,50 +63,5 @@ public class BookTripController {
 
         return new TripBean(partialTripBean.getIdTrip(), trip.getTripName(), trip.getDepartureCity(), trip.getCategory(), trip.getOutboundDate(), trip.getReturnDate(), trip.getPrice(), trip.getGuide(), trip.getCountry());
     }
-*/
-    public void sendRequest(RequestBean requestBean){
 
-        Request request = new Request(requestBean.getIdTrip(), requestBean.getIdTraveler());
-        RequestDAO requestDAO = new RequestDAO();
-        requestDAO.registerReservation(request);
-
-    }
-
-    public List<RequestBean> listRequestGuide(GuideBean guideBean){
-
-        List<Request> requests = RequestDAO.listRequestToGuide(guideBean.getId());
-
-        List<RequestBean> requestBeans = new ArrayList<>();
-        for (Request request : requests) {
-            RequestBean requestBean = new RequestBean(request.getNomeViaggio(), request.getNomeViaggiatore(), request.getCognomeViaggiatore(), request.getRequestId());
-            requestBeans.add(requestBean);
-        }
-
-        return requestBeans;
-    }
-
-    public List<RequestBean> listRequestTraveler(TravelerBean travelerBean){
-        List<Request> requests = RequestDAO.listRequestForTraveler(travelerBean.getId());
-
-        List<RequestBean> requestBeans = new ArrayList<>();
-        for (Request request : requests) {
-            RequestBean requestBean = new RequestBean(request.getNomeViaggio(), request.getRequestId(), request.getStatus());
-            requestBeans.add(requestBean);
-        }
-
-        return requestBeans;
-    }
-
-    public void acceptRequest(RequestBean requestBean){
-        RequestDAO.acceptRequest(requestBean);
-    }
-
-    public void declineRequest(RequestBean requestBean){
-        RequestDAO.declineRequest(requestBean);
-    }
-
-    public void cancelTrip(int idTrip) {
-
-        TripDAO.cancelTrip(idTrip);
-    }
 }

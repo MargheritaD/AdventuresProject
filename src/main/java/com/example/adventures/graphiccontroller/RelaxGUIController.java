@@ -3,6 +3,7 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.Main;
+import com.example.adventures.appcontroller.ViewTripDetailsController;
 import com.example.adventures.bean.CountryCategoryBean;
 import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.TravelerBean;
@@ -64,9 +65,11 @@ public class RelaxGUIController {
     public void inizio()throws IOException, NotFoundException{
         // Ottieni la lista dei viaggi dal TripDAO
 
-        BookTripController bookTripController= new BookTripController();
+        ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
+        //BookTripController bookTripController= new BookTripController();
         CountryCategoryBean countryCategoryBean = new CountryCategoryBean(country,valore);
-        List<TripBean> tripBeans = bookTripController.selectCountryAndCategory(countryCategoryBean);
+        //List<TripBean> tripBeans = bookTripController.selectCountryAndCategory(countryCategoryBean);
+        List<TripBean> tripBeans = viewTripDetailsController.selectCountryAndCategory(countryCategoryBean);
 
         // Imposta i valori delle colonne
         idColumn.setCellValueFactory(new PropertyValueFactory<>("idTrip")); // prima era idColumn
@@ -121,8 +124,11 @@ public class RelaxGUIController {
     }
 
     private void handleTripDetails(TripBean selectedTrip) throws NotFoundException {
-        BookTripController bookTripController = new BookTripController();
-        TripBean detailedTripBean = bookTripController.getTripDetails(selectedTrip);
+
+        ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
+        TripBean detailedTripBean = viewTripDetailsController.getTripDetails(selectedTrip);
+        //BookTripController bookTripController = new BookTripController();
+        //TripBean detailedTripBean = bookTripController.getTripDetails(selectedTrip);
 
         if (!username.equals(detailedTripBean.getGuide()) && guideController) {
             showQuoteGuideView(selectedTrip, detailedTripBean);
@@ -161,7 +167,7 @@ public class RelaxGUIController {
             if (resource.equals("/com/example/adventures/TripDetailsQuoteGuide.fxml")) {
                 DetailQuoteGuideGUIController controller = fxmlLoader.getController();
                 controller.setTripId(selectedTrip.getIdTrip());
-                controller.inizio(detailedTripBean);
+                controller.setTripDetails(detailedTripBean);
                 controller.setCountry(country);
                 controller.setCategory(valore);
             } else if (resource.equals("/com/example/adventures/TripDetailsQuote.fxml")) {

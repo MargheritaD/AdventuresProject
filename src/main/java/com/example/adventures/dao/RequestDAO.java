@@ -15,7 +15,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RequestDAO {
+public class    RequestDAO {
 
     private static final String IDTRAVELER = "traveler";
     private static final String IDTRIP = "trip";
@@ -41,7 +41,7 @@ public class RequestDAO {
         }
     }
 
-    public static List<Request> requestsGuide(int idGuide) {
+    public static List<Request> listRequestToGuide(int idGuide) {
 
         Connection connection;
         Request request;
@@ -60,7 +60,7 @@ public class RequestDAO {
 
             do {
 
-                request = setTripInformationForRequestTable(resultSet);
+                request = showTripInformationForRequestTable(resultSet);
                 requestList.add(request);
 
             } while (resultSet.next());
@@ -73,7 +73,7 @@ public class RequestDAO {
         return requestList;
     }
 
-    public static List<Request> requestsTraveler(int idTraveler) {
+    public static List<Request> listRequestForTraveler(int idTraveler) {
 
         Connection connection;
         Request request;
@@ -92,7 +92,7 @@ public class RequestDAO {
 
             do {
 
-                request = setRequestTableForTraveler(resultSet);
+                request = createRequestForTraveler(resultSet);
                 requestList.add(request);
 
             } while (resultSet.next());
@@ -105,7 +105,7 @@ public class RequestDAO {
         return requestList;
     }
 
-    private static Request setRequestTableForTraveler(ResultSet resultSet) throws SQLException{
+    private static Request createRequestForTraveler(ResultSet resultSet) throws SQLException{
 
         String tripName = resultSet.getString(1);
         int idRequest = resultSet.getInt(2);
@@ -114,7 +114,7 @@ public class RequestDAO {
         return (new Request(tripName, idRequest, status));
     }
 
-    private static Request setTripInformationForRequestTable(ResultSet resultSet) throws SQLException {
+    private static Request showTripInformationForRequestTable(ResultSet resultSet) throws SQLException {
 
         String tripName = resultSet.getString(1);
         String nomeViaggiatore = resultSet.getString(2);

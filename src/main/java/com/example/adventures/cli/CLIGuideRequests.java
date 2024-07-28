@@ -31,7 +31,7 @@ public class CLIGuideRequests extends AbstractCLI{
     private List<RequestBean> getRequestsForGuide(GuideBean guideBean) throws NotFoundException {
         try {
             BookTripController bookTripController = new BookTripController();
-            return bookTripController.tableRequestsGuide(guideBean);
+            return bookTripController.listRequestGuide(guideBean);
         } catch (Exception e) {
             throw new NotFoundException("Failed to retrieve requests for this guide " );
         }

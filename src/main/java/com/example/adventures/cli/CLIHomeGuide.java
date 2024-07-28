@@ -1,12 +1,14 @@
 package com.example.adventures.cli;
 
 import com.example.adventures.appcontroller.BookTripController;
+import com.example.adventures.appcontroller.ViewTripDetailsController;
 import com.example.adventures.bean.CountryCategoryBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.exception.*;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.util.List;
+import java.util.Vector;
 
 public class CLIHomeGuide extends AbstractCLI {
 
@@ -96,8 +98,10 @@ public class CLIHomeGuide extends AbstractCLI {
         if (categoryName != null) {
 
             countryCategoryBean.setCategory(categoryName);
-            BookTripController bookTripController = new BookTripController();
-            List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
+            ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
+            List<TripBean> listOfTripBean = viewTripDetailsController.selectCountryAndCategory(countryCategoryBean);
+            //BookTripController bookTripController = new BookTripController();
+            //List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
 
             CLIListTripCategoryCountry cliListTripCategoryCountry = new CLIListTripCategoryCountry();
             cliListTripCategoryCountry.start(listOfTripBean);

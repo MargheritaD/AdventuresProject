@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="400.0" style="-fx-background-color: #82a46d;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adventures.graphiccontroller.TripAddedGUIController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="400.0" style="-fx-background-color: #82a46d;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.adventures.graphiccontroller.MessageBoxGUIController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="LIGHTGRAY" height="250.0" layoutX="10.0" layoutY="10.0" stroke="#82a46d" strokeType="INSIDE" width="380.0" />
       <Label layoutX="129.0" layoutY="65.0" text="Trip cancelled">

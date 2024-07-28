@@ -2,6 +2,7 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
 import com.example.adventures.appcontroller.BookTripController;
+import com.example.adventures.appcontroller.ViewTripDetailsController;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.exception.NotFoundException;
@@ -62,8 +63,10 @@ public class EditTripDetailsGUIController {
     public void inizio(TripBean tripBean) throws NotFoundException {
 
 
-        BookTripController bookTripController = new BookTripController();
-        List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);
+        ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
+        List<ItineraryStopBean> itineraryStopBeans= viewTripDetailsController.tableItinerary(tripBean);
+        //BookTripController bookTripController = new BookTripController();
+        //List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);
 
         this.categoria = tripBean.getCategory();
 
