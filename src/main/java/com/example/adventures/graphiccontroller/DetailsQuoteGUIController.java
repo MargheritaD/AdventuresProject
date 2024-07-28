@@ -151,7 +151,6 @@ public class DetailsQuoteGUIController {
         try{
 
             BookTripController bookTripController = new BookTripController();
-            //RequestBean requestBean = new RequestBean(tripBean.getIdTrip(), Session.getCurrentSession().getTravelerBean().getId());
             RequestBean requestBean = new RequestBean(tripId,Session.getCurrentSession().getTravelerBean().getId());
             bookTripController.sendRequest(requestBean);
 

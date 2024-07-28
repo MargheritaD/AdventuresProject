@@ -123,8 +123,6 @@ public class RelaxGUIController {
 
         ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
         TripBean detailedTripBean = viewTripDetailsController.getTripDetails(selectedTrip);
-        //BookTripController bookTripController = new BookTripController();
-        //TripBean detailedTripBean = bookTripController.getTripDetails(selectedTrip);
 
         if (!username.equals(detailedTripBean.getGuide()) && guideController) {
             showQuoteGuideView(selectedTrip, detailedTripBean);
