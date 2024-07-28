@@ -1,6 +1,5 @@
 package com.example.adventures.cli;
 
-import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.appcontroller.ViewTripDetailsController;
 import com.example.adventures.bean.CountryCategoryBean;
 import com.example.adventures.bean.TripBean;
@@ -90,8 +89,6 @@ public class CLIHomeTraveler extends AbstractCLI {
         if (categoryName != null) {
 
             countryCategoryBean.setCategory(categoryName);
-            //BookTripController bookTripController = new BookTripController();
-            //List<TripBean> listOfTripBean = bookTripController.selectCountryAndCategory(countryCategoryBean);
             ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
             List<TripBean> listOfTripBean = viewTripDetailsController.selectCountryAndCategory(countryCategoryBean);
 
