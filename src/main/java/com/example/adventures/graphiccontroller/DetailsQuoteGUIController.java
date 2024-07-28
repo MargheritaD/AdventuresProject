@@ -119,8 +119,6 @@ public class DetailsQuoteGUIController {
 
         ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
         List<ItineraryStopBean> itineraryStopBeans = viewTripDetailsController.tableItinerary(tripBean);// prima era tripId
-        //BookTripController bookTripController = new BookTripController();
-        //List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);// prima era tripId
 
         tripPrice = Float.parseFloat(tripBean.getPrice());
 

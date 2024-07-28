@@ -65,8 +65,6 @@ public class EditTripDetailsGUIController {
 
         ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
         List<ItineraryStopBean> itineraryStopBeans= viewTripDetailsController.tableItinerary(tripBean);
-        //BookTripController bookTripController = new BookTripController();
-        //List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);
 
         this.categoria = tripBean.getCategory();
 

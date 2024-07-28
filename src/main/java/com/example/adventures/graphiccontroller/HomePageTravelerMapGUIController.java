@@ -53,8 +53,6 @@ public class HomePageTravelerMapGUIController{
     private void handleMouseEntered(String country, Label label) {
 
         ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
-        //BookTripController quoteController = new BookTripController();
-        //int num = quoteController.numberOfTrps(country);
         int num = viewTripDetailsController.numberOfTrps(country);
         if(num == 1){
             label.setText(country + ": " + num + "avaiable trip");

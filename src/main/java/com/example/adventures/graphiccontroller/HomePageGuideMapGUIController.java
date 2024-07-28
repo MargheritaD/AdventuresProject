@@ -52,8 +52,6 @@ public class HomePageGuideMapGUIController {
         nameLabel.setText(guideBean.getName());
         ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
         boolean bell = viewTripDetailsController.bell(guideBean);
-        //BookTripController bookTripController = new BookTripController();
-       //boolean bell = bookTripController.bell(guideBean);
 
 
         if(bell){
@@ -95,8 +93,6 @@ public class HomePageGuideMapGUIController {
 
         ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
         int num = viewTripDetailsController.numberOfTrps(country);
-        //BookTripController quoteController = new BookTripController();
-        //int num = quoteController.numberOfTrps(country);
         if(num == 1){
             label.setText(country + ": " + num + "avaiable trip");
         }else{

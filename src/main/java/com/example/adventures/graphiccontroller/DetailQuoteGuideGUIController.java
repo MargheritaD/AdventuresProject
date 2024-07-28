@@ -1,6 +1,5 @@
 package com.example.adventures.graphiccontroller;
 
-import com.example.adventures.appcontroller.BookTripController;
 import com.example.adventures.Main;
 import com.example.adventures.appcontroller.ViewTripDetailsController;
 import com.example.adventures.bean.*;
@@ -114,8 +113,6 @@ public class DetailQuoteGuideGUIController {
 
         ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
         List<ItineraryStopBean> itineraryStopBeans = viewTripDetailsController.tableItinerary(tripBean);// prima era tripId
-        //BookTripController bookTripController = new BookTripController();
-        //List<ItineraryStopBean> itineraryStopBeans = bookTripController.tableItinerary(tripBean);// prima era tripId
 
         tripPrice = Float.parseFloat(tripBean.getPrice());
 
