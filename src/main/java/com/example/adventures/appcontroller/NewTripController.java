@@ -2,6 +2,7 @@ package com.example.adventures.appcontroller;
 
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
+import com.example.adventures.dao.ItineraryStopDAO;
 import com.example.adventures.dao.TripDAO;
 import com.example.adventures.model.ItineraryStop;
 import com.example.adventures.model.Trip;
@@ -19,11 +20,12 @@ public class NewTripController {
 
         for(ItineraryStopBean itineraryStopBean: tripBean.getStops()){
             ItineraryStop itineraryStop = new ItineraryStop(itineraryStopBean.getCity(), itineraryStopBean.getArrival(), itineraryStopBean.getDeparture());
+            System.out.println(itineraryStopBean.getCity() + " + " + itineraryStopBean.getArrival());
             itineraryStops.add(itineraryStop);
         }
 
         trip.setStops(itineraryStops);
-
         TripDAO.addTrip(trip);
+
     }
 }

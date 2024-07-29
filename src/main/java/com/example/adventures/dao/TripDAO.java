@@ -48,15 +48,22 @@ public class TripDAO {
             resultSet.first();
 
             int id = resultSet.getInt(ID);
-            ItineraryStopDAOCSV itineraryStopDAOCSV = new ItineraryStopDAOCSV();
 
-            for(ItineraryStop itineraryStop : trip.getStops()){
+            //for(ItineraryStop itineraryStop : trip.getStops()){
+              //  ItineraryStopDAO.addStop(itineraryStop, id);
+           // }
+
+           ItineraryStopDAOCSV itineraryStopDAOCSV = new ItineraryStopDAOCSV();
+
+           for(ItineraryStop itineraryStop : trip.getStops()){
                 ItineraryStopDAO.addStop(itineraryStop, id);
                 itineraryStopDAOCSV.addStop(itineraryStop, id);
             }
+
+
         } catch (SQLException e) {
             Printer.printError(e.getMessage());
-        } catch (IOException e) {
+        }catch (IOException e) {
             Printer.printError(e.getMessage());
         }
     }

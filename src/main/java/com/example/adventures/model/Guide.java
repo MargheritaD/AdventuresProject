@@ -10,7 +10,7 @@ public class Guide extends GenericUser{
     public Guide() {}
     public Guide(int idGuide, String nomeGuida, String cognomeGuida, String email){
         super(idGuide, null, email);
-        Guide.nomeGuida = nomeGuida;
+        this.nomeGuida = nomeGuida;
         this.cognomeGuida = cognomeGuida;
     }
 
@@ -21,6 +21,7 @@ public class Guide extends GenericUser{
     public String getSurname() {
         return cognomeGuida;
     }
+    public int getIdGuide(){return idGuide;}
 
     @Override
     public String getEmail(){
