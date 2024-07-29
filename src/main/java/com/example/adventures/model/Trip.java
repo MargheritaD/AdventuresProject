@@ -32,6 +32,8 @@ public class Trip {
     }
 
     // Costruttore completo
+
+    /*
     public Trip(int idTrip, String tripName, String departureCity, String category, LocalDate outboundDate, LocalDate returnDate, String price, String guide, String country){
         this();
         this.idTrip = idTrip;
@@ -45,7 +47,11 @@ public class Trip {
         this.country = country;
     }
 
+     */
+
     // IN QUESTO QUI SOTTO LEVA GUIDE????
+
+
     public Trip(String tripName, String departureCity, String category, LocalDate outboundDate, LocalDate returnDate, String price, String guide, String country){
         this();
         this.tripName = tripName;
@@ -57,6 +63,8 @@ public class Trip {
         this.guide = guide;
         this.country = country;
     }
+
+
 
     // Costruttore per un viaggio con solo nome e date
     public Trip(String tripName, LocalDate outboundDate, LocalDate returnDate){
