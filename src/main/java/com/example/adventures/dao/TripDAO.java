@@ -26,8 +26,9 @@ public class TripDAO {
     private static final String PRICE = "price";
     private static final String GUIDE = "guide";
     private static final String COUNTRY = "country";
-    public  TripDAO(){
-        // metodo
+
+    public TripDAO(){
+        // costruttore
     }
 
     public static void addTrip(Trip trip) {
