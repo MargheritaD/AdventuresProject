@@ -17,17 +17,7 @@ public class TripBean {
     private String country;
     private List<ItineraryStopBean> stops = new ArrayList<>();
 
-
-    public TripBean(int idTrip, String tripName, String departureCity, String category,LocalDate outboundDate, LocalDate returnDate, String price, String guide){
-        this.idTrip = idTrip;
-        this.tripName = tripName;
-        this.departureCity = departureCity;
-        this.category = category;
-        this.outboundDate = outboundDate;
-        this.returnDate = returnDate;
-        this.price = price;
-        this.guide = guide;
-    }
+    // ci stava anche il costruttore con 8 parametri
 
     public TripBean(int idTrip, String tripName, String departureCity, String category,LocalDate outboundDate, LocalDate returnDate, String price, String guide, String country){
         this.idTrip = idTrip;
@@ -40,6 +30,8 @@ public class TripBean {
         this.guide = guide;
         this.country = country;
     }
+
+
 
 
     public TripBean(String tripName, String departureCity, LocalDate outboundDate, LocalDate returnDate, String guide, String price){
