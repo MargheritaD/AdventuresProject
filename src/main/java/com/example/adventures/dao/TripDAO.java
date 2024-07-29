@@ -26,7 +26,9 @@ public class TripDAO {
     private static final String PRICE = "price";
     private static final String GUIDE = "guide";
     private static final String COUNTRY = "country";
-    public  TripDAO(){}
+    public  TripDAO(){
+        // metodo
+    }
 
     public static void addTrip(Trip trip) {
         Connection connection;
@@ -48,10 +50,6 @@ public class TripDAO {
             resultSet.first();
 
             int id = resultSet.getInt(ID);
-
-            //for(ItineraryStop itineraryStop : trip.getStops()){
-              //  ItineraryStopDAO.addStop(itineraryStop, id);
-           // }
 
            ItineraryStopDAOCSV itineraryStopDAOCSV = new ItineraryStopDAOCSV();
 
