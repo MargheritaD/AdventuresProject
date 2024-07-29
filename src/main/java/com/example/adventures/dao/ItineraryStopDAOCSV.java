@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ItineraryStopDAOCSV {
 
-    private static File fd;
+    private File fd;
 
     private static final int INDEX_TRIP = 0;
 
@@ -27,8 +27,6 @@ public class ItineraryStopDAOCSV {
     public ItineraryStopDAOCSV() throws IOException{
 
         this.fd = new File("stops.csv");
-        //fd = new File("stops.csv");
-        //File file = new File("stops.csv");
         if (!fd.exists()) {
             throw new IOException("File does not exist");
         }
