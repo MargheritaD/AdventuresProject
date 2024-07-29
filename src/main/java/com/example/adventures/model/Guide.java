@@ -10,7 +10,7 @@ public class Guide extends GenericUser{
     public Guide() {}
     public Guide(int idGuide, String nomeGuida, String cognomeGuida, String email){
         super(idGuide, null, email);
-        this.nomeGuida = nomeGuida;
+        Guide.nomeGuida = nomeGuida;
         this.cognomeGuida = cognomeGuida;
     }
 
