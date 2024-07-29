@@ -26,7 +26,8 @@ public class ItineraryStopDAOCSV {
 
     public ItineraryStopDAOCSV() throws IOException{
 
-        fd = new File("stops.csv");
+        this.fd = new File("stops.csv");
+        //fd = new File("stops.csv");
         //File file = new File("stops.csv");
         if (!fd.exists()) {
             throw new IOException("File does not exist");
