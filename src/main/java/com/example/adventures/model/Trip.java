@@ -31,23 +31,7 @@ public class Trip {
         this.stops = new ArrayList<>(); // Inizializzazione della lista
     }
 
-    // Costruttore completo
-
-    /*
-    public Trip(int idTrip, String tripName, String departureCity, String category, LocalDate outboundDate, LocalDate returnDate, String price, String guide, String country){
-        this();
-        this.idTrip = idTrip;
-        this.tripName = tripName;
-        this.departureCity = departureCity;
-        this.category = category;
-        this.outboundDate = outboundDate;
-        this.returnDate = returnDate;
-        this.price = price;
-        this.guide = guide;
-        this.country = country;
-    }
-
-     */
+    // Costruttore completo con 9 parametri
 
     // IN QUESTO QUI SOTTO LEVA GUIDE????
 
