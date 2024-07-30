@@ -178,38 +178,6 @@ public class TripDAO {
         return trip;
     }
 
-/*
-    public static Trip retrieveTripById(int tripId) throws NotFoundException{
-
-        Connection connection;
-        Trip trip = null;
-
-        try {
-            connection = ConnectionDB.getConnection();
-
-            ResultSet resultSet = SimpleQueries.retrieveTripData(connection, tripId);
-
-            if (!resultSet.first()) {
-                throw new NotFoundException("No trip found with id: " + tripId);
-            }
-
-            trip = setTripInformationForTripTable(resultSet);
-
-        } catch (SQLException e) {
-            Printer.printError(e.getMessage());// Gestisci l'eccezione in modo appropriato
-        }
-
-        return trip;
-    }
-
-
- */
-
-
-//************************VECCHIO RETRIEVE TRIP   *********************
-
-
-
 
     public static List<Trip> retrieveTrip(int tripId) throws NotFoundException { // rimetti come par int id
 
