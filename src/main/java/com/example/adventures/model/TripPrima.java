@@ -1,38 +1,45 @@
 package com.example.adventures.model;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
+/*
 public class Trip {
+
     private int idTrip;
     private String tripName;
-    private LocationInfo locationInfo;
+    private String departureCity;
     private String category;
     private LocalDate outboundDate;
     private LocalDate returnDate;
     private String price;
     private String guide;
+    private String country;
     private List<ItineraryStop> stops;
+
 
     // Costruttore predefinito che inizializza la lista di fermate
     public Trip() {
         this.stops = new ArrayList<>(); // Inizializzazione della lista
     }
 
-    // Costruttore completo con 7 parametri
-    public Trip(String tripName, LocationInfo locationInfo, String category, LocalDate outboundDate, LocalDate returnDate, String price, String guide) {
+    // Costruttore completo con 9 parametri
+
+    // IN QUESTO QUI SOTTO LEVA GUIDE????
+
+
+    public Trip(String tripName, String departureCity, String category, LocalDate outboundDate, LocalDate returnDate, String price, String guide, String country){
         this();
         this.tripName = tripName;
-        this.locationInfo = locationInfo;
+        this.departureCity = departureCity;
         this.category = category;
         this.outboundDate = outboundDate;
         this.returnDate = returnDate;
         this.price = price;
         this.guide = guide;
+        this.country = country;
     }
 
-    public Trip(String tripName, LocalDate outboundDate, LocalDate returnDate) {
+
+    // Costruttore per un viaggio con solo nome e date
+    public Trip(String tripName, LocalDate outboundDate, LocalDate returnDate){
         this();
         this.tripName = tripName;
         this.outboundDate = outboundDate;
@@ -40,7 +47,7 @@ public class Trip {
     }
 
     // Costruttore che include l'ID e la guida
-    public Trip(int idTrip, String tripName, LocalDate outboundDate, LocalDate returnDate, String guide) {
+    public Trip(int idTrip, String tripName, LocalDate outboundDate, LocalDate returnDate, String guide){
         this();
         this.idTrip = idTrip;
         this.tripName = tripName;
@@ -50,96 +57,85 @@ public class Trip {
     }
 
     // Costruttore che include l'ID e la città di partenza
-    public Trip(int idTrip, String tripName, LocationInfo locationInfo, LocalDate outboundDate, LocalDate returnDate) {
+    public Trip(int idTrip, String tripName, String departureCity,LocalDate outboundDate, LocalDate returnDate){
         this();
         this.idTrip = idTrip;
         this.tripName = tripName;
-        this.locationInfo = locationInfo;
+        this.departureCity = departureCity;
         this.outboundDate = outboundDate;
         this.returnDate = returnDate;
     }
 
-    public int getIdTrip() {
+    public int getIdTrip(){
         return idTrip;
     }
 
-    public void setIdTrip(int idTrip) {
+    public void setIdTrip(int idTrip){
         this.idTrip = idTrip;
     }
 
-    public String getPrice() {
+    public String getPrice(){
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(String price){
         this.price = price;
     }
 
-    public String getTripName() {
+    public String getTripName(){
         return tripName;
     }
 
-    public void setTripName(String tripName) {
+    public void setTripName(String tripName){
         this.tripName = tripName;
     }
 
-    public String getDepartureCity() {
-        return locationInfo != null ? locationInfo.getDepartureCity() : null;
+    public String getDepartureCity(){
+        return departureCity;
     }
 
-    public void setDepartureCity(String departureCity) {
-        if (locationInfo == null) {
-            locationInfo = new LocationInfo(departureCity, null);
-        } else {
-            locationInfo.setDepartureCity(departureCity);
-        }
+    public void setDepartureCity(String departureCity){
+        this.departureCity = departureCity;
     }
 
-    public String getCategory() {
+    public String getCategory(){
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(String category){
         this.category = category;
     }
 
-    public LocalDate getOutboundDate() {
+    public LocalDate getOutboundDate(){
         return outboundDate;
     }
 
-    public void setOutboundDate(LocalDate outboundDate) {
+    public void setOutboundDate(LocalDate outboundDate){
         this.outboundDate = outboundDate;
     }
 
-    public LocalDate getReturnDate() {
+    public LocalDate getReturnDate(){
         return returnDate;
     }
 
-    public void setReturnDate(LocalDate returnDate) {
+    public void setReturnDate(LocalDate returnDate){
         this.returnDate = returnDate;
     }
 
-    public String getGuide() {
+    public String getGuide(){
         return guide;
     }
 
-    public void setGuide(String guide) {
+    public void setGuide(String guide){
         this.guide = guide;
     }
 
-    public String getCountry() {
-        return locationInfo != null ? locationInfo.getCountry() : null;
-    }
+    public String getCountry(){ return country;}
 
-    public void setCountry(String country) {
-        if (locationInfo == null) {
-            locationInfo = new LocationInfo(null, country);
-        } else {
-            locationInfo.setCountry(country);
-        }
-    }
+    public void setCountry(String country){this.country = country;}
 
-    public void setStops(List<ItineraryStop> stops) {
+    // Clone degli oggetti ItineraryStop nella lista
+     public void setStops(List<ItineraryStop> stops) {
         ItineraryStop itineraryStop;
         this.stops = new ArrayList<>();
         for (ItineraryStop stop : stops){
@@ -152,6 +148,9 @@ public class Trip {
         return stops;
     }
 
+
+
 }
 
+ */
 

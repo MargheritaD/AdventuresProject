@@ -7,6 +7,7 @@ import com.example.adventures.engineering.Printer;
 import com.example.adventures.exception.NotFoundException;
 import com.example.adventures.model.Guide;
 import com.example.adventures.model.ItineraryStop;
+import com.example.adventures.model.LocationInfo;
 import com.example.adventures.model.Trip;
 
 import java.io.IOException;
@@ -87,7 +88,9 @@ public class TripDAO {
         String price = resultSet.getString(PRICE);
         String country = resultSet.getString(COUNTRY);
 
-        return (new Trip(name, departureCity, category, outboundDate, returnDate, price, guide, country));
+        LocationInfo locationInfo = new LocationInfo(departureCity, country);
+
+        return (new Trip(name, locationInfo, category, outboundDate, returnDate, price, guide));
     }
 
     public static List<Trip> retrieveTripListByCategoryAndCountry(String category, String country){
@@ -120,7 +123,7 @@ public class TripDAO {
         }
         return tripList;
     }
-
+/*
     public static List<Trip> retrieveUpcomingTrip (Date currentDate, String user){
         Connection connection;
         Trip trip;
@@ -152,6 +155,9 @@ public class TripDAO {
         return tripList;
     }
 
+
+ */
+
     public static Trip retrieveTripById(int tripId) throws NotFoundException{
 
         Connection connection;
@@ -175,6 +181,39 @@ public class TripDAO {
         return trip;
     }
 
+
+//************************VECCHIO RETRIEVE TRIP   *********************
+
+   /* public static Trip retrieveTripById(int tripId) throws NotFoundException{
+
+        Connection connection;
+        Trip trip = null;
+
+        try {
+            connection = ConnectionDB.getConnection();
+
+            ResultSet resultSet = SimpleQueries.retrieveTripData(connection, tripId);
+
+            if (!resultSet.first()) {
+                throw new NotFoundException("No trip found with id: " + tripId);
+            }
+
+            trip = setTripInformationForTripTable(resultSet);
+
+        } catch (SQLException e) {
+            Printer.printError(e.getMessage());// Gestisci l'eccezione in modo appropriato
+        }
+
+        return trip;
+    }
+
+    */
+
+//************************VECCHIO RETRIEVE TRIP   *********************
+
+
+
+/*
     public static List<Trip> retrieveTrip(int tripId) throws NotFoundException { // rimetti come par int id
 
         Connection connection;
@@ -206,6 +245,8 @@ public class TripDAO {
         }
         return tripList;
     }
+
+ */
 
     public static void cancelTrip(int idTrip) {
 
