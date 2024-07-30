@@ -42,7 +42,11 @@ public class TripDAO {
             Date returnDate = Date.valueOf(trip.getReturnDate());
             String guideName = guide.getName();
 
-            CRUDQueries.insertTrip(connection, trip.getTripName(), trip.getDepartureCity(), trip.getCategory(), outboundDate, returnDate, trip.getPrice(), guideName, trip.getCountry());
+            // Creazione dell'oggetto LocationInfo
+            LocationInfo locationInfo = new LocationInfo(trip.getDepartureCity(), trip.getCountry());
+
+
+            CRUDQueries.insertTrip(connection, trip.getTripName(), locationInfo, trip.getCategory(), outboundDate, returnDate, trip.getPrice(), guideName);
 
             ResultSet resultSet = SimpleQueries.retrieveTripID(connection, trip.getTripName());
 
