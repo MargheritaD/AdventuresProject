@@ -8,9 +8,10 @@ public class Trip {
     private int idTrip;
     private String tripName;
     private LocationInfo locationInfo;
+    private PeriodInfo periodInfo;
     private String category;
-    private LocalDate outboundDate;
-    private LocalDate returnDate;
+   // private LocalDate outboundDate;
+    //private LocalDate returnDate;
     private String price;
     private String guide;
     private List<ItineraryStop> stops;
@@ -21,42 +22,40 @@ public class Trip {
     }
 
     // Costruttore completo con 7 parametri
-    public Trip(String tripName, LocationInfo locationInfo, String category, LocalDate outboundDate, LocalDate returnDate, String price, String guide) {
+    public Trip(String tripName, LocationInfo locationInfo, String category, PeriodInfo periodInfo, String price, String guide) {
         this();
         this.tripName = tripName;
         this.locationInfo = locationInfo;
         this.category = category;
-        this.outboundDate = outboundDate;
-        this.returnDate = returnDate;
+        this.periodInfo = periodInfo;
+       // this.outboundDate = outboundDate;
+        //this.returnDate = returnDate;
         this.price = price;
         this.guide = guide;
     }
 
-    public Trip(String tripName, LocalDate outboundDate, LocalDate returnDate) {
+    public Trip(String tripName, PeriodInfo periodInfo) {
         this();
         this.tripName = tripName;
-        this.outboundDate = outboundDate;
-        this.returnDate = returnDate;
+        this.periodInfo = periodInfo;
     }
 
     // Costruttore che include l'ID e la guida
-    public Trip(int idTrip, String tripName, LocalDate outboundDate, LocalDate returnDate, String guide) {
+    public Trip(int idTrip, String tripName, PeriodInfo periodInfo, String guide) {
         this();
         this.idTrip = idTrip;
         this.tripName = tripName;
-        this.outboundDate = outboundDate;
-        this.returnDate = returnDate;
+        this.periodInfo = periodInfo;
         this.guide = guide;
     }
 
     // Costruttore che include l'ID e la città di partenza
-    public Trip(int idTrip, String tripName, LocationInfo locationInfo, LocalDate outboundDate, LocalDate returnDate) {
+    public Trip(int idTrip, String tripName, PeriodInfo periodInfo) {
         this();
         this.idTrip = idTrip;
         this.tripName = tripName;
         this.locationInfo = locationInfo;
-        this.outboundDate = outboundDate;
-        this.returnDate = returnDate;
+        this.periodInfo = periodInfo;
     }
 
     public int getIdTrip() {
@@ -104,19 +103,29 @@ public class Trip {
     }
 
     public LocalDate getOutboundDate() {
-        return outboundDate;
+
+        return periodInfo != null ? periodInfo.getOutboundDate() : null;
+
     }
 
     public void setOutboundDate(LocalDate outboundDate) {
-        this.outboundDate = outboundDate;
+        if (periodInfo == null) {
+            periodInfo = new PeriodInfo(outboundDate, null);
+        } else {
+            periodInfo.setOutboundDate(outboundDate);
+        }
     }
 
     public LocalDate getReturnDate() {
-        return returnDate;
+        return periodInfo != null ? periodInfo.getReturnDate() : null;
     }
 
     public void setReturnDate(LocalDate returnDate) {
-        this.returnDate = returnDate;
+        if (periodInfo == null) {
+            periodInfo = new PeriodInfo(returnDate, null);
+        } else {
+            periodInfo.setOutboundDate(returnDate);
+        }
     }
 
     public String getGuide() {

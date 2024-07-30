@@ -5,10 +5,7 @@ import com.example.adventures.dao.queries.CRUDQueries;
 import com.example.adventures.dao.queries.SimpleQueries;
 import com.example.adventures.engineering.Printer;
 import com.example.adventures.exception.NotFoundException;
-import com.example.adventures.model.Guide;
-import com.example.adventures.model.ItineraryStop;
-import com.example.adventures.model.LocationInfo;
-import com.example.adventures.model.Trip;
+import com.example.adventures.model.*;
 
 import java.io.IOException;
 import java.sql.*;
@@ -44,9 +41,9 @@ public class TripDAO {
 
             // Creazione dell'oggetto LocationInfo
             LocationInfo locationInfo = new LocationInfo(trip.getDepartureCity(), trip.getCountry());
+            PeriodInfo periodInfo = new PeriodInfo(trip.getOutboundDate(), trip.getReturnDate());
 
-
-            CRUDQueries.insertTrip(connection, trip.getTripName(), locationInfo, trip.getCategory(), outboundDate, returnDate, trip.getPrice(), guideName);
+            CRUDQueries.insertTrip(connection, trip.getTripName(), locationInfo, trip.getCategory(), periodInfo, trip.getPrice(), guideName);
 
             ResultSet resultSet = SimpleQueries.retrieveTripID(connection, trip.getTripName());
 
@@ -79,7 +76,9 @@ public class TripDAO {
         LocalDate returnDate = resultSet.getDate(RETURN_DATE).toLocalDate();
         String guide = resultSet.getString(GUIDE);
 
-        return (new Trip(id, name, outboundDate, returnDate, guide));
+        PeriodInfo periodInfo = new PeriodInfo(outboundDate, returnDate);
+
+        return (new Trip(id, name, periodInfo, guide));
     }
 
     private static Trip setTripInformationForTripTable(ResultSet resultSet) throws SQLException {
@@ -93,8 +92,9 @@ public class TripDAO {
         String country = resultSet.getString(COUNTRY);
 
         LocationInfo locationInfo = new LocationInfo(departureCity, country);
+        PeriodInfo periodInfo = new PeriodInfo(outboundDate, returnDate);
 
-        return (new Trip(name, locationInfo, category, outboundDate, returnDate, price, guide));
+        return (new Trip(name, locationInfo, category, periodInfo, price, guide));
     }
 
     public static List<Trip> retrieveTripListByCategoryAndCountry(String category, String country){

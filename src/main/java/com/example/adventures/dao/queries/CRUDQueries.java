@@ -1,6 +1,7 @@
 package com.example.adventures.dao.queries;
 
 import com.example.adventures.model.LocationInfo;
+import com.example.adventures.model.PeriodInfo;
 
 import java.sql.*;
 
@@ -10,14 +11,14 @@ public class CRUDQueries {
     private CRUDQueries() {}
 
     // rimetti il parametro per la guida e idTRip
-    public static int insertTrip(Connection connection, String name, LocationInfo locationInfo, String category, Date outboundDate, Date returnDate, String price, String guide) throws SQLException {
+    public static int insertTrip(Connection connection, String name, LocationInfo locationInfo, String category, PeriodInfo periodInfo, String price, String guide) throws SQLException {
         String insertStatement = "INSERT INTO Trips (tripName, departureCity, category, outboundDate, returnDate, price, guide, country) VALUES (?, ?, ?, ?, ?, ?, ?,?)";
         preparedStatement = connection.prepareStatement(insertStatement, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setString(1,name);
         preparedStatement.setString(2,locationInfo.getDepartureCity());
         preparedStatement.setString(3,category);
-        preparedStatement.setDate(4,outboundDate);
-        preparedStatement.setDate(5,returnDate);
+        preparedStatement.setDate(4,Date.valueOf(periodInfo.getOutboundDate()));
+        preparedStatement.setDate(5,Date.valueOf(periodInfo.getReturnDate()));
         preparedStatement.setString(6,price);
         preparedStatement.setString(7,guide);
         preparedStatement.setString(8,locationInfo.getCountry());

@@ -4,10 +4,7 @@ import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.dao.TripDAO;
-import com.example.adventures.model.Guide;
-import com.example.adventures.model.ItineraryStop;
-import com.example.adventures.model.LocationInfo;
-import com.example.adventures.model.Trip;
+import com.example.adventures.model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +17,10 @@ public class NewTripController {
         List<ItineraryStop> itineraryStops = new ArrayList<>();
         // Creazione dell'oggetto LocationInfo
         LocationInfo locationInfo = new LocationInfo(tripBean.getDepartureCity(), tripBean.getCountry());
+        PeriodInfo periodInfo = new PeriodInfo(tripBean.getOutboundDate(), tripBean.getReturnDate());
 
 
-        Trip trip = new Trip(tripBean.getTripName(), locationInfo, tripBean.getCategory(), tripBean.getOutboundDate(), tripBean.getReturnDate(), tripBean.getPrice(), tripBean.getGuide());
+        Trip trip = new Trip(tripBean.getTripName(), locationInfo, tripBean.getCategory(), periodInfo, tripBean.getPrice(), tripBean.getGuide());
 
         for(ItineraryStopBean itineraryStopBean: tripBean.getStops()){
             ItineraryStop itineraryStop = new ItineraryStop(itineraryStopBean.getCity(), itineraryStopBean.getArrival(), itineraryStopBean.getDeparture());
