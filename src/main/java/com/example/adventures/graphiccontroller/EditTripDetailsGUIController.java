@@ -6,7 +6,6 @@ import com.example.adventures.appcontroller.ViewTripDetailsController;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.exception.NotFoundException;
-//import com.example.adventures.model.Trip;
 import com.example.adventures.model.Trip;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,7 +48,6 @@ public class EditTripDetailsGUIController {
     private TableColumn<TripBean, String> priceColumn;
 
     private int tripId;
-    //private Trip trip;
     private Trip trip;
     private String country;
     private int codice;

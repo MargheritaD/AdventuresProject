@@ -9,7 +9,6 @@ import com.example.adventures.engineering.decoretor.decorations.CancellationDeco
 import com.example.adventures.engineering.decoretor.decorations.HealthcareDecorator;
 import com.example.adventures.engineering.decoretor.decorations.LuggageDecorator;
 import com.example.adventures.exception.NotFoundException;
-//import com.example.adventures.model.Trip;
 import com.example.adventures.model.Trip;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -71,7 +70,6 @@ public class DetailQuoteGuideGUIController {
 
 
     private int tripId;
-    //private Trip trip;
     private Trip trip;
     private String categoria;
     private String country;
