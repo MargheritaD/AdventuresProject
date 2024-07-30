@@ -20,7 +20,7 @@ class LoginBeanTest {
     void testValidEmail() {
         int validFormat;
         try {
-            new LoginBean("mariorossi@", "abc");
+            new LoginBean("benottaviani", "abc");
             validFormat = 1;
         } catch (EmailFormatException e) {
             validFormat = 0;

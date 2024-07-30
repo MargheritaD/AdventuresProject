@@ -15,10 +15,10 @@ class NewTripTest {
     void checkNewTrip(){
 
         Trip trip = new Trip("Viaggio test", "Rome", "Relax",  (Date.valueOf("2024-04-24")).toLocalDate(), (Date.valueOf("2024-04-26")).toLocalDate(), "3000","Ben","Italy");
-        new Guide(1,"Ben", "Ottaviani", "ben.ottaviani@gmail.com");
+        Guide guide = new Guide(1,"Ben", "Ottaviani", "ben.ottaviani@gmail.com");
         try{
 
-            TripDAO.addTrip(trip);
+            TripDAO.addTrip(trip, guide);
 
         }catch (Exception e){
             fail();

@@ -31,7 +31,7 @@ public class TripDAO {
         // costruttore
     }
 
-    public static void addTrip(Trip trip) {
+    public static void addTrip(Trip trip, Guide guide) {
         Connection connection;
 
         try {
@@ -39,7 +39,7 @@ public class TripDAO {
 
             Date outboundDate = Date.valueOf(trip.getOutboundDate());
             Date returnDate = Date.valueOf(trip.getReturnDate());
-            String guideName = Guide.getName();
+            String guideName = guide.getName();
 
             CRUDQueries.insertTrip(connection, trip.getTripName(), trip.getDepartureCity(), trip.getCategory(), outboundDate, returnDate, trip.getPrice(), guideName, trip.getCountry());
 

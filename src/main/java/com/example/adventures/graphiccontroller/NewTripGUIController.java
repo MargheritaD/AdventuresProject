@@ -2,9 +2,11 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
 import com.example.adventures.appcontroller.NewTripController;
+import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
 import com.example.adventures.engineering.Printer;
+import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.FormEmptyException;
 
 import javafx.collections.FXCollections;
@@ -142,10 +144,10 @@ public class NewTripGUIController {
 
             TripBean tripBean = new TripBean(nomeViaggio.getText(), cittaPartenza.getText(), categoria.getValue(), dataPartenza.getValue(), dataRitorno.getValue(), prezzo.getText(), paese.getValue());
             tripBean.setStops(stopList);
-
+            GuideBean guideBean = Session.getCurrentSession().getGuideBean();
 
             NewTripController newTripController = new NewTripController();
-            newTripController.createTrip(tripBean);
+            newTripController.createTrip(tripBean, guideBean);
 
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/NewTripAdded.fxml"));
             Parent root1 = fxmlLoader.load();

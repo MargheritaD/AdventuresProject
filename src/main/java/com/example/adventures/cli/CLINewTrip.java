@@ -1,8 +1,10 @@
 package com.example.adventures.cli;
 
 import com.example.adventures.appcontroller.NewTripController;
+import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.ItineraryStopBean;
 import com.example.adventures.bean.TripBean;
+import com.example.adventures.engineering.Session;
 import com.example.adventures.utilities.CLIPrinter;
 
 import java.time.LocalDate;
@@ -61,9 +63,10 @@ public class CLINewTrip extends AbstractCLI{
 
             TripBean tripBean = new TripBean(tripName, departureCity, category, outboundDate, returnDate, price, country);
             tripBean.setStops(stops);
+            GuideBean guideBean = Session.getCurrentSession().getGuideBean();
 
             NewTripController newTripController = new NewTripController();
-            newTripController.createTrip(tripBean);
+            newTripController.createTrip(tripBean, guideBean);
 
             CLIPrinter.printMessage("Viaggio creato con successo!");
 
