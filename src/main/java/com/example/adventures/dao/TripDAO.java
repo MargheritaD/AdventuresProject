@@ -35,8 +35,6 @@ public class TripDAO {
         try {
             connection = ConnectionDB.getConnection();
 
-            Date outboundDate = Date.valueOf(trip.getOutboundDate());
-            Date returnDate = Date.valueOf(trip.getReturnDate());
             String guideName = guide.getName();
 
             // Creazione dell'oggetto LocationInfo

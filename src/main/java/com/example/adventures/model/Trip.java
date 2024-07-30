@@ -10,8 +10,6 @@ public class Trip {
     private LocationInfo locationInfo;
     private PeriodInfo periodInfo;
     private String category;
-   // private LocalDate outboundDate;
-    //private LocalDate returnDate;
     private String price;
     private String guide;
     private List<ItineraryStop> stops;
@@ -28,8 +26,6 @@ public class Trip {
         this.locationInfo = locationInfo;
         this.category = category;
         this.periodInfo = periodInfo;
-       // this.outboundDate = outboundDate;
-        //this.returnDate = returnDate;
         this.price = price;
         this.guide = guide;
     }
@@ -54,7 +50,6 @@ public class Trip {
         this();
         this.idTrip = idTrip;
         this.tripName = tripName;
-        this.locationInfo = locationInfo;
         this.periodInfo = periodInfo;
     }
 
