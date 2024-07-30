@@ -1,9 +1,6 @@
 package com.example.adventures.appcontroller;
 
-import com.example.adventures.bean.CountryCategoryBean;
-import com.example.adventures.bean.GuideBean;
-import com.example.adventures.bean.ItineraryStopBean;
-import com.example.adventures.bean.TripBean;
+import com.example.adventures.bean.*;
 import com.example.adventures.dao.ItineraryStopDAO;
 import com.example.adventures.dao.RequestDAO;
 import com.example.adventures.dao.TripDAO;
@@ -32,7 +29,11 @@ public class ViewTripDetailsController {
 
         List<TripBean> tripBeans = new ArrayList<>();
         for (Trip trip : trips) {
-            TripBean tripBean = new TripBean(trip.getIdTrip(), trip.getTripName(), trip.getOutboundDate(), trip.getReturnDate(), trip.getDepartureCity(), trip.getGuide());
+
+            LocationInfoBean locationInfoBean = new LocationInfoBean(trip.getDepartureCity());
+            PeriodInfoBean periodInfoBean = new PeriodInfoBean(trip.getOutboundDate(), trip.getReturnDate());
+
+            TripBean tripBean = new TripBean(trip.getIdTrip(), trip.getTripName(),locationInfoBean, periodInfoBean, trip.getGuide());
             tripBeans.add(tripBean);
         }
 
@@ -61,7 +62,10 @@ public class ViewTripDetailsController {
             throw new NotFoundException("Trip not found for ID: " + tripId);
         }
 
-        return new TripBean(partialTripBean.getIdTrip(), trip.getTripName(), trip.getDepartureCity(), trip.getCategory(), trip.getOutboundDate(), trip.getReturnDate(), trip.getPrice(), trip.getGuide(), trip.getCountry());
+        LocationInfoBean locationInfoBean = new LocationInfoBean(trip.getDepartureCity(),trip.getCountry());
+        PeriodInfoBean periodInfoBean = new PeriodInfoBean(trip.getOutboundDate(), trip.getReturnDate());
+
+        return new TripBean(partialTripBean.getIdTrip(), trip.getTripName(),  locationInfoBean, periodInfoBean, trip.getCategory(), trip.getPrice(), trip.getGuide());
     }
 
 }

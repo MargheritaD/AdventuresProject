@@ -1,9 +1,7 @@
 package com.example.adventures.cli;
 
 import com.example.adventures.appcontroller.NewTripController;
-import com.example.adventures.bean.GuideBean;
-import com.example.adventures.bean.ItineraryStopBean;
-import com.example.adventures.bean.TripBean;
+import com.example.adventures.bean.*;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.utilities.CLIPrinter;
 
@@ -61,7 +59,11 @@ public class CLINewTrip extends AbstractCLI{
                 }
             }
 
-            TripBean tripBean = new TripBean(tripName, departureCity, category, outboundDate, returnDate, price, country);
+            // Creazione dei bean per le nuove classi
+            LocationInfoBean locationInfoBean = new LocationInfoBean(departureCity, country);
+            PeriodInfoBean periodInfoBean = new PeriodInfoBean(outboundDate, returnDate);
+
+            TripBean tripBean = new TripBean(tripName, locationInfoBean, periodInfoBean, category, price);
             tripBean.setStops(stops);
             GuideBean guideBean = Session.getCurrentSession().getGuideBean();
 

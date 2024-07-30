@@ -25,7 +25,7 @@ public class TripDAO {
     private static final String GUIDE = "guide";
     private static final String COUNTRY = "country";
 
-    private TripDAO() {}
+    private TripDAO(){}
 
     public static void addTrip(Trip trip, Guide guide) {
         Connection connection;

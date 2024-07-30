@@ -8,29 +8,44 @@ public class TripBean {
 
     private int idTrip;
     private String tripName;
-    private String departureCity;
+    private LocationInfoBean locationInfo;
+    private PeriodInfoBean periodInfo;
     private String category;
-    private LocalDate outboundDate;
-    private LocalDate returnDate;
     private String price;
     private String guide;
-    private String country;
     private List<ItineraryStopBean> stops = new ArrayList<>();
 
     // ci stava anche il costruttore con 8 parametri
 
-    public TripBean(int idTrip, String tripName, String departureCity, String category,LocalDate outboundDate, LocalDate returnDate, String price, String guide, String country){
+
+    public TripBean(int idTrip, String tripName, LocationInfoBean locationInfo, PeriodInfoBean periodInfo, String category, String price, String guide) {
         this.idTrip = idTrip;
         this.tripName = tripName;
-        this.departureCity = departureCity;
+        this.locationInfo = locationInfo;
+        this.periodInfo = periodInfo;
         this.category = category;
-        this.outboundDate = outboundDate;
-        this.returnDate = returnDate;
         this.price = price;
         this.guide = guide;
-        this.country = country;
     }
 
+    public  TripBean(int idTrip, String tripName, LocationInfoBean locationInfo, PeriodInfoBean periodInfo, String guide){
+        this.idTrip = idTrip;
+        this.tripName = tripName;
+        this.locationInfo = locationInfo;
+        this.periodInfo = periodInfo;
+        this.guide = guide;
+    }
+
+    public  TripBean(String tripName, LocationInfoBean locationInfo, PeriodInfoBean periodInfo, String category, String price){
+        this.tripName = tripName;
+        this.locationInfo = locationInfo;
+        this.periodInfo = periodInfo;
+        this.category = category;
+        this.price = price;
+    }
+
+
+/*
     public TripBean(String tripName, String departureCity, LocalDate outboundDate, LocalDate returnDate, String guide, String price){
         this.tripName = tripName;
         this.departureCity = departureCity;
@@ -40,8 +55,10 @@ public class TripBean {
         this.guide = guide;
     }
 
+
+
     // Costruttore per i nuovi viaggi
-    public TripBean(String tripName, String departureCity, String category,LocalDate outboundDate, LocalDate returnDate, String price, String country){
+    public TripBean(String tripName, String category,PeriodInfoBean periodInfoBean, String price, String country){
         this.tripName = tripName;
         this.departureCity = departureCity;
         this.category = category;
@@ -51,12 +68,13 @@ public class TripBean {
         this.country = country;
     }
 
-    public TripBean(String tripName, LocalDate outboundDate, LocalDate returnDate){
-        this.tripName = tripName;
-        this.outboundDate = outboundDate;
-        this.returnDate = returnDate;
-    }
 
+ */
+    public TripBean(String tripName, PeriodInfoBean periodInfoBean){
+        this.tripName = tripName;
+        this.periodInfo = periodInfoBean;
+    }
+/*
     public TripBean(int idTrip, String tripName,LocalDate outboundDate, LocalDate returnDate, String city, String guide){
         this.idTrip = idTrip;
         this.tripName = tripName;
@@ -66,25 +84,44 @@ public class TripBean {
         this.guide = guide;
     }
 
+ */
+
     public TripBean(int idTrip){
         this.idTrip = idTrip;
     }
 
+    public LocationInfoBean getLocationInfo() {
+        return locationInfo;
+    }
+    public void setLocationInfo(LocationInfoBean locationInfo) {
+        this.locationInfo = locationInfo;
+    }
+
+    public PeriodInfoBean getPeriodInfo() {
+        return periodInfo;
+    }
+
+    public void setPeriodInfo(PeriodInfoBean periodInfo) {
+        this.periodInfo = periodInfo;
+    }
+
     public LocalDate getOutboundDate() {
-        return outboundDate;
+        return periodInfo.getOutboundDate();
     }
 
     public void setOutboundDate(LocalDate outboundDate) {
-        this.outboundDate = outboundDate;
+        periodInfo.setOutboundDate(outboundDate);;
     }
 
     public LocalDate getReturnDate(){
-        return returnDate;
+        return periodInfo.getReturnDate();
     }
 
     public void setReturnDate(LocalDate returnDate) {
-        this.returnDate = returnDate;
+        periodInfo.setReturnDate(returnDate);;
     }
+
+
 
     public int getIdTrip() {
         return idTrip;
@@ -103,12 +140,13 @@ public class TripBean {
     }
 
     public String getDepartureCity() {
-        return departureCity;
+        return locationInfo.getDepartureCity();
     }
 
     public void setDepartureCity(String departureCity) {
-        this.departureCity = departureCity;
+        locationInfo.setDepartureCity(departureCity);
     }
+
 
     public String getCategory() {
         return category;
@@ -132,9 +170,13 @@ public class TripBean {
         this.guide = guide;
     }
 
-    public String getCountry(){ return country;}
+    public String getCountry(){
+        return locationInfo.getCountry();
+    }
 
-    public void setCountry(String country){this.country = country;}
+    public void setCountry(String country){
+        locationInfo.setCountry(country);
+    }
 
 
     public void addStop(String city, LocalDate arrival, LocalDate departure) {

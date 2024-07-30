@@ -302,4 +302,6 @@ public class CLISelectedTrip extends AbstractCLI {
         return getMenuChoice(1, 4);
     }
 
+
+
 }

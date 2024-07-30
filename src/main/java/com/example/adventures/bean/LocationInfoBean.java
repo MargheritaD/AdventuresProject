@@ -1,16 +1,18 @@
-package com.example.adventures.model;
+package com.example.adventures.bean;
 
-public class LocationInfo {
+public class LocationInfoBean {
     private String departureCity;
     private String country;
 
-    public LocationInfo(String departureCity, String country) {
+    public LocationInfoBean(String departureCity, String country) {
         this.departureCity = departureCity;
         this.country = country;
     }
 
+    public LocationInfoBean(String departureCity){
+        this.departureCity = departureCity;
+    }
 
-    // Getter e Setter
     public String getDepartureCity() {
         return departureCity;
     }

@@ -2,9 +2,7 @@ package com.example.adventures.graphiccontroller;
 
 import com.example.adventures.Main;
 import com.example.adventures.appcontroller.NewTripController;
-import com.example.adventures.bean.GuideBean;
-import com.example.adventures.bean.ItineraryStopBean;
-import com.example.adventures.bean.TripBean;
+import com.example.adventures.bean.*;
 import com.example.adventures.engineering.Printer;
 import com.example.adventures.engineering.Session;
 import com.example.adventures.exception.FormEmptyException;
@@ -142,7 +140,11 @@ public class NewTripGUIController {
 
             stopList = getStop();
 
-            TripBean tripBean = new TripBean(nomeViaggio.getText(), cittaPartenza.getText(), categoria.getValue(), dataPartenza.getValue(), dataRitorno.getValue(), prezzo.getText(), paese.getValue());
+            LocationInfoBean locationInfoBean = new LocationInfoBean(cittaPartenza.getText(), paese.getValue());
+            PeriodInfoBean periodInfoBean = new PeriodInfoBean(dataPartenza.getValue(), dataRitorno.getValue());
+
+
+            TripBean tripBean = new TripBean(nomeViaggio.getText(), locationInfoBean, periodInfoBean, categoria.getValue(), prezzo.getText());
             tripBean.setStops(stopList);
             GuideBean guideBean = Session.getCurrentSession().getGuideBean();
 
