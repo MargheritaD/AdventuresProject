@@ -30,9 +30,54 @@ public class LoginGUIController {
 
 
         try {
+            LoginBean loginBean = new LoginBean(usernameText.getText(),passwordText.getText());
+            LoginController loginController = new LoginController();
+            loginController.checkUser(loginBean);
+            Parent root;
+            Stage dialog = Main.getStage();
+            switch(loginBean.getRole()){
+                case 1 ->  {
+                    loginController.guideLogin(loginBean);
+                    root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("HomePageGuideMap.fxml")));
+                }
+                case 2 -> {
+                    loginController.travelerLogin(loginBean);
+                    root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("/com/example/adventures/HomePageTravelerMap.fxml")));
+                }
+                default -> throw new UserNotFoundException();
+            }
+            Scene scene = new Scene(root);
+            dialog.setScene(scene);
+            dialog.show();
+        } catch (EmailFormatException | UserNotFoundException  e) {
+            Printer.printError(e.getMessage());
+        } catch (IOException e){
+            Printer.printError(e.getMessage());
+        }
+    }
+    public void switchToNew() throws IOException{
+        Parent root;
+        Stage dialog = Main.getStage();
+        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("newAccount.fxml")));
+        Scene scene = new Scene(root);
+        dialog.setScene(scene);
+        dialog.show();
+    }
+    public void googleAction() throws IOException{
+        Parent root;
+        Stage dialog = Main.getStage();
+        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("HomePageGuideMap.fxml")));
+        Scene scene = new Scene(root);
+        dialog.setScene(scene);
+        dialog.show();
+    }
+/*
+        try {
 
             LoginBean loginBean = new LoginBean(usernameText.getText(),passwordText.getText());
             LoginController loginController = new LoginController();
+
+            System.out.println("Sono nel controller GUI");
 
             loginController.checkUser(loginBean);
 
@@ -86,4 +131,6 @@ public class LoginGUIController {
         dialog.setScene(scene);
         dialog.show();
     }
+
+ */
 }

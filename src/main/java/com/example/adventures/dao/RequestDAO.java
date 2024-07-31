@@ -29,10 +29,15 @@ public class    RequestDAO {
 
     public void registerReservation(Request request){
 
+        System.out.println("Sono nel requestDAO");
+
         Connection connection;
 
         try{
             connection = ConnectionDB.getConnection();
+
+            System.out.println("Sto per chiamare la quesry");
+            System.out.println(request.getIdTraveler()+" " + request.getIdTrip());
 
             CRUDQueries.sendRequest(connection, request.getIdTraveler(), request.getIdTrip());
 

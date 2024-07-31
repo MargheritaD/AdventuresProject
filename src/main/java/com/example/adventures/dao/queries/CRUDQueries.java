@@ -58,6 +58,7 @@ public class CRUDQueries {
     }
 
     public static int sendRequest(Connection connection, int person, int trip) throws SQLException{
+        System.out.println("Sono nella query");
         String insertStatement = "INSERT INTO Request (traveler, trip, status) VALUES (?, ?, ?)";
         preparedStatement = connection.prepareStatement(insertStatement, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         preparedStatement.setInt(1,person);

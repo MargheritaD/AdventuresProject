@@ -12,6 +12,7 @@ import java.util.List;
 public class BookTripController {
     public void sendRequest(RequestBean requestBean){
 
+        System.out.println("Sono in sendRequest");
         Request request = new Request(requestBean.getIdTrip(), requestBean.getIdTraveler());
         RequestDAO requestDAO = new RequestDAO();
         requestDAO.registerReservation(request);
