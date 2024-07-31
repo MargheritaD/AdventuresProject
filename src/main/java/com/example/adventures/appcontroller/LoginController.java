@@ -36,42 +36,5 @@ public class LoginController {
     public void logout(){
         Session.logout();
     }
-    /*
-    public void checkUser(LoginBean loginBean) throws UserNotFoundException {
 
-        System.out.println("Sono nel check user");
-
-        LoginDAO loginDAO = new LoginDAOJDBC();
-
-        try{
-            System.out.println("Sono nel try");
-            UserProfile userProfile = loginDAO.checkUser(loginBean.getUsername(), loginBean.getPassword());
-            System.out.println("Ho passato l'interfaccia");
-            loginBean.setRole(userProfile.getRole());
-
-        }catch (UserNotFoundException e){
-            Logger logger = Logger.getLogger(getClass().getName());
-            logger.severe("ECCEZIONE: Utente non esiste");
-            throw e; // Rilancia l'eccezione se necessario
-        }
-
-    }
-
-    public void guideLogin(LoginBean loginBean) throws NotFoundException{
-        Guide guide = GuideDAO.retrieveGuideByUsername(loginBean.getUsername());
-        GuideBean guideBean = new GuideBean(guide.getId(), guide.getName(), guide.getSurname(), guide.getEmail());
-        Session.setSessionInstance(guideBean);
-    }
-
-    public void travelerLogin(LoginBean loginBean) throws NotFoundException {
-        Traveler traveler = TravelerDAO.retrieveTravelerByUsername(loginBean.getUsername());
-        TravelerBean travelerbean = new TravelerBean(traveler.getId(), traveler.getName(), traveler.getSurname(), traveler.getEmail());
-        Session.setSessionInstance(travelerbean);
-    }
-
-    public void logout(){
-        Session.logout();
-    }
-
-     */
 }

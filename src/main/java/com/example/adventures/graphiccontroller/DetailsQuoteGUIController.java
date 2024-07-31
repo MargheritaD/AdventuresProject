@@ -151,7 +151,6 @@ public class DetailsQuoteGUIController {
         try{
 
             BookTripController bookTripController = new BookTripController();
-            System.out.println("Sono nel try e creo il book trip controller");
             RequestBean requestBean = new RequestBean(tripId,Session.getCurrentSession().getTravelerBean().getId());
             bookTripController.sendRequest(requestBean);
 
