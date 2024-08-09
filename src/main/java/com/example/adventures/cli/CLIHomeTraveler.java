@@ -56,30 +56,43 @@ public class CLIHomeTraveler extends AbstractCLI {
     }
 
     private int showMenu() {
-        CLIPrinter.printMessage("\nMenu: \n");
-        CLIPrinter.printMessage("\n1) Choose country: \n");
-        CLIPrinter.printMessage("2) Your requests: \n");
-        CLIPrinter.printMessage("3) Exit: \n");
+
+        CLIPrinter.printMessage("\n\n    ----------------- \n");
+        CLIPrinter.printMessage("   |Menu:             |\n");
+        CLIPrinter.printMessage("   |----------------- |\n");
+        CLIPrinter.printMessage("   |1) Choose country |\n");
+        CLIPrinter.printMessage("   |2) Your requests  |\n");
+        CLIPrinter.printMessage("   |3) Logout         |\n");
+        CLIPrinter.printMessage("   |4) Quit           |\n");
+        CLIPrinter.printMessage("    -----------------\n\n");
+
         return getMenuChoice(1, 4);
     }
 
     private int chooseCountry() {
-        CLIPrinter.printMessage("\n****************************** Country list ****************************** \n\n");
-        CLIPrinter.printMessage("1. Italy: \n");
-        CLIPrinter.printMessage("2. Argentina: \n");
-        CLIPrinter.printMessage("3. USA: \n");
-        CLIPrinter.printMessage("4. Mexico: \n\n");
+        CLIPrinter.printMessage("\n\n    -----------------                   -----------------\n");
+        CLIPrinter.printMessage("   |Country list:     |                |Main menu:       |\n");
+        CLIPrinter.printMessage("   |----------------- |                |-----------------| \n");
+        CLIPrinter.printMessage("   |1. Italy          |                |5) Back          |\n");
+        CLIPrinter.printMessage("   |2. Argentina      |                |6) Quit          |  \n");
+        CLIPrinter.printMessage("   |3. USA            |                 ----------------- \n");
+        CLIPrinter.printMessage("   |4. Mexico         | \n");
+        CLIPrinter.printMessage("    -----------------\n\n");
+
         return getMenuChoice(1, 4);
     }
 
     private int chooseCategory() {
-        CLIPrinter.printMessage("\n****************************** Category list ****************************** \n\n");
-        CLIPrinter.printMessage("1. Relax: \n");
-        CLIPrinter.printMessage("2. Sport: \n");
-        CLIPrinter.printMessage("3. Dog trekking: \n");
-        CLIPrinter.printMessage("4. Safari: \n");
-        CLIPrinter.printMessage("5. Food tasting: \n");
-        CLIPrinter.printMessage("6. Fun: \n\n");
+        CLIPrinter.printMessage("\n\n    -----------------                   -----------------\n");
+        CLIPrinter.printMessage("   |Category list:    |                |Main menu:       |\n");
+        CLIPrinter.printMessage("   |----------------- |                |-----------------| \n");
+        CLIPrinter.printMessage("   |1. Relax          |                |7) Back          |\n");
+        CLIPrinter.printMessage("   |2. Sport          |                |8) Quit          |  \n");
+        CLIPrinter.printMessage("   |3. Dog trekking   |                 ----------------- \n");
+        CLIPrinter.printMessage("   |4. Safari         | \n");
+        CLIPrinter.printMessage("   |5. Food tasting   | \n");
+        CLIPrinter.printMessage("   |6. Fun            | \n");
+        CLIPrinter.printMessage("    -----------------\n\n");
         return getMenuChoice(1, 6);
     }
 
