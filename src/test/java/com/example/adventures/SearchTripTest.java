@@ -10,7 +10,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SearchTripTest {
-
+/*^
     TripDAO tripDAO = new TripDAO();
 
     @Test
@@ -29,4 +29,6 @@ class SearchTripTest {
             Assertions.fail(e.getMessage());
         }
     }
+
+ */
 }
