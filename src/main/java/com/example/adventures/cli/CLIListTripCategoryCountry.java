@@ -67,24 +67,24 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
     private int showMenu(List<TripBean> trips)  {
 
         int i = 1;
-        CLIPrinter.printMessage("\n*************************************************************************\n");
-        CLIPrinter.printMessage("\nSelect a trip: \n\n");
+        CLIPrinter.printMessage("\n\n    -----------------------------------------------\n");
+        CLIPrinter.printMessage("   |Trip list:                                    |\n");
+        CLIPrinter.printMessage("   |----------------------------------------------|\n" );
         for (TripBean tripBean : trips){
-            CLIPrinter.printListOfTrips(i , tripBean.getTripName());
+            CLIPrinter.printListOfTrips( i , tripBean.getTripName());
             i++;
         }
-        CLIPrinter.printMessage("-----------\n");
-        CLIPrinter.printNumbers(i); CLIPrinter.printMessage("Go home\n");
+        CLIPrinter.printMessage("   |----------------------------------------------|\n" );
+        CLIPrinter.printNumbers(i); CLIPrinter.printMessage("Home\n");
         CLIPrinter.printNumbers(i+1);
-        CLIPrinter.printMessage("Go back\n");
+        CLIPrinter.printMessage("Back\n");
         CLIPrinter.printNumbers(i+2);
-        CLIPrinter.printMessage("ViewMessages\n");
-        CLIPrinter.printNumbers(i+3);
         CLIPrinter.printMessage("Logout\n");
-        CLIPrinter.printNumbers(i+4);
+        CLIPrinter.printNumbers(i+3);
         CLIPrinter.printMessage("Quit\n");
+        CLIPrinter.printMessage("    ----------------------------------------------\n\n" );
 
-        return getMenuChoice(1,i+4);
+        return getMenuChoice(1,i+3);
     }
 
     private void goBack() throws NotFoundException {

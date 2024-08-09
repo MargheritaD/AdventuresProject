@@ -17,7 +17,9 @@ public class CLILogin extends AbstractCLI {
         while (a){
             int choice;
             try{
-                CLIPrinter.printMessage("\n************* ADVENTURES *************\n");
+                CLIPrinter.printMessage("\n                                                                 **************************************");
+                CLIPrinter.printMessage("\n                                                                 *             ADVENTURES             *");
+                CLIPrinter.printMessage("\n                                                                 **************************************\n");
                 choice = showMenu();
                 switch (choice){
                     case 1 -> {
@@ -43,10 +45,13 @@ public class CLILogin extends AbstractCLI {
     }
 
     public int showMenu() {
-        CLIPrinter.printMessage("Menu: \n\n");
-        CLIPrinter.printMessage("1) Login\n");
-        CLIPrinter.printMessage("2) Sign Up\n");
-        CLIPrinter.printMessage("3) Quit\n\n");
+        CLIPrinter.printMessage("    -----------------\n");
+        CLIPrinter.printMessage("   |Menu:            |\n");
+        CLIPrinter.printMessage("   |-----------------|\n");
+        CLIPrinter.printMessage("   |1) Login         |\n");
+        CLIPrinter.printMessage("   |2) Sign Up       |\n");
+        CLIPrinter.printMessage("   |3) Quit          |\n");
+        CLIPrinter.printMessage("    -----------------\n\n");
 
         return getMenuChoice(1, 3);
     }
@@ -57,10 +62,10 @@ public class CLILogin extends AbstractCLI {
         LoginController loginController = new LoginController();
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         try {
-            CLIPrinter.printMessage("\nPlease enter your credentials:");
-            CLIPrinter.printMessage("\nusername: ");
+            CLIPrinter.printMessage("\n     Please enter your credentials:");
+            CLIPrinter.printMessage("\n     username: ");
             String username = reader.readLine();
-            CLIPrinter.printMessage("password: ");
+            CLIPrinter.printMessage("     password: ");
             String password = reader.readLine();
             LoginBean loginBean = new LoginBean(username, password);
             loginController.checkUser(loginBean);

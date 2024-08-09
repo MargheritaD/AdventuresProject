@@ -168,11 +168,11 @@ public class CLISelectedTrip extends AbstractCLI {
             baseQuote = new USAQuote(baseQuote);
         }
 
-        CLIPrinter.printMessage("\n ---------------------------------------------------");
-        CLIPrinter.printMessage("\n| To calculate the quote, add the insurances you are |");
-        CLIPrinter.printMessage("\n| interested in one by one. When you're done, select |");
-        CLIPrinter.printMessage("\n| 'finish selection' to get the final calculation    |");
-        CLIPrinter.printMessage("\n ---------------------------------------------------\n");
+        CLIPrinter.printMessage("\n     ---------------------------------------------------");
+        CLIPrinter.printMessage("\n    | To calculate the quote, add the insurances you are |");
+        CLIPrinter.printMessage("\n    | interested in one by one. When you're done, select |");
+        CLIPrinter.printMessage("\n    | 'finish selection' to get the final calculation    |");
+        CLIPrinter.printMessage("\n     ---------------------------------------------------\n");
 
         boolean selectingInsurances = true;
         while (selectingInsurances) {
@@ -181,22 +181,22 @@ public class CLISelectedTrip extends AbstractCLI {
             switch (choice2) {
                 case 1 -> {
                     baseQuote = new HealthcareDecorator(baseQuote);
-                    CLIPrinter.printMessage("\n ---------------------------");
-                    CLIPrinter.printMessage("\n| Healthcare insurance added |");
-                    CLIPrinter.printMessage("\n ---------------------------\n");
+                    CLIPrinter.printMessage("\n      ---------------------------");
+                    CLIPrinter.printMessage("\n     | Healthcare insurance added |");
+                    CLIPrinter.printMessage("\n      ---------------------------\n");
                 }
                 case 2 -> {
                     baseQuote = new LuggageDecorator(baseQuote);
-                    CLIPrinter.printMessage("\n ------------------------");
-                    CLIPrinter.printMessage("\n| Luggage insurance added |");
-                    CLIPrinter.printMessage("\n ------------------------\n");
+                    CLIPrinter.printMessage("\n      ------------------------");
+                    CLIPrinter.printMessage("\n     | Luggage insurance added |");
+                    CLIPrinter.printMessage("\n      ------------------------\n");
 
                 }
                 case 3 -> {
                     baseQuote = new CancellationDecorator(baseQuote);
-                    CLIPrinter.printMessage("\n -----------------------------");
-                    CLIPrinter.printMessage("\n| Cancellation insurance added |");
-                    CLIPrinter.printMessage("\n -----------------------------\n");
+                    CLIPrinter.printMessage("\n      -----------------------------");
+                    CLIPrinter.printMessage("\n     | Cancellation insurance added |");
+                    CLIPrinter.printMessage("\n      -----------------------------\n");
 
                 }
                 case 4 -> selectingInsurances = false;
@@ -223,81 +223,95 @@ public class CLISelectedTrip extends AbstractCLI {
             BookTripController bookTripController = new BookTripController();
             bookTripController.sendRequest(requestBean);
 
-            CLIPrinter.printMessage("\n----------------------------------------\n");
-            CLIPrinter.printMessage("Participation request sent successfully!\n");
-            CLIPrinter.printMessage("----------------------------------------\n");
+            CLIPrinter.printMessage("\n     ----------------------------------------\n");
+            CLIPrinter.printMessage("       Participation request sent successfully!\n");
+            CLIPrinter.printMessage("       ----------------------------------------\n");
         } else {
             CLIPrinter.printMessage("Error: Traveler session not found!\n");
         }
     }
 
     private void printTripDetails(TripBean tripBean) {
-        CLIPrinter.printMessage("\n--------TRIP DETAILS:-----------\n");
-        CLIPrinter.printMessage("| Trip name: " + tripBean.getTripName() + "\n");
-        CLIPrinter.printMessage("| Guide: " + tripBean.getGuide() + "\n");
-        CLIPrinter.printMessage("| Departure city: " + tripBean.getDepartureCity() + "\n");
-        CLIPrinter.printMessage("| Outbound date: " + tripBean.getOutboundDate() + "\n");
-        CLIPrinter.printMessage("| Return date: " + tripBean.getReturnDate() + "\n");
-        CLIPrinter.printMessage("| Price: " + tripBean.getPrice() + "$\n");
-        CLIPrinter.printMessage("--------------------------------\n");
+        CLIPrinter.printMessage("\n\n   ---------------TRIP DETAILS:------------------\n");
+        CLIPrinter.printMessage("   | Trip name: " + tripBean.getTripName() + "\n");
+        CLIPrinter.printMessage("   | Guide: " + tripBean.getGuide() + "\n");
+        CLIPrinter.printMessage("   | Departure city: " + tripBean.getDepartureCity() + "\n");
+        CLIPrinter.printMessage("   | Outbound date: " + tripBean.getOutboundDate() + "\n");
+        CLIPrinter.printMessage("   | Return date: " + tripBean.getReturnDate() + "\n");
+        CLIPrinter.printMessage("   | Price: " + tripBean.getPrice() + "$\n");
+        CLIPrinter.printMessage("   ----------------------------------------------\n");
     }
 
     private void printItinerary(List<ItineraryStopBean> itinerary) {
-        CLIPrinter.printMessage("\n--------TRIP ITINERARY:--------\n");
+        CLIPrinter.printMessage("\n   ---------------TRIP ITINERARY:---------------\n");
         for (ItineraryStopBean stop : itinerary) {
-            CLIPrinter.printMessage("| City: " + stop.getCity() + "\n");
-            CLIPrinter.printMessage("| Arrival: " + stop.getArrival() + "\n");
-            CLIPrinter.printMessage("| Departure: " + stop.getDeparture() + "\n");
-            CLIPrinter.printMessage("|------------------------------\n");
+            CLIPrinter.printMessage("  | City: " + stop.getCity() + "\n");
+            CLIPrinter.printMessage("  | Arrival: " + stop.getArrival() + "\n");
+            CLIPrinter.printMessage("  | Departure: " + stop.getDeparture() + "\n");
+            CLIPrinter.printMessage("  |--------------------------------------------\n");
         }
     }
 
     private int menuForTraveler() {
-        CLIPrinter.printMessage("\nMenù: \n");
-        CLIPrinter.printMessage("\n1) Request quote \n");
-        CLIPrinter.printMessage("2) Send request \n");
-        CLIPrinter.printMessage("3) Back \n");
-        CLIPrinter.printMessage("4) Home \n");
-        CLIPrinter.printMessage("5) Logout \n");
-        CLIPrinter.printMessage("6) Quit \n");
+
+        CLIPrinter.printMessage("\n    ------------------\n");
+        CLIPrinter.printMessage("   |Menu:             |\n");
+        CLIPrinter.printMessage("   |------------------|\n");
+        CLIPrinter.printMessage("   |1) Request quote  |\n");
+        CLIPrinter.printMessage("   |2) Send request   |\n");
+        CLIPrinter.printMessage("   |3) Back           |\n");
+        CLIPrinter.printMessage("   |4) Home           |\n");
+        CLIPrinter.printMessage("   |5) Logout         |\n");
+        CLIPrinter.printMessage("   |6) Quit           |\n");
+        CLIPrinter.printMessage("    ------------------\n\n");
 
         return getMenuChoice(1, 6);
     }
 
     private int menuForGuideAsTraveler() {
-        CLIPrinter.printMessage("\nMenu°: \n");
-        CLIPrinter.printMessage("\n1) Request quote \n");
-        CLIPrinter.printMessage("2) Back \n");
-        CLIPrinter.printMessage("3) Home \n");
-        CLIPrinter.printMessage("4) Logout \n");
-        CLIPrinter.printMessage("5) Quit \n");
+
+        CLIPrinter.printMessage("\n    ------------------\n");
+        CLIPrinter.printMessage("   |Menu:             |\n");
+        CLIPrinter.printMessage("   |------------------|\n");
+        CLIPrinter.printMessage("   |1) Request quote  |\n");
+        CLIPrinter.printMessage("   |2) Back           |\n");
+        CLIPrinter.printMessage("   |3) Home           |\n");
+        CLIPrinter.printMessage("   |4) Logout         |\n");
+        CLIPrinter.printMessage("   |5) Quit           |\n");
+        CLIPrinter.printMessage("    ------------------\n\n");
 
         return getMenuChoice(1, 5);
     }
 
     private int munuForGuide() {
-        CLIPrinter.printMessage("\nMenu: \n");
-        CLIPrinter.printMessage("\n1) Edit trip \n");
-        CLIPrinter.printMessage("2) Back \n");
-        CLIPrinter.printMessage("3) Home \n");
-        CLIPrinter.printMessage("4) Logout \n");
-        CLIPrinter.printMessage("5) Quit \n");
+
+        CLIPrinter.printMessage("\n    ------------------\n");
+        CLIPrinter.printMessage("   |Menu:             |\n");
+        CLIPrinter.printMessage("   |------------------|\n");
+        CLIPrinter.printMessage("   |1) Edit trip      |\n");
+        CLIPrinter.printMessage("   |2) Back           |\n");
+        CLIPrinter.printMessage("   |3) Home           |\n");
+        CLIPrinter.printMessage("   |4) Logout         |\n");
+        CLIPrinter.printMessage("   |5) Quit           |\n");
+        CLIPrinter.printMessage("    ------------------\n\n");
 
         return getMenuChoice(1, 5);
     }
 
     private void displayQuoteResult(float totalQuote) {
-        CLIPrinter.printMessage("\n--------QUOTE RESULT:-------\n");
-        CLIPrinter.printMessage("| Total price: " + totalQuote + " $     |\n");
-        CLIPrinter.printMessage("----------------------------\n");
+        CLIPrinter.printMessage("\n     --------QUOTE RESULT:-------\n");
+        CLIPrinter.printMessage("     | Total price: " + totalQuote + " $     |\n");
+        CLIPrinter.printMessage("      ----------------------------\n\n");
     }
 
     private int menuForQuote() {
 
-        CLIPrinter.printMessage("   1) Healthcare insurance  \n");
-        CLIPrinter.printMessage("   2) Luggage insurance \n");
-        CLIPrinter.printMessage("   3) Cancellation insurance \n");
-        CLIPrinter.printMessage("   4) Finish selection \n\n");
+        CLIPrinter.printMessage("\n     ---------------------------------------------------\n");
+        CLIPrinter.printMessage("    |1) Healthcare insurance                             |\n");
+        CLIPrinter.printMessage("    |2) Luggage insurance                                |\n");
+        CLIPrinter.printMessage("    |3) Cancellation insurance                           |\n");
+        CLIPrinter.printMessage("    |4) Finish selection                                 |\n");
+        CLIPrinter.printMessage("     ---------------------------------------------------\n\n");
 
         return getMenuChoice(1, 4);
     }

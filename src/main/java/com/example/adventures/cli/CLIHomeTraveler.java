@@ -59,7 +59,7 @@ public class CLIHomeTraveler extends AbstractCLI {
         CLIPrinter.printMessage("\nMenu: \n");
         CLIPrinter.printMessage("\n1) Choose country: \n");
         CLIPrinter.printMessage("2) Your requests: \n");
-        CLIPrinter.printMessage("3) Logout: \n");
+        CLIPrinter.printMessage("3) Exit: \n");
         return getMenuChoice(1, 4);
     }
 

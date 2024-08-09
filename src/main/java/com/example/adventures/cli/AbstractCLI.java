@@ -16,7 +16,7 @@ public class AbstractCLI {
         Scanner input = new Scanner(System.in);
         int choice = 0;
         while (true) {
-            CLIPrinter.printMessage("Please enter your choice: ");
+            CLIPrinter.printMessage("   Please enter your choice: ");
             choice = input.nextInt();
             if (choice >= min && choice <= max) {
                 break;
