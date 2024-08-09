@@ -174,7 +174,7 @@ public class NewTripGUIController {
         }catch(FormEmptyException e ){
             Printer.printError(e.getMessage());
         } catch (MessageException e) {
-            throw new RuntimeException(e);
+            Printer.printError(e.getMessage());
         }
     }
     public void addName(){ // nome del viaggio
