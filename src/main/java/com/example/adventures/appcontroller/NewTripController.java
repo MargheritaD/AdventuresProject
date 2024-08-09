@@ -18,7 +18,7 @@ public class NewTripController {
         Guide guide = new Guide(guideBean.getId(), guideBean.getName(), guideBean.getSurname(), guideBean.getEmail());
         List<ItineraryStop> itineraryStops = new ArrayList<>();
         // Controllo sulle date
-            checkRequestDate(tripBean.getOutboundDate(), tripBean.getReturnDate());
+        checkRequestDate(tripBean.getOutboundDate(), tripBean.getReturnDate());
         // Creazione dell'oggetto LocationInfo
         LocationInfo locationInfo = new LocationInfo(tripBean.getDepartureCity(), tripBean.getCountry());
         // Creazione dell'oggetto PeriodInfo
