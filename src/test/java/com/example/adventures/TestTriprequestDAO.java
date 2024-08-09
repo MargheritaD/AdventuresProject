@@ -16,9 +16,8 @@ import java.sql.Date;
 import java.sql.ResultSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 
-public class TestTriprequestDAO {
+class TestTriprequestDAO {
 
      /*
          Il seguente test verifica che dopo l'aggiunta di una nuovo viaggio, chiamando un

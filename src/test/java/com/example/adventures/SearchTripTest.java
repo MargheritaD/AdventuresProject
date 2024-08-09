@@ -5,20 +5,12 @@ import com.example.adventures.bean.GuideBean;
 import com.example.adventures.bean.LocationInfoBean;
 import com.example.adventures.bean.PeriodInfoBean;
 import com.example.adventures.bean.TripBean;
-import com.example.adventures.dao.TripDAO;
 import com.example.adventures.exception.MessageException;
-import com.example.adventures.model.Guide;
-import com.example.adventures.model.LocationInfo;
-import com.example.adventures.model.PeriodInfo;
-import com.example.adventures.model.Trip;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Date;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class SearchTripTest {
 
