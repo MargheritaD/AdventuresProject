@@ -1,34 +1,43 @@
 package com.example.adventures;
 
-import com.example.adventures.dao.TripDAO;
-import com.example.adventures.model.Guide;
-import com.example.adventures.model.LocationInfo;
-import com.example.adventures.model.PeriodInfo;
-import com.example.adventures.model.Trip;
-import javafx.scene.Parent;
+import com.example.adventures.appcontroller.NewTripController;
+import com.example.adventures.bean.GuideBean;
+import com.example.adventures.bean.LocationInfoBean;
+import com.example.adventures.bean.PeriodInfoBean;
+import com.example.adventures.bean.TripBean;
+import com.example.adventures.exception.MessageException;
 import org.junit.jupiter.api.Test;
 
-import java.sql.*;
+import java.sql.Date;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class NewTripTest {
 
+    /*
+       Il seguente test verifica che venga sollevata un'eccezione quando
+       viene creato un viaggio con una data di arrivo precedente alla data corrente */
+
     @Test
-    void checkNewTrip(){
+    void testSendRequest(){
 
-        LocationInfo locationInfo = new LocationInfo("Rome", "Italy");
-        PeriodInfo periodInfo = new PeriodInfo((Date.valueOf("2024-04-24")).toLocalDate(), (Date.valueOf("2024-04-26")).toLocalDate());
-        Trip trip = new Trip("Viaggio test", locationInfo, "Relax",  periodInfo, "3000","Ben");
-        Guide guide = new Guide(1,"Ben", "Ottaviani", "ben.ottaviani@gmail.com");
-        try{
+        int validDate = 0;
+        GuideBean guide = new GuideBean(1, "Ben", "Ottaviani", "ben.ttaviani@gmail.com");
 
-            TripDAO.addTrip(trip, guide);
+        LocationInfoBean locationInfo = new LocationInfoBean("Rome", "Australia");
+        PeriodInfoBean periodInfo = new PeriodInfoBean((Date.valueOf("2023-05-26")).toLocalDate(), (Date.valueOf("2023-06-26")).toLocalDate());
+        TripBean trip = new TripBean("Viaggio test date", locationInfo, periodInfo, "Fun", "300");
 
-        }catch (Exception e){
-            fail();
+        NewTripController newTripController = new NewTripController();
+        try {
+            newTripController.createTrip(trip, guide);
+            validDate = 1;
+        } catch (MessageException e){
+            validDate = 2;
         }
+
+        assertEquals(2,validDate);
+
+        //il test ha successo perchè la data di arrivo è precedente al giorno corrente e viene sollevata l'eccezione
     }
-
-
 }

@@ -16,8 +16,9 @@ import java.sql.Date;
 import java.sql.ResultSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
-class NumberOfTripDAOTest {
+class NumberOfTripsTest {
 
      /*
          Il seguente test verifica che dopo l'aggiunta di una nuovo viaggio in Italia, chiamando un
@@ -58,6 +59,7 @@ class NumberOfTripDAOTest {
             resultSet.first();
             newCount = viewTripDetailsController.numberOfTrps("Italy");
         }catch (Exception ignore) {
+            fail("Test failed due to an exception: " + ignore.getMessage());
         }
 
         assertEquals(count+1, newCount); //il test ha successo in quanto il viaggio viene aggiunta correttamente
