@@ -17,11 +17,11 @@ import java.sql.ResultSet;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class TestTriprequestDAO {
+class NumberOfTripDAOTest {
 
      /*
-         Il seguente test verifica che dopo l'aggiunta di una nuovo viaggio, chiamando un
-         metodo del DAO che restituisce il numero di viaggi per lo specifico paese, questo venga incrementato di 1
+         Il seguente test verifica che dopo l'aggiunta di una nuovo viaggio in Italia, chiamando un
+         metodo che restituisce il numero di viaggi per lo stesso paese, questo venga incrementato di 1
      */
 
     @Test
@@ -41,13 +41,14 @@ class TestTriprequestDAO {
 
             ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
             count = viewTripDetailsController.numberOfTrps("Italy");
-            System.out.println("Count " + count);
 
             LocationInfo locationInfo = new LocationInfo("Rome", "Italy");
             PeriodInfo periodInfo = new PeriodInfo((Date.valueOf("2025-04-24")).toLocalDate(), (Date.valueOf("2025-04-26")).toLocalDate());
             Trip trip = new Trip("Viaggio test aggiuntao", locationInfo, "Relax",  periodInfo, "3000","Ben");
             Guide guide = new Guide(1,"Ben", "Ottaviani", "ben.ottaviani@gmail.com");
             TripDAO.addTrip(trip, guide);
+
+
 
 
             resultSet = SimpleQueries.numberOfTrips(connection, "Italy");
