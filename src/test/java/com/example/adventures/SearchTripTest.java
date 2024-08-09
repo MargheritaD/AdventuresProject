@@ -34,7 +34,6 @@ class SearchTripTest {
             validDate = 1;
         } catch (MessageException e){
             validDate = 2;
-        } catch (Exception ignored){
         }
 
         assertEquals(2,validDate);

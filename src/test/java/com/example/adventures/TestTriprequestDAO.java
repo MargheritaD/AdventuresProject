@@ -56,7 +56,7 @@ class TestTriprequestDAO {
             }
             resultSet.first();
             newCount = viewTripDetailsController.numberOfTrps("Italy");
-        } catch (Exception ignore) {
+        }catch (Exception ignore) {
         }
 
         assertEquals(count+1, newCount); //il test ha successo in quanto il viaggio viene aggiunta correttamente
