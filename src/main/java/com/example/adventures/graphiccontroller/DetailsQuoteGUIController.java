@@ -261,25 +261,25 @@ public class DetailsQuoteGUIController {
     public void exitAction() throws IOException {
 
         Parent root;
-        Stage dialog = Main.getStage();
+        Stage dialogS = Main.getStage();
 
         root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Login.fxml")));
 
         Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
+        dialogS.setScene(scene);
+        dialogS.show();
     }
 
     public void homeAction() throws IOException {
 
         Parent root;
-        Stage dialog = Main.getStage();
+        Stage stage = Main.getStage();
 
         root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("HomePageGuideMap.fxml")));
 
         Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
