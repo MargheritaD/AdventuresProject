@@ -14,56 +14,56 @@ public class CLINewTrip extends AbstractCLI{
 
     private Scanner scanner = new Scanner(System.in);
 
-    private static final String menuBordo = "   |----------------------------------------------------------------------------------------------------------------| \n";
+    private static final String MENU_BORDO = "   |----------------------------------------------------------------------------------------------------------------| \n";
 
     public void createTrip() {
         try {
             CLIPrinter.printMessage("   \n\n    ---------------------------------------------------------------------------------------------------------------- \n");
             CLIPrinter.printMessage("   |                                                   New trip!!                                                   |\n");
-            CLIPrinter.printMessage(menuBordo);
+            CLIPrinter.printMessage(MENU_BORDO);
             CLIPrinter.printMessage("   |Trip name: ");
             String tripName = scanner.nextLine();
 
-            CLIPrinter.printMessage(menuBordo);
+            CLIPrinter.printMessage(MENU_BORDO);
             CLIPrinter.printMessage("   |Departure city:");
             String departureCity = scanner.nextLine();
 
-            CLIPrinter.printMessage(menuBordo);
+            CLIPrinter.printMessage(MENU_BORDO);
             CLIPrinter.printMessage("   |Choose category (Dog trekking, Food tasting, Fun, Relax, Safari, Sport):");
             String category = scanner.nextLine();
 
-            CLIPrinter.printMessage(menuBordo);
+            CLIPrinter.printMessage(MENU_BORDO);
             CLIPrinter.printMessage("   |Price:");
             String price = scanner.nextLine();
 
-            CLIPrinter.printMessage(menuBordo);
+            CLIPrinter.printMessage(MENU_BORDO);
             CLIPrinter.printMessage("   |Outbound date (YYYY-MM-DD):");
             LocalDate outboundDate = LocalDate.parse(scanner.nextLine());
 
-            CLIPrinter.printMessage(menuBordo);
+            CLIPrinter.printMessage(MENU_BORDO);
             CLIPrinter.printMessage("   |Return date (YYYY-MM-DD):");
             LocalDate returnDate = LocalDate.parse(scanner.nextLine());
 
-            CLIPrinter.printMessage(menuBordo);
+            CLIPrinter.printMessage(MENU_BORDO);
             CLIPrinter.printMessage("   |Select country (Argentina, Australia, Brasil, Chile, India, Italy, Mexico, Perù, Spain):");
             String country = scanner.nextLine();
 
             List<ItineraryStopBean> stops = new ArrayList<>();
             boolean addingStops = true;
             while (addingStops) {
-                CLIPrinter.printMessage(menuBordo);
+                CLIPrinter.printMessage(MENU_BORDO);
                 CLIPrinter.printMessage("   |Do you want to add a stop? (yes/no)");
                 String response = scanner.nextLine();
                 if (response.equalsIgnoreCase("yes")) {
-                    CLIPrinter.printMessage(menuBordo);
+                    CLIPrinter.printMessage(MENU_BORDO);
                     CLIPrinter.printMessage("   |City name:");
                     String city = scanner.nextLine();
 
-                    CLIPrinter.printMessage(menuBordo);
+                    CLIPrinter.printMessage(MENU_BORDO);
                     CLIPrinter.printMessage("   |Arrival (YYYY-MM-DD):");
                     LocalDate arrival = LocalDate.parse(scanner.nextLine());
 
-                    CLIPrinter.printMessage(menuBordo);
+                    CLIPrinter.printMessage(MENU_BORDO);
                     CLIPrinter.printMessage("   |Departure (YYYY-MM-DD):");
                     LocalDate departure = LocalDate.parse(scanner.nextLine());
 
