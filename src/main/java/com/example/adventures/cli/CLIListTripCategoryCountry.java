@@ -38,7 +38,7 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
                 }
                 case 3 -> {
                     loop = false;
-                    logout();;
+                    logout();
                 }
                 case 4 -> {
                     loop = false;
