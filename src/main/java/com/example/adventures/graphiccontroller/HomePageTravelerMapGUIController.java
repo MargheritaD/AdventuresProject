@@ -280,10 +280,10 @@ public class HomePageTravelerMapGUIController{
         TravelerRequestsGUIController requestsGUIController = loader.getController();
         requestsGUIController.displayTravelerRequest();
 
-        Stage dialog = Main.getStage();
+        Stage dialogg = Main.getStage();
         Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
+        dialogg.setScene(scene);
+        dialogg.show();
 
     }
 
