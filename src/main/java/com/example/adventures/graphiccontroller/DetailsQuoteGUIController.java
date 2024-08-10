@@ -48,32 +48,38 @@ public class DetailsQuoteGUIController {
     @FXML
     private Label returnLabel;
     @FXML
-    private TableView<ItineraryStopBean> itineraryTable;
-    @FXML
-    private TableColumn<ItineraryStopBean, String> stopColumn;
-    @FXML
     private TableColumn<ItineraryStopBean, LocalDate> arrivalColumn;
+    @FXML
+    private TableView<ItineraryStopBean> itineraryTable;
+
     @FXML
     private TableColumn<ItineraryStopBean, LocalDate> departureColumn;
     @FXML
-    private TableView<TripBean> tripTable;
-    @FXML
-    private TableColumn<TripBean, String> nameColumn;
+    private TableColumn<ItineraryStopBean, String> stopColumn;
+
     @FXML
     private TableColumn<TripBean, String> departureCityColumn;
+
     @FXML
-    private TableColumn<TripBean, String> outboundColumn;
+    private TableView<TripBean> tripTable;
     @FXML
     private TableColumn<TripBean, String> returnColumn;
     @FXML
     private TableColumn<TripBean, String> guideColumn;
     @FXML
+    private TableColumn<TripBean, String> nameColumn;
+    @FXML
     private TableColumn<TripBean, String> priceColumn;
 
-    private int tripId;
-    private Trip trip;
+    @FXML
+    private TableColumn<TripBean, String> outboundColumn;
+
+
+
+    //private Trip trip;
     private String categoria;
     private String country;
+    private int tripId;
     private float tripPrice;
     int userId;
     int travalerId;
@@ -122,26 +128,25 @@ public class DetailsQuoteGUIController {
 
         tripPrice = Float.parseFloat(tripBean.getPrice());
 
-        // Imposta i valori delle colonne tabella viaggio
+        // Valori delle colonne tabella viaggio
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("tripName"));
-        departureCityColumn.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
-        outboundColumn.setCellValueFactory(new PropertyValueFactory<>("outboundDate"));
         returnColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
-        guideColumn.setCellValueFactory(new PropertyValueFactory<>("guide"));
+        departureCityColumn.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        outboundColumn.setCellValueFactory(new PropertyValueFactory<>("outboundDate"));
+        guideColumn.setCellValueFactory(new PropertyValueFactory<>("guide"));
 
-        // Popola la tabella con i dettagli
+
+        // Tabella con i dettagli
         tripTable.getItems().addAll(tripBean);
 
-        // Imposta i valori delle colonne tabella itinerario
+        // Valori delle colonne tabella itinerario
+        departureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
         stopColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
         arrivalColumn.setCellValueFactory(new PropertyValueFactory<>("arrival"));
-        departureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
 
-        // Popola la tabella con le tappe
+        // Tabella con le tappe
         itineraryTable.getItems().addAll(itineraryStopBeans);
-
-
 
     }
     public void bookAction() throws IOException {
@@ -231,17 +236,7 @@ public class DetailsQuoteGUIController {
         dialog.show();
     }
 
-    public void exitAction() throws IOException {
 
-        Parent root;
-        Stage dialog = Main.getStage();
-
-        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Login.fxml")));
-
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
-    }
 
     public void backAction() throws IOException, NotFoundException {
 
@@ -258,6 +253,18 @@ public class DetailsQuoteGUIController {
         relaxGUIController.inizio();
 
         Stage dialog = Main.getStage();
+        Scene scene = new Scene(root);
+        dialog.setScene(scene);
+        dialog.show();
+    }
+
+    public void exitAction() throws IOException {
+
+        Parent root;
+        Stage dialog = Main.getStage();
+
+        root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Login.fxml")));
+
         Scene scene = new Scene(root);
         dialog.setScene(scene);
         dialog.show();
