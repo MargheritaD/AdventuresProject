@@ -100,44 +100,42 @@ public class DetailQuoteGuideGUIController {
         Session session = Session.getCurrentSession();
         if(session != null) {
             if(session.getGuideBean() != null) {
-                // È un utente Guida
+                // Guida
                 GuideBean guideBean = session.getGuideBean();
-                userId = guideBean.getId(); // Utilizza l'email anziché il nome
+                userId = guideBean.getId();
             } else if(session.getTravelerBean() != null) {
-                // È un utente Viaggiatore
+                // Viaggiatore
                 TravelerBean travelerBean = session.getTravelerBean();
-                userId = travelerBean.getId(); // Utilizza l'email anche per i viaggiatori
-            } else {
-                // Tipo di utente non riconosciuto, gestire di conseguenza
+                userId = travelerBean.getId();
             }
         }
     }
 
-
     public void setTripDetails(TripBean tripBean) throws NotFoundException {
+
+        tripPrice = Float.parseFloat(tripBean.getPrice());
 
         ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
         List<ItineraryStopBean> itineraryStopBeans = viewTripDetailsController.tableItinerary(tripBean);// prima era tripId
 
-        tripPrice = Float.parseFloat(tripBean.getPrice());
 
         // Imposta i valori delle colonne tabella viaggio
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("tripName"));
-        departureCityColumn.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
         outboundColumn.setCellValueFactory(new PropertyValueFactory<>("outboundDate"));
-        returnColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+        departureCityColumn.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
         guideColumn.setCellValueFactory(new PropertyValueFactory<>("guide"));
+        returnColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
-        // Popola la tabella con i dettagli
+        // Popolare tabella con i dettagli
         tripTable.getItems().addAll(tripBean);
 
-        // Imposta i valori delle colonne tabella itinerario
-        stopColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
+        // Impostare i valori delle colonne tabella itinerario
         arrivalColumn.setCellValueFactory(new PropertyValueFactory<>("arrival"));
+        stopColumn.setCellValueFactory(new PropertyValueFactory<>("city"));
         departureColumn.setCellValueFactory(new PropertyValueFactory<>("departure"));
 
-        // Popola la tabella con le tappe
+        // Popolare la tabella con le tappe
         itineraryTable.getItems().addAll(itineraryStopBeans);
 
     }
