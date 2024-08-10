@@ -194,25 +194,25 @@ public class DetailQuoteGuideGUIController {
         QuoteGUIController quoteGUIController = fxmlLoader.getController();
         quoteGUIController.showQuoteResult(quoteBean); // Passa il bean al controller della nuova finestra
 
-        Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        dialog.initStyle(StageStyle.UNDECORATED);
-        dialog.setScene(new Scene(root1));
-        dialog.centerOnScreen();
-        dialog.show();
+        Stage dialogQ = new Stage();
+        dialogQ.initModality(Modality.APPLICATION_MODAL);
+        dialogQ.initStyle(StageStyle.UNDECORATED);
+        dialogQ.setScene(new Scene(root1));
+        dialogQ.centerOnScreen();
+        dialogQ.show();
     }
 
 
     public void exitAction() throws IOException {
 
         Parent root;
-        Stage dialog = Main.getStage();
+        Stage dialogE = Main.getStage();
 
         root = FXMLLoader.load(Objects.requireNonNull(Main.class.getResource("Login.fxml")));
 
-        Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
+        Scene sceneE = new Scene(root);
+        dialogE.setScene(sceneE);
+        dialogE.show();
     }
 
     public void backAction() throws IOException, NotFoundException {
@@ -229,10 +229,10 @@ public class DetailQuoteGuideGUIController {
         relaxGUIController.initialize();
         relaxGUIController.inizio();
 
-        Stage dialog = Main.getStage();
+        Stage stage = Main.getStage();
         Scene scene = new Scene(root);
-        dialog.setScene(scene);
-        dialog.show();
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void homeAction() throws IOException {
