@@ -250,15 +250,15 @@ public class CLISelectedTrip extends AbstractCLI {
 
     private int menuForTraveler() {
 
-        CLIPrinter.printMessage("\n    ------------------\n");
-        CLIPrinter.printMessage("   |Menu:             |\n");
-        CLIPrinter.printMessage("   |------------------|\n");
-        CLIPrinter.printMessage("   |1) Request quote  |\n");
-        CLIPrinter.printMessage("   |2) Send request   |\n");
-        CLIPrinter.printMessage("   |3) Home           |\n");
-        CLIPrinter.printMessage("   |4) Logout         |\n");
-        CLIPrinter.printMessage("   |5) Quit           |\n");
-        CLIPrinter.printMessage("    ------------------\n\n");
+        CLIPrinter.printMessage("\n    -------------------\n");
+        CLIPrinter.printMessage("   |Menu:              |\n");
+        CLIPrinter.printMessage("   |-------------------|\n");
+        CLIPrinter.printMessage("   |1) Request quote   |\n");
+        CLIPrinter.printMessage("   |2) Send request    |\n");
+        CLIPrinter.printMessage("   |3) Home            |\n");
+        CLIPrinter.printMessage("   |4) Logout          |\n");
+        CLIPrinter.printMessage("   |5) Quit            |\n");
+        CLIPrinter.printMessage("    -------------------\n\n");
 
         return getMenuChoice(1, 5);
     }
@@ -279,14 +279,14 @@ public class CLISelectedTrip extends AbstractCLI {
 
     private int munuForGuide() {
 
-        CLIPrinter.printMessage("\n    ------------------\n");
-        CLIPrinter.printMessage("   |Menu:             |\n");
-        CLIPrinter.printMessage("   |------------------|\n");
-        CLIPrinter.printMessage("   |1) Edit trip      |\n");
-        CLIPrinter.printMessage("   |2) Home           |\n");
-        CLIPrinter.printMessage("   |3) Logout         |\n");
-        CLIPrinter.printMessage("   |4) Quit           |\n");
-        CLIPrinter.printMessage("    ------------------\n\n");
+        CLIPrinter.printMessage("\n    -----------------\n");
+        CLIPrinter.printMessage("   |Menu:            |\n");
+        CLIPrinter.printMessage("   |-----------------|\n");
+        CLIPrinter.printMessage("   |1) Edit trip     |\n");
+        CLIPrinter.printMessage("   |2) Home          |\n");
+        CLIPrinter.printMessage("   |3) Logout        |\n");
+        CLIPrinter.printMessage("   |4) Quit          |\n");
+        CLIPrinter.printMessage("    -----------------\n\n");
 
         return getMenuChoice(1, 4);
     }
