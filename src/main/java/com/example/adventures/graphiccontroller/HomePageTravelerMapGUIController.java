@@ -20,25 +20,29 @@ import java.util.Objects;
 public class HomePageTravelerMapGUIController{
 
     @FXML
-    private Label nameLabel;
+    private Label australiaLabel;
     @FXML
-    private Label europeLabel;
+    private Label nameLabel;
     @FXML
     private Label indiaLable;
     @FXML
-    private Label australiaLabel;
+    private Label europeLabel;
+    @FXML
+    private Label peruLabel;
+
     @FXML
     private Label canadaLabel;
     @FXML
-    private Label mexicoLabel;
-    @FXML
-    private Label peruLabel;
-    @FXML
-    private Label chileLabel;
-    @FXML
     private Label brasilLabel;
     @FXML
+    private Label mexicoLabel;
+
+    @FXML
     private Label argentinaLabel;
+    @FXML
+    private Label chileLabel;
+
+
 
 
     public void initialize(){
@@ -50,7 +54,7 @@ public class HomePageTravelerMapGUIController{
         }
     }
 
-    private void handleMouseEntered(String country, Label label) {
+    private void handleMouseEnteredTraveler(String country, Label label) {
 
         ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
         int num = viewTripDetailsController.numberOfTrps(country);
@@ -63,59 +67,59 @@ public class HomePageTravelerMapGUIController{
 
     public void australiaMouseEntered(){
 
-        handleMouseEntered("Australia", australiaLabel);
+        handleMouseEnteredTraveler("Australia", australiaLabel);
     }
 
     public void indiaMouseEntered(){
 
-        handleMouseEntered("India", indiaLable);
+        handleMouseEnteredTraveler("India", indiaLable);
 
     }
 
     public void spainMouseEntered(){
 
-        handleMouseEntered("Spain", europeLabel);
+        handleMouseEnteredTraveler("Spain", europeLabel);
 
     }
 
     public void italyMouseEntered(){
 
-        handleMouseEntered("Italy", europeLabel);
+        handleMouseEnteredTraveler("Italy", europeLabel);
 
     }
 
     public void brasilMouseEntered(){
 
-        handleMouseEntered("Brasil", brasilLabel);
+        handleMouseEnteredTraveler("Brasil", brasilLabel);
     }
 
     public void argentinaMouseEntered(){
 
-        handleMouseEntered("Argentina", argentinaLabel);
+        handleMouseEnteredTraveler("Argentina", argentinaLabel);
 
     }
 
     public void peruMouseEntered(){
 
-        handleMouseEntered("Perù", peruLabel);
+        handleMouseEnteredTraveler("Perù", peruLabel);
 
     }
 
     public void chileMouseEntered(){
 
-        handleMouseEntered("Chile", chileLabel);
+        handleMouseEnteredTraveler("Chile", chileLabel);
 
     }
 
     public void usaMouseEntered(){
 
-        handleMouseEntered("USA", europeLabel);
+        handleMouseEnteredTraveler("USA", europeLabel);
 
     }
 
     public void mexicoMouseEntered(){
 
-        handleMouseEntered("Mexico", mexicoLabel);
+        handleMouseEnteredTraveler("Mexico", mexicoLabel);
 
     }
 
