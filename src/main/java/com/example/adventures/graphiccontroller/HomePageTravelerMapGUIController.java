@@ -162,13 +162,11 @@ public class HomePageTravelerMapGUIController{
         argentinaLabel.setText("");
     }
 
-
-
     public void iusaMouseExited(){
         europeLabel.setText("");
     }
 
-    private void loadCategoryView(String country) throws IOException {
+    private void loadCategoryViewT(String country) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/adventures/Category.fxml"));
         Parent root = loader.load();
 
@@ -182,64 +180,68 @@ public class HomePageTravelerMapGUIController{
     }
 
 
+    public void indiaAction() throws IOException {
+
+        loadCategoryViewT("India");
+
+    }
 
     public void australiaAction() throws IOException {
 
-        loadCategoryView("Australia");
+        loadCategoryViewT("Australia");
 
     }
 
-    public void indiaAction() throws IOException {
 
-        loadCategoryView("India");
-
-    }
 
     public void spainAction() throws IOException {
 
-        loadCategoryView("Spain");
+        loadCategoryViewT("Spain");
 
     }
 
     public void italyAction() throws IOException {
 
-        loadCategoryView("Italy");
+        loadCategoryViewT("Italy");
+
+    }
+
+
+
+    public void argentinaAction() throws IOException {
+
+        loadCategoryViewT("Argentina");
 
     }
 
     public void brasilAction() throws IOException {
 
-        loadCategoryView("Brasil");
+        loadCategoryViewT("Brasil");
 
     }
 
-    public void argentinaAction() throws IOException {
 
-        loadCategoryView("Argentina");
+    public void chileAction() throws IOException {
+
+        loadCategoryViewT("Chile");
 
     }
 
     public void peruAction() throws IOException {
 
-        loadCategoryView("Perù");
-
-    }
-
-    public void chileAction() throws IOException {
-
-        loadCategoryView("Chile");
-
-    }
-
-    public void usaAction() throws IOException {
-
-        loadCategoryView("USA");
+        loadCategoryViewT("Perù");
 
     }
 
     public void mexicoAction() throws IOException {
 
-        loadCategoryView("Mexico");
+        loadCategoryViewT("Mexico");
+
+    }
+
+    public void usaAction() throws IOException {
+
+        loadCategoryViewT("USA");
 
     }
 
