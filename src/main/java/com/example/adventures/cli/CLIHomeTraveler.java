@@ -93,14 +93,14 @@ public class CLIHomeTraveler extends AbstractCLI {
     }
 
     private int chooseCountry() {
-        CLIPrinter.printMessage("\n\n    -----------------                   -----------------\n");
-        CLIPrinter.printMessage("   |Country list:     |                |Main menu:       |\n");
-        CLIPrinter.printMessage("   |----------------- |                |-----------------| \n");
-        CLIPrinter.printMessage("   |1. Italy          |                |5) Home          |\n");
-        CLIPrinter.printMessage("   |2. Argentina      |                |6) Quit          |  \n");
-        CLIPrinter.printMessage("   |3. USA            |                 ----------------- \n");
-        CLIPrinter.printMessage("   |4. Mexico         | \n");
-        CLIPrinter.printMessage("    -----------------\n\n");
+        CLIPrinter.printMessage("\n\n    ----------------                   -----------------\n");
+        CLIPrinter.printMessage("   |Country list:    |                |Main menu:       |\n");
+        CLIPrinter.printMessage("   |-----------------|                |-----------------| \n");
+        CLIPrinter.printMessage("   |1. Italy         |                |5) Home          |\n");
+        CLIPrinter.printMessage("   |2. Argentina     |                |6) Quit          |  \n");
+        CLIPrinter.printMessage("   |3. USA           |                 ----------------- \n");
+        CLIPrinter.printMessage("   |4. Mexico        | \n");
+        CLIPrinter.printMessage("    ----------------\n\n");
 
         return getMenuChoice(1, 6);
     }
