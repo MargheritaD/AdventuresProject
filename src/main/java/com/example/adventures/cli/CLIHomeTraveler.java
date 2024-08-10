@@ -40,19 +40,42 @@ public class CLIHomeTraveler extends AbstractCLI {
     }
 
     private void handleCountrySelection(CountryCategoryBean countryCategoryBean) throws NotFoundException {
-        int countryT = chooseCountry();
-        switch (countryT) {
-            case 1 -> countryCategoryBean.setCountry("Italy");
-            case 2 -> countryCategoryBean.setCountry("Argentina");
-            case 3 -> countryCategoryBean.setCountry("USA");
-            case 4 -> countryCategoryBean.setCountry("Mexico");
-            default -> {
-                CLIPrinter.printMessage("Invalid country choice");
-                return;
+        int country = chooseCountry();
+        boolean choice = true;
+        while (choice) {
+            switch (country) {
+                case 1 -> {
+                    choice = false;
+                    countryCategoryBean.setCountry("Italy");
+                }
+                case 2 -> {
+                    choice= false;
+                    countryCategoryBean.setCountry("Argentina");
+                }
+                case 3 -> {
+                    choice = false;
+                    countryCategoryBean.setCountry("USA");
+                }
+                case 4 -> {
+                    choice = false;
+                    countryCategoryBean.setCountry("Mexico");
+                }
+                case 5 -> {
+                    choice = false;
+                    goHome();
+                }
+                case 6 -> {
+                    choice = false;
+                    System.exit(0);
+                }
+                default -> {
+                    CLIPrinter.printMessage("Invalid choice");
+                    return;
+                }
             }
+            int category = chooseCategory();
+            setCategory(category, countryCategoryBean);
         }
-        int category = chooseCategory();
-        setCategory(category, countryCategoryBean);
     }
 
     private int showMenu() {
@@ -73,22 +96,22 @@ public class CLIHomeTraveler extends AbstractCLI {
         CLIPrinter.printMessage("\n\n    -----------------                   -----------------\n");
         CLIPrinter.printMessage("   |Country list:     |                |Main menu:       |\n");
         CLIPrinter.printMessage("   |----------------- |                |-----------------| \n");
-        CLIPrinter.printMessage("   |1. Italy          |                |5) Back          |\n");
+        CLIPrinter.printMessage("   |1. Italy          |                |5) Home          |\n");
         CLIPrinter.printMessage("   |2. Argentina      |                |6) Quit          |  \n");
         CLIPrinter.printMessage("   |3. USA            |                 ----------------- \n");
         CLIPrinter.printMessage("   |4. Mexico         | \n");
         CLIPrinter.printMessage("    -----------------\n\n");
 
-        return getMenuChoice(1, 4);
+        return getMenuChoice(1, 6);
     }
 
     private int chooseCategory() {
-        CLIPrinter.printMessage("\n\n    -----------------                   -----------------\n");
-        CLIPrinter.printMessage("   |Category list:    |                |Main menu:       |\n");
-        CLIPrinter.printMessage("   |----------------- |                |-----------------| \n");
-        CLIPrinter.printMessage("   |1. Relax          |                |7) Back          |\n");
-        CLIPrinter.printMessage("   |2. Sport          |                |8) Quit          |  \n");
-        CLIPrinter.printMessage("   |3. Dog trekking   |                 ----------------- \n");
+        CLIPrinter.printMessage("\n\n    -----------------\n");
+        CLIPrinter.printMessage("   |Category list:    |\n");
+        CLIPrinter.printMessage("   |----------------- |\n");
+        CLIPrinter.printMessage("   |1. Relax          |\n");
+        CLIPrinter.printMessage("   |2. Sport          |\n");
+        CLIPrinter.printMessage("   |3. Dog trekking   | \n");
         CLIPrinter.printMessage("   |4. Safari         | \n");
         CLIPrinter.printMessage("   |5. Food tasting   | \n");
         CLIPrinter.printMessage("   |6. Fun            | \n");

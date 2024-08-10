@@ -72,7 +72,7 @@ public class CLIHomeGuide extends AbstractCLI {
                 }
                 case 5 -> {
                     choice = false;
-                    CLIPrinter.printMessage("Not implemented");
+                    goHome();
                 }
                 case 6 -> {
                     choice = false;
@@ -105,7 +105,7 @@ public class CLIHomeGuide extends AbstractCLI {
         CLIPrinter.printMessage("\n\n    -----------------                   -----------------\n");
         CLIPrinter.printMessage("   |Country list:     |                |Main menu:       |\n");
         CLIPrinter.printMessage("   |----------------- |                |-----------------| \n");
-        CLIPrinter.printMessage("   |1. Italy          |                |5) Back          |\n");
+        CLIPrinter.printMessage("   |1. Italy          |                |5) Home          |\n");
         CLIPrinter.printMessage("   |2. Argentina      |                |6) Quit          |  \n");
         CLIPrinter.printMessage("   |3. USA            |                 ----------------- \n");
         CLIPrinter.printMessage("   |4. Mexico         | \n");
@@ -115,12 +115,12 @@ public class CLIHomeGuide extends AbstractCLI {
     }
 
     private int chooseCategory() {
-            CLIPrinter.printMessage("\n\n    -----------------                   -----------------\n");
-            CLIPrinter.printMessage("   |Category list:    |                |Main menu:       |\n");
-            CLIPrinter.printMessage("   |----------------- |                |-----------------| \n");
-            CLIPrinter.printMessage("   |1. Relax          |                |7) Back          |\n");
-            CLIPrinter.printMessage("   |2. Sport          |                |8) Quit          |  \n");
-            CLIPrinter.printMessage("   |3. Dog trekking   |                 ----------------- \n");
+            CLIPrinter.printMessage("\n\n    -----------------\n");
+            CLIPrinter.printMessage("   |Category list:    |\n");
+            CLIPrinter.printMessage("   |----------------- |\n");
+            CLIPrinter.printMessage("   |1. Relax          |\n");
+            CLIPrinter.printMessage("   |2. Sport          |\n");
+            CLIPrinter.printMessage("   |3. Dog trekking   | \n");
             CLIPrinter.printMessage("   |4. Safari         | \n");
             CLIPrinter.printMessage("   |5. Food tasting   | \n");
             CLIPrinter.printMessage("   |6. Fun            | \n");
@@ -156,4 +156,5 @@ public class CLIHomeGuide extends AbstractCLI {
             default -> null;
         };
     }
+
 }

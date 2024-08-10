@@ -73,7 +73,7 @@ public class EditTripDetailsGUIController {
         departureCityColumn.setCellValueFactory(new PropertyValueFactory<>("departureCity"));
         outboundColumn.setCellValueFactory(new PropertyValueFactory<>("outboundDate"));
         returnColumn.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
-        guideColumn.setCellValueFactory(new PropertyValueFactory<>("guide")); // ci stava guide
+        guideColumn.setCellValueFactory(new PropertyValueFactory<>("category")); // ci stava guide
         priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
 
         // Popola la tabella con i dettagli

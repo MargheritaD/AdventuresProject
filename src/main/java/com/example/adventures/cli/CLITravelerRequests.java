@@ -35,12 +35,14 @@ public class CLITravelerRequests extends AbstractCLI{
 
     private void showRequests(List<RequestBean> requestBeans) {
 
-        CLIPrinter.printMessage("\n****************************  Your Request ****************************\n");
+        CLIPrinter.printMessage("\n\n    -----------------------------------------------\n");
+        CLIPrinter.printMessage("   |Your requests                                 |\n");
+        CLIPrinter.printMessage("   |----------------------------------------------|\n" );
 
         for (RequestBean requestBean : requestBeans) {
-            CLIPrinter.printMessage(" Trip: " + requestBean.getTripName() + "\n");
-            CLIPrinter.printMessage(" Status: " + requestBean.getStatusString() + " \n");
-            CLIPrinter.printMessage("---------------------------------------------\n");
+            CLIPrinter.printMessage("   |Trip: " + requestBean.getTripName() + "\n");
+            CLIPrinter.printMessage("   |Status: " + requestBean.getStatusString() + " \n");
+            CLIPrinter.printMessage("   |---------------------------------------------\n");
         }
     }
 }

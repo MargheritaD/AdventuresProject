@@ -38,13 +38,9 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
                 }
                 case 3 -> {
                     loop = false;
-                    goBack();
+                    logout();;
                 }
                 case 4 -> {
-                    loop = false;
-                    logout();
-                }
-                case 5 -> {
                     loop = false;
                     System.exit(0);
                 }
@@ -77,14 +73,12 @@ public class CLIListTripCategoryCountry extends AbstractCLI{
         CLIPrinter.printMessage("   |----------------------------------------------|\n" );
         CLIPrinter.printNumbers(i); CLIPrinter.printMessage("Home\n");
         CLIPrinter.printNumbers(i+1);
-        CLIPrinter.printMessage("Back\n");
-        CLIPrinter.printNumbers(i+2);
         CLIPrinter.printMessage("Logout\n");
-        CLIPrinter.printNumbers(i+3);
+        CLIPrinter.printNumbers(i+2);
         CLIPrinter.printMessage("Quit\n");
         CLIPrinter.printMessage("    ----------------------------------------------\n\n" );
 
-        return getMenuChoice(1,i+3);
+        return getMenuChoice(1,i+2);
     }
 
     private void goBack() throws NotFoundException {

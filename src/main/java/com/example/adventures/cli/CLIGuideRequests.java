@@ -41,20 +41,22 @@ public class CLIGuideRequests extends AbstractCLI{
         boolean loop = true;
 
         while (loop) {
-            CLIPrinter.printMessage("\n**************************** Select a Request ****************************\n");
+            CLIPrinter.printMessage("\n\n    -----------------------------------------------\n");
+            CLIPrinter.printMessage("   |Requests                                      |\n");
+            CLIPrinter.printMessage("   |----------------------------------------------|\n" );
 
             int i = 1;
             for (RequestBean requestBean : requestBeans) {
-                CLIPrinter.printMessage(i + ") Trip: " + requestBean.getTripName() + "\n");
-                CLIPrinter.printMessage("   Traveler: " + requestBean.getTravelerName() + " " + requestBean.getTravelerSurname() + "\n");
-                CLIPrinter.printMessage("---------------------------------------------\n");
+                CLIPrinter.printMessage("   "+i + ") Trip: " + requestBean.getTripName() + "\n");
+                CLIPrinter.printMessage("   |  Traveler: " + requestBean.getTravelerName() + " " + requestBean.getTravelerSurname() + "\n");
+                CLIPrinter.printMessage("    ----------------------------------------------\n");
                 i++;
             }
 
-            CLIPrinter.printMessage("**************************************************************************\n");
-            CLIPrinter.printMessage("Other options:\n");
-            CLIPrinter.printMessage(i + ") Go home\n");
-            CLIPrinter.printMessage((i + 1) + ") Logout\n\n");
+            CLIPrinter.printMessage("    ----------------------------------------------\n" );
+            CLIPrinter.printMessage("   |"+i + ") Home                                      |\n");
+            CLIPrinter.printMessage("   |"+(i + 1) + ") Quit                                      |\n");
+            CLIPrinter.printMessage("    ----------------------------------------------\n\n" );
 
             int choice = getMenuChoice(1, i + 1);
 
@@ -72,26 +74,26 @@ public class CLIGuideRequests extends AbstractCLI{
     }
 
     private void handleRequest(RequestBean requestBean) throws NotFoundException {
-        CLIPrinter.printMessage("\nHandling request for trip: " + requestBean.getTripName() + "\n");
-        CLIPrinter.printMessage("1) Accept request\n");
-        CLIPrinter.printMessage("2) Decline request\n");
-        CLIPrinter.printMessage("3) Go home\n");
+        CLIPrinter.printMessage("\n     Handling request for trip: " + requestBean.getTripName() + "\n");
+        CLIPrinter.printMessage("       1) Accept request\n");
+        CLIPrinter.printMessage("       2) Decline request\n");
+        CLIPrinter.printMessage("       3) Go home\n");
 
         int choice = getMenuChoice(1, 3);
 
         switch (choice) {
             case 1 -> {
                 acceptRequest(requestBean);
-                CLIPrinter.printMessage("\n -----------------\n");
-                CLIPrinter.printMessage("|Request accepted!|\n");
-                CLIPrinter.printMessage(" -----------------\n");
+                CLIPrinter.printMessage("\n    -----------------\n");
+                CLIPrinter.printMessage("   |Request accepted!|\n");
+                CLIPrinter.printMessage("    -----------------\n");
                 goHome();
             }
             case 2 -> {
                 declineRequest(requestBean);
-                CLIPrinter.printMessage("\n ----------------\n");
-                CLIPrinter.printMessage("|Request rejected|\n");
-                CLIPrinter.printMessage(" ----------------\n");
+                CLIPrinter.printMessage("\n    ----------------\n");
+                CLIPrinter.printMessage("   |Request rejected|\n");
+                CLIPrinter.printMessage("    ----------------\n");
                 goHome();
             }
             case 3 -> goHome();

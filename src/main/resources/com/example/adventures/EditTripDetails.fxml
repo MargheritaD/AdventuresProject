@@ -29,8 +29,8 @@
                 <TableColumn fx:id="departureCityColumn" prefWidth="200.0" text="Departure City" />
                   <TableColumn fx:id="outboundColumn" minWidth="0.0" prefWidth="200.0" text="Outbound date" />
                   <TableColumn fx:id="returnColumn" prefWidth="200.0" text="Return date" />
-                  <TableColumn fx:id="priceColumn" prefWidth="200.0" text="Category" />
-                  <TableColumn fx:id="guideColumn" prefWidth="200.0" text="Price" />
+                  <TableColumn fx:id="priceColumn" prefWidth="200.0" text="Price in $" />
+                  <TableColumn fx:id="guideColumn" prefWidth="200.0" text="Category" />
               </columns>
             </TableView>
             <TableView fx:id="itineraryTable" layoutX="37.5" layoutY="331.0" prefHeight="210.0" prefWidth="600.0" stylesheets="@style.css">

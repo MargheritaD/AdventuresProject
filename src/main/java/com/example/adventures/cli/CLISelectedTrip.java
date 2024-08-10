@@ -40,7 +40,7 @@ public class CLISelectedTrip extends AbstractCLI {
         GuideBean guideBean = session.getGuideBean();
         username = guideBean.getName();
 
-        if (!username.equals(tripBean.getPrice())) { // Non è l'organizzatore
+        if (!username.equals(tripBean.getGuide())) { // Non è l'organizzatore
             boolean choose = true;
             while (choose) {
                 try {
@@ -48,17 +48,15 @@ public class CLISelectedTrip extends AbstractCLI {
                     switch (choice1) {
                         case 1 -> requestQuote(tripBean);
 
-                        case 2 -> CLIPrinter.printMessage("back");
-
-                        case 3 -> {
+                        case 2 -> {
                             choose = false;
                             goHome();
                             }
-                        case 4 -> {
+                        case 3 -> {
                             choose = false;
                             logout();
                         }
-                        case 5 -> {
+                        case 4 -> {
                             choose = false;
                             System.exit(0);
                         }
@@ -85,16 +83,15 @@ public class CLISelectedTrip extends AbstractCLI {
                 switch (choice) {
                     case 1 -> requestQuote(tripBean);
                     case 2 -> sendParticipationRequest(tripBean);
-                    case 3 -> CLIPrinter.printMessage("back");
-                    case 4 -> {
+                    case 3 -> {
                         choose = false;
                         goHome();
                         }
-                    case 5 -> {
+                    case 4 -> {
                         choose = false;
                         logout();
                         }
-                    case 6 -> {
+                    case 5 -> {
                         choose = false;
                         System.exit(0);
                     }
@@ -113,16 +110,15 @@ public class CLISelectedTrip extends AbstractCLI {
                 int scelta = munuForGuide();
                 switch (scelta) {
                     case 1 -> CLIPrinter.printMessage("\nNOT IMPLEMENTED: \n");
-                    case 2 -> CLIPrinter.printMessage("back");
-                    case 3 -> {
+                    case 2 -> {
                         scegli = false;
                         goHome();
                     }
-                    case 4 -> {
+                    case 3 -> {
                         scegli = false;
                         logout();
                     }
-                    case 5 -> {
+                    case 4 -> {
                         scegli = false;
                         System.exit(0);
                     }
@@ -224,22 +220,22 @@ public class CLISelectedTrip extends AbstractCLI {
             bookTripController.sendRequest(requestBean);
 
             CLIPrinter.printMessage("\n     ----------------------------------------\n");
-            CLIPrinter.printMessage("       Participation request sent successfully!\n");
-            CLIPrinter.printMessage("       ----------------------------------------\n");
+            CLIPrinter.printMessage("      Participation request sent successfully! \n");
+            CLIPrinter.printMessage("      ----------------------------------------\n");
         } else {
             CLIPrinter.printMessage("Error: Traveler session not found!\n");
         }
     }
 
     private void printTripDetails(TripBean tripBean) {
-        CLIPrinter.printMessage("\n\n   ---------------TRIP DETAILS:------------------\n");
+        CLIPrinter.printMessage("\n\n    ---------------TRIP DETAILS:-----------------\n");
         CLIPrinter.printMessage("   | Trip name: " + tripBean.getTripName() + "\n");
         CLIPrinter.printMessage("   | Guide: " + tripBean.getGuide() + "\n");
         CLIPrinter.printMessage("   | Departure city: " + tripBean.getDepartureCity() + "\n");
         CLIPrinter.printMessage("   | Outbound date: " + tripBean.getOutboundDate() + "\n");
         CLIPrinter.printMessage("   | Return date: " + tripBean.getReturnDate() + "\n");
         CLIPrinter.printMessage("   | Price: " + tripBean.getPrice() + "$\n");
-        CLIPrinter.printMessage("   ----------------------------------------------\n");
+        CLIPrinter.printMessage("    ---------------------------------------------\n");
     }
 
     private void printItinerary(List<ItineraryStopBean> itinerary) {
@@ -259,13 +255,12 @@ public class CLISelectedTrip extends AbstractCLI {
         CLIPrinter.printMessage("   |------------------|\n");
         CLIPrinter.printMessage("   |1) Request quote  |\n");
         CLIPrinter.printMessage("   |2) Send request   |\n");
-        CLIPrinter.printMessage("   |3) Back           |\n");
-        CLIPrinter.printMessage("   |4) Home           |\n");
-        CLIPrinter.printMessage("   |5) Logout         |\n");
-        CLIPrinter.printMessage("   |6) Quit           |\n");
+        CLIPrinter.printMessage("   |3) Home           |\n");
+        CLIPrinter.printMessage("   |4) Logout         |\n");
+        CLIPrinter.printMessage("   |5) Quit           |\n");
         CLIPrinter.printMessage("    ------------------\n\n");
 
-        return getMenuChoice(1, 6);
+        return getMenuChoice(1, 5);
     }
 
     private int menuForGuideAsTraveler() {
@@ -274,13 +269,12 @@ public class CLISelectedTrip extends AbstractCLI {
         CLIPrinter.printMessage("   |Menu:             |\n");
         CLIPrinter.printMessage("   |------------------|\n");
         CLIPrinter.printMessage("   |1) Request quote  |\n");
-        CLIPrinter.printMessage("   |2) Back           |\n");
-        CLIPrinter.printMessage("   |3) Home           |\n");
-        CLIPrinter.printMessage("   |4) Logout         |\n");
-        CLIPrinter.printMessage("   |5) Quit           |\n");
+        CLIPrinter.printMessage("   |2) Home           |\n");
+        CLIPrinter.printMessage("   |3) Logout         |\n");
+        CLIPrinter.printMessage("   |4) Quit           |\n");
         CLIPrinter.printMessage("    ------------------\n\n");
 
-        return getMenuChoice(1, 5);
+        return getMenuChoice(1, 4);
     }
 
     private int munuForGuide() {
@@ -289,13 +283,12 @@ public class CLISelectedTrip extends AbstractCLI {
         CLIPrinter.printMessage("   |Menu:             |\n");
         CLIPrinter.printMessage("   |------------------|\n");
         CLIPrinter.printMessage("   |1) Edit trip      |\n");
-        CLIPrinter.printMessage("   |2) Back           |\n");
-        CLIPrinter.printMessage("   |3) Home           |\n");
-        CLIPrinter.printMessage("   |4) Logout         |\n");
-        CLIPrinter.printMessage("   |5) Quit           |\n");
+        CLIPrinter.printMessage("   |2) Home           |\n");
+        CLIPrinter.printMessage("   |3) Logout         |\n");
+        CLIPrinter.printMessage("   |4) Quit           |\n");
         CLIPrinter.printMessage("    ------------------\n\n");
 
-        return getMenuChoice(1, 5);
+        return getMenuChoice(1, 4);
     }
 
     private void displayQuoteResult(float totalQuote) {
@@ -315,7 +308,4 @@ public class CLISelectedTrip extends AbstractCLI {
 
         return getMenuChoice(1, 4);
     }
-
-
-
 }
