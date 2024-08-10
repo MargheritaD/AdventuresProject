@@ -59,7 +59,7 @@ public class HomePageTravelerMapGUIController{
         ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
         int num = viewTripDetailsController.numberOfTrps(country);
         if(num == 1){
-            label.setText(country + ": " + num + "avaiable trip");
+            label.setText(country + ": " + num + " avaiable trip");
         }else{
             label.setText(country + ": " + num + " avaiable trips");
         }
@@ -123,44 +123,49 @@ public class HomePageTravelerMapGUIController{
 
     }
 
-    public void australiaMouseExited(){
-        australiaLabel.setText(""); // Imposta il testo della label su una stringa vuota
+    public void indiaMouseExited(){
+        indiaLable.setText("");
     }
 
-    public void indiaMouseExited(){
-        indiaLable.setText(""); // Imposta il testo della label su una stringa vuota
+    public void australiaMouseExited(){
+        australiaLabel.setText("");
     }
+
 
     public void spainMouseExtited(){
-        europeLabel.setText(""); // Imposta il testo della label su una stringa vuota
+        europeLabel.setText("");
     }
 
     public void italyMouseExtited(){
-        europeLabel.setText(""); // Imposta il testo della label su una stringa vuota
+        europeLabel.setText("");
     }
 
     public void brasilMouseExited(){
-        brasilLabel.setText(""); // Imposta il testo della label su una stringa vuota
+        brasilLabel.setText("");
     }
 
-    public void argentinaMouseExited(){
-        argentinaLabel.setText(""); // Imposta il testo della label su una stringa vuota
-    }
 
     public void peruMouseExited(){
-        peruLabel.setText(""); // Imposta il testo della label su una stringa vuota
+        peruLabel.setText("");
     }
 
     public void chileMouseExited(){
-        chileLabel.setText(""); // Imposta il testo della label su una stringa vuota
+        chileLabel.setText("");
     }
 
-    public void iusaMouseExited(){
-        europeLabel.setText(""); // Imposta il testo della label su una stringa vuota
-    }
 
     public void mexicoMouseExited(){
-        mexicoLabel.setText(""); // Imposta il testo della label su una stringa vuota
+        mexicoLabel.setText("");
+    }
+
+    public void argentinaMouseExited(){
+        argentinaLabel.setText("");
+    }
+
+
+
+    public void iusaMouseExited(){
+        europeLabel.setText("");
     }
 
     private void loadCategoryView(String country) throws IOException {
