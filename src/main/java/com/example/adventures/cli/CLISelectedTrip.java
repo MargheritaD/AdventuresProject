@@ -76,23 +76,23 @@ public class CLISelectedTrip extends AbstractCLI {
         username = travelerBean.getName();
         guideController = false;
 
-        boolean choose = true;
-        while (choose) {
+        boolean choosee = true;
+        while (choosee) {
             try {
                 int choice = menuForTraveler();
                 switch (choice) {
                     case 1 -> requestQuote(tripBean);
                     case 2 -> sendParticipationRequest(tripBean);
                     case 3 -> {
-                        choose = false;
+                        choosee = false;
                         goHome();
                         }
                     case 4 -> {
-                        choose = false;
+                        choosee = false;
                         logout();
                         }
                     case 5 -> {
-                        choose = false;
+                        choosee = false;
                         System.exit(0);
                     }
                     default -> CLIPrinter.printMessage("Invalid choice!");
