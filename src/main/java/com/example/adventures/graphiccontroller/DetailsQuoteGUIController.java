@@ -168,12 +168,12 @@ public class DetailsQuoteGUIController {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/TripBooked.fxml"));
         Parent root1 = fxmlLoader.load();
-        Stage dialog = new Stage();
-        dialog.initModality(Modality.APPLICATION_MODAL);
-        dialog.initStyle(StageStyle.UNDECORATED);
-        dialog.setScene(new Scene(root1));
-        dialog.centerOnScreen();
-        dialog.show();
+        Stage dialogD = new Stage();
+        dialogD.initModality(Modality.APPLICATION_MODAL);
+        dialogD.initStyle(StageStyle.UNDECORATED);
+        dialogD.setScene(new Scene(root1));
+        dialogD.centerOnScreen();
+        dialogD.show();
 
 
     }
