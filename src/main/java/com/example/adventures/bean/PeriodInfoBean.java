@@ -11,19 +11,21 @@ public class PeriodInfoBean {
         this.returnDate = returnDate;
     }
 
+    public void setOutboundDate(LocalDate outboundDate) {
+        this.outboundDate = outboundDate;
+    }
+
     public LocalDate getOutboundDate() {
         return outboundDate;
     }
 
-    public void setOutboundDate(LocalDate outboundDate) {
-        this.outboundDate = outboundDate;
+    public void setReturnDate(LocalDate returnDate) {
+        this.returnDate = returnDate;
     }
 
     public LocalDate getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(LocalDate returnDate) {
-        this.returnDate = returnDate;
-    }
+
 }

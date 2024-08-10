@@ -14,6 +14,7 @@ public class PeriodInfo {
 
     // Getter e Setter
     public LocalDate getOutboundDate() {
+
         return outboundDate;
     }
 
@@ -22,10 +23,12 @@ public class PeriodInfo {
     }
 
     public LocalDate getReturnDate() {
+
         return returnDate;
     }
 
     public void setReturnDate(LocalDate returnDate) {
+
         this.returnDate = returnDate;
     }
 }
