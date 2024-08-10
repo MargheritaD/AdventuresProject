@@ -27,65 +27,72 @@ import java.util.Objects;
 
 public class DetailQuoteGuideGUIController {
 
+
+    @FXML
+    private Button bookButton;
+
     @FXML
     private Button quoteButton;
     @FXML
-    private Button bookButton;
-    @FXML
-    private RadioButton healthcareButton;
+    private RadioButton luggageButton;
     @FXML
     private RadioButton tripCancellationButton;
     @FXML
-    private RadioButton luggageButton;
+    private RadioButton healthcareButton;
     @FXML
     private Label nameLabel;
+
+    @FXML
+    private Label returnLabel;
+
+    @FXML
+    private Label outboundLabel;
+
     @FXML
     private Label cityLabel;
     @FXML
-    private Label outboundLabel;
-    @FXML
-    private Label returnLabel;
+    private TableColumn<ItineraryStopBean, LocalDate> arrivalColumn;
     @FXML
     private TableView<ItineraryStopBean> itineraryTable;
     @FXML
-    private TableColumn<ItineraryStopBean, String> stopColumn;
-    @FXML
-    private TableColumn<ItineraryStopBean, LocalDate> arrivalColumn;
-    @FXML
     private TableColumn<ItineraryStopBean, LocalDate> departureColumn;
+    @FXML
+    private TableColumn<ItineraryStopBean, String> stopColumn;
+
     @FXML
     private TableView<TripBean> tripTable;
     @FXML
-    private TableColumn<TripBean, String> nameColumn;
-    @FXML
     private TableColumn<TripBean, String> departureCityColumn;
     @FXML
-    private TableColumn<TripBean, String> outboundColumn;
+    private TableColumn<TripBean, String> nameColumn;
     @FXML
     private TableColumn<TripBean, String> returnColumn;
     @FXML
-    private TableColumn<TripBean, String> guideColumn;
+    private TableColumn<TripBean, String> outboundColumn;
     @FXML
     private TableColumn<TripBean, String> priceColumn;
+    @FXML
+    private TableColumn<TripBean, String> guideColumn;
 
 
-    private int tripId;
+
     private Trip trip;
-    private String categoria;
+    private int tripId;
     private String country;
+    private String categoria;
     private float tripPrice;
-    int userId;
     int travalerId;
+    int userId;
+
+    public void setCategory(String category) {
+        this.categoria = category;
+    }
 
     public void setCountry(String country) {
 
         this.country = country;
     }
 
-
-    public void setCategory(String category) {
-        this.categoria = category;
-    }
 
     public void initialize(){
 
@@ -103,8 +110,6 @@ public class DetailQuoteGuideGUIController {
             } else {
                 // Tipo di utente non riconosciuto, gestire di conseguenza
             }
-        } else {
-            // Sessione non valida, gestire di conseguenza
         }
     }
 
