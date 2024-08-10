@@ -29,10 +29,10 @@ public class CLISelectedTrip extends AbstractCLI {
             } else if (session.getTravelerBean() != null) {
                 handleTravelerUser(session, tripBean);
             } else {
-                // Tipo di utente non riconosciuto
+                CLIPrinter.printMessage("Error: Unrecognized user type.");
             }
         } else {
-            // Sessione non valida
+            CLIPrinter.printMessage("Error: Invalid session.");
         }
     }
 
@@ -308,4 +308,6 @@ public class CLISelectedTrip extends AbstractCLI {
 
         return getMenuChoice(1, 4);
     }
+
+
 }
