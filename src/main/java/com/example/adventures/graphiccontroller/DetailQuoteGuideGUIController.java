@@ -148,7 +148,7 @@ public class DetailQuoteGuideGUIController {
 
         // Inizializza il preventivo di base con il prezzo del viaggio
         Quote baseQuote = new TripPriceQuote((int)tripPrice);
-//
+
 
         // Aggiungi le assicurazioni selezionate dall'utente
         if (healthcareButton.isSelected()) {
