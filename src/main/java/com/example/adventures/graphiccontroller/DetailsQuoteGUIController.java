@@ -74,9 +74,6 @@ public class DetailsQuoteGUIController {
     @FXML
     private TableColumn<TripBean, String> outboundColumn;
 
-
-
-    //private Trip trip;
     private String categoria;
     private String country;
     private int tripId;

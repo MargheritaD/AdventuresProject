@@ -136,7 +136,6 @@ public class CLISelectedTrip extends AbstractCLI {
         float tripPriceFloat = Float.parseFloat(tripBean.getPrice());
         // Converti il float in int (usando il casting)
         int tripPrice = (int) tripPriceFloat;
-        String country = tripBean.getCountry();
 
         Quote baseQuote = new TripPriceQuote(tripPrice);
 
