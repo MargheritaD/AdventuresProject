@@ -94,7 +94,7 @@ public class HomePageGuideMapGUIController {
         ViewTripDetailsController viewTripDetailsController = new ViewTripDetailsController();
         int num = viewTripDetailsController.numberOfTrps(country);
         if(num == 1){
-            label.setText(country + ": " + num + "avaiable trip");
+            label.setText(country + ": " + num + " avaiable trip");
         }else{
             label.setText(country + ": " + num + " avaiable trips");
         }

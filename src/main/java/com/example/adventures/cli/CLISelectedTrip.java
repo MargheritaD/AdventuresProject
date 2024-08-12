@@ -141,29 +141,6 @@ public class CLISelectedTrip extends AbstractCLI {
         Quote baseQuote = new TripPriceQuote(tripPrice);
 
 
-        // Aggiungi la tassa per destinazione specifica
-        if("Australia".equals(country)){
-            baseQuote = new AustraliaQuote(baseQuote);
-        } else if ("Argentina".equals(country)) {
-            baseQuote = new ArgentinaQuote(baseQuote);
-        }else if ("Brasil".equals(country)) {
-            baseQuote = new BrasilQuote(baseQuote);
-        }else if ("Chile".equals(country)) {
-            baseQuote = new ChileQuote(baseQuote);
-        }else if ("India".equals(country)) {
-            baseQuote = new IndiaQuote(baseQuote);
-        }else if ("Italy".equals(country)) {
-            baseQuote = new ItalyQuote(baseQuote);
-        }else if ("Mexico".equals(country)) {
-            baseQuote = new MexicoQuote(baseQuote);
-        }else if ("Perù".equals(country)) {
-            baseQuote = new PuruQuote(baseQuote);
-        }else if ("Spain".equals(country)) {
-            baseQuote = new SpainQuote(baseQuote);
-        }else if ("USA".equals(country)) {
-            baseQuote = new USAQuote(baseQuote);
-        }
-
         CLIPrinter.printMessage("\n     ---------------------------------------------------");
         CLIPrinter.printMessage("\n    | To calculate the quote, add the insurances you are |");
         CLIPrinter.printMessage("\n    | interested in one by one. When you're done, select |");

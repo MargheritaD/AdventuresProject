@@ -181,45 +181,21 @@ public class DetailsQuoteGUIController {
     public void quoteAction() throws IOException {
 
         // Inizializza il preventivo di base con il prezzo del viaggio
-        Quote baseQuote = new TripPriceQuote((int)tripPrice);
-
-        // Aggiungi la tassa per destinazione specifica
-        if("Australia".equals(country)){
-            baseQuote = new AustraliaQuote(baseQuote);
-        } else if ("Argentina".equals(country)) {
-            baseQuote = new ArgentinaQuote(baseQuote);
-        }else if ("Brasil".equals(country)) {
-            baseQuote = new BrasilQuote(baseQuote);
-        }else if ("Chile".equals(country)) {
-            baseQuote = new ChileQuote(baseQuote);
-        }else if ("India".equals(country)) {
-            baseQuote = new IndiaQuote(baseQuote);
-        }else if ("Italy".equals(country)) {
-            baseQuote = new ItalyQuote(baseQuote);
-        }else if ("Mexico".equals(country)) {
-            baseQuote = new MexicoQuote(baseQuote);
-        }else if ("Perù".equals(country)) {
-            baseQuote = new PuruQuote(baseQuote);
-        }else if ("Spain".equals(country)) {
-            baseQuote = new SpainQuote(baseQuote);
-        }else if ("USA".equals(country)) {
-            baseQuote = new USAQuote(baseQuote);
-        }
-
+        Quote baseQuoteT = new TripPriceQuote((int)tripPrice);
 
         // Aggiungi le assicurazioni selezionate dall'utente
         if (healthcareButton.isSelected()) {
-            baseQuote = new HealthcareDecorator(baseQuote);
+            baseQuoteT = new HealthcareDecorator(baseQuoteT);
         }
         if (tripCancellationButton.isSelected()) {
-            baseQuote = new CancellationDecorator(baseQuote);
+            baseQuoteT = new CancellationDecorator(baseQuoteT);
         }
         if (luggageButton.isSelected()) {
-            baseQuote = new LuggageDecorator(baseQuote);
+            baseQuoteT = new LuggageDecorator(baseQuoteT);
         }
 
         // Crea il QuoteBean con il preventivo finale
-        QuoteBean quoteBean = new QuoteBean(baseQuote.getPrice());
+        QuoteBean quoteBean = new QuoteBean(baseQuoteT.getPrice());
 
         // Passaggio del bean alla finestra successiva
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/adventures/quote.fxml"));

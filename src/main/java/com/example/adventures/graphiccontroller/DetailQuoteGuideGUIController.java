@@ -149,29 +149,6 @@ public class DetailQuoteGuideGUIController {
         // Inizializza il preventivo di base con il prezzo del viaggio
         Quote baseQuote = new TripPriceQuote((int)tripPrice);
 
-        // Aggiungi la tassa per destinazione specifica
-        if("Australia".equals(country)){
-            baseQuote = new AustraliaQuote(baseQuote);
-        } else if ("Argentina".equals(country)) {
-            baseQuote = new ArgentinaQuote(baseQuote);
-        }else if ("Brasil".equals(country)) {
-            baseQuote = new BrasilQuote(baseQuote);
-        }else if ("Chile".equals(country)) {
-            baseQuote = new ChileQuote(baseQuote);
-        }else if ("India".equals(country)) {
-            baseQuote = new IndiaQuote(baseQuote);
-        }else if ("Italy".equals(country)) {
-            baseQuote = new ItalyQuote(baseQuote);
-        }else if ("Mexico".equals(country)) {
-            baseQuote = new MexicoQuote(baseQuote);
-        }else if ("Perù".equals(country)) {
-            baseQuote = new PuruQuote(baseQuote);
-        }else if ("Spain".equals(country)) {
-            baseQuote = new SpainQuote(baseQuote);
-        }else if ("USA".equals(country)) {
-            baseQuote = new USAQuote(baseQuote);
-        }
-
 
         // Aggiungi le assicurazioni selezionate dall'utente
         if (healthcareButton.isSelected()) {
